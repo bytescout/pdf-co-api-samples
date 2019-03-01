@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcode Reader Cloud API Example</title>
+</head>
+
+<body>
+
+    <form name="form1" enctype="multipart/form-data" method="post" action="read-barcode.php">
+        <p>
+            <label>Authentication key (API Key). Get your own by registering at <a href="https://app.pdf.co/documentation/api">https://app.pdf.co/documentation/api</a>.</label>
+            <br/>
+            <input type="text" name="apiKey" placeholder="API Key"/>
+        </p>
+        <p>
+            <label>Barcode types to find. Select only expected types for faster decoding and less false positives.</label>
+            </br>
+            <select multiple="multiple" size="10" name="barcodeTypesToFind[]">
+                <option selected="selected">All</option>
+                <option>All1D</option>
+                <option>All2D</option>
+                <option>AllOMRElements</option>
+                <option>AustralianPostCode</option>
+                <option>Aztec</option>
+                <option>CircularI2of5</option>
+                <option>Codabar</option>
+                <option>CodablockF</option>
+                <option>Code128</option>
+                <option>Code16K</option>
+                <option>Code39</option>
+                <option>Code39Extended</option>
+                <option>Code39Mod43</option>
+                <option>Code39Mod43Extended</option>
+                <option>Code93</option>
+                <option>DataMatrix</option>
+                <option>EAN13</option>
+                <option>EAN2</option>
+                <option>EAN5</option>
+                <option>EAN8</option>
+                <option>GS1</option>
+                <option>GS1DataBarExpanded</option>
+                <option>GS1DataBarExpandedStacked</option>
+                <option>GS1DataBarLimited</option>
+                <option>GS1DataBarOmnidirectional</option>
+                <option>GS1DataBarStacked</option>
+                <option>GTIN12</option>
+                <option>GTIN13</option>
+                <option>GTIN14</option>
+                <option>GTIN8</option>
+                <option>IntelligentMail</option>
+                <option>Interleaved2of5</option>
+                <option>ITF14</option>
+                <option>MaxiCode</option>
+                <option>MICR</option>
+                <option>MicroPDF</option>
+                <option>MSI</option>
+                <option>PatchCode</option>
+                <option>PDF417</option>
+                <option>Pharmacode</option>
+                <option>PostNet</option>
+                <option>PZN</option>
+                <option>QRCode</option>
+                <option>RoyalMail</option>
+                <option>RoyalMailKIX</option>
+                <option>Trioptic</option>
+                <option>UPCA</option>
+                <option>UPCE</option>
+                <option>UPU</option>
+                <option>Checkbox</option>
+                <option>Circle</option>
+                <option>Oval</option>
+                <option>UnderlinedField</option>
+                <option>HorizontalLine</option>
+                <option>VerticalLine</option>
+                <option>Segment</option>
+            </select>
+        </p>
+        <p>
+            <label>Input File (*.pdf, *.jpg, *.png, *.tif, *.gif, *.bmp)</label>
+            </br>
+            <input type="hidden" name="MAX_FILE_SIZE" value="8000000"/>
+            <input type="file" name="file"/>
+        </p>
+        <p>
+            <label>Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.</label>
+            <br/>
+            <input type="number" name="pages" value="0">
+        </p>
+        <input type="submit" name="submit" value="Proceed" />
+    </form>
+
+</body>
+</html>

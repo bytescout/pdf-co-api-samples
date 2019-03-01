@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image To PDF Cloud API Example</title>
+</head>
+
+<body>
+
+    <form name="form1" enctype="multipart/form-data" method="post" action="image-to-pdf.php">
+        <p>
+            <label>Authentication key (API Key). Get your own by registering at <a href="https://app.pdf.co/documentation/api">https://app.pdf.co/documentation/api</a>.</label>
+            <br/>
+            <input type="text" name="apiKey" placeholder="API Key"/>
+        </p>
+        <p>
+            <label>Input Images Files (*.png;*.jpg)</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="8000000"/>
+            <input type="file" name="files[]" multiple accept="image/jpeg,image/png"/>
+        </p>
+        <input type="submit" name="submit" value="Proceed" />
+    </form>
+
+</body>
+</html>

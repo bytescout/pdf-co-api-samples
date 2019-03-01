@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make PDF Searchable Cloud API Example</title>
+</head>
+
+<body>
+
+    <form name="form1" enctype="multipart/form-data" method="post" action="make-pdf-searchable.php">
+        <p>
+            <label>Authentication key (API Key). Get your own by registering at <a href="https://app.pdf.co/documentation/api">https://app.pdf.co/documentation/api</a>.</label>
+            <br/>
+            <input type="text" name="apiKey" placeholder="API Key"/>
+        </p>
+        <p>
+            <label>Input File (*.pdf)</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="8000000"/>
+            <input type="file" name="file"/>
+        </p>
+        <p>
+            <label>Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.</label>
+            <br/>
+            <input type="number" name="pages" value="0">
+        </p>
+        <p>
+            <label>OCR Language. Let us know if you need more languages.</label>
+            <br/>
+            <select name="ocrLanguage">
+                <option value="eng" selected="selected">English</option>
+                <option value="fra">French</option>
+                <option value="deu">German</option>
+                <option value="spa">Spanish</option>
+            </select>
+        </p>
+        <input type="submit" name="submit" value="Proceed" />
+    </form>
+
+</body>
+</html>

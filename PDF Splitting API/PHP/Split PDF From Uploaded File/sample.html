@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Splitting Cloud API Example</title>
+</head>
+
+<body>
+
+    <form name="form1" enctype="multipart/form-data" method="post" action="split-pdf.php">
+        <p>
+            <label>Authentication key (API Key). Get your own by registering at <a href="https://app.pdf.co/documentation/api">https://app.pdf.co/documentation/api</a>.</label>
+            <br/>
+            <input type="text" name="apiKey" placeholder="API Key"/>
+        </p>
+        <p>
+            <label>Input File (*.pdf)</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="8000000"/>
+            <input type="file" name="file"/>
+        </p>
+        <p>
+            <label>Comma-separated list of page numbers (or ranges) to process. Example: '1,3-5,7-'.</label>
+            <input type="text" name="pages" value="1,2-">
+        </p>
+        <input type="submit" name="submit" value="Proceed" />
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+	<title>Invoice {{ number}}</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<style type="text/css">
+		.invoice-title h2,
+		.invoice-title h3 {
+			display: inline-block;
+		}
+		
+		.table > tbody > tr > .no-line {
+			border-top: none;
+		}
+		
+		.table > thead > tr > .thick-line {
+			border-bottom: 2px solid;
+			border-bottom-color: #888888;
+		}
+		
+		.table > tbody > tr > .thick-line {
+			border-top: 2px solid;
+			border-top-color: #888888;
+		}
+	</style>
+	<script type="text/javascript">
+		Handlebars.registerHelper('getTotal', function(quantity, price) {
+			var total = quantity * price;
+			return total;
+		});
+		Handlebars.registerHelper('getTotalLines', function(lines) {
+			var total = 0;
+			lines.forEach(function(line) {
+				total += line.quantity * line.price;
+			});
+			return total;
+		});
+
+		Handlebars.registerHelper("formatDate", function(timestamp) {
+			var date = new Date(timestamp);
+			return date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
+		});
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="invoice-title">
+					<h2>Invoice #{{ number }}</h2>
+				</div>
+				<hr>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<address>
+	    					<strong>Date:</strong> {{ formatDate date }}
+	    				</address>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<address>
+	        				<strong>From:</strong> {{ from }}
+	    				</address>
+					</div>
+					<div class="col-xs-12">
+						<address>
+	        				<strong>To:</strong> {{ to }}
+	    				</address>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<table class="table table-condensed">
+						<thead>
+							<tr class="active">
+								<td class="thick-line"><strong>Service</strong></td>
+								<td class="thick-line"><strong>Quantity</strong></td>
+								<td class="text-center thick-line"><strong>Price</strong></td>
+								<td class="text-right thick-line"><strong>Sub-Total</strong></td>
+							</tr>
+						</thead>
+						<tbody>
+							
+							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+							{{#each lines}}
+							<tr>
+								<td>{{title}}</td>
+								<td>{{quantity}}</td>
+								<td class="text-center">${{price}}</td>
+								<td class="text-right">{{ getTotal quantity price }}</td>
+							</tr>
+							{{/each}}
+
+							<tr>
+								<td class="thick-line"></td>
+								<td colspan='3' class="thick-line text-right"><strong>Total Due: ${{ getTotalLines lines}}</strong></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class='text-left'>
+					<strong>Terms:</strong> Due on receipt.
+				</div>
+
+				<p/>
+
+				<div class='text-left'>
+					Thank you for your business!
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
