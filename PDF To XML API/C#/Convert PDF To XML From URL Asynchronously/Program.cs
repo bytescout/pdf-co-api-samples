@@ -124,6 +124,9 @@ namespace ByteScoutWebApiExample
 		{
 			using (WebClient webClient = new WebClient())
 			{
+				// Set API Key
+                webClient.Headers.Add("x-api-key", API_KEY);
+				
 				string url = "https://api.pdf.co/v1/job/check?jobid=" + jobId;
 
 				string response = webClient.DownloadString(url);
