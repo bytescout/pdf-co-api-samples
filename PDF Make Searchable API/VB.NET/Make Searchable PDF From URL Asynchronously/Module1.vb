@@ -123,6 +123,9 @@ Module Module1
 
 		Using webClient As WebClient = New WebClient()
 
+			' Set API Key
+			webClient.Headers.Add("x-api-key", API_KEY)
+			
 			Dim url As String = "https://api.pdf.co/v1/job/check?jobid=" + jobId
 
 			Dim response As String = webClient.DownloadString(url)

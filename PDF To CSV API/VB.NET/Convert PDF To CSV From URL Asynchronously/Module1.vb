@@ -21,8 +21,6 @@ Imports Newtonsoft.Json.Linq
 
 Module Module1
 
-	' (!) If you are getting '(403) Forbidden' error please ensure you have set the correct API_KEY
-
 	' The authentication key (API Key).
 	' Get your own by registering at https://app.pdf.co/documentation/api
 	Const API_KEY As String = "***********************************"
@@ -122,6 +120,9 @@ Module Module1
 
 		Using webClient As WebClient = New WebClient()
 
+			' Set API Key
+			webClient.Headers.Add("x-api-key", API_KEY)
+			
 			Dim url As String = "https://api.pdf.co/v1/job/check?jobid=" + jobId
 
 			Dim response As String = webClient.DownloadString(url)

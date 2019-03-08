@@ -16,25 +16,40 @@ Imports System.Threading
 Imports Newtonsoft.Json.Linq
 
 
-' Cloud API asynchronous "PDF To XLS" job example.
+' Cloud API asynchronous "PDF To CSV" job example.
 ' Allows to avoid timeout errors when processing huge or scanned PDF documents.
 
 Module Module1
 
 	' The authentication key (API Key).
 	' Get your own by registering at https://app.pdf.co/documentation/api
-	Const API_KEY As String = "***********************************"
+	Const API_KEY As String = "********************************"
 
 	' Direct URL of source PDF file.
-	Const SourceFileUrl As String = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-excel/sample.pdf"
+	Const SourceFileUrl As String = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-csv/sample.pdf"
 	' Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 	Const Pages As String = ""
 	' PDF document password. Leave empty for unprotected documents.
 	Const Password As String = ""
-	' Destination XLS file name
-	Const DestinationFile As String = ".\result.xls"
+	' Destination CSV file name
+	Const DestinationFile As String = ".\result.csv"
 	' (!) Make asynchronous job
 	Const Async As Boolean = True
+
+    ' Sample profile that sets advanced conversion options.
+    ' Advanced options are properties of CSVExtractor class from ByteScout PDF Extractor SDK used in the back-end:
+    ' https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/87ce5fa6-3143-167d-abbd-bc7b5e160fe5.htm
+    Const Profiles As String = "
+{
+    'profiles': [ 
+        { 
+            'profile1': { 
+                'OCRMode': 'TextFromImagesAndVectorsAndFonts',
+                'CSVSeparatorSymbol': '|'
+            } 
+        }
+    ] 
+}"
 
 
 	Sub Main()
@@ -45,14 +60,15 @@ Module Module1
 		' Set API Key
 		webClient.Headers.Add("x-api-key", API_KEY)
 
-		' Prepare URL for `PDF To XLS` API call
+		' Prepare URL for `PDF To CSV` API call
 		Dim query As String = Uri.EscapeUriString(String.Format(
-			"https://api.pdf.co/v1/pdf/convert/to/xls?name={0}&password={1}&pages={2}&url={3}&async={4}",
+			"https://api.pdf.co/v1/pdf/convert/to/csv?name={0}&password={1}&pages={2}&url={3}&async={4}&profiles={5}",
 			Path.GetFileName(DestinationFile),
 			Password,
 			Pages,
 			SourceFileUrl,
-			Async))
+			Async,
+            Profiles))
 
 		Try
 			' Execute request
@@ -65,7 +81,7 @@ Module Module1
 
 				' Asynchronous job ID
 				Dim jobId As String = json("jobId").ToString()
-				' URL of generated XLS file that will available after the job completion
+				' URL of generated CSV file that will available after the job completion
 				Dim resultFileUrl As String = json("url").ToString()
 
 				' Check the job status in a loop. 
@@ -79,10 +95,10 @@ Module Module1
 
 					If status = "Finished" Then
 
-						' Download XLS file
+						' Download CSV file
 						webClient.DownloadFile(resultFileUrl, DestinationFile)
 
-						Console.WriteLine("Generated XLS file saved as ""{0}"" file.", DestinationFile)
+						Console.WriteLine("Generated CSV file saved as ""{0}"" file.", DestinationFile)
 						Exit Do
 
 					ElseIf status = "InProgress" Then
@@ -120,15 +136,15 @@ Module Module1
 
 		Using webClient As WebClient = New WebClient()
 
-			' Set API Key
-			webClient.Headers.Add("x-api-key", API_KEY)
-			
+		    ' Set API Key
+		    webClient.Headers.Add("x-api-key", API_KEY)
+
 			Dim url As String = "https://api.pdf.co/v1/job/check?jobid=" + jobId
 
 			Dim response As String = webClient.DownloadString(url)
 			Dim json As JObject = JObject.Parse(response)
 
-			return Convert.ToString(json("Status"))
+			Return Convert.ToString(json("Status"))
 
 		End Using
 

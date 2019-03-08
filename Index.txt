@@ -319,6 +319,7 @@
 \PDF To CSV API\PowerShell\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\PowerShell\Convert PDF To CSV From URL
 \PDF To CSV API\PowerShell\Convert PDF To CSV From URL Asynchronously
+\PDF To CSV API\VB.NET\Advanced Conversion Options
 \PDF To CSV API\VB.NET\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\VB.NET\Convert PDF To CSV From URL
 \PDF To CSV API\VB.NET\Convert PDF To CSV From URL Asynchronously
