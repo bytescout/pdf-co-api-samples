@@ -10,13 +10,15 @@
 //*******************************************************************************************//
 
 
+var apiKey = "";
+
 function generateBarcode() {
     // Hide result blocks
     document.getElementById("errorBlock").style.display = "none";
     document.getElementById("resultBlock").style.display = "none";
 
     // Get API Key
-    var apiKey = document.getElementById("apiKey").value.trim();
+    apiKey = document.getElementById("apiKey").value.trim();
     if (apiKey == "") {
         alert("API Key should not be empty.");
         return false;
@@ -83,8 +85,10 @@ function checkIfJobIsCompleted(jobId, resultFileUrl) {
                 var jobResult = JSON.parse(httpRequest.responseText);
 
                 if (jobResult.Status == "InProgress") {
-                    // Check again after 2 seconds
-                    setTimeout(checkIfJobIsCompleted(jobId, resultFileUrl), 2000)
+                    // Check again after 3 seconds
+                    setTimeout(function(){
+                        checkIfJobIsCompleted(jobId, resultFileUrl);
+                    }, 3000);
                 }
                 else if (jobResult.Status == "Finished") {
                     document.getElementById("resultBlock").style.display = "block"; // show hidden resultBlock

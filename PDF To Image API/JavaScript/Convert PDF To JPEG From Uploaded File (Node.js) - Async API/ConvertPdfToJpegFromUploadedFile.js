@@ -148,8 +148,8 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
             // Parse JSON response
             let data = JSON.parse(d);
             if (data.Status == "InProgress") {
-                // Check again after 2 seconds
-                setTimeout(function(){checkIfJobIsCompleted(jobId, resultFileUrlJson)} , 2000);
+                // Check again after 3 seconds
+                setTimeout(function(){checkIfJobIsCompleted(jobId, resultFileUrlJson)} , 3000);
             }
             else if (data.Status == "Finished") {
 

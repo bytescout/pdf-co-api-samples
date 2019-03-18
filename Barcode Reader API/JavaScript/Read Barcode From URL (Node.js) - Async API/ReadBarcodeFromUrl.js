@@ -11,8 +11,6 @@
 
 
 var https = require("https");
-var path = require("path");
-var fs = require("fs");
 
 // Use "npm install request" command to install.
 var request = require("request");
@@ -20,7 +18,6 @@ var request = require("request");
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co/documentation/api
 const API_KEY = "***********************************";
-
 
 // Direct URL of source file to search barcodes in.
 const SourceFileUrl = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf";
@@ -74,8 +71,8 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
             // Parse JSON response
             let data = JSON.parse(d);
             if (data.Status == "InProgress") {
-                // Check again after 2 seconds
-				setTimeout(function(){ checkIfJobIsCompleted(jobId, resultFileUrlJson);}, 2000);
+                // Check again after 3 seconds
+				setTimeout(function(){ checkIfJobIsCompleted(jobId, resultFileUrlJson);}, 3000);
             }
             else if (data.Status == "Finished") {
 

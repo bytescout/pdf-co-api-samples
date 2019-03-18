@@ -150,10 +150,10 @@ function checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile) {
             // Parse JSON response
             let data = JSON.parse(d);
             if (data.Status == "InProgress") {
-                // Check again after 2 seconds
-                setTimeout((jobId, resultFileUrl, destinationFile) => {
+                // Check again after 3 seconds
+                setTimeout(function(){
                     checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile);
-                }, 2000);
+                }, 3000);
             }
             else if (data.Status == "Finished") {
                 // Download XML file

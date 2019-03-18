@@ -10,13 +10,15 @@
 //*******************************************************************************************//
 
 
+var apiKey = "";
+
 $(document).ready(function () {
     $("#resultBlock").hide();
     $("#errorBlock").hide();
 });
 
 $(document).on("click", "#submit", function () {
-    var apiKey = $("#apiKey").val().trim(); //Get your API key by registering at https://app.pdf.co/documentation/api
+    apiKey = $("#apiKey").val().trim(); //Get your API key by registering at https://app.pdf.co/documentation/api
 
     var url = "https://api.pdf.co/v1/barcode/generate?name=barcode.png";
     url += "&type=" + $("#barcodeType").val(); // Set barcode type (symbology)
@@ -61,14 +63,21 @@ function checkIfJobIsCompleted(jobId, resultFileUrl) {
             $("#status").html(jobResult.Status + ' &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
             if (jobResult.Status == "InProgress") {
-                // Check again after 2 seconds
-                setTimeout(checkIfJobIsCompleted(jobId, resultFileUrl), 2000)
+                // Check again after 3 seconds
+                setTimeout(function(){
+                    checkIfJobIsCompleted(jobId, resultFileUrl);
+                }, 3000);
             }
             else if (jobResult.Status == "Finished") {
                 $("#resultBlock").show();
                 $("#image").attr("src", resultFileUrl);
             }
 
+            $("#loader").hide();
+        },
+        error: function(){
+            $("#errorBlock").show();
+            $("#error").html("Request failed. Please check you use the correct API key.");
             $("#loader").hide();
         }
     });

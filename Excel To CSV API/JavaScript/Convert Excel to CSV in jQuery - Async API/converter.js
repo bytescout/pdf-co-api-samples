@@ -84,8 +84,8 @@ function checkIfJobIsCompleted(jobId, resultFileUrl) {
             $("#status").html(jobResult.Status + ' &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
             if (jobResult.Status == "InProgress") {
-                // Check again after 2 seconds
-                setTimeout(checkIfJobIsCompleted(jobId, resultFileUrl), 2000)
+                // Check again after 3 seconds
+                setTimeout(function(){checkIfJobIsCompleted(jobId, resultFileUrl)}, 3000);
             }
             else if (jobResult.Status == "Finished") {
 

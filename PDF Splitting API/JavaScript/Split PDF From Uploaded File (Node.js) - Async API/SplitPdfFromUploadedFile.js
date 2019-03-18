@@ -94,7 +94,7 @@ function uploadFile(apiKey, localFile, uploadUrl) {
                     resolve();
                 }
                 else {
-                    console.log("uploadFile() request error: " + e);
+                    console.log("uploadFile() request error: " + err);
                 }
             });
         });
@@ -132,7 +132,7 @@ function splitPdf(apiKey, uploadedFileUrl, pages) {
 }
 
 function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
-
+    console.log("Here..");
     let queryPath = `/v1/job/check?jobid=${jobId}`;
     let reqOptions = {
         host: "api.pdf.co",
@@ -144,12 +144,13 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
     https.get(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
+
             // Parse JSON response
             let data = JSON.parse(d);
 
             if (data.Status == "InProgress") {
-                // Check again after 2 seconds
-                setTimeout(function () { checkIfJobIsCompleted(jobId, resultFileUrlJson) }, 2000);
+                // Check again after 3 seconds
+                setTimeout(function () { checkIfJobIsCompleted(jobId, resultFileUrlJson) }, 3000);
             }
             else if (data.Status == "Finished") {
 

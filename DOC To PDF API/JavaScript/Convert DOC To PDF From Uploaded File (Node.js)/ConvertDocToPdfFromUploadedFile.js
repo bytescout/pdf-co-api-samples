@@ -15,7 +15,7 @@
 var https = require("https");
 var path = require("path");
 var fs = require("fs");
-var url = require("url");
+
 // `request` module is required for file upload.
 // Use "npm install request" command to install.
 var request = require("request");

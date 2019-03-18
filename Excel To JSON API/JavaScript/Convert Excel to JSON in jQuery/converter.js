@@ -28,7 +28,7 @@ $(document).on("click", "#submit", function () {
     var toType = $("#convertType").val(); // output type
     var isInline = $("#outputType").val() == "inline"; // if we need output as inline content or link to output file
 
-    $("#status").text('requesting presigned url for upload...');
+    $("#status").html('Requesting presigned url for upload... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
     $.ajax({
         url: 'https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.pdf&encrypt=true',
@@ -40,7 +40,7 @@ $(document).on("click", "#submit", function () {
                 var presignedUrl = result['presignedUrl']; // reading provided presigned url to put our content into
                 var accessUrl = result['url']; // reading output url that will indicate uploaded file
 
-                $("#status").text('uploading...');
+                $("#status").html('Uploading... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
                 $.ajax({
                     url: presignedUrl, // no api key is required to upload file
@@ -49,7 +49,7 @@ $(document).on("click", "#submit", function () {
                     processData: false,
                     success: function (result) {
 
-                        $("#status").text('converting...');
+                        $("#status").html('InProgress &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
                         $.ajax({
                             url: 'https://api.pdf.co/v1/xls/convert/to/' + toType + '?url=' + presignedUrl + '&encrypt=true&inline=' + isInline,
