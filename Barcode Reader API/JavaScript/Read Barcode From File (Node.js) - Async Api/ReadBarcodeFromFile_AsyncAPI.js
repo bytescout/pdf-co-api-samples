@@ -52,6 +52,7 @@ request.post(reqOptions, function (error, response, body) {
 
     // Parse JSON response
     let data = JSON.parse(body);
+    console.log(`Job #${data.jobId} has been created!`);
     checkIfJobIsCompleted(data.jobId, data.url);
 });
 
@@ -70,6 +71,8 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
             response.setEncoding("utf8");
             // Parse JSON response
             let data = JSON.parse(d);
+            console.log(`Checking Job #${jobId}, Status: ${data.Status}, Time: ${new Date().toLocaleString()}`);
+
             if (data.Status == "InProgress") {
                 // Check again after 3 seconds
 				setTimeout(function(){ checkIfJobIsCompleted(jobId, resultFileUrlJson);}, 3000);

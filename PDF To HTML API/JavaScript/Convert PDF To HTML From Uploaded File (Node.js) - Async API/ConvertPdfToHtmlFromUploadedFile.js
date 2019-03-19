@@ -122,8 +122,11 @@ function convertPdfToHtml(apiKey, uploadedFileUrl, password, pages, plainHtml, c
     https.get(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
+
             // Parse JSON response
             let data = JSON.parse(d);
+            console.log(`Job #${data.jobId} has been created!`);
+
             if (data.error == false) {
                 checkIfJobIsCompleted(data.jobId, data.url, destinationFile);
             }
@@ -151,8 +154,11 @@ function checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile) {
     https.get(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
+
             // Parse JSON response
             let data = JSON.parse(d);
+            console.log(`Checking Job #${jobId}, Status: ${data.Status}, Time: ${new Date().toLocaleString()}`);
+
             if (data.Status == "InProgress") {
                 // Check again after 3 seconds
                 setTimeout(function(){ checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile); }, 3000);
