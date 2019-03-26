@@ -15,6 +15,7 @@
 \PDF Merging API
 \PDF Optimization API
 \PDF Splitting API
+\PDF Text Search API
 \PDF To CSV API
 \PDF To Excel API
 \PDF To HTML API
@@ -307,6 +308,8 @@
 \PDF Splitting API\VB.NET\Split PDF From Uploaded File
 \PDF Splitting API\VB.NET\Split PDF From URL
 \PDF Splitting API\VB.NET\Split PDF From URL Asynchronously
+\PDF Text Search API\C#
+\PDF Text Search API\C#\Find Text
 \PDF To CSV API\C#
 \PDF To CSV API\cURL
 \PDF To CSV API\Java
