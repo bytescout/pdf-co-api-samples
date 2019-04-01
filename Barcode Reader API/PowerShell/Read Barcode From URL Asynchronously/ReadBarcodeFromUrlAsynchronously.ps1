@@ -35,14 +35,14 @@ try {
         # to use a separate thread for the status checking and completion.
         do {
             $statusCheckUrl = "https://api.pdf.co/v1/job/check?jobid=" + $jobId
-            $jsonStatus = Invoke-RestMethod -Method Get -Uri $statusCheckUrl
+            $jsonStatus = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $statusCheckUrl
 
             # Display timestamp and status (for demo purposes)
             Write-Host "$(Get-date): $($jsonStatus.Status)"
 
             if ($jsonStatus.Status -eq "Finished") {
                 # Download JSON file with decoded barcodes
-                $jsonFoundBarcodes = Invoke-RestMethod -Method Get -Uri $resultFileUrl
+                $jsonFoundBarcodes = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $resultFileUrl
                 
                 # Display found barcodes in console
                 foreach ($barcode in $jsonFoundBarcodes)

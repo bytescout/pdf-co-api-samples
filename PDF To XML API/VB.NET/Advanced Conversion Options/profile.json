@@ -1,0 +1,12 @@
+﻿{
+  "profiles": [
+    {
+      "profile1": {
+        "TrimSpaces": "False",
+        "PreserveFormattingOnTextExtraction": "True",
+        "Unwrap": "True",
+        "ShrinkMultipleSpaces": "True"
+      }
+    }
+  ]
+}

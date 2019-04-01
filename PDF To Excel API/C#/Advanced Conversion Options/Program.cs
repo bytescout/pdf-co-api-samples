@@ -19,12 +19,12 @@ namespace ByteScoutWebApiExample
 {
 	class Program
 	{
-		// The authentication key (API Key).
-		// Get your own by registering at https://app.pdf.co/documentation/api
-		const String API_KEY = "***********************************";
-		
-		// Direct URL of source PDF file.
-		const string SourceFileUrl = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-excel/sample.pdf";
+        // The authentication key (API Key).
+        // Get your own by registering at https://app.pdf.co/documentation/api
+        const String API_KEY = "***********************************";
+
+        // Direct URL of source PDF file.
+        const string SourceFileUrl = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-excel/sample.pdf";
 		// Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 		const string Pages = "";
 		// PDF document password. Leave empty for unprotected documents.
@@ -35,17 +35,7 @@ namespace ByteScoutWebApiExample
         // Sample profile that sets advanced conversion options.
         // Advanced options are properties of XLSExtractor class from ByteScout PDF Extractor SDK used in the back-end:
         // https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/2712c05b-9674-5253-df76-2a31ed055afd.htm
-        const string Profiles = @"
-{ 
-    'profiles': [ 
-        { 
-            'profile1': { 
-                'RichTextFormatting': false,
-                'PageToWorksheet': false
-            } 
-        } 
-    ] 
-}";
+        static string Profiles = File.ReadAllText("profile.json");
 
         static void Main(string[] args)
 		{

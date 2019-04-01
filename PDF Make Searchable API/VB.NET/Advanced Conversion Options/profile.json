@@ -1,0 +1,10 @@
+﻿{
+  "profiles": [
+    {
+      "profile1": {
+        "OCRLanguage": "eng",
+        "OCRResolution": 300
+      }
+    }
+  ]
+}

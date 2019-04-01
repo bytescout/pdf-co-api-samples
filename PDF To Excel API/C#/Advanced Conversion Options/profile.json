@@ -1,0 +1,10 @@
+﻿{
+  "profiles": [
+    {
+      "profile1": {
+        "RichTextFormatting": false,
+        "PageToWorksheet": false
+      }
+    }
+  ]
+}

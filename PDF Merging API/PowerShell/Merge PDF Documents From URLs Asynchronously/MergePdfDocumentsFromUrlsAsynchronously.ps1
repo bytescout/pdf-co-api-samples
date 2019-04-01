@@ -34,7 +34,7 @@ try {
         # Check the job status in a loop. 
         do {
             $statusCheckUrl = "https://api.pdf.co/v1/job/check?jobid=" + $jobId
-            $jsonStatus = Invoke-RestMethod -Method Get -Uri $statusCheckUrl
+            $jsonStatus = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $statusCheckUrl
 
             # Display timestamp and status (for demo purposes)
             Write-Host "$(Get-date): $($jsonStatus.Status)"
