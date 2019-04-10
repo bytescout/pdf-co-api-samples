@@ -506,6 +506,7 @@
 \PDF To JSON API\VB.NET
 \PDF To JSON API\C#\Advanced Conversion Options
 \PDF To JSON API\C#\Convert PDF To JSON From Uploaded File
+\PDF To JSON API\C#\Convert PDF To JSON From Uploaded File Asynchronously
 \PDF To JSON API\C#\Convert PDF To JSON From URL
 \PDF To JSON API\C#\Convert PDF To JSON From URL Asynchronously
 \PDF To JSON API\cURL\Convert PDF To JSON From URL
