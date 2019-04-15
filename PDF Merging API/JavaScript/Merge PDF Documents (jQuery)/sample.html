@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cloud API JQuery sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="merge.js" type="text/javascript" encoding="UTF-8"></script>
+</head>
+<body>
+ 
+    <form id="form" enctype="multipart/form-data">
+        <p>
+            <label>Copy-paste your API Key for ByteScout Cloud API here</label>
+            <input type="text" id="apiKey" placeholder="your cloud API Key" value=""/> 
+            <a href="https://app.pdf.co/documentation/api" target="_blank">no api key yet? sign up here</a>
+        </p>
+        <p>
+            <label>Input PDF File - 1</label>
+            <input type="file" name="file" id="inputFile_1" />
+        </p>
+        <p>
+            <label>Input PDF File - 2</label>
+            <input type="file" name="file" id="inputFile_2" />
+        </p>
+        <button type="button" id="submit">Perform Merge</button> <span id="status"></span>
+    </form>
+ 
+    <div id="errorBlock">
+        <h2>Error:</h2>
+        <h4>Code: <span id="statusCode"></span></h4>
+        <ul id="errors"></ul>
+    </div>
+ 
+    <div id="resultBlock">
+        <h2>Output:</h2>
+        <a id="result" href="" target="_blank"></a>
+        <div id="inlineOutput"></div>
+    </div>
+ 
+</body>
+</html>
