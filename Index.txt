@@ -320,6 +320,7 @@
 \PDF Splitting API\VB.NET\Split PDF From URL
 \PDF Splitting API\VB.NET\Split PDF From URL Asynchronously
 \PDF Text Search API\C#
+\PDF Text Search API\Java
 \PDF Text Search API\JavaScript
 \PDF Text Search API\PowerShell
 \PDF Text Search API\VB.NET
@@ -327,6 +328,10 @@
 \PDF Text Search API\C#\PDF Text Search from Uploaded File Asynchronously
 \PDF Text Search API\C#\PDF Text Search from URL
 \PDF Text Search API\C#\PDF Text Search from URL Asynchronously
+\PDF Text Search API\Java\PDF Text Search from Uploaded File
+\PDF Text Search API\Java\PDF Text Search from Uploaded File Asynchronously
+\PDF Text Search API\Java\PDF Text Search from URL
+\PDF Text Search API\Java\PDF Text Search from URL Asynchronously
 \PDF Text Search API\JavaScript\PDF Text Search from File (Node js)
 \PDF Text Search API\JavaScript\PDF Text Search from File (Node js) - Async API
 \PDF Text Search API\JavaScript\PDF Text Search from Uploaded File (Node js)
