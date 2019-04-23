@@ -152,13 +152,13 @@ function checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile) {
 
             // Parse JSON response
             let data = JSON.parse(d);
-            console.log(`Checking Job #${jobId}, Status: ${data.Status}, Time: ${new Date().toLocaleString()}`);
+            console.log(`Checking Job #${jobId}, Status: ${data.status}, Time: ${new Date().toLocaleString()}`);
 
-            if (data.Status == "InProgress") {
+            if (data.status == "working") {
                 // Check again after 3 seconds
 				setTimeout(function(){ checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile);}, 3000);
             }
-            else if (data.Status == "Finished") {
+            else if (data.status == "success") {
                 // Download JSON file
                 var file = fs.createWriteStream(destinationFile);
                 https.get(resultFileUrl, (response2) => {
@@ -169,7 +169,7 @@ function checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile) {
                 });
             }
             else {
-                console.log(`Operation ended with status: "${data.Status}".`);
+                console.log(`Operation ended with status: "${data.status}".`);
             }
         })
     });

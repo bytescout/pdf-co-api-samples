@@ -163,12 +163,12 @@ public class Main
                 // If you don't want to pause the main thread you can rework the code
                 // to use a separate thread for the status checking and completion.
                 do {
-                    String status = CheckJobStatus(webClient, jobId);  // Possible statuses: "InProgress", "Failed", "Aborted", "Finished".
+                    String status = CheckJobStatus(webClient, jobId);  // Possible statuses: "working", "failed", "aborted", "success".
 
                     System.out.println("Job#" + jobId + ": " + status + " - " + dtf.format(LocalDateTime.now()));
 
 
-                    if(status.compareToIgnoreCase("Finished") == 0){
+                    if(status.compareToIgnoreCase("success") == 0){
 
                         // Build request for job url
                         request = new Request.Builder()
@@ -190,7 +190,7 @@ public class Main
 
                         break;
                     }
-                    else if (status.compareToIgnoreCase("InProgress") == 0){
+                    else if (status.compareToIgnoreCase("working") == 0){
                         // Pause for a few seconds
                         try{
                             Thread.sleep(3000);
@@ -256,7 +256,7 @@ public class Main
             // Parse JSON response
             JsonObject json = new JsonParser().parse(response.body().string()).getAsJsonObject();
 
-            return json.get("Status").getAsString();
+            return json.get("status").getAsString();
         }
         else
         {

@@ -147,12 +147,12 @@ public class Main
                 // to use a separate thread for the status checking and completion.
                 do
                 {
-                    status = checkJobStatus(webClient, apiKey, jobId); // Possible statuses: "InProgress", "Failed", "Aborted", "Finished".
+                    status = checkJobStatus(webClient, apiKey, jobId); // Possible statuses: "working", "failed", "aborted", "success".
 
                     // Display timestamp and status (for demo purposes)
                     System.out.println(java.time.LocalDateTime.now() + ": " + status);
 
-                    if (status.equals("Finished"))
+                    if (status.equals("success"))
                     {
                         // Download CSV file
                         downloadFile(webClient, resultFileUrl, destinationFile.toFile());
@@ -160,7 +160,7 @@ public class Main
                         System.out.printf("Generated CSV file saved as \"%s\" file.", destinationFile.toString());
                         break;
                     }
-                    else if (status.equals("InProgress"))
+                    else if (status.equals("working"))
                     {
                         // Pause for a few seconds
                         try {
@@ -225,7 +225,7 @@ public class Main
         // Parse JSON response
         JsonObject json = new JsonParser().parse(response.body().string()).getAsJsonObject();
 
-        return json.get("Status").getAsString();
+        return json.get("status").getAsString();
     }
 
     public static void downloadFile(OkHttpClient webClient, String url, File destinationFile) throws IOException

@@ -31,7 +31,7 @@ $(document).on("click", "#submit", function () {
     formData.append('file[]', $("#form input[type=file]")[0].files[0]);
     formData.append('file[]', $("#form input[type=file]")[1].files[0]);
 
-    $("#status").html('InProgress &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
+    $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
     $.ajax({
         url: 'https://api.pdf.co/v1/pdf/merge',

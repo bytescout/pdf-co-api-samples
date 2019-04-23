@@ -33,9 +33,9 @@ try {
             $jsonStatus = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $statusCheckUrl
 
             # Display timestamp and status (for demo purposes)
-            Write-Host "$(Get-date): $($jsonStatus.Status)"
+            Write-Host "$(Get-date): $($jsonStatus.status)"
 
-            if ($jsonStatus.Status -eq "Finished") {
+            if ($jsonStatus.status -eq "success") {
                 # Download JSON file with URLs of result PDF files
                 $jsonPdfUrls = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $resultJsonFileUrl
 
@@ -52,12 +52,12 @@ try {
                 }
                 break
             }
-            elseif ($jsonStatus.Status -eq "InProgress") {
+            elseif ($jsonStatus.status -eq "working") {
                 # Pause for a few seconds
                 Start-Sleep -Seconds 3
             }
             else {
-                Write-Host $jsonStatus.Status
+                Write-Host $jsonStatus.status
                 break
             }
         }

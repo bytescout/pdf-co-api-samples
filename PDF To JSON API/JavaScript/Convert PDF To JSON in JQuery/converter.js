@@ -50,7 +50,7 @@ $(document).on("click", "#submit", function () {
                     processData: false,
                     success: function (result) {                               
                         
-                        $("#status").html('InProgress &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
+                        $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
                         $.ajax({
                             url: 'https://api.pdf.co/v1/pdf/convert/to/'+toType+'?url='+ presignedUrl + '&encrypt=true&inline=' + isInline,

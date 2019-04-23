@@ -75,12 +75,12 @@ Module Module1
 				' If you don't want to pause the main thread you can rework the code 
 				' to use a separate thread for the status checking and completion.
 				Do
-					Dim status As String = CheckJobStatus(jobId) ' Possible statuses: "InProgress", "Failed", "Aborted", "Finished".
+					Dim status As String = CheckJobStatus(jobId) ' Possible statuses: "working", "failed", "aborted", "success".
 
 					' Display timestamp and status (for demo purposes)
 					Console.WriteLine(DateTime.Now.ToLongTimeString() + ": " + status)
 
-					If status = "Finished" Then
+					If status = "success" Then
 
 						' Download PDF file
 						webClient.DownloadFile(resultFileUrl, DestinationFile)
@@ -88,7 +88,7 @@ Module Module1
 						Console.WriteLine("Generated PDF file saved as ""{0}"" file.", DestinationFile)
 						Exit Do
 
-					ElseIf status = "InProgress" Then
+					ElseIf status = "working" Then
 
 						' Pause for a few seconds
 						Thread.Sleep(3000)
@@ -131,7 +131,7 @@ Module Module1
 			Dim response As String = webClient.DownloadString(url)
 			Dim json As JObject = JObject.Parse(response)
 
-			return Convert.ToString(json("Status"))
+			return Convert.ToString(json("status"))
 
 		End Using
 

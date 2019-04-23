@@ -60,18 +60,18 @@ if (curl_errno($curl) == 0)
             // Check the job status in a loop
             do
             {
-                $status = CheckJobStatus($jobId); // Possible statuses: "InProgress", "Failed", "Aborted", "Finished".
+                $status = CheckJobStatus($jobId); // Possible statuses: "working", "failed", "aborted", "success".
                 
                 // Display timestamp and status (for demo purposes)
                 echo "<p>" . date(DATE_RFC2822) . ": " . $status . "</p>";
                 
-                if ($status == "Finished")
+                if ($status == "success")
                 {
                     // Display link to JSON file with information about decoded barcodes
                     echo "<div><h2>Conversion Result:</h2><a href='" . $resultFileUrl . "' target='_blank'>" . $resultFileUrl . "</a></div>";
                     break;
                 }
-                else if ($status == "InProgress")
+                else if ($status == "working")
                 {
                     // Pause for a few seconds
                     sleep(3);
@@ -133,7 +133,7 @@ function CheckJobStatus($jobId)
         
             if ($json["error"] == false)
             {
-                $status = $json["Status"];
+                $status = $json["status"];
             }
             else
             {

@@ -71,18 +71,18 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
             response.setEncoding("utf8");
             // Parse JSON response
             let data = JSON.parse(d);
-            console.log(`Checking Job #${jobId}, Status: ${data.Status}, Time: ${new Date().toLocaleString()}`);
+            console.log(`Checking Job #${jobId}, Status: ${data.status}, Time: ${new Date().toLocaleString()}`);
 
-            if (data.Status == "InProgress") {
+            if (data.status == "working") {
                 // Check again after 3 seconds
 				setTimeout(function(){ checkIfJobIsCompleted(jobId, resultFileUrlJson);}, 3000);
             }
-            else if (data.Status == "Finished") {
+            else if (data.status == "success") {
 
                 request({ method: 'GET', uri: resultFileUrlJson, gzip: true },
                 function (error, response, body) {
 
-                    //* workaround for issue with non supoprted firstchar code
+                    // workaround for unsupported UTF-8 byte order mark (BOM)
                     var firstCharCode = body.charCodeAt(0);
                     if (firstCharCode == 65279) {
                         body = body.substring(1);
@@ -103,7 +103,7 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
                 });
             }
             else {
-                console.log(`Operation ended with status: "${data.Status}".`);
+                console.log(`Operation ended with status: "${data.status}".`);
             }
         })
     });

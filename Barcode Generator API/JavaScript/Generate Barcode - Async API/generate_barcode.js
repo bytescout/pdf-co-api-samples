@@ -84,13 +84,13 @@ function checkIfJobIsCompleted(jobId, resultFileUrl) {
             if (httpRequest.status == 200) {
                 var jobResult = JSON.parse(httpRequest.responseText);
 
-                if (jobResult.Status == "InProgress") {
+                if (jobResult.status == "working") {
                     // Check again after 3 seconds
                     setTimeout(function(){
                         checkIfJobIsCompleted(jobId, resultFileUrl);
                     }, 3000);
                 }
-                else if (jobResult.Status == "Finished") {
+                else if (jobResult.status == "working") {
                     document.getElementById("resultBlock").style.display = "block"; // show hidden resultBlock
                     document.getElementById("image").setAttribute("src", resultFileUrl); // Set image link to display
 

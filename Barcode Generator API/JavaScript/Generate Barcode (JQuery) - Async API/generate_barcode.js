@@ -60,15 +60,15 @@ function checkIfJobIsCompleted(jobId, resultFileUrl) {
         headers: { 'x-api-key': apiKey }, // passing our api key
         success: function (jobResult) {
 
-            $("#status").html(jobResult.Status + ' &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
+            $("#status").html(jobResult.status + ' &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
-            if (jobResult.Status == "InProgress") {
+            if (jobResult.status == "working") {
                 // Check again after 3 seconds
                 setTimeout(function(){
                     checkIfJobIsCompleted(jobId, resultFileUrl);
                 }, 3000);
             }
-            else if (jobResult.Status == "Finished") {
+            else if (jobResult.status == "success") {
                 $("#resultBlock").show();
                 $("#image").attr("src", resultFileUrl);
             }

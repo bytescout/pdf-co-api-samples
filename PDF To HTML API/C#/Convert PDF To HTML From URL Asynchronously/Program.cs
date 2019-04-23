@@ -83,12 +83,12 @@ namespace ByteScoutWebApiExample
 					// to use a separate thread for the status checking and completion.
 					do
 					{
-						string status = CheckJobStatus(jobId); // Possible statuses: "InProgress", "Failed", "Aborted", "Finished".
+						string status = CheckJobStatus(jobId); // Possible statuses: "working", "failed", "aborted", "success".
 
 						// Display timestamp and status (for demo purposes)
 						Console.WriteLine(DateTime.Now.ToLongTimeString() + ": " + status);
 
-						if (status == "Finished")
+						if (status == "success")
 						{
 							// Download HTML file
 							webClient.DownloadFile(resultFileUrl, DestinationFile);
@@ -96,7 +96,7 @@ namespace ByteScoutWebApiExample
 							Console.WriteLine("Generated HTML file saved as \"{0}\" file.", DestinationFile);
 							break;
 						}
-						else if (status == "InProgress")
+						else if (status == "working")
 						{
 							// Pause for a few seconds
 							Thread.Sleep(3000);
@@ -139,7 +139,7 @@ namespace ByteScoutWebApiExample
 				string response = webClient.DownloadString(url);
 				JObject json = JObject.Parse(response);
 
-				return Convert.ToString(json["Status"]);
+				return Convert.ToString(json["status"]);
 			}
 		}
 	}
