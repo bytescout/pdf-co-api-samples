@@ -163,12 +163,6 @@ function checkIfJobIsCompleted(jobId, resultFileUrl) {
                 request({ method: 'GET', uri: resultFileUrl, gzip: true },
                     function (error, response, body) {
 
-                        //* workaround for issue with non supoprted firstchar code
-                        var firstCharCode = body.charCodeAt(0);
-                        if (firstCharCode == 65279) {
-                            body = body.substring(1);
-                        }
-
                         // Parse JSON response
                         let respJsonFileArray = JSON.parse(body);
 

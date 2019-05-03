@@ -76,14 +76,6 @@ try {
                             # Get JSON for search result
                             $jsonSearchResult = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $resultFileUrl
                             
-                            # Workaround for invalid starting characters from beginnig.
-                            while ($jsonSearchResult[0] -ne '[') {
-                                $jsonSearchResult = $jsonSearchResult.substring(1)
-                            }
-            
-                            # convert to json and iterate through it
-                            $jsonSearchResult = ConvertFrom-Json $jsonSearchResult
-            
                             # Display found result in console
                             foreach ($item in $jsonSearchResult)
                             {

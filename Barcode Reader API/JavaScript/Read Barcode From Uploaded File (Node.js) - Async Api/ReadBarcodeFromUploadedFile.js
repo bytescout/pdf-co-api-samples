@@ -160,12 +160,6 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
                 request({ method: 'GET', uri: resultFileUrlJson, gzip: true },
                 function (error, response, body) {
 
-                    // workaround for unsupported UTF-8 byte order mark (BOM)
-                    var firstCharCode = body.charCodeAt(0);
-                    if (firstCharCode == 65279) {
-                        body = body.substring(1);
-                    }
-                    
                     // Parse JSON response
                     let respJsonFileArray = JSON.parse(body);
 
