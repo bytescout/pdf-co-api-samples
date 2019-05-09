@@ -17,7 +17,7 @@
 $apiKey = "***********************************";
 
 // Direct URL of source CSV file. Check another example if you need to upload a local file to the cloud.
-$sourceFileUrl = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/csv-to-pdf/sample.csv";
+$sourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/csv-to-pdf/sample.csv";
 
 
 // Prepare URL for `CSV To PDF` API call

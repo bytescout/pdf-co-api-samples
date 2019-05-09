@@ -26,7 +26,7 @@ Module Module1
 	Const API_KEY As String = "***********************************"
 
 	' Source PDF file to split
-	Const SourceFileUrl As String = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf"
+	Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
 	' Comma-separated list of page numbers (or ranges) to process. Example: '1,3-5,7-'.
 	Const Pages As String = "1-2,3-"
 	' (!) Make asynchronous job

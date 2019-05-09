@@ -21,7 +21,7 @@ Module Module1
     Const API_KEY As String = "***********************************"
 
     ' Direct URL of source file to search barcodes in.
-    Const SourceFileURL As String = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf"
+    Const SourceFileURL As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf"
     ' Comma-separated list of barcode types to search. 
     ' See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/read_from_url.html
     Const Pages As String = ""

@@ -28,7 +28,7 @@ public class Main
     final static String API_KEY = "***********************************";
 
     // Direct URL of PDF file to get information
-	final static String SourceFileURL = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-info/sample.pdf";
+	final static String SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-info/sample.pdf";
 
 
     public static void main(String[] args) throws IOException

@@ -26,7 +26,7 @@ Module Module1
 	Const API_KEY As String = "***********************************"
 
 	' Direct URL of source PDF file.
-	Const SourceFileUrl As String = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-optimize/sample.pdf"
+	Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-optimize/sample.pdf"
 	' PDF document password. Leave empty for unprotected documents.
 	Const Password As String = ""
 	' Destination PDF file name

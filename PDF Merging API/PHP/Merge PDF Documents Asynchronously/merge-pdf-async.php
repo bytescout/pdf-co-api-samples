@@ -18,8 +18,8 @@ $apiKey = "***********************************";
 
 // Direct URLs of PDF files to merge. Check another example if you need to upload local files to the cloud.
 $sourceFiles = array(
-    "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-merge/sample1.pdf", 
-    "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-merge/sample2.pdf");
+    "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample1.pdf", 
+    "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample2.pdf");
 
 
 // Prepare URL for `Merge PDF` API call

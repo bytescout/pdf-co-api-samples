@@ -21,7 +21,7 @@ Module Module1
 	Const API_KEY As String = "***********************************"
 
 	' Direct URL of PDF file to get information
-	Const SourceFileURL As String = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-info/sample.pdf"
+	Const SourceFileURL As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-info/sample.pdf"
 	' Comma-separated list of barcode types to search. 
 	' See valid barcode types in the documentation https://secure.bytescout.com/cloudapi.html#api-Default-barcodeReadFromUrlGet
 	Const BarcodeTypes As String = "Code128,Code39,Interleaved2of5,EAN13"

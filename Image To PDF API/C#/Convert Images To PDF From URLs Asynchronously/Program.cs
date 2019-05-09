@@ -30,8 +30,8 @@ namespace ByteScoutWebApiExample
 		
 		// Direct URLs of image files to convert to PDF document
 		static string[] SourceFiles = {
-			"https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/image-to-pdf/image1.png",
-			"https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/image-to-pdf/image2.jpg" };
+			"https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png",
+			"https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image2.jpg" };
 		// Destination PDF file name
 		const string DestinationFile = @".\result.pdf";
 		// (!) Make asynchronous job

@@ -27,7 +27,7 @@ public class Main
     final static String API_KEY = "***********************************";
 
     // Direct URL of source file to search barcodes in.
-	final static String SourceFileURL = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf";
+	final static String SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf";
     // Comma-separated list of barcode types to search.
     // See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/read_from_url.html
     final static String BarcodeTypes = "Code128,Code39,Interleaved2of5,EAN13";

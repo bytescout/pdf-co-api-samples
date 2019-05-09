@@ -24,7 +24,7 @@ namespace ByteScoutWebApiExample
 		const String API_KEY = "***********************************";
 		
 		// Direct URL of PDF file to get information
-		const string SourceFileURL = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-info/sample.pdf";
+		const string SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-info/sample.pdf";
 		
 		static void Main(string[] args)
 		{

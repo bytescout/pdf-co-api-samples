@@ -18,8 +18,8 @@ $apiKey = "***********************************";
 
 // Direct URLs of image files to convert to PDF document. Check another example if you need to upload local files to the cloud.
 $sourceFiles = array(
-    "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/image-to-pdf/image1.png", 
-    "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/image-to-pdf/image2.jpg");
+    "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png", 
+    "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image2.jpg");
 
 
 // Prepare URL for `Image To PDF` API call

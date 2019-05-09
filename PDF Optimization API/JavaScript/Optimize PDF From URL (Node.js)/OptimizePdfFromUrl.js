@@ -21,7 +21,7 @@ const API_KEY = "***********************************";
 
 
 // Direct URL of source PDF file.
-const SourceFileUrl = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-optimize/sample.pdf";
+const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-optimize/sample.pdf";
 // PDF document password. Leave empty for unprotected documents.
 const Password = "";
 // Destination PDF file name

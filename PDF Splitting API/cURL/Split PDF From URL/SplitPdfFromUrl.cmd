@@ -8,7 +8,7 @@ set CURL="curl.exe"
 set API_KEY=***********************************
 
 :: Source PDF file to split
-set SOURCE_FILE_URL=https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf
+set SOURCE_FILE_URL=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf
 :: Comma-separated list of page numbers (or ranges) to process. Example: '1,3-5,7-'.
 set PAGES=1-2,3-
 :: Result PDF file name

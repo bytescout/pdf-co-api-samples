@@ -8,7 +8,7 @@ set CURL="curl.exe"
 set API_KEY=***********************************
 
 :: Direct URL of source DOC or DOCX file.
-set SOURCE_FILE_URL=https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/doc-to-pdf/sample.docx
+set SOURCE_FILE_URL=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/doc-to-pdf/sample.docx
 :: Result PDF file name
 set RESULT_FILE_NAME=result.pdf
 

@@ -17,7 +17,7 @@
 $apiKey = "***********************************";
 
 // Direct URL of source PDF file. Check another example if you need to upload a local file to the cloud.
-$sourceFileUrl = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf";
+$sourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
 // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 $pages = "";
 // PDF document password. Leave empty for unprotected documents.

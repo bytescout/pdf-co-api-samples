@@ -17,7 +17,7 @@
 $apiKey = "***********************************";
 
 // Direct URL of source PDF file. Check another example if you need to upload a local file to the cloud.
-$sourceFileUrl = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-optimize/sample.pdf";
+$sourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-optimize/sample.pdf";
 // PDF document password. Leave empty for unprotected documents.
 $password = "";
 

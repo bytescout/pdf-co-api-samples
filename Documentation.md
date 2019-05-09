@@ -1147,7 +1147,7 @@ POST
 	"inline" : "true",
         "name": "newDocument",
         "password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
 }
 ```
 
@@ -1213,7 +1213,7 @@ Sample Request:
 ```
 POST
 {
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-info/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-info/sample.pdf"
 }
 ```
 
@@ -1285,7 +1285,7 @@ POST
 {
 	"password" : "",
 	"pages" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-text/sample.pdf",
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf",
 	"searchString" : "Invoice Date \d+/\d+/\d+",
 	"regexSearch" : "true"
 }
@@ -1416,7 +1416,7 @@ POST
 	"name" : "result.csv",
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-csv/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-csv/sample.pdf"
 }
 ```
 **Response**
@@ -1498,7 +1498,7 @@ POST
 	"name" : "result.json",
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-json/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-json/sample.pdf"
 }
 ```
 **Response**
@@ -1670,7 +1670,7 @@ POST
 	"name" : "result.txt",
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-text/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf"
 }
 ```
 **Response**
@@ -1751,7 +1751,7 @@ POST
 	"name" : "result.xls",
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-excel/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-excel/sample.pdf"
 }
 ```
 
@@ -1831,7 +1831,7 @@ POST
 	"name" : "result.xlsx",
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-excel/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-excel/sample.pdf"
 }
 ```
 
@@ -1912,7 +1912,7 @@ POST
 	"name" : "result.xml",
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-xml/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-xml/sample.pdf"
 }
 ```
 
@@ -2089,7 +2089,7 @@ POST
 	"password" : "",
 	"simple" : "false",
 	"columns" : "false",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-html/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-html/sample.pdf"
 }
 ```
 **Response**
@@ -2542,7 +2542,7 @@ POST
 {
 	"name" : "result.pdf",
 	"pages" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/csv-to-pdf/sample.csv"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/csv-to-pdf/sample.csv"
 }
 ```
 **Response**
@@ -2596,7 +2596,7 @@ Sample Request:
 POST 
 {
 	"name" : "result.pdf",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/doc-to-pdf/sample.docx"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/doc-to-pdf/sample.docx"
 }
 ```
 **Response**
@@ -2652,7 +2652,7 @@ POST
 {
 	"name" : "result.pdf",
 	"html" : "true",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-html/sample.html"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-html/sample.html"
 }
 ```
 **Response**
@@ -2762,7 +2762,7 @@ Sample Request:
 POST 
 {
 	"name" : "result.pdf",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/image-to-pdf/image1.png,https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/image-to-pdf/image1.png"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png,https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png"
 }
 ```
 **Response**
@@ -2892,7 +2892,7 @@ Sample Request:
 POST
 {
 	"name" : "result.pdf",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-merge/sample1.pdf,https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-merge/sample2.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample1.pdf,https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample2.pdf"
 }
 ```
 **Response**
@@ -2946,7 +2946,7 @@ POST
 {
 	"name" : "result.pdf",
 	"pages" : "1-2,3-",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
 }
 ```
 **Response**
@@ -3012,7 +3012,7 @@ POST
 	"password" : "",
 	"pages" : "",
 	"lang" : "eng",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-make-searchable/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-make-searchable/sample.pdf"
 }
 ```
 **Response**
@@ -3068,7 +3068,7 @@ POST
 {
 	"name" : "result.pdf",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-optimize/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-optimize/sample.pdf"
 }
 ```
 **Response**
@@ -3214,7 +3214,7 @@ POST
 {
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-image/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-image/sample.pdf"
 }
 ```
 
@@ -3277,7 +3277,7 @@ POST
 {
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-image/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-image/sample.pdf"
 }
 ```
 **Response**
@@ -3340,7 +3340,7 @@ POST
 	"name" : "result.tif",
 	"pages" : "",
 	"password" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-to-image/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-image/sample.pdf"
 }
 ```
 
@@ -3458,7 +3458,7 @@ POST
 {
 	"types" : "Code128,Code39,Interleaved2of5,EAN13",
 	"pages" : "",
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf"
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf"
 }
 ```
 
@@ -3474,7 +3474,7 @@ POST
             "Type": 2,
             "Rect": "{X=111,Y=60,Width=255,Height=37}",
             "Page": 0,
-            "File": "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
+            "File": "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
             "Confidence": 0.90625155,
             "TypeName": "Code128"
         },
@@ -3484,7 +3484,7 @@ POST
             "Type": 4,
             "Rect": "{X=111,Y=129,Width=306,Height=37}",
             "Page": 0,
-            "File": "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
+            "File": "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
             "Confidence": 0.7710818,
             "TypeName": "Code39"
         },
@@ -3494,7 +3494,7 @@ POST
             "Type": 2,
             "Rect": "{X=111,Y=198,Width=305,Height=37}",
             "Page": 0,
-            "File": "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
+            "File": "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
             "Confidence": 0.9156459,
             "TypeName": "Code128"
         },
@@ -3513,7 +3513,7 @@ POST
             "Type": 5,
             "Rect": "{X=111,Y=267,Width=182,Height=0}",
             "Page": 0,
-            "File": "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
+            "File": "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
             "Confidence": 1,
             "TypeName": "I2of5"
         },
@@ -3523,7 +3523,7 @@ POST
             "Type": 6,
             "Rect": "{X=102,Y=336,Width=71,Height=72}",
             "Page": 0,
-            "File": "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
+            "File": "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf",
             "Confidence": 0.895925164,
             "TypeName": "EAN13"
         }
@@ -3745,7 +3745,7 @@ Sample Request:
 ```
 POST
 {
-"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf"
+"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
 }
 ```
 **Response**
@@ -3793,7 +3793,7 @@ Sample Request:
 ```
 POST
 {
-"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf"
+"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
 }
 ```
 **Response**
@@ -3841,7 +3841,7 @@ Sample Request:
 ```
 POST
 {
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf",
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf",
 	"file" : "data:image/gif;base64,R0lGODlhEAAQAPUtACIiIScnJigoJywsLDIyMjMzMzU1NTc3Nzg4ODk5OTs7Ozw8PEJCQlBQUFRUVFVVVVhYWG1tbXt7fInDRYvESYzFSo/HT5LJVJPJVJTKV5XKWJbKWZbLWpfLW5jLXJrMYaLRbaTScKXScKXScafTdIGBgYODg6alprLYhbvekr3elr3el9Dotf///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAAAAIf8LSW1hZ2VNYWdpY2sNZ2FtbWE9MC40NTQ1NQAsAAAAABAAEAAABpJAFGgkKhpFIRHpw2qBLJiLdCrNTFKt0wjD2Xi/G09l1ZIwRJeNZs3uUFQtEwCCVrM1bnhJYHDU73ktJQELBH5pbW+CAQoIhn94ioMKB46HaoGTB5WPaZmMm5wOIRcekqChliIZFXqoqYYkE2SaoZuWH1gmAgsIvr8ICQUPTRIABgTJyskFAw1ZDBAO09TUDw0RQQA7"
 }
 ```
@@ -3891,7 +3891,7 @@ Sample Request:
 ```
 POST
 {
-	"url" : "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-split/sample.pdf",
+	"url" : "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf",
 	"file" : ""
 }
 ```

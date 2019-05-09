@@ -3,7 +3,7 @@
 $API_KEY = "***********************************"
 
 # Direct URL of source CSV file.
-$SourceFileURL = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/csv-to-pdf/sample.csv"
+$SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/csv-to-pdf/sample.csv"
 # Destination PDF file name
 $DestinationFile = ".\result.pdf"
 

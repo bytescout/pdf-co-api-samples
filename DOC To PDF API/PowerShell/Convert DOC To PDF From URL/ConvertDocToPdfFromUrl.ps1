@@ -3,7 +3,7 @@
 $API_KEY = "***********************************"
 
 # Direct URL of source DOC or DOCX file.
-$SourceFileURL = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/doc-to-pdf/sample.docx"
+$SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/doc-to-pdf/sample.docx"
 # Destination PDF file name
 $DestinationFile = ".\result.pdf"
 

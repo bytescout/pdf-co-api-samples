@@ -4,8 +4,8 @@ $API_KEY = "***********************************"
 
 # Direct URLs of PDF documents to merge
 $SourceFiles = @(
-    "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-merge/sample1.pdf",
-    "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-merge/sample2.pdf"
+    "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample1.pdf",
+    "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample2.pdf"
 )
 # Destination PDF file name
 $DestinationFile = ".\result.pdf"

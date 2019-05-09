@@ -8,7 +8,7 @@ set CURL="curl.exe"
 set API_KEY=***********************************
 
 :: Direct URL of PDF file to get information
-set SOURCE_FILE_URL=https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-info/sample.pdf
+set SOURCE_FILE_URL=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-info/sample.pdf
 
 
 :: Prepare URL for `PDF Info` API call

@@ -27,8 +27,8 @@ Module Module1
 
 	' Direct URLs of PDF files to merge
 	Dim SourceFiles As String() = {
-		"https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-merge/sample1.pdf",
-		"https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/pdf-merge/sample2.pdf"}
+		"https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample1.pdf",
+		"https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample2.pdf"}
 	' Destination PDF file name
 	Const DestinationFile As String = ".\result.pdf"
 	' (!) Make asynchronous job

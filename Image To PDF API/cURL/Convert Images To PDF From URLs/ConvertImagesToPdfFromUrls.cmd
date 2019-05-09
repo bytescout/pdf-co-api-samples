@@ -8,8 +8,8 @@ set CURL="curl.exe"
 set API_KEY=***********************************
 
 :: Direct URLs of image files to convert to PDF document
-set SOURCE_IMAGE_URL1=https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/image-to-pdf/image1.png
-set SOURCE_IMAGE_URL2=https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/image-to-pdf/image2.jpg
+set SOURCE_IMAGE_URL1=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png
+set SOURCE_IMAGE_URL2=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image2.jpg
 :: Result PDF file name
 set RESULT_FILE_NAME=result.pdf
 

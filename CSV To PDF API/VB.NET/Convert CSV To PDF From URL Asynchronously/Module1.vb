@@ -26,7 +26,7 @@ Module Module1
 	Const API_KEY As String = "***********************************"
 
 	' Direct URL of source CSV file.
-	Const SourceFileUrl As String = "https://s3-us-west-2.amazonaws.com/bytescout-com/files/demo-files/cloud-api/csv-to-pdf/sample.csv"
+	Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/csv-to-pdf/sample.csv"
 	' Destination PDF file name
 	Const DestinationFile As String = ".\result.pdf"
 	' (!) Make asynchronous job
