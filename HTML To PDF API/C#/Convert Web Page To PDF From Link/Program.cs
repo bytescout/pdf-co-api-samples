@@ -2,10 +2,11 @@
 //                                                                                           //
 // Download Free Evaluation Version From: https://bytescout.com/download/web-installer       //
 //                                                                                           //
-// Also available as Web API! Free Trial Sign Up: https://secure.bytescout.com/users/sign_up //
+// Also available as Web API! Get Your Free API Key: https://app.pdf.co/signup               //
 //                                                                                           //
-// Copyright © 2017-2018 ByteScout Inc. All rights reserved.                                 //
-// http://www.bytescout.com                                                                  //
+// Copyright © 2017-2019 ByteScout, Inc. All rights reserved.                                //
+// https://www.bytescout.com                                                                 //
+// https://pdf.co                                                                            //
 //                                                                                           //
 //*******************************************************************************************//
 
