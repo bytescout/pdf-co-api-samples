@@ -53,6 +53,10 @@ We have hundreds of ready to copy Explore [Source Code Samples on Github](https:
 
 <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a>
 
+## Known Issues
+
+- `SSL certificate error: unable to get local issuer certificate` in PHP: check [this solution on Stackoverflow](https://stackoverflow.com/a/32095378/712093)
+
 ## Contact our Customer API Support 
 
 Our **dedicated**  API support team is happy to help with integrations and with proof of concept projects! Please [click here to send request](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20API) (recommended) or send email to [pdfco@bytescout.zendesk.com](mailto:pdfco@bytescout.zendesk.com?subject=PDF.co%20API%20support) 
