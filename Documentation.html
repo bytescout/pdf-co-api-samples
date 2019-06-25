@@ -9,100 +9,7 @@
 </head>
 
 <body class="stackedit">
-  <div class="stackedit__left">
-    <div class="stackedit__toc">
-      
-<ul>
-<li><a href="#pdf.co-web-api-application-programming-interface">PDF.co Web API (Application Programming Interface)</a>
-<ul>
-<li><a href="#benefits">Benefits:</a></li>
-<li><a href="#how-to-use-api-with-url-as-input">How to use API with URL as input</a></li>
-<li><a href="#how-to-use-api-with-file-as-input">How to use API with file as input</a></li>
-<li><a href="#how-to-use-api-with-large-files-and-with-100-pages-documents">How to use API with large files and with 100+ pages documents</a></li>
-<li><a href="#source-code-samples">Source Code Samples</a></li>
-<li><a href="#contact-our-customer-api-support">Contact our Customer API Support</a></li>
-</ul>
-</li>
-<li><a href="#pdf.co-api-v.1.0-documentation">PDF.co API v.1.0 Documentation</a></li>
-<li><a href="#e-signatures-and-forms">E-Signatures and Forms</a>
-<ul>
-<li><a href="#manage-fillable-templates">Manage Fillable Templates</a></li>
-<li><a href="#send-e-signature-request">Send E-Signature Request</a></li>
-<li><a href="#manage-documents">Manage Documents</a></li>
-<li><a href="#add-e-signature-and-text-to-pdf">Add E-Signature and Text To PDF</a></li>
-</ul>
-</li>
-<li><a href="#extract-data">Extract Data</a>
-<ul>
-<li><a href="#template-based-extraction">Template Based Extraction</a></li>
-<li><a href="#invoice-parser">Invoice Parser</a></li>
-<li><a href="#read-pdf-information">Read PDF Information</a></li>
-<li><a href="#search-inside-pdf-and-images">Search inside PDF and Images</a></li>
-<li><a href="#extract-as-csv-xml-json-html">Extract as CSV, XML, JSON, HTML</a></li>
-<li><a href="#convert-pdf-to-html">Convert PDF to HTML</a></li>
-</ul>
-</li>
-<li><a href="#extract-data-from-spreadsheets">Extract Data From Spreadsheets</a>
-<ul>
-<li><a href="#convert-xlsxlsx-to-json">Convert XLS/XLSX to JSON</a></li>
-<li><a href="#convert-xlsxlsx-to-csv">Convert XLS/XLSX to CSV</a></li>
-<li><a href="#convert-xlsxlsx-to-html">Convert XLS/XLSX to HTML</a></li>
-</ul>
-</li>
-<li><a href="#create-pdf">Create PDF</a>
-<ul>
-<li><a href="#pdf-from-csv">PDF from CSV</a></li>
-<li><a href="#pdf-from-doc-docx-rtf-txt-xps">PDF from Doc, DocX, RTF, TXT, XPS</a></li>
-<li><a href="#pdf-from-html">PDF from HTML</a></li>
-<li><a href="#pdf-from-website-url">PDF from Website URL</a></li>
-<li><a href="#pdf-from-image">PDF from Image</a></li>
-<li><a href="#pdf-from-xls-or-xlsx">PDF from XLS or XLSX</a></li>
-</ul>
-</li>
-<li><a href="#pdf-tools">PDF Tools</a>
-<ul>
-<li><a href="#merge-and-split-pdf">Merge and Split PDF</a></li>
-<li><a href="#edit-and-modify-pdf">Edit and Modify PDF</a></li>
-<li><a href="#optimize-pdf-file-size">Optimize PDF File Size</a></li>
-<li><a href="#add-text-and-images-to-pdf">Add Text and Images to PDF</a></li>
-<li><a href="#render-pdf-to-jpg">Render PDF to JPG</a></li>
-<li><a href="#render-pdf-to-png">Render PDF to PNG</a></li>
-<li><a href="#render-pdf-to-tiff">Render PDF to TIFF</a></li>
-</ul>
-</li>
-<li><a href="#barcodes">Barcodes</a>
-<ul>
-<li><a href="#generate-barcodes">Generate Barcodes</a>
-<ul>
-<li></li>
-</ul>
-</li>
-<li><a href="#read-barcodes-from-url-or-file">Read Barcodes From URL or file</a>
-<ul>
-<li></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#web-tools">Web Tools</a>
-<ul>
-<li><a href="#url-to-jpg">URL to JPG</a></li>
-<li><a href="#url-to-png">URL to PNG</a></li>
-</ul>
-</li>
-<li><a href="#manage-files-and-jobs">Manage Files and Jobs</a>
-<ul>
-<li><a href="#upload-files">Upload Files</a></li>
-<li><a href="#manage-background-jobs">Manage Background Jobs</a></li>
-</ul>
-</li>
-</ul>
-
-    </div>
-  </div>
-  <div class="stackedit__right">
-    <div class="stackedit__html">
-      <h1 id="pdf.co-web-api-application-programming-interface"><a href="http://PDF.co">PDF.co</a> Web API (Application Programming Interface)</h1>
+  <div class="stackedit__html"><h1 id="pdf.co-web-api-application-programming-interface"><a href="http://PDF.co">PDF.co</a> Web API (Application Programming Interface)</h1>
 <h2 id="benefits">Benefits:</h2>
 <ul>
 <li><strong>Security</strong>: API runs on the secure Amazon AWS infrastructure. All data transfers are encrypted by SSL/TLS encryption;</li>
@@ -111,17 +18,20 @@
 <li><strong>Asynchronous mode</strong> is supported so you can process large files and documents with 100+ pages in the cloud</li>
 <li><strong>API</strong> uses so called <em>credits</em> from your account which are reduced for every call and for every page. For example, processing/generating document with 2 pages requires 2 credits. Separate methods like uploading, background job check require 1 credit. You may always see how may credits are left using <code>remainingCredits</code> property in the returned result.</li>
 </ul>
+<p><a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <h2 id="how-to-use-api-with-url-as-input">How to use API with URL as input</h2>
 <ul>
 <li>Generate a <em>temporary</em> public link to your document or file on your side</li>
 <li>Call any API method with <code>url</code> param set to your file’s url</li>
 <li>It will return JSON with a temporary URL to new generated file. Some endpoints like <code>pdf/to/text</code> have <code>inline</code> property to return generated content inside <code>body</code> property of the response.</li>
 </ul>
+<p><a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <h2 id="how-to-use-api-with-file-as-input">How to use API with file as input</h2>
 <ul>
 <li>Upload your file using <code>file</code> input param available in many API methods</li>
 <li>API methods will return JSON with a temporary URL to new generated file. Some endpoints like <code>pdf/to/text</code> have <code>inline</code> property to return generated content inside <code>body</code> property of the response.</li>
 </ul>
+<p><a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <h2 id="how-to-use-api-with-large-files-and-with-100-pages-documents">How to use API with large files and with 100+ pages documents</h2>
 <p>We’ve designed this mode to be scalable and support large files and documents with hundreds of pages.</p>
 <ul>
@@ -129,6 +39,7 @@
 <li>Enable <code>async</code> mode by setting <code>async</code> input parameter to <code>true</code>. This will tell API method to run processing and background and method will immediately return unique id of new background job (as <code>jobId</code> property).</li>
 <li>Check status of background job status using <code>/job/check</code> and wait until it returns <code>status</code> as <code>success</code></li>
 </ul>
+<p><a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Asynchronious mode workflow: step by step</strong></p>
 <ol>
 <li>Request a temporary URL for upload using <code>/file/upload/get-presigned-url</code></li>
@@ -137,14 +48,20 @@
 <li>Now check <code>status</code> of this background job using <code>/job/check</code> API method with <code>jobId</code> param. It will return execution <code>status</code>.</li>
 <li>Once <code>/job/check</code> returns <code>status</code> param as <code>success</code> you may use the previously generated output URL (or set of URLs) to download generated data.</li>
 </ol>
+<p><a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <h2 id="source-code-samples">Source Code Samples</h2>
 <p>We have hundreds of ready to copy Explore <a href="https://github.com/bytescout/pdf-co-api-samples">Source Code Samples on Github</a> available for Javascript, Node.js, PHP, Java, C# and Visual Basic NET.</p>
+<p><a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li><code>SSL certificate error: unable to get local issuer certificate</code> in PHP: check <a href="https://stackoverflow.com/a/32095378/712093">this solution on Stackoverflow</a></li>
+</ul>
 <h2 id="contact-our-customer-api-support">Contact our Customer API Support</h2>
 <p>Our <strong>dedicated</strong>  API support team is happy to help with integrations and with proof of concept projects! Please <a href="https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20API">click here to send request</a> (recommended) or send email to <a href="mailto:pdfco@bytescout.zendesk.com?subject=PDF.co%20API%20support">pdfco@bytescout.zendesk.com</a></p>
 <h3 id="get-your-free-pdf.co-api-key"><a href="https://app.pdf.co/signup">Get your free PDF.co API key</a></h3>
 <h1 id="pdf.co-api-v.1.0-documentation"><a href="http://PDF.co">PDF.co</a> API v.1.0 Documentation</h1>
 <ul>
-<li><a href="#e-signatures-and-forms">E-Signatures and Forms</a>
+<li><a href="#e-signatures-and-forms"><strong>E-Signatures and Forms</strong></a>
 <ul>
 <li><a href="#manage-fillable-templates">Manage Fillable Templates</a>
 <ul>
@@ -170,7 +87,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#extract-data">Extract Data</a>
+<li><a href="#extract-data"><strong>Extract Data</strong></a>
 <ul>
 <li><a href="#template-based-extraction">Template Based Extraction</a>
 <ul>
@@ -209,7 +126,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#extract-data-from-spreadsheets">Extract Data From Spreadsheets</a>
+<li><a href="#extract-data-from-spreadsheets"><strong>Extract Data From Spreadsheets</strong></a>
 <ul>
 <li><a href="#convert-xls-xlsx-to-json">Convert XLS/XLSX to JSON</a>
 <ul>
@@ -228,7 +145,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#create-pdf">Create PDF</a>
+<li><a href="#create-pdf"><strong>Create PDF</strong></a>
 <ul>
 <li><a href="#pdf-from-csv">PDF from CSV</a>
 <ul>
@@ -240,7 +157,7 @@
 <li><a href="#https---apipdfco-v1-pdf-convert-from-doc">https://api.pdf.co/v1/pdf/convert/from/doc</a></li>
 </ul>
 </li>
-<li><a href="#pdf-from-html">PDF from HTML</a>
+<li><a href="#pdf-from-html"><strong>PDF from HTML</strong></a>
 <ul>
 <li><a href="#https---apipdfco-v1-pdf-convert-from-html">https://api.pdf.co/v1/pdf/convert/from/html</a></li>
 </ul>
@@ -262,7 +179,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#pdf-tools">PDF Tools</a>
+<li><a href="#pdf-tools"><strong>PDF Tools</strong></a>
 <ul>
 <li><a href="#merge-and-split-pdf">Merge and Split PDF</a>
 <ul>
@@ -302,7 +219,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#barcodes">Barcodes</a>
+<li><a href="#barcodes"><strong>Barcodes</strong></a>
 <ul>
 <li><a href="#generate-barcodes">Generate Barcodes</a>
 <ul>
@@ -316,7 +233,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#web-tools">Web Tools</a>
+<li><a href="#web-tools"><strong>Web Tools</strong></a>
 <ul>
 <li><a href="#url-to-jpg">URL to JPG</a>
 <ul>
@@ -330,7 +247,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#manage-files-and-jobs">Manage Files and Jobs</a>
+<li><a href="#manage-files-and-jobs"><strong>Manage Files and Jobs</strong></a>
 <ul>
 <li><a href="#upload-files">Upload Files</a>
 <ul>
@@ -352,7 +269,8 @@
 <h1 id="e-signatures-and-forms">E-Signatures and Forms</h1>
 <h2 id="manage-fillable-templates">Manage Fillable Templates</h2>
 <h3 id="httpsapi.pdf.cov1templates"><a href="https://api.pdf.co/v1/templates">https://api.pdf.co/v1/templates</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em><br>
+<a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Returns list of existing document templates list for the current user. You should use <a href="http://PDF.co">PDF.co</a> web-interface for end-users to create, edit templates, assign fields and manage list of parties for the document. Please use <code>GET</code> request.</p>
 <p><strong>Status Errors</strong></p>
 
@@ -406,7 +324,7 @@
 ]
 </code></pre>
 <h3 id="httpsapi.pdf.cov1templatesid"><a href="https://api.pdf.co/v1/templates/:id">https://api.pdf.co/v1/templates/:id</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Document template information. <code>GET</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -544,7 +462,7 @@
 </code></pre>
 <h2 id="send-e-signature-request">Send E-Signature Request</h2>
 <h3 id="httpsapi.pdf.cov1templatesiduse"><a href="https://api.pdf.co/v1/templates/:id/use">https://api.pdf.co/v1/templates/:id/use</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> This method creates new document from existing template and sends new e-signature request to fill and e-sign (if need to) new document to parties via email. Please use <code>GET</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -736,7 +654,7 @@
 </code></pre>
 <h2 id="manage-documents">Manage Documents</h2>
 <h3 id="httpsapi.pdf.cov1documents"><a href="https://api.pdf.co/v1/documents">https://api.pdf.co/v1/documents</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> ‰eturns list of all current user’s documents data. You may check <em>status</em> of each document and get additional information. Please use <code>GET</code> request.</p>
 <p><strong>Status Errors</strong></p>
 
@@ -853,7 +771,7 @@
 }
 </code></pre>
 <h3 id="httpsapi.pdf.cov1documentsid"><a href="https://api.pdf.co/v1/documents/:id">https://api.pdf.co/v1/documents/:id</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Returns detailed information about document by document’s id: meta information, information about parties, document status, audit log. Please use <code>GET</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -1152,7 +1070,7 @@
 </code></pre>
 <h2 id="add-e-signature-and-text-to-pdf">Add E-Signature and Text To PDF</h2>
 <h3 id="httpsapi.pdf.cov1pdfsign"><a href="https://api.pdf.co/v1/pdf/sign">https://api.pdf.co/v1/pdf/sign</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> This method e-signs PDF document by adding scanned or drawn signature from image file or image data, adds text for fields to fill and add.<br>
 Also can generate e-signature certificate to be appended at the end of document.</p>
 <p>Please use <code>GET</code> request.</p>
@@ -1410,7 +1328,7 @@ Also can generate e-signature certificate to be appended at the end of document.
 <h1 id="extract-data">Extract Data</h1>
 <h2 id="template-based-extraction">Template Based Extraction</h2>
 <h3 id="httpsapi.pdf.cov1pdfdocumentparser"><a href="https://api.pdf.co/v1/pdf/documentparser">https://api.pdf.co/v1/pdf/documentparser</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Parses and gets data from documents using previously prepared custom data extraction template. With this API method you may extract data from custom areas, by search, form fields, tables, multiple pages and more!<br>
 Please use <code>GET</code> or <code>POST</code> request.</p>
 <p>To create and prepare new document parsing template, please download and use <a href="https://cdn.bytescout.com/TemplateEditor.zip">Document Parser Template Editor (for Windows)</a></p>
@@ -1516,7 +1434,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
 </code></pre>
 <h2 id="invoice-parser">Invoice Parser</h2>
 <h3 id="httpsapi.pdf.cov1pdfinvoiceparser"><a href="https://api.pdf.co/v1/pdf/invoiceparser">https://api.pdf.co/v1/pdf/invoiceparser</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> This method automatically extracts data from incvoices. Thousands of invoice types and vendors are supported.</p>
 <p>Supports invoices in PDF, PNG, JPG format. Extracts and returns the following information for every invoice:</p>
 <ul>
@@ -1631,7 +1549,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
 </code></pre>
 <h2 id="read-pdf-information">Read PDF Information</h2>
 <h3 id="httpsapi.pdf.cov1pdfinfo"><a href="https://api.pdf.co/v1/pdf/info">https://api.pdf.co/v1/pdf/info</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Gets PDF document information. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -1714,7 +1632,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
 </code></pre>
 <h2 id="search-inside-pdf-and-images">Search inside PDF and Images</h2>
 <h3 id="httpsapi.pdf.cov1pdffind"><a href="https://api.pdf.co/v1/pdf/find">https://api.pdf.co/v1/pdf/find</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Finds text in pdf and returns coordinates. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -1886,7 +1804,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
 </code></pre>
 <h2 id="extract-as-csv-xml-json-html">Extract as CSV, XML, JSON, HTML</h2>
 <h3 id="httpsapi.pdf.cov1pdfconverttocsv"><a href="https://api.pdf.co/v1/pdf/convert/to/csv">https://api.pdf.co/v1/pdf/convert/to/csv</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Extracts data from PDF, PNG, JPG in a form of formatted CSV. Automatically preserves the original layout of tables, rows, columns. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -2013,7 +1931,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
 "","","TOTAL","200.00",
 </code></pre>
 <h3 id="httpsapi.pdf.cov1pdfconverttojson"><a href="https://api.pdf.co/v1/pdf/convert/to/json">https://api.pdf.co/v1/pdf/convert/to/json</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Extracts data from PDF, JPG, PNG and scanned documents into structured JSON. Automatically preserves the original layout of tables, rows, columns. Includes information about coordinates, fonts, font size and styles. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -2234,7 +2152,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
 }
 </code></pre>
 <h3 id="httpsapi.pdf.cov1pdfconverttotext"><a href="https://api.pdf.co/v1/pdf/convert/to/text">https://api.pdf.co/v1/pdf/convert/to/text</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Extracts plain text from PDF, PNG, JPG documents. Automatically preserves the original text layout. Restores damaged and scanned text. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -2364,7 +2282,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
                                                         TOTAL                200.00
 </code></pre>
 <h3 id="httpsapi.pdf.cov1pdfconverttoxls"><a href="https://api.pdf.co/v1/pdf/convert/to/xls">https://api.pdf.co/v1/pdf/convert/to/xls</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> PDF, PNG, JPG to XLS conversion. Automatically preserves the original layout of tables, rows, columns, font styles, font size, colors. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -2488,7 +2406,7 @@ Item 4	4	10	40
 
 </code></pre>
 <h3 id="httpsapi.pdf.cov1pdfconverttoxlsx"><a href="https://api.pdf.co/v1/pdf/convert/to/xlsx">https://api.pdf.co/v1/pdf/convert/to/xlsx</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> PDF, PNG, JPG to XLSX conversion. Automatically preserves the original layout of tables, rows, columns, font styles, font size, colors. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -2612,7 +2530,7 @@ Item 4	4	10	40
 
 </code></pre>
 <h3 id="httpsapi.pdf.cov1pdfconverttoxml"><a href="https://api.pdf.co/v1/pdf/convert/to/xml">https://api.pdf.co/v1/pdf/convert/to/xml</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> PDF, PNG, JPG to XML conversion. Automatically preserves the original layout of tables, rows, columns. Includes information about coordinates, fonts, font size and styles. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -2837,7 +2755,7 @@ Item 4	4	10	40
 </code></pre>
 <h2 id="convert-pdf-to-html">Convert PDF to HTML</h2>
 <h3 id="httpsapi.pdf.cov1pdfconverttohtml"><a href="https://api.pdf.co/v1/pdf/convert/to/html">https://api.pdf.co/v1/pdf/convert/to/html</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> This method converts PDF, PNG, JPG documents into HTML. Automatically preserves the original visual layout, vectors, images, formatting. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3013,7 +2931,7 @@ Item 4	4	10	40
 <h1 id="extract-data-from-spreadsheets">Extract Data From Spreadsheets</h1>
 <h2 id="convert-xlsxlsx-to-json">Convert XLS/XLSX to JSON</h2>
 <h3 id="httpsapi.pdf.cov1xlsconverttojson"><a href="https://api.pdf.co/v1/xls/convert/to/json">https://api.pdf.co/v1/xls/convert/to/json</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Convert XLS into JSON data file. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3180,7 +3098,7 @@ Item 4	4	10	40
 </code></pre>
 <h2 id="convert-xlsxlsx-to-csv">Convert XLS/XLSX to CSV</h2>
 <h3 id="httpsapi.pdf.cov1xlsconverttocsv"><a href="https://api.pdf.co/v1/xls/convert/to/csv">https://api.pdf.co/v1/xls/convert/to/csv</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Convert XLS into CSV comma separated values file. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3284,7 +3202,7 @@ MAT,Match the lower-case greek letter with its capital form.,?,?,a,?,G,f,F
 </code></pre>
 <h2 id="convert-xlsxlsx-to-html">Convert XLS/XLSX to HTML</h2>
 <h3 id="httpsapi.pdf.cov1xlsconverttohtml"><a href="https://api.pdf.co/v1/xls/convert/to/html">https://api.pdf.co/v1/xls/convert/to/html</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Convert XLS into HTML. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3405,7 +3323,7 @@ MAT,Match the lower-case greek letter with its capital form.,?,?,a,?,G,f,F
 <h1 id="create-pdf">Create PDF</h1>
 <h2 id="pdf-from-csv">PDF from CSV</h2>
 <h3 id="httpsapi.pdf.cov1pdfconvertfromcsv"><a href="https://api.pdf.co/v1/pdf/convert/from/csv">https://api.pdf.co/v1/pdf/convert/from/csv</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Convert CSV, XLS, XLSX to PDF conversion. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3487,7 +3405,7 @@ MAT,Match the lower-case greek letter with its capital form.,?,?,a,?,G,f,F
 </code></pre>
 <h2 id="pdf-from-doc-docx-rtf-txt-xps">PDF from Doc, DocX, RTF, TXT, XPS</h2>
 <h3 id="httpsapi.pdf.cov1pdfconvertfromdoc"><a href="https://api.pdf.co/v1/pdf/convert/from/doc">https://api.pdf.co/v1/pdf/convert/from/doc</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Convert DOC, DOCX, RTF, TXT, XPS files into PDF. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3568,7 +3486,7 @@ MAT,Match the lower-case greek letter with its capital form.,?,?,a,?,G,f,F
 </code></pre>
 <h2 id="pdf-from-html">PDF from HTML</h2>
 <h3 id="httpsapi.pdf.cov1pdfconvertfromhtml"><a href="https://api.pdf.co/v1/pdf/convert/from/html">https://api.pdf.co/v1/pdf/convert/from/html</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Convert HTML code snippet into full featured PDF. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3650,7 +3568,7 @@ MAT,Match the lower-case greek letter with its capital form.,?,?,a,?,G,f,F
 </code></pre>
 <h2 id="pdf-from-website-url">PDF from Website URL</h2>
 <h3 id="httpsapi.pdf.cov1pdfconvertfromurl"><a href="https://api.pdf.co/v1/pdf/convert/from/url">https://api.pdf.co/v1/pdf/convert/from/url</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Create a rich PDF copy of a website by passing URL link to the source. <code>GET</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3731,7 +3649,7 @@ MAT,Match the lower-case greek letter with its capital form.,?,?,a,?,G,f,F
 </code></pre>
 <h2 id="pdf-from-image">PDF from Image</h2>
 <h3 id="httpsapi.pdf.cov1pdfconvertfromimage"><a href="https://api.pdf.co/v1/pdf/convert/from/image">https://api.pdf.co/v1/pdf/convert/from/image</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Create PDF file from one or more JPG, PNG, TIF images. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3812,7 +3730,7 @@ MAT,Match the lower-case greek letter with its capital form.,?,?,a,?,G,f,F
 </code></pre>
 <h2 id="pdf-from-xls-or-xlsx">PDF from XLS or XLSX</h2>
 <h3 id="httpsapi.pdf.cov1xlsconverttopdf"><a href="https://api.pdf.co/v1/xls/convert/to/pdf">https://api.pdf.co/v1/xls/convert/to/pdf</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Convert XLS, XLSX, CSV spreadsheets into PDF. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3912,7 +3830,7 @@ MAT Match the lower-case greek letter with its capital form.
 <h1 id="pdf-tools">PDF Tools</h1>
 <h2 id="merge-and-split-pdf">Merge and Split PDF</h2>
 <h3 id="httpsapi.pdf.cov1pdfmerge"><a href="https://api.pdf.co/v1/pdf/merge">https://api.pdf.co/v1/pdf/merge</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Merges two PDF documents. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -3991,7 +3909,7 @@ MAT Match the lower-case greek letter with its capital form.
 }
 </code></pre>
 <h3 id="httpsapi.pdf.cov1pdfsplit"><a href="https://api.pdf.co/v1/pdf/split">https://api.pdf.co/v1/pdf/split</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Split PDF document. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -4080,7 +3998,7 @@ MAT Match the lower-case greek letter with its capital form.
 </code></pre>
 <h2 id="edit-and-modify-pdf">Edit and Modify PDF</h2>
 <h3 id="httpsapi.pdf.cov1pdfmakesearchable"><a href="https://api.pdf.co/v1/pdf/makesearchable">https://api.pdf.co/v1/pdf/makesearchable</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Turns unsearchable PDF files into searchable PDF files by extracting plain text from every page and by adding invisible text layer to every page of the PDF.<br>
 Please use <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
@@ -4185,7 +4103,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
 </code></pre>
 <h2 id="optimize-pdf-file-size">Optimize PDF File Size</h2>
 <h3 id="httpsapi.pdf.cov1pdfoptimize"><a href="https://api.pdf.co/v1/pdf/optimize">https://api.pdf.co/v1/pdf/optimize</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Optimizes existing PDF file to reduce its file size. This is done by re-compressing embedded images, cleaning up internals of PDF document. For PDFs with scanned images you may decrease total file size by 3-20x times.<br>
 Please use <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
@@ -4273,7 +4191,7 @@ Please use <code>GET</code> or <code>POST</code> request.</p>
 </code></pre>
 <h2 id="add-text-and-images-to-pdf">Add Text and Images to PDF</h2>
 <h3 id="httpsapi.pdf.cov1pdfeditadd"><a href="https://api.pdf.co/v1/pdf/edit/add">https://api.pdf.co/v1/pdf/edit/add</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Adds text and images to existing pdf file</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -4418,7 +4336,7 @@ Sample Request:</p>
 </code></pre>
 <h2 id="render-pdf-to-jpg">Render PDF to JPG</h2>
 <h3 id="httpsapi.pdf.cov1pdfconverttojpg"><a href="https://api.pdf.co/v1/pdf/convert/to/jpg">https://api.pdf.co/v1/pdf/convert/to/jpg</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> PDF to JPEG conversion. High quality rendering. Also works great for thumbnails generation and previews. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -4515,7 +4433,7 @@ Sample Request:</p>
 </code></pre>
 <h2 id="render-pdf-to-png">Render PDF to PNG</h2>
 <h3 id="httpsapi.pdf.cov1pdfconverttopng"><a href="https://api.pdf.co/v1/pdf/convert/to/png">https://api.pdf.co/v1/pdf/convert/to/png</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> PDF to PNG conversion. High quality rendering. Also works great for thumbnails generation and previews. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -4612,7 +4530,7 @@ Sample Request:</p>
 </code></pre>
 <h2 id="render-pdf-to-tiff">Render PDF to TIFF</h2>
 <h3 id="httpsapi.pdf.cov1pdfconverttotiff"><a href="https://api.pdf.co/v1/pdf/convert/to/tiff">https://api.pdf.co/v1/pdf/convert/to/tiff</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> PDF to high quality TIFF images conversion. High quality rendering. Also works great for thumbnails generation and previews. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -4708,7 +4626,7 @@ Sample Request:</p>
 <h1 id="barcodes">Barcodes</h1>
 <h2 id="generate-barcodes">Generate Barcodes</h2>
 <h4 id="httpsapi.pdf.cov1barcodegenerate"><a href="https://api.pdf.co/v1/barcode/generate">https://api.pdf.co/v1/barcode/generate</a></h4>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Generates high quality printable and scannable barcodes as images or PDF. All popular types are supported from Code 39, Code 128 to QR Code, Datamatrix and PDF417. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -4794,7 +4712,7 @@ Sample Request:</p>
 <h2 id="read-barcodes-from-url-or-file">Read Barcodes From URL or file</h2>
 <p>Decode Code 39, Code 128, QR Code, Datamatrix, PDF417 and many other barcodes from jpg, png, tiff images and pdf documents  Supports almost all available barcode types. Supports reading of noisy and damaged barcodes.</p>
 <h4 id="httpsapi.pdf.cov1barcodereadfromurl"><a href="https://api.pdf.co/v1/barcode/read/from/url">https://api.pdf.co/v1/barcode/read/from/url</a></h4>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Read barcodes from images, tiff, pdf documents, scanned documents. All popular types of barcodes are supported from Code 39, Code 128 to QR Code, Datamatrix and PDF417. Supports noisy and damaged barcodes, scans, documents. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -4941,7 +4859,7 @@ Sample Request:</p>
 <h1 id="web-tools">Web Tools</h1>
 <h2 id="url-to-jpg">URL to JPG</h2>
 <h3 id="httpsapi.pdf.cov1urlconverttojpg"><a href="https://api.pdf.co/v1/url/convert/to/jpg">https://api.pdf.co/v1/url/convert/to/jpg</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Create high-quality JPEG screenshot of web page using its URL. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -5030,7 +4948,7 @@ Sample Request:</p>
 </code></pre>
 <h2 id="url-to-png">URL to PNG</h2>
 <h3 id="httpsapi.pdf.cov1urlconverttopng"><a href="https://api.pdf.co/v1/url/convert/to/png">https://api.pdf.co/v1/url/convert/to/png</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Create high-quality PNG screenshot of web page using its URL. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -5120,7 +5038,7 @@ Sample Request:</p>
 <h1 id="manage-files-and-jobs">Manage Files and Jobs</h1>
 <h2 id="upload-files">Upload Files</h2>
 <h3 id="httpsapi.pdf.cov1fileuploadget-presigned-url"><a href="https://api.pdf.co/v1/file/upload/get-presigned-url">https://api.pdf.co/v1/file/upload/get-presigned-url</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> This method generates unique URL that you should use to upload your local file to using <code>POST</code> request. Then this url can be used as input for <code>url</code> parameter with data processing API methods.</p>
 <ul>
 <li>Get preassigned URL and it will generate unique URL that you may upload <strong>to</strong> withing next 30 minutes.</li>
@@ -5196,7 +5114,7 @@ https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.pdf&amp;encrypt=tr
 }
 </code></pre>
 <h3 id="httpsapi.pdf.cov1fileuploadurl"><a href="https://api.pdf.co/v1/file/upload/url">https://api.pdf.co/v1/file/upload/url</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Downloads file from a source url and uploads it as a temporary file. Temporary files are automatically permanently removed after 1 hour. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -5262,7 +5180,7 @@ https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.pdf&amp;encrypt=tr
 }
 </code></pre>
 <h3 id="httpsapi.pdf.cov1fileuploadurl-1"><a href="https://api.pdf.co/v1/file/upload/url">https://api.pdf.co/v1/file/upload/url</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Uploads file as a temporary file. Temporary files are automatically permanently removed after 1 hour. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -5328,7 +5246,7 @@ https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.pdf&amp;encrypt=tr
 }
 </code></pre>
 <h3 id="httpsapi.pdf.cov1fileuploadbase64"><a href="https://api.pdf.co/v1/file/upload/base64">https://api.pdf.co/v1/file/upload/base64</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Creates temporary file using base64 source data. You may use this temporary file URL with other API methods. Temporary files are automatically permanently removed after 1 hour. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -5395,7 +5313,7 @@ https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.pdf&amp;encrypt=tr
 }
 </code></pre>
 <h3 id="httpsapi.pdf.cov1filehash"><a href="https://api.pdf.co/v1/file/hash">https://api.pdf.co/v1/file/hash</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> Calculate and return MD5 hash of file by url. Commonly used to control if source document has been changed or not because every little change will cause hash string to differ as well. <code>GET</code> or <code>POST</code> request.</p>
 <p><strong>Input Parameters</strong></p>
 
@@ -5460,7 +5378,7 @@ https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.pdf&amp;encrypt=tr
 </code></pre>
 <h2 id="manage-background-jobs">Manage Background Jobs</h2>
 <h3 id="httpsapi.pdf.cov1jobcheck"><a href="https://api.pdf.co/v1/job/check">https://api.pdf.co/v1/job/check</a></h3>
-<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key. Get yours <a href="https://app.pdf.co/signup">here</a></em></p>
+<p><em>This method requires <a href="http://PDF.co">PDF.co</a> API key.</em> <a class="btn btn-primary" href="https://app.pdf.co/signup">Get your free PDF.co API key</a></p>
 <p><strong>Description:</strong> This method checks status of backgroud job by their <code>jobId</code>. You may create background job by calling API methods with <code>async</code> parameter set to <code>true</code>.<br>
 Checks and returns status of a job that is running in background.</p>
 <p>Available statuses are:</p>
@@ -5523,9 +5441,7 @@ Checks and returns status of a job that is running in background.</p>
     "status": "working"
 }
 </code></pre>
-
-    </div>
-  </div>
+</div>
 </body>
 
 </html>
