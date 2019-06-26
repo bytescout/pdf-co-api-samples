@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF.co API Docs</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-</head>
-
-<body class="stackedit">
-  <div class="stackedit__html"><h1 id="pdf.co-web-api-application-programming-interface"><a href="http://PDF.co">PDF.co</a> Web API (Application Programming Interface)</h1>
+<html><body>
+<h1 id="pdf.co-web-api-application-programming-interface"><a href="http://PDF.co">PDF.co</a> Web API (Application Programming Interface)</h1>
 <h2 id="benefits">Benefits:</h2>
 <ul>
 <li><strong>Security</strong>: API runs on the secure Amazon AWS infrastructure. All data transfers are encrypted by SSL/TLS encryption;</li>
@@ -288,7 +278,7 @@
 </tr>
 </tbody>
 </table><p><strong>Examples</strong></p>
-<pre><code>GET /api/v1/templates
+<pre><code>GET /v1/templates
 200
 [
   {
@@ -361,7 +351,7 @@
 </tr>
 </tbody>
 </table><p><strong>Examples</strong></p>
-<pre><code>GET /api/v1/templates/cd70e9e0
+<pre><code>GET /v1/templates/cd70e9e0
 200
 {
   "id": "cd70e9e0",
@@ -519,7 +509,7 @@
 </tr>
 </tbody>
 </table><p><strong>Examples</strong></p>
-<pre><code>POST /api/v1/templates/726b835a/use
+<pre><code>POST /v1/templates/726b835a/use
 {
   "roles": [
     {
@@ -672,7 +662,7 @@
 </tr>
 </tbody>
 </table><p><strong>Examples</strong></p>
-<pre><code>GET /api/v1/documents
+<pre><code>GET /v1/documents
 200
 {
   "documents": [
@@ -808,7 +798,7 @@
 </tr>
 </tbody>
 </table><p><strong>Examples</strong></p>
-<pre><code>GET /api/v1/documents/b9d00ce740789717b3fa588684234d0e4ce8c667ad813945d9
+<pre><code>GET /v1/documents/b9d00ce740789717b3fa588684234d0e4ce8c667ad813945d9
 200
 {
   "document": {
@@ -1226,7 +1216,8 @@ Also can generate e-signature certificate to be appended at the end of document.
 </tr>
 </tbody>
 </table><p><strong>Input Model</strong></p>
-<pre><code>{
+<pre><code>POST
+{
   "name": "string",
   "url": "string",
   "async": true,
@@ -5441,7 +5432,4 @@ Checks and returns status of a job that is running in background.</p>
     "status": "working"
 }
 </code></pre>
-</div>
-</body>
-
-</html>
+</body></html>

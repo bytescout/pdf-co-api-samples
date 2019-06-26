@@ -173,7 +173,7 @@ Our **dedicated**  API support team is happy to help with integrations and with 
 **Examples**
 
 ```
-GET /api/v1/templates
+GET /v1/templates
 200
 [
   {
@@ -233,7 +233,7 @@ GET /api/v1/templates
 **Examples**
 
 ```
-GET /api/v1/templates/cd70e9e0
+GET /v1/templates/cd70e9e0
 200
 {
   "id": "cd70e9e0",
@@ -364,7 +364,7 @@ GET /api/v1/templates/cd70e9e0
 **Examples**
 
 ```
-POST /api/v1/templates/726b835a/use
+POST /v1/templates/726b835a/use
 {
   "roles": [
     {
@@ -516,7 +516,7 @@ POST /api/v1/templates/726b835a/use
 **Examples**
 
 ```
-GET /api/v1/documents
+GET /v1/documents
 200
 {
   "documents": [
@@ -638,7 +638,7 @@ GET /api/v1/documents
 **Examples**
 
 ```
-GET /api/v1/documents/b9d00ce740789717b3fa588684234d0e4ce8c667ad813945d9
+GET /v1/documents/b9d00ce740789717b3fa588684234d0e4ce8c667ad813945d9
 200
 {
   "document": {
@@ -954,6 +954,7 @@ Please use `GET` request.
 **Input Model**
 
 ```
+POST
 {
   "name": "string",
   "url": "string",
@@ -1042,9 +1043,6 @@ POST
     "name": "newDocument"
 }
 ```
-
-
-
 
 
 # Extract Data

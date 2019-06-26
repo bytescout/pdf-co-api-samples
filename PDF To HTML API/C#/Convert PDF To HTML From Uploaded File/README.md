@@ -27,3 +27,7 @@ or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PD
 [Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
 
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+
+## Video
+
+[https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
