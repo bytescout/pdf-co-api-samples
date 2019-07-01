@@ -1480,7 +1480,7 @@ result.csv
 |-- |--
 |`async`| optional. Runs processing asynchronously. Returns Use `JobId` that you may use with `/job/check` to check state of the processing (possible states: `working`, `failed`, `aborted` and `success`). Must be one of: `true`, `false`.|
 |`encrypt`| optional. Enable encryption for output file. Must be one of: `true`, `false`.|
-|`inline`| optional. Must be one of: `true`, `false`.|
+|`inline`| **Enable if you want to receive JSON as inline body instead of the link to a file.** Optional. Must be one of: `true`, `false`.|
 |`file`| optional. Source PDF file.|
 |`url`| optional. URL of the source PDF file. Must be a String.|
 |`profiles`| optional. Must be a String.|
@@ -1502,7 +1502,48 @@ result.csv
 
 **Example**
 
-Sample Request:
+**Sample Request 1 (inline response)**
+! Don't forget to set `x-api-key` param or header param to API key, get yours [here](https://app.pdf.co/signup)
+
+```
+GET
+https://api.pdf.co/v1/pdf/convert/to/json?url=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf&inline=true&x-api-key=YOURAPIKEY
+```
+
+**Response**
+```
+200
+{
+    "body": {
+        "document": {
+            "page": {
+                "@index": "0",
+                "row": {
+                    "column": {
+                        "text": {
+                            "@fontName": "Arial",
+                            "@fontSize": "16.0",
+                            "@fontStyle": "Bold",
+                            "@x": "56.80",
+                            "@y": "67.80",
+                            "@width": "123.41",
+                            "@height": "16.10",
+                            "#text": "Dummy PDF file"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageCount": 1,
+    "error": false,
+    "status": 200,
+    "name": "dummy.json",
+    "remainingCredits": 9538
+}
+```
+
+**Sample Request 2:**
 
 ! Don't forget to set `x-api-key` param or header param to API key, get yours [here](https://app.pdf.co/signup)
 
