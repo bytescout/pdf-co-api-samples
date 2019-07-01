@@ -1502,7 +1502,54 @@ result.csv
 
 **Example**
 
-**Sample Request 1 (inline response)**
+
+**Sample Request 1 (POST request, inline response)**
+
+```
+POST
+{
+ "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+ "inline": true
+}
+```
+
+**Response**
+
+```
+200
+{
+    "body": {
+        "document": {
+            "page": {
+                "@index": "0",
+                "row": {
+                    "column": {
+                        "text": {
+                            "@fontName": "Arial",
+                            "@fontSize": "16.0",
+                            "@fontStyle": "Bold",
+                            "@x": "56.80",
+                            "@y": "67.80",
+                            "@width": "123.41",
+                            "@height": "16.10",
+                            "#text": "Dummy PDF file"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "pageCount": 1,
+    "error": false,
+    "status": 200,
+    "name": "dummy.json",
+    "remainingCredits": 9537
+}
+```
+
+
+**Sample Request 2 (GET request, inline response)**
+
 ! Don't forget to set `x-api-key` param or header param to API key, get yours [here](https://app.pdf.co/signup)
 
 ```
