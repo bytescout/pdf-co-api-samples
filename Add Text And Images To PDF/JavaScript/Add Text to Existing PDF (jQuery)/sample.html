@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cloud API JQuery sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="addTextToPDF.js" type="text/javascript" encoding="UTF-8"></script>
+</head>
+<body>
+ 
+    <form id="form" enctype="multipart/form-data">
+        <p>
+            <label>Copy-paste your API Key for ByteScout Cloud API here</label>
+            <input type="text" id="apiKey" placeholder="your cloud API Key" value=""/> 
+            <a href="https://app.pdf.co/documentation/api" target="_blank">no api key yet? sign up here</a>
+        </p>
+        <p>
+            <label>Source PDF File Url</label>
+            <input type="file" id="SourceFile" placeholder="Upload Source File" />
+        </p>
+        <p>
+            <label>Text</label>
+            <input type="text" id="inputText" placeholder="Input Text" value="APPROVED" />
+        </p>
+        <p>
+            <label>Font Name</label>
+            <input type="text" id="fontName" placeholder="Font Name" value="Times New Roman" />
+        </p>
+        <p>
+            <label>Font Size</label>
+            <input type="text" id="fontSize" placeholder="Font Size" value="24" />
+        </p>
+        <p>
+            <label>Color</label>
+            <input type="text" id="fontColor" placeholder="Color" value="FF0000" />
+        </p>
+        <p>
+            <label>Destination Co-ordinates - </label>
+            <b>X: </b> <input type="text" id="destinationXCoordinate" value="400" /> &nbsp;&nbsp;&nbsp;
+            <b>Y: </b> <input type="text" id="destinationYCoordinate" value="600" /> 
+        </p>
+        <p>
+            <label>Destination Image Size - </label>
+            <b>Height: </b> <input type="text" id="destinationHeight" value="32" /> &nbsp;&nbsp;&nbsp;
+            <b>Width: </b> <input type="text" id="destinationWidth" value="119" /> 
+        </p>
+        <button type="button" id="submit">Convert</button> <span id="status"></span>
+    </form>
+
+    <div id="errorBlock">
+        <h2>Error:</h2>
+        <h4>Code: <span id="statusCode"></span></h4>
+        <ul id="errors"></ul>
+    </div>
+ 
+    <div id="resultBlock">
+        <h2>Output:</h2>
+        <pre id="inlineOutput"></pre><br/>
+        <iframe id="iframeResultPdf" src="" width="100%" height="500px"></iframe>
+    </div>
+ 
+</body>
+</html>
