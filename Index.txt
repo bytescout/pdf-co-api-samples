@@ -29,17 +29,27 @@
 \Add Text And Images To PDF\JavaScript
 \Add Text And Images To PDF\PowerShell
 \Add Text And Images To PDF\VB.NET
+\Add Text And Images To PDF\C#\Add Image by finding target coordinates
 \Add Text And Images To PDF\C#\Add Images to Existing PDF
+\Add Text And Images To PDF\C#\Add Text by finding target coordinates
 \Add Text And Images To PDF\C#\Add Text to Existing PDF
+\Add Text And Images To PDF\Java\Add Image by finding target coordinates
 \Add Text And Images To PDF\Java\Add Images to Existing PDF
+\Add Text And Images To PDF\Java\Add Text by finding target coordinates
 \Add Text And Images To PDF\Java\Add Text to Existing PDF
+\Add Text And Images To PDF\JavaScript\Add Image by finding target coordinates (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Image to Existing PDF (jQuery)
 \Add Text And Images To PDF\JavaScript\Add Image to Existing PDF (Node.js)
+\Add Text And Images To PDF\JavaScript\Add Text by finding target coordinates (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Text to Existing PDF (jQuery)
 \Add Text And Images To PDF\JavaScript\Add Text to Existing PDF (Node.js)
+\Add Text And Images To PDF\PowerShell\Add Image by finding target coordinates
 \Add Text And Images To PDF\PowerShell\Add Images to Existing PDF
+\Add Text And Images To PDF\PowerShell\Add Text by finding target coordinates
 \Add Text And Images To PDF\PowerShell\Add Text to Existing PDF
+\Add Text And Images To PDF\VB.NET\Add Image by finding target coordinates
 \Add Text And Images To PDF\VB.NET\Add Images to Existing PDF
+\Add Text And Images To PDF\VB.NET\Add Text by finding target coordinates
 \Add Text And Images To PDF\VB.NET\Add Text to Existing PDF
 \Barcode Generator API\C#
 \Barcode Generator API\cURL
