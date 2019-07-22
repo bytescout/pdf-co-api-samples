@@ -1,0 +1,33 @@
+## How to add text and images to PDF in C# using PDF.co Web API
+
+### The tutorial below will demonstrate how to add text and images to PDF in C#
+
+Learn how to add text and images to PDF in C# with this source code sample. Want to add text and images to PDF in your C# app? PDF.co Web API is designed for it. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
+
+This code snippet below for PDF.co Web API works best when you need to quickly add text and images to PDF in your C# application. Just copy and paste the code into your C# application’s code and follow the instruction. Use of PDF.co Web API in C# is also explained in the documentation included along with the product.
+
+Download free trial version of PDF.co Web API from our website with this and other source code samples for C#.
+
+## Contact Customer Support
+
+[Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
+
+or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+
+## Free Trial Download
+
+[Get 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+
+## Looking for Web API? 
+
+[Get your PDF.co API key](https://pdf.co/documentation/api?utm_source=github-readme)
+
+## Documentation and Reference
+
+[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+
+[Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+
+## Video
+
+[https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
