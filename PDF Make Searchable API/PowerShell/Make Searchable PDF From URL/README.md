@@ -8,7 +8,7 @@ This code snippet below for PDF.co Web API works best when you need to quickly P
 
 You can download free trial version of PDF.co Web API from our website to see and try many others source code samples for PowerShell.
 
-## Contact Customer Support
+## Get In Touch
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
@@ -16,18 +16,20 @@ or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PD
 
 ## Free Trial Download
 
-[Get 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
 
-## Looking for Web API? 
+## Web API (On-demand version)
 
-[Get your PDF.co API key](https://pdf.co/documentation/api?utm_source=github-readme)
+[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
 
-## Documentation and Reference
+## API Documentation and References
 
 [Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
 
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
 
-## Video
+[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
+
+## Video Review
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
