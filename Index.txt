@@ -5,6 +5,7 @@
 \Barcode Reader API
 \CSV To PDF API
 \DOC To PDF API
+\Document Parser API
 \Excel To CSV API
 \Excel To HTML API
 \Excel To JSON API
@@ -155,6 +156,10 @@
 \DOC To PDF API\VB.NET\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL Asynchronously
+\Document Parser API\C#
+\Document Parser API\Java
+\Document Parser API\C#\Parse Uploaded File
+\Document Parser API\Java\Parse Uploaded File
 \Excel To CSV API\JavaScript
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery - Async API
