@@ -1,0 +1,38 @@
+﻿---
+# Template that demonstrates parsing of multi-page table using only 
+# regular expressions for the table start, end, and rows.
+# If regular expression cannot be written for every table row (for example, 
+# if the table contains empty cells), try the second method demonstrated 
+# in 'MultiPageTable-template2.yml' template.
+templateVersion: 2
+templatePriority: 0
+sourceId: Multipage Table Test
+detectionRules:
+  keywords:
+  - Sample document with multi-page table
+fields:
+  total:
+    expression: TOTAL {{DECIMAL}}    
+tables:
+- name: table1
+  start:
+    # regular expression to find the table start in document
+    expression: Item\s+Description\s+Price\s+Qty\s+Extended Price
+  end:
+    # regular expression to find the table end in document
+    expression: TOTAL\s+\d+\.\d\d
+  row:
+    # regular expression to find table rows
+    expression: '^\s*(?<itemNo>\d+)\s+(?<description>.+?)\s+(?<price>\d+\.\d\d)\s+(?<qty>\d+)\s+(?<extPrice>\d+\.\d\d)'
+  columns: 
+  - name: itemNo
+    type: integer
+  - name: description
+    type: string
+  - name: price
+    type: decimal
+  - name: qty
+    type: integer
+  - name: extPrice
+    type: decimal
+  multipage: true

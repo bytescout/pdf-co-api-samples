@@ -158,8 +158,19 @@
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL Asynchronously
 \Document Parser API\C#
 \Document Parser API\Java
+\Document Parser API\JavaScript
+\Document Parser API\Powershell
+\Document Parser API\VB.NET
+\Document Parser API\C#\Parse From URL
 \Document Parser API\C#\Parse Uploaded File
+\Document Parser API\Java\Parse From Url
 \Document Parser API\Java\Parse Uploaded File
+\Document Parser API\JavaScript\Parse From Url (Node.js)
+\Document Parser API\JavaScript\Parse Uploaded File (Node.js)
+\Document Parser API\Powershell\Parse From Uploaded File
+\Document Parser API\Powershell\Parse From Url
+\Document Parser API\VB.NET\Parse From Url
+\Document Parser API\VB.NET\Parse Uploaded File
 \Excel To CSV API\JavaScript
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery - Async API

@@ -27,16 +27,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Main
-{
+public class Main {
     // The authentication key (API Key).
     // Get your own by registering at https://app.pdf.co/documentation/api
     final static String API_KEY = "***********************************";
 
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         // Source PDF file
-        final Path SourceFile = Paths.get(".\\MultiPageTable.pdf");
+        final String SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/document-parser/MultiPageTable.pdf";
         // PDF document password. Leave empty for unprotected documents.
         final String Password = "";
         // Destination JSON file name
@@ -50,60 +48,12 @@ public class Main
         // Create HTTP client instance
         OkHttpClient webClient = new OkHttpClient();
 
-        // 1. RETRIEVE THE PRESIGNED URL TO UPLOAD THE FILE.
-        // * If you already have a direct file URL, skip to the step 3.
-
-        // Prepare URL for `Get Presigned URL` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/file/upload/get-presigned-url?contenttype=application/octet-stream&name=%s",
-                SourceFile.getFileName());
-
-        // Prepare request
-        Request request = new Request.Builder()
-                .url(query)
-                .addHeader("x-api-key", API_KEY) // (!) Set API Key
-                .build();
-        // Execute request
-        Response response = webClient.newCall(request).execute();
-
-        if (response.code() == 200)
-        {
-            // Parse JSON response
-            JsonObject json = new JsonParser().parse(response.body().string()).getAsJsonObject();
-
-            boolean error = json.get("error").getAsBoolean();
-            if (!error)
-            {
-                // Get URL to use for the file upload
-                String uploadUrl = json.get("presignedUrl").getAsString();
-                // Get URL of uploaded file to use with later API calls
-                String uploadedFileUrl = json.get("url").getAsString();
-
-                // 2. UPLOAD THE FILE TO CLOUD.
-
-                if (uploadFile(webClient, API_KEY, uploadUrl, SourceFile))
-                {
-                    // 3. PARSE UPLOADED PDF DOCUMENT
-
-                    ParseDocument(webClient, API_KEY, DestinationFile, Password, uploadedFileUrl, templateText);
-                }
-            }
-            else
-            {
-                // Display service reported error
-                System.out.println(json.get("message").getAsString());
-            }
-        }
-        else
-        {
-            // Display request error
-            System.out.println(response.code() + " " + response.message());
-        }
+        // PARSE UPLOADED PDF DOCUMENT
+        ParseDocument(webClient, API_KEY, DestinationFile, Password, SourceFileUrl, templateText);
     }
 
     public static void ParseDocument(OkHttpClient webClient, String apiKey, Path destinationFile,
-        String password, String uploadedFileUrl, String templateText) throws IOException
-    {
+                                     String password, String uploadedFileUrl, String templateText) throws IOException {
         // Prepare POST request body in JSON format
         JsonObject jsonBody = new JsonObject();
         jsonBody.add("url", new JsonPrimitive(uploadedFileUrl));
@@ -122,14 +72,12 @@ public class Main
         // Execute request
         Response response = webClient.newCall(request).execute();
 
-        if (response.code() == 200)
-        {
+        if (response.code() == 200) {
             // Parse JSON response
             JsonObject json = new JsonParser().parse(response.body().string()).getAsJsonObject();
 
             boolean error = json.get("error").getAsBoolean();
-            if (!error)
-            {
+            if (!error) {
                 // Get URL of generated JSON file
                 String resultFileUrl = json.get("url").getAsString();
 
@@ -137,41 +85,17 @@ public class Main
                 downloadFile(webClient, resultFileUrl, destinationFile.toFile());
 
                 System.out.printf("Generated JSON file saved as \"%s\" file.", destinationFile.toString());
-            }
-            else
-            {
+            } else {
                 // Display service reported error
                 System.out.println(json.get("message").getAsString());
             }
-        }
-        else
-        {
+        } else {
             // Display request error
             System.out.println(response.code() + " " + response.message());
         }
     }
 
-    public static boolean uploadFile(OkHttpClient webClient, String apiKey, String url, Path sourceFile) throws IOException
-    {
-        // Prepare request body
-        RequestBody body = RequestBody.create(MediaType.parse("application/octet-stream"), sourceFile.toFile());
-
-        // Prepare request
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("x-api-key", apiKey) // (!) Set API Key
-                .addHeader("content-type", "application/octet-stream")
-                .put(body)
-                .build();
-
-        // Execute request
-        Response response = webClient.newCall(request).execute();
-
-        return (response.code() == 200);
-    }
-
-    public static void downloadFile(OkHttpClient webClient, String url, File destinationFile) throws IOException
-    {
+    public static void downloadFile(OkHttpClient webClient, String url, File destinationFile) throws IOException {
         // Prepare request
         Request request = new Request.Builder()
                 .url(url)
