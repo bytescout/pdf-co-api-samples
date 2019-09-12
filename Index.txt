@@ -162,7 +162,9 @@
 \Document Parser API\Powershell
 \Document Parser API\VB.NET
 \Document Parser API\C#\Parse From URL
+\Document Parser API\C#\Parse From URL Asynchronously
 \Document Parser API\C#\Parse Uploaded File
+\Document Parser API\C#\Parse Uploaded File Asynchronously
 \Document Parser API\Java\Parse From Url
 \Document Parser API\Java\Parse Uploaded File
 \Document Parser API\JavaScript\Parse From Url (Node.js)
