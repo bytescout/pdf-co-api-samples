@@ -8,28 +8,111 @@ JavaScript code snippet like this for PDF.co Web API works best when you need to
 
 Trial version of ByteScout is available for free download from our website. This and other source code samples for JavaScript and other programming languages are available.
 
-## Get In Touch
+## REQUEST FREE TECH SUPPORT
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
-or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+or just send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
 
-## Free Trial Download
+## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Sign Up For Online Training](https://academy.bytescout.com/)
 
-## Web API (On-demand version)
 
-[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
+## ON-DEMAND REST WEB API
 
-## API Documentation and References
-
-[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
-
+[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
-[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
-
-## Video Review
+## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### ****generate_barcode.js:**
+    
+```
+function generateBarcode()
+{
+    // Hide result blocks
+    document.getElementById("errorBlock").style.display = "none";
+    document.getElementById("resultBlock").style.display = "none";
+
+    // Get API Key
+    var apiKey = document.getElementById("apiKey").value.trim();
+    if (apiKey == "") {
+        alert("API Key should not be empty.");
+        return false;
+    }
+    // Get barcode type
+    var barcodeType=document.getElementById("barcodeType").value;
+    // Get barcode value
+    var inputValue = document.getElementById("inputValue").value.trim();
+    if (inputValue == null || inputValue == "") {
+        alert("Barcode Value should not be empty.");
+        return false;
+    }
+
+    //show loader
+    showLoader(true);
+
+    // Prepare URL
+    var url = "https://api.pdf.co/v1/barcode/generate?name=barcode.png";
+    url += "&type=" + barcodeType; // Set barcode type (symbology)
+    url += "&value=" + inputValue; // Set barcode value
+
+    // Prepare request
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", url, true);
+    httpRequest.setRequestHeader("x-api-key", apiKey); // set API Key
+    // Asynchronous response handler
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState == 4) {
+            // If OK
+            if (httpRequest.status == 200) {
+                var result = JSON.parse(httpRequest.responseText);
+                if (result.error == false) {
+                    document.getElementById("resultBlock").style.display = "block"; // show hidden resultBlock
+                    document.getElementById("image").setAttribute("src", result.url); // Set image link to display
+                }
+                else {
+                    document.getElementById("errorBlock").style.display = "block"; // show hidden errorBlock
+                    document.getElementById("error").innerHTML = result.message;
+                }
+            }
+            // Else display error
+            else {
+                document.getElementById("errorBlock").style.display = "block"; // show hidden errorBlock
+                document.getElementById("error").innerHTML = "Request failed. Please check you use the correct API key.";
+            }
+
+            // Hide loader
+            showLoader(false);
+        }
+    }
+    // Send request
+    httpRequest.send();
+
+    return true;
+}
+
+function showLoader(isDisplay){
+    var loader = document.getElementById("loader");
+
+    if(isDisplay){
+        loader.style.display = "";
+    }
+    else{
+        loader.style.display="none";
+    }
+}
+```
+
+<!-- code block end -->

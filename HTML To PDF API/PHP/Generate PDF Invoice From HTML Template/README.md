@@ -8,28 +8,118 @@ PHP code snippet like this for PDF.co Web API works best when you need to quickl
 
 PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your PHP application included into trial version.
 
-## Get In Touch
+## REQUEST FREE TECH SUPPORT
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
-or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+or just send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
 
-## Free Trial Download
+## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Sign Up For Online Training](https://academy.bytescout.com/)
 
-## Web API (On-demand version)
 
-[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
+## ON-DEMAND REST WEB API
 
-## API Documentation and References
-
-[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
-
+[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
-[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
-
-## Video Review
+## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### ****generate-invoice.php:**
+    
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Invoice Generation Results</title>
+</head>
+<body>
+
+<?php 
+
+// Get submitted form data
+$apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api
+
+// HTML template
+$template = file_get_contents("./invoice_template.html");
+// Data to fill the template
+$templateData = file_get_contents("./invoice_data.json");
+
+
+// Prepare URL for HTML to PDF API call
+$url = "https://api.pdf.co/v1/pdf/convert/from/html?name=result.pdf";
+
+// Create HTML to PDF options
+$data = json_encode(array(
+    "html" => utf8_encode($template),
+    "templateData" => utf8_encode($templateData)
+    ));
+
+// Create request
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+
+// Execute request
+$result = curl_exec($curl);
+
+if (curl_errno($curl) == 0)
+{
+    $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    
+    if ($status_code == 200)
+    {
+        $json = json_decode($result, true);
+        
+        if ($json["error"] == false)
+        {
+            $resultFileUrl = $json["url"];
+            
+            // Display link to the file with conversion results
+            echo "<div>## Conversion Result:<a href='" . $resultFileUrl . "' target='_blank'>" . $resultFileUrl . "</a></div>";
+        }
+        else
+        {
+            // Display service reported error
+            echo "<p>Error: " . $json["message"] . "</p>"; 
+        }
+    }
+    else
+    {
+        // Display request error
+        echo "<p>Status code: " . $status_code . "</p>"; 
+        echo "<p>" . $result . "</p>";
+    }
+}
+else
+{
+    // Display CURL error
+    echo "Error: " . curl_error($curl);
+}
+
+// Cleanup
+curl_close($curl);
+
+
+?>
+
+</body>
+</html>
+```
+
+<!-- code block end -->

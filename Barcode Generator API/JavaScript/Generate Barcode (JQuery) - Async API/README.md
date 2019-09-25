@@ -8,28 +8,109 @@ JavaScript code samples for JavaScript developers help to speed up the applicati
 
 PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your JavaScript application included into trial version.
 
-## Get In Touch
+## REQUEST FREE TECH SUPPORT
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
-or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+or just send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
 
-## Free Trial Download
+## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Sign Up For Online Training](https://academy.bytescout.com/)
 
-## Web API (On-demand version)
 
-[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
+## ON-DEMAND REST WEB API
 
-## API Documentation and References
-
-[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
-
+[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
-[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
-
-## Video Review
+## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### ****generate_barcode.js:**
+    
+```
+var apiKey = "";
+
+$(document).ready(function () {
+    $("#resultBlock").hide();
+    $("#errorBlock").hide();
+});
+
+$(document).on("click", "#submit", function () {
+    apiKey = $("#apiKey").val().trim(); //Get your API key by registering at https://app.pdf.co/documentation/api
+
+    var url = "https://api.pdf.co/v1/barcode/generate?name=barcode.png";
+    url += "&type=" + $("#barcodeType").val(); // Set barcode type (symbology)
+    url += "&value=" + $("#inputValue").val(); // Set barcode value
+    url += "&async=True"; // Set async
+
+    // Show loader
+    $("#loader").show();
+
+    $.ajax({
+        url: url,
+        type: "GET",
+        headers: {
+            "x-api-key": apiKey
+        },
+    })
+        .done(function (data, textStatus, jqXHR) {
+
+            if (data.error) {
+                $("#errorBlock").show();
+                $("#error").html(data.message);
+                $("#loader").hide();
+            }
+            else {
+                checkIfJobIsCompleted(data.jobId, data.url);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            $("#errorBlock").show();
+            $("#error").html("Request failed. Please check you use the correct API key.");
+            $("#loader").hide();
+        });
+});
+
+function checkIfJobIsCompleted(jobId, resultFileUrl) {
+    $.ajax({
+        url: 'https://api.pdf.co/v1/job/check?jobid=' + jobId,
+        type: 'GET',
+        headers: { 'x-api-key': apiKey }, // passing our api key
+        success: function (jobResult) {
+
+            $("#status").html(jobResult.status + ' &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
+
+            if (jobResult.status == "working") {
+                // Check again after 3 seconds
+                setTimeout(function(){
+                    checkIfJobIsCompleted(jobId, resultFileUrl);
+                }, 3000);
+            }
+            else if (jobResult.status == "success") {
+                $("#resultBlock").show();
+                $("#image").attr("src", resultFileUrl);
+            }
+
+            $("#loader").hide();
+        },
+        error: function(){
+            $("#errorBlock").show();
+            $("#error").html("Request failed. Please check you use the correct API key.");
+            $("#loader").hide();
+        }
+    });
+}
+```
+
+<!-- code block end -->

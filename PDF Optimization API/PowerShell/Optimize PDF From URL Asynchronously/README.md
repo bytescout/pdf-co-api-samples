@@ -8,28 +8,119 @@ This rich sample source code in PowerShell for PDF.co Web API includes the numbe
 
 PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your PowerShell application included into trial version.
 
-## Get In Touch
+## REQUEST FREE TECH SUPPORT
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
-or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+or just send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
 
-## Free Trial Download
+## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Sign Up For Online Training](https://academy.bytescout.com/)
 
-## Web API (On-demand version)
 
-[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
+## ON-DEMAND REST WEB API
 
-## API Documentation and References
-
-[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
-
+[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
-[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
-
-## Video Review
+## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### ****OptimizePdfFromUrlAsynchronously.ps1:**
+    
+```
+# Cloud API asynchronous "Optimize PDF" job example.
+# Allows to avoid timeout errors when processing huge or scanned PDF documents.
+
+# The authentication key (API Key).
+# Get your own by registering at https://app.pdf.co/documentation/api
+$API_KEY = "***********************************"
+
+# Direct URL of source PDF file.
+$SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-optimize/sample.pdf"
+# PDF document password. Leave empty for unprotected documents.
+$Password = ""
+# Destination PDF file name
+$DestinationFile = ".\result.pdf"
+# (!) Make asynchronous job
+$Async = $true
+
+
+# Prepare URL for `Optimize PDF` API call
+$query = "https://api.pdf.co/v1/pdf/optimize?name={0}&password={1}&url={2}&async={3}" -f `
+    $(Split-Path $DestinationFile -Leaf), $Password, $SourceFileURL, $Async
+$query = [System.Uri]::EscapeUriString($query)
+
+try {
+    # Execute request
+    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+
+    if ($jsonResponse.error -eq $false) {
+        # Asynchronous job ID
+        $jobId = $jsonResponse.jobId
+        # URL of generated PDF file that will available after the job completion
+        $resultFileUrl = $jsonResponse.url
+
+        # Check the job status in a loop. 
+        do {
+            $statusCheckUrl = "https://api.pdf.co/v1/job/check?jobid=" + $jobId
+            $jsonStatus = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $statusCheckUrl
+
+            # Display timestamp and status (for demo purposes)
+            Write-Host "$(Get-date): $($jsonStatus.status)"
+
+            if ($jsonStatus.status -eq "success") {
+                # Download PDF file
+                Invoke-WebRequest -Headers @{ "x-api-key" = $API_KEY } -OutFile $DestinationFile -Uri $resultFileUrl
+                Write-Host "Generated PDF file saved as `"$($DestinationFile)`" file."
+                break
+            }
+            elseif ($jsonStatus.status -eq "working") {
+                # Pause for a few seconds
+                Start-Sleep -Seconds 3
+            }
+            else {
+                Write-Host $jsonStatus.status
+                break
+            }
+        }
+        while ($true)
+    }
+    else {
+        # Display service reported error
+        Write-Host $jsonResponse.message
+    }
+}
+catch {
+    # Display request error
+    Write-Host $_.Exception
+}
+
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### ****run.bat:**
+    
+```
+@echo off
+
+powershell -NoProfile -ExecutionPolicy Bypass -Command "& .\OptimizePdfFromUrlAsynchronously.ps1"
+echo Script finished with errorlevel=%errorlevel%
+
+pause
+```
+
+<!-- code block end -->

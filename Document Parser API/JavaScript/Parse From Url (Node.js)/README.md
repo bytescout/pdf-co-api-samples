@@ -8,28 +8,147 @@ This simple and easy to understand sample source code in JavaScript for PDF.co W
 
 Our website provides free trial version of PDF.co Web API that gives source code samples to assist with your JavaScript project.
 
-## Get In Touch
+## REQUEST FREE TECH SUPPORT
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
-or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+or just send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
 
-## Free Trial Download
+## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Sign Up For Online Training](https://academy.bytescout.com/)
 
-## Web API (On-demand version)
 
-[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
+## ON-DEMAND REST WEB API
 
-## API Documentation and References
-
-[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
-
+[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
-[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
-
-## Video Review
+## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### ****MultiPageTable-template1.yml:**
+    
+```
+---
+# Template that demonstrates parsing of multi-page table using only 
+# regular expressions for the table start, end, and rows.
+# If regular expression cannot be written for every table row (for example, 
+# if the table contains empty cells), try the second method demonstrated 
+# in 'MultiPageTable-template2.yml' template.
+templateVersion: 2
+templatePriority: 0
+sourceId: Multipage Table Test
+detectionRules:
+  keywords:
+  - Sample document with multi-page table
+fields:
+  total:
+    expression: TOTAL {{DECIMAL}}    
+tables:
+- name: table1
+  start:
+    # regular expression to find the table start in document
+    expression: Item\s+Description\s+Price\s+Qty\s+Extended Price
+  end:
+    # regular expression to find the table end in document
+    expression: TOTAL\s+\d+\.\d\d
+  row:
+    # regular expression to find table rows
+    expression: '^\s*(?<itemNo>\d+)\s+(?<description>.+?)\s+(?<price>\d+\.\d\d)\s+(?<qty>\d+)\s+(?<extPrice>\d+\.\d\d)'
+  columns: 
+  - name: itemNo
+    type: integer
+  - name: description
+    type: string
+  - name: price
+    type: decimal
+  - name: qty
+    type: integer
+  - name: extPrice
+    type: decimal
+  multipage: true
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### ****ParsePdfFromUploadedFile.js:**
+    
+```
+/*jshint esversion: 6 */
+var https = require("https");
+var fs = require("fs");
+
+// `request` module is required for file upload.
+// Use "npm install request" command to install.
+var request = require("request");
+
+// The authentication key (API Key).
+// Get your own by registering at https://app.pdf.co/documentation/api
+const API_KEY = "***********************************";
+
+// Source PDF file
+const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/document-parser/MultiPageTable.pdf";
+
+// Destination PDF file name
+const DestinationFile = "./result.json";
+
+// Template text. Use Document Parser SDK (https://bytescout.com/products/developer/documentparsersdk/index.html)
+// to create templates.
+// Read template from file:
+var templateText = fs.readFileSync("./MultiPageTable-template1.yml", "utf-8");
+
+// URL for `Document Parser` API call
+var query = `https://api.pdf.co/v1/pdf/documentparser`;
+var jsonRequestObject = {
+    url: SourceFileUrl,
+    template: templateText
+};
+
+request(
+    {
+        url: query,
+        headers: { "x-api-key": API_KEY },
+        method: "POST",
+        json: true,
+        body: jsonRequestObject
+    },
+    function (error, response, body) {
+
+        if (error) {
+            return console.error("Error: ", error);
+        }
+
+        // Parse JSON response
+        let data = JSON.parse(JSON.stringify(body));
+
+        if (data.error == false) {
+            //Download generated file
+            var file = fs.createWriteStream(DestinationFile);
+            https.get(data.url, (response2) => {
+                response2.pipe(file)
+                    .on("close", () => {
+                        console.log(`Generated result file saved as "${DestinationFile}" file.`);
+                    });
+            });
+        }
+        else {
+            // Service reported error
+            console.log("Error: " + data.message);
+        }
+    }
+);
+```
+
+<!-- code block end -->

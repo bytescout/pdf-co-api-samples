@@ -8,28 +8,95 @@ You will save a lot of time on writing and testing code as you may just take the
 
 Our website provides free trial version of PDF.co Web API that includes source code samples to help with your PowerShell project.
 
-## Get In Touch
+## REQUEST FREE TECH SUPPORT
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
-or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+or just send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
 
-## Free Trial Download
+## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Sign Up For Online Training](https://academy.bytescout.com/)
 
-## Web API (On-demand version)
 
-[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
+## ON-DEMAND REST WEB API
 
-## API Documentation and References
-
-[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
-
+[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
-[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
-
-## Video Review
+## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### ****ConvertPdfToJpegFromUrl.ps1:**
+    
+```
+# The authentication key (API Key).
+# Get your own by registering at https://app.pdf.co/documentation/api
+$API_KEY = "***********************************"
+
+# Direct URL of source PDF file.
+$SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-image/sample.pdf"
+# Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
+$Pages = ""
+# PDF document password. Leave empty for unprotected documents.
+$Password = ""
+
+
+# Prepare URL for `PDF To JPEG` API call
+$query = "https://api.pdf.co/v1/pdf/convert/to/jpg?password={0}&pages={1}&url={2}" -f `
+    $Password, $Pages, $SourceFileUrl
+$query = [System.Uri]::EscapeUriString($query)
+
+try {
+    # Execute request
+    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+
+    if ($jsonResponse.error -eq $false) {
+        # Download generated JPEG files
+        $part = 1;
+        foreach ($url in $jsonResponse.urls) {
+            $localFileName = ".\page$($part).jpg"
+
+            Invoke-WebRequest -Headers @{ "x-api-key" = $API_KEY } -OutFile $localFileName -Uri $url
+
+            Write-Host "Downloaded `"$($localFileName)`""
+            $part++
+        }
+    }
+    else {
+        # Display service reported error
+        Write-Host $jsonResponse.message
+    }
+}
+catch {
+    # Display request error
+    Write-Host $_.Exception
+}
+
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### ****run.bat:**
+    
+```
+@echo off
+
+powershell -NoProfile -ExecutionPolicy Bypass -Command "& .\ConvertPdfToJpegFromUrl.ps1"
+echo Script finished with errorlevel=%errorlevel%
+
+pause
+```
+
+<!-- code block end -->

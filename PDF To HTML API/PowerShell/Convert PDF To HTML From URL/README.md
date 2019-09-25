@@ -8,28 +8,99 @@ Fast application programming interfaces of PDF.co Web API for PowerShell plus th
 
 Trial version of ByteScout is available for free download from our website. This and other source code samples for PowerShell and other programming languages are available.
 
-## Get In Touch
+## REQUEST FREE TECH SUPPORT
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
-or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+or just send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
 
-## Free Trial Download
+## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Sign Up For Online Training](https://academy.bytescout.com/)
 
-## Web API (On-demand version)
 
-[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
+## ON-DEMAND REST WEB API
 
-## API Documentation and References
-
-[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
-
+[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
-[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
-
-## Video Review
+## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### ****ConvertPdfToHtmlFromUrl.ps1:**
+    
+```
+# The authentication key (API Key).
+# Get your own by registering at https://app.pdf.co/documentation/api
+$API_KEY = "***********************************"
+
+# Direct URL of source PDF file.
+$SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-html/sample.pdf"
+# Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
+$Pages = ""
+# PDF document password. Leave empty for unprotected documents.
+$Password = ""
+# Destination HTML file name
+$DestinationFile = ".\result.html"
+# Set to $true to get simplified HTML without CSS. Default is the rich HTML keeping the document design.
+$PlainHtml = $false
+# Set to $true if your document has the column layout like a newspaper.
+$ColumnLayout = $false
+
+
+
+# Prepare URL for `PDF To HTML` API call
+$query = "https://api.pdf.co/v1/pdf/convert/to/html?name={0}&password={1}&pages={2}&simple={3}&columns={4}&url={5}" -f `
+    $(Split-Path $DestinationFile -Leaf), $Password, $Pages, $PlainHtml, $ColumnLayout, $SourceFileUrl
+$query = [System.Uri]::EscapeUriString($query)
+
+try {
+    # Execute request
+    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+
+    if ($jsonResponse.error -eq $false) {
+        # Get URL of generated HTML file
+        $resultFileUrl = $jsonResponse.url;
+        
+        # Download HTML file
+        Invoke-WebRequest -Headers @{ "x-api-key" = $API_KEY } -OutFile $DestinationFile -Uri $resultFileUrl
+
+        Write-Host "Generated HTML file saved as `"$($DestinationFile)`" file."
+    }
+    else {
+        # Display service reported error
+        Write-Host $jsonResponse.message
+    }
+}
+catch {
+    # Display request error
+    Write-Host $_.Exception
+}
+
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### ****run.bat:**
+    
+```
+@echo off
+
+powershell -NoProfile -ExecutionPolicy Bypass -Command "& .\ConvertPdfToHtmlFromUrl.ps1"
+echo Script finished with errorlevel=%errorlevel%
+
+pause
+```
+
+<!-- code block end -->

@@ -8,28 +8,78 @@ Fast application programming interfaces of PDF.co Web API for JavaScript plus th
 
 ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are included.
 
-## Get In Touch
+## REQUEST FREE TECH SUPPORT
 
 [Click here to get in touch](https://bytescout.zendesk.com/hc/en-us/requests/new?subject=PDF.co%20Web%20API%20Question)
 
-or send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
+or just send email to [support@bytescout.com](mailto:support@bytescout.com?subject=PDF.co%20Web%20API%20Question) 
 
-## Free Trial Download
+## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
+[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Sign Up For Online Training](https://academy.bytescout.com/)
 
-## Web API (On-demand version)
 
-[Get your free API key](https://pdf.co/documentation/api?utm_source=github-readme)
+## ON-DEMAND REST WEB API
 
-## API Documentation and References
-
-[Explore PDF.co Web API Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
-
+[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
 [Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
-[Check Free Training Sessions for PDF.co%20Web%20API](https://academy.bytescout.com/)
-
-## Video Review
+## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### ****merge.js:**
+    
+```
+$(document).ready(function () {
+    $("#resultBlock").hide();
+    $("#errorBlock").hide();
+    $("#result").attr("href", '').html('');
+});
+
+$(document).on("click", "#submit", function () {
+    $("#resultBlock").hide();
+    $("#errorBlock").hide();
+    $("#inlineOutput").text(''); // inline output div
+    $("#status").text(''); // status div
+
+    var apiKey = $("#apiKey").val().trim(); //Get your API key at https://app.pdf.co/documentation/api
+
+    var formData = new FormData();
+    formData.append('name', 'result.pdf');
+    
+    // Append files in input request
+    formData.append('file[]', $("#form input[type=file]")[0].files[0]);
+    formData.append('file[]', $("#form input[type=file]")[1].files[0]);
+
+    $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
+
+    $.ajax({
+        url: 'https://api.pdf.co/v1/pdf/merge',
+        type: 'POST',
+        headers: { 'x-api-key': apiKey },
+        data: formData,
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+        success: function (result) {
+            $("#status").text('Success!');
+
+            $("#resultBlock").show();
+            $("#inlineOutput").html('<iframe style="width:100%; height:500px;" src="'+ result.url +'" />');
+        },
+        error: function () {
+            $("#status").text('error');
+        }
+    });
+ });
+```
+
+<!-- code block end -->
