@@ -85,6 +85,7 @@
 \Barcode Reader API\C#\Read Barcode From Uploaded File
 \Barcode Reader API\C#\Read Barcode From URL
 \Barcode Reader API\C#\Read Barcode From URL Asynchronously
+\Barcode Reader API\cURL\Read Barcode from File
 \Barcode Reader API\cURL\Read Barcode From URL
 \Barcode Reader API\Java\Read Barcode From Uploaded File
 \Barcode Reader API\Java\Read Barcode From URL
@@ -115,6 +116,7 @@
 \CSV To PDF API\C#\Convert CSV To PDF From Uploaded File
 \CSV To PDF API\C#\Convert CSV To PDF From URL
 \CSV To PDF API\C#\Convert CSV To PDF From URL Asynchronously
+\CSV To PDF API\cURL\Convert CSV to PDF from File
 \CSV To PDF API\cURL\Convert CSV To PDF From URL
 \CSV To PDF API\Java\Convert CSV To PDF From Uploaded File
 \CSV To PDF API\Java\Convert CSV To PDF From URL
@@ -142,6 +144,7 @@
 \DOC To PDF API\C#\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\C#\Convert DOC To PDF From URL
 \DOC To PDF API\C#\Convert DOC To PDF From URL Asynchronously
+\DOC To PDF API\cURL\Convert DOC to PDF from File
 \DOC To PDF API\cURL\Convert DOC To PDF From URL
 \DOC To PDF API\Java\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From URL
@@ -246,6 +249,7 @@
 \PDF Information API\VB.NET
 \PDF Information API\C#\Get PDF Info From Uploaded File
 \PDF Information API\C#\Get PDF Info From URL
+\PDF Information API\cURL\Get PDF Info from File
 \PDF Information API\cURL\Get PDF Info From URL
 \PDF Information API\Java\Get PDF Info From Uploaded File
 \PDF Information API\Java\Get PDF Info From URL
@@ -268,6 +272,7 @@
 \PDF Make Searchable API\C#\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\C#\Make Searchable PDF From URL
 \PDF Make Searchable API\C#\Make Searchable PDF From URL Asynchronously
+\PDF Make Searchable API\cURL\Make Searchable PDF from File
 \PDF Make Searchable API\cURL\Make Searchable PDF From URL
 \PDF Make Searchable API\Java\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\Java\Make Searchable PDF From URL
@@ -324,6 +329,7 @@
 \PDF Optimization API\C#\Optimize PDF From Uploaded File
 \PDF Optimization API\C#\Optimize PDF From URL
 \PDF Optimization API\C#\Optimize PDF From URL Asynchronously
+\PDF Optimization API\cURL\Optimize PDF from File
 \PDF Optimization API\cURL\Optimize PDF From URL
 \PDF Optimization API\Java\Optimize PDF From Uploaded File
 \PDF Optimization API\Java\Optimize PDF From URL
@@ -351,6 +357,7 @@
 \PDF Splitting API\C#\Split PDF From Uploaded File
 \PDF Splitting API\C#\Split PDF From URL
 \PDF Splitting API\C#\Split PDF From URL Asynchronously
+\PDF Splitting API\cURL\Split PDF from File
 \PDF Splitting API\cURL\Split PDF From URL
 \PDF Splitting API\Java\Split PDF From Uploaded File
 \PDF Splitting API\Java\Split PDF From URL
@@ -406,6 +413,7 @@
 \PDF To CSV API\C#\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\C#\Convert PDF To CSV From URL
 \PDF To CSV API\C#\Convert PDF To CSV From URL Asynchronously
+\PDF To CSV API\cURL\Convert PDF to CSV from File
 \PDF To CSV API\cURL\Convert PDF To CSV From URL
 \PDF To CSV API\Java\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\Java\Convert PDF To CSV From Uploaded File Asynchronously
@@ -444,7 +452,9 @@
 \PDF To Excel API\C#\Convert PDF To XLSX From Uploaded File
 \PDF To Excel API\C#\Convert PDF To XLSX From URL
 \PDF To Excel API\C#\Convert PDF To XLSX From URL Asynchronously
+\PDF To Excel API\cURL\Convert PDF to XLS from File
 \PDF To Excel API\cURL\Convert PDF To XLS From URL
+\PDF To Excel API\cURL\Convert PDF to XLSX from File
 \PDF To Excel API\cURL\Convert PDF To XLSX From URL
 \PDF To Excel API\Java\Convert PDF To XLS From Uploaded File
 \PDF To Excel API\Java\Convert PDF To XLS From URL
@@ -492,6 +502,7 @@
 \PDF To HTML API\C#\Convert PDF To HTML From Uploaded File
 \PDF To HTML API\C#\Convert PDF To HTML From URL
 \PDF To HTML API\C#\Convert PDF To HTML From URL Asynchronously
+\PDF To HTML API\cURL\Convert PDF to HTML from File
 \PDF To HTML API\cURL\Convert PDF To HTML From URL
 \PDF To HTML API\Java\Convert PDF To HTML From Uploaded File
 \PDF To HTML API\Java\Convert PDF To HTML From URL
@@ -527,8 +538,11 @@
 \PDF To Image API\C#\Convert PDF To TIFF From Uploaded File
 \PDF To Image API\C#\Convert PDF To TIFF From URL
 \PDF To Image API\C#\Convert PDF To TIFF From URL Asynchronously
+\PDF To Image API\cURL\Convert PDF to JPEG from File
 \PDF To Image API\cURL\Convert PDF To JPEG From URL
+\PDF To Image API\cURL\Convert PDF to PNG from File
 \PDF To Image API\cURL\Convert PDF To PNG From URL
+\PDF To Image API\cURL\Convert PDF to TIFF from File
 \PDF To Image API\cURL\Convert PDF To TIFF From URL
 \PDF To Image API\Java\Convert PDF To JPEG From Uploaded File
 \PDF To Image API\Java\Convert PDF To JPEG From URL
@@ -619,6 +633,7 @@
 \PDF To Text API\C#\Convert PDF To Text From Uploaded File
 \PDF To Text API\C#\Convert PDF To Text From URL
 \PDF To Text API\C#\Convert PDF To Text From URL Asynchronously
+\PDF To Text API\cURL\Convert PDF to Text from File
 \PDF To Text API\cURL\Convert PDF To Text From URL
 \PDF To Text API\Java\Convert PDF To Text From Uploaded File
 \PDF To Text API\Java\Convert PDF To Text From URL
@@ -652,6 +667,7 @@
 \PDF To XML API\C#\Convert PDF To XML From Uploaded File
 \PDF To XML API\C#\Convert PDF To XML From URL
 \PDF To XML API\C#\Convert PDF To XML From URL Asynchronously
+\PDF To XML API\cURL\Convert PDF to XML from File
 \PDF To XML API\cURL\Convert PDF To XML From URL
 \PDF To XML API\Java\Convert PDF To XML From Uploaded File
 \PDF To XML API\Java\Convert PDF To XML From URL
