@@ -26,6 +26,7 @@
 \PDF To Text API
 \PDF To XML API
 \Add Text And Images To PDF\C#
+\Add Text And Images To PDF\cURL
 \Add Text And Images To PDF\Java
 \Add Text And Images To PDF\JavaScript
 \Add Text And Images To PDF\PowerShell
@@ -34,6 +35,8 @@
 \Add Text And Images To PDF\C#\Add Images to Existing PDF
 \Add Text And Images To PDF\C#\Add Text by finding target coordinates
 \Add Text And Images To PDF\C#\Add Text to Existing PDF
+\Add Text And Images To PDF\cURL\Add Images to Existing PDF
+\Add Text And Images To PDF\cURL\Add Text to Existing PDF
 \Add Text And Images To PDF\Java\Add Image by finding target coordinates
 \Add Text And Images To PDF\Java\Add Images to Existing PDF
 \Add Text And Images To PDF\Java\Add Text by finding target coordinates
