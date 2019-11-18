@@ -49,8 +49,7 @@ var request = require("request");
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co/documentation/api
-//const API_KEY = "***********************************";
-const API_KEY = "hirenpatel2236@gmail.com_f5859c8ae9a7bca8";
+const API_KEY = "***********************************";
 
 // Direct URL of source PDF file.
 const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
