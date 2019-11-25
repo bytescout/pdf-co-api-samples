@@ -30,6 +30,7 @@
 \Add Text And Images To PDF\Java
 \Add Text And Images To PDF\JavaScript
 \Add Text And Images To PDF\PowerShell
+\Add Text And Images To PDF\Python
 \Add Text And Images To PDF\VB.NET
 \Add Text And Images To PDF\C#\Add Image by finding target coordinates
 \Add Text And Images To PDF\C#\Add Images to Existing PDF
@@ -51,6 +52,10 @@
 \Add Text And Images To PDF\PowerShell\Add Images to Existing PDF
 \Add Text And Images To PDF\PowerShell\Add Text by finding target coordinates
 \Add Text And Images To PDF\PowerShell\Add Text to Existing PDF
+\Add Text And Images To PDF\Python\Add Image by finding target coordinates
+\Add Text And Images To PDF\Python\Add Images to Existing PDF
+\Add Text And Images To PDF\Python\Add Text by finding target coordinates
+\Add Text And Images To PDF\Python\Add Text to Existing PDF
 \Add Text And Images To PDF\VB.NET\Add Image by finding target coordinates
 \Add Text And Images To PDF\VB.NET\Add Images to Existing PDF
 \Add Text And Images To PDF\VB.NET\Add Text by finding target coordinates
@@ -61,6 +66,7 @@
 \Barcode Generator API\JavaScript
 \Barcode Generator API\PHP
 \Barcode Generator API\PowerShell
+\Barcode Generator API\Python
 \Barcode Generator API\VB.NET
 \Barcode Generator API\C#\Generate Barcode
 \Barcode Generator API\cURL\Generate Barcode
@@ -73,6 +79,7 @@
 \Barcode Generator API\JavaScript\Generate Barcode - Async API
 \Barcode Generator API\PHP\Generate Barcode
 \Barcode Generator API\PowerShell\Generate Barcode
+\Barcode Generator API\Python\Generate Barcode
 \Barcode Generator API\VB.NET\Generate Barcode
 \Barcode Reader API\C#
 \Barcode Reader API\cURL
