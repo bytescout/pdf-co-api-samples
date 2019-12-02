@@ -1,0 +1,15 @@
+{
+    "number": "1234567",
+    "date": "April 30, 2016",
+    "from": "Acme Inc., City, Street 3rd , +1 888 123-456, support@example.com",
+    "to": "Food Delivery Inc., New York, Some Street, 42",
+    "lines": [{
+        "title": "Setting up new web-site",
+        "quantity": 3,
+        "price": 50
+    }, {
+        "title": "Configuring mail server and mailboxes",
+        "quantity": 5,
+        "price": 50
+    }]
+}
