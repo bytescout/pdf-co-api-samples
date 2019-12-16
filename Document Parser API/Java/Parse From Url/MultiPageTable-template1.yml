@@ -4,7 +4,7 @@
 # If regular expression cannot be written for every table row (for example, 
 # if the table contains empty cells), try the second method demonstrated 
 # in `MultiPageTable-template2.yml` template.
-templateVersion: 2
+templateVersion: 3
 templatePriority: 0
 sourceId: Multipage Table Test
 detectionRules:
@@ -12,7 +12,9 @@ detectionRules:
   - Sample document with multi-page table
 fields:
   total:
-    expression: TOTAL {{DECIMAL}}    
+    type: regex
+    expression: TOTAL {{DECIMAL}}
+    dataType: decimal
 tables:
 - name: table1
   start:
