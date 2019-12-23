@@ -4,6 +4,7 @@
 \Barcode Generator API
 \Barcode Reader API
 \CSV To PDF API
+\Delete Text From PDF
 \DOC To PDF API
 \Document Parser API
 \Excel To CSV API
@@ -26,6 +27,10 @@
 \PDF To JSON API
 \PDF To Text API
 \PDF To XML API
+\Render Url As Jpg
+\Render Url As Png
+\Replace Text From PDF
+\Replace Text With Image From PDF
 \Add Text And Images To PDF\C#
 \Add Text And Images To PDF\cURL
 \Add Text And Images To PDF\Java
@@ -149,6 +154,38 @@
 \CSV To PDF API\VB.NET\Convert CSV To PDF From Uploaded File
 \CSV To PDF API\VB.NET\Convert CSV To PDF From URL
 \CSV To PDF API\VB.NET\Convert CSV To PDF From URL Asynchronously
+\Delete Text From PDF\C#
+\Delete Text From PDF\cURL
+\Delete Text From PDF\Java
+\Delete Text From PDF\JavaScript
+\Delete Text From PDF\PHP
+\Delete Text From PDF\PowerShell
+\Delete Text From PDF\Python
+\Delete Text From PDF\VB.NET
+\Delete Text From PDF\C#\Delete PDF Text From Uploaded File
+\Delete Text From PDF\C#\Delete PDF Text From URL
+\Delete Text From PDF\C#\Delete PDF Text From URL Asynchronously
+\Delete Text From PDF\cURL\Delete PDF Text From File
+\Delete Text From PDF\cURL\Delete PDF Text From URL
+\Delete Text From PDF\Java\Delete PDF Text From Uploaded File
+\Delete Text From PDF\Java\Delete PDF Text From URL
+\Delete Text From PDF\JavaScript\Delete PDF Text From File (Node.js)
+\Delete Text From PDF\JavaScript\Delete PDF Text From File (Node.js) - Async API
+\Delete Text From PDF\JavaScript\Delete PDF Text From Uploaded File (Node.js)
+\Delete Text From PDF\JavaScript\Delete PDF Text From Uploaded File (Node.js) - Async API
+\Delete Text From PDF\JavaScript\Delete PDF Text From URL (Node.js)
+\Delete Text From PDF\JavaScript\Delete PDF Text From URL (Node.js) - Async API
+\Delete Text From PDF\PHP\Delete PDF Text Asynchronously
+\Delete Text From PDF\PHP\Delete PDF Text From Uploaded File
+\Delete Text From PDF\PowerShell\Delete PDF Text From Uploaded File
+\Delete Text From PDF\PowerShell\Delete PDF Text From URL
+\Delete Text From PDF\PowerShell\Delete PDF Text From URL Asynchronously
+\Delete Text From PDF\Python\Delete PDF Text From Uploaded File
+\Delete Text From PDF\Python\Delete PDF Text From URL
+\Delete Text From PDF\Python\Delete PDF Text From URL Asynchronously
+\Delete Text From PDF\VB.NET\Delete PDF Text From Uploaded File
+\Delete Text From PDF\VB.NET\Delete PDF Text From URL
+\Delete Text From PDF\VB.NET\Delete PDF Text From URL Asynchronously
 \DOC To PDF API\C#
 \DOC To PDF API\cURL
 \DOC To PDF API\Java
@@ -805,3 +842,101 @@
 \PDF To XML API\VB.NET\Convert PDF To XML From Uploaded File
 \PDF To XML API\VB.NET\Convert PDF To XML From URL
 \PDF To XML API\VB.NET\Convert PDF To XML From URL Asynchronously
+\Render Url As Jpg\C#
+\Render Url As Jpg\cURL
+\Render Url As Jpg\Java
+\Render Url As Jpg\JavaScript
+\Render Url As Jpg\PHP
+\Render Url As Jpg\PowerShell
+\Render Url As Jpg\Python
+\Render Url As Jpg\VB.NET
+\Render Url As Jpg\C#\Render Url To Jpg
+\Render Url As Jpg\cURL\Render Url To Jpg
+\Render Url As Jpg\Java\Render Url To Jpg
+\Render Url As Jpg\JavaScript\Render Url To Jpg (Node.js)
+\Render Url As Jpg\JavaScript\Render Url To Jpg (Node.js) - Async API
+\Render Url As Jpg\PHP\Render Url To Jpg
+\Render Url As Jpg\PowerShell\Render Url To Jpg
+\Render Url As Jpg\Python\Render Url As Jpg
+\Render Url As Jpg\VB.NET\Render Url To Jpg
+\Render Url As Png\C#
+\Render Url As Png\cURL
+\Render Url As Png\Java
+\Render Url As Png\JavaScript
+\Render Url As Png\PHP
+\Render Url As Png\PowerShell
+\Render Url As Png\Python
+\Render Url As Png\VB.NET
+\Render Url As Png\C#\Render Url To Png
+\Render Url As Png\cURL\Render Url To Png
+\Render Url As Png\Java\Render Url To Png
+\Render Url As Png\JavaScript\Render Url To Png (Node.js)
+\Render Url As Png\JavaScript\Render Url To Png (Node.js) - Async API
+\Render Url As Png\PHP\Render Url To Png
+\Render Url As Png\PowerShell\Render Url To Png
+\Render Url As Png\Python\Render Url As Png
+\Render Url As Png\VB.NET\Render Url To Png
+\Replace Text From PDF\C#
+\Replace Text From PDF\cURL
+\Replace Text From PDF\Java
+\Replace Text From PDF\JavaScript
+\Replace Text From PDF\PHP
+\Replace Text From PDF\PowerShell
+\Replace Text From PDF\Python
+\Replace Text From PDF\VB.NET
+\Replace Text From PDF\C#\Replace Text From Uploaded File
+\Replace Text From PDF\C#\Replace Text From URL
+\Replace Text From PDF\C#\Replace Text From URL Asynchronously
+\Replace Text From PDF\cURL\Replace Text From File
+\Replace Text From PDF\cURL\Replace Text From URL
+\Replace Text From PDF\Java\Replace Text From Uploaded File
+\Replace Text From PDF\Java\Replace Text From URL
+\Replace Text From PDF\JavaScript\Replace Text From File (Node.js)
+\Replace Text From PDF\JavaScript\Replace Text From File (Node.js) - Async API
+\Replace Text From PDF\JavaScript\Replace Text From Uploaded File (Node.js)
+\Replace Text From PDF\JavaScript\Replace Text From Uploaded File (Node.js) - Async API
+\Replace Text From PDF\JavaScript\Replace Text From URL (Node.js)
+\Replace Text From PDF\JavaScript\Replace Text From URL (Node.js) - Async API
+\Replace Text From PDF\PHP\Replace Text Asynchronously
+\Replace Text From PDF\PHP\Replace Text From Uploaded File
+\Replace Text From PDF\PowerShell\Replace Text From Uploaded File
+\Replace Text From PDF\PowerShell\Replace Text From URL
+\Replace Text From PDF\PowerShell\Replace Text From URL Asynchronously
+\Replace Text From PDF\Python\Replace Text From Uploaded File
+\Replace Text From PDF\Python\Replace Text From URL
+\Replace Text From PDF\Python\Replace Text From URL Asynchronously
+\Replace Text From PDF\VB.NET\Replace Text From Uploaded File
+\Replace Text From PDF\VB.NET\Replace Text From URL
+\Replace Text From PDF\VB.NET\Replace Text From URL Asynchronously
+\Replace Text With Image From PDF\C#
+\Replace Text With Image From PDF\cURL
+\Replace Text With Image From PDF\Java
+\Replace Text With Image From PDF\JavaScript
+\Replace Text With Image From PDF\PHP
+\Replace Text With Image From PDF\PowerShell
+\Replace Text With Image From PDF\Python
+\Replace Text With Image From PDF\VB.NET
+\Replace Text With Image From PDF\C#\Replace Text With Image From Uploaded File
+\Replace Text With Image From PDF\C#\Replace Text With Image From URL
+\Replace Text With Image From PDF\C#\Replace Text With Image From URL Asynchronously
+\Replace Text With Image From PDF\cURL\Replace Text With Image From File
+\Replace Text With Image From PDF\cURL\Replace Text With Image From URL
+\Replace Text With Image From PDF\Java\Replace Text With Image From Uploaded File
+\Replace Text With Image From PDF\Java\Replace Text With Image From URL
+\Replace Text With Image From PDF\JavaScript\Replace Text With Image From File (Node.js)
+\Replace Text With Image From PDF\JavaScript\Replace Text With Image From File (Node.js) - Async API
+\Replace Text With Image From PDF\JavaScript\Replace Text With Image From Uploaded File (Node.js)
+\Replace Text With Image From PDF\JavaScript\Replace Text With Image From Uploaded File (Node.js) - Async API
+\Replace Text With Image From PDF\JavaScript\Replace Text With Image From URL (Node.js)
+\Replace Text With Image From PDF\JavaScript\Replace Text With Image From URL (Node.js) - Async API
+\Replace Text With Image From PDF\PHP\Replace Text With Image Asynchronously
+\Replace Text With Image From PDF\PHP\Replace Text With Image From Uploaded File
+\Replace Text With Image From PDF\PowerShell\Replace Text With Image From Uploaded File
+\Replace Text With Image From PDF\PowerShell\Replace Text With Image From URL
+\Replace Text With Image From PDF\PowerShell\Replace Text With Image From URL Asynchronously
+\Replace Text With Image From PDF\Python\Replace Text With Image From Uploaded File
+\Replace Text With Image From PDF\Python\Replace Text With Image From URL
+\Replace Text With Image From PDF\Python\Replace Text With Image From URL Asynchronously
+\Replace Text With Image From PDF\VB.NET\Replace Text With Image From Uploaded File
+\Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL
+\Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL Asynchronously
