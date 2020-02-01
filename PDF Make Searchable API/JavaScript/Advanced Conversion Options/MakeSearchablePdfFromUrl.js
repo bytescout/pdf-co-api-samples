@@ -4,7 +4,7 @@
 //                                                                                           //
 // Also available as Web API! Get Your Free API Key: https://app.pdf.co/signup               //
 //                                                                                           //
-// Copyright © 2017-2019 ByteScout, Inc. All rights reserved.                                //
+// Copyright © 2017-2020 ByteScout, Inc. All rights reserved.                                //
 // https://www.bytescout.com                                                                 //
 // https://pdf.co                                                                            //
 //                                                                                           //
