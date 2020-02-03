@@ -96,6 +96,7 @@
 \Barcode Reader API\Python
 \Barcode Reader API\VB.NET
 \Barcode Reader API\C#\Advanced Conversion Options
+\Barcode Reader API\C#\Async File Uploading
 \Barcode Reader API\C#\Read Barcode From Uploaded File
 \Barcode Reader API\C#\Read Barcode From URL
 \Barcode Reader API\C#\Read Barcode From URL Asynchronously
@@ -119,6 +120,7 @@
 \Barcode Reader API\Python\Read Barcode From Uploaded File
 \Barcode Reader API\Python\Read Barcode From URL
 \Barcode Reader API\VB.NET\Advanced Conversion Options
+\Barcode Reader API\VB.NET\Async File Uploading
 \Barcode Reader API\VB.NET\Read Barcode From Uploaded File
 \Barcode Reader API\VB.NET\Read Barcode From URL
 \Barcode Reader API\VB.NET\Read Barcode From URL Asynchronously
