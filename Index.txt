@@ -660,6 +660,9 @@
 \PDF To Image API\PowerShell
 \PDF To Image API\Python
 \PDF To Image API\VB.NET
+\PDF To Image API\C#\Advanced JPEG Conversion Options
+\PDF To Image API\C#\Advanced PNG Conversion Options
+\PDF To Image API\C#\Advanced TIFF Conversion Options
 \PDF To Image API\C#\Convert PDF To JPEG From Uploaded File
 \PDF To Image API\C#\Convert PDF To JPEG From URL
 \PDF To Image API\C#\Convert PDF To JPEG From URL Asynchronously
