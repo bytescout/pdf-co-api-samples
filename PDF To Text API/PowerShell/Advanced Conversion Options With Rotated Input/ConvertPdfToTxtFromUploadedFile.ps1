@@ -11,6 +11,22 @@ $Password = ""
 # Destination TXT file name
 $DestinationFile = ".\result.txt"
 
+# Some of advanced options available through profiles:
+# (JSON can be single/double-quoted and contain comments.)
+# {
+#     "profiles": [
+#         {
+#             "profile1": {                
+#                 "ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+#                 "ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+#                 "ExtractAnnotations": true, // Whether to extract PDF annotations.
+#                 "CheckPermissions": true, // Ignore document permissions. Values: true / false
+#                 "DetectNewColumnBySpacesRatio": 1.2, // A ratio affecting number of spaces between words. 
+#             }
+#         }
+#     ]
+# }
+
 # Sample profile that sets advanced conversion options
 # Advanced options are properties of CSVExtractor class from ByteScout PDF Extractor SDK used in the back-end:
 # https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/87ce5fa6-3143-167d-abbd-bc7b5e160fe5.htm

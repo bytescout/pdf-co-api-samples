@@ -26,6 +26,23 @@ Module Module1
     ' See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/read_from_url.html
     Const Pages As String = ""
 
+    ' Some of advanced options available through profiles:
+    ' (JSON can be single/double-quoted and contain comments.)
+    ' {
+    '     "profiles": [
+    '         {
+    '             "profile1": {
+    '                 "ScanArea": "WholePage", // Values: "TopLeftQuarter", "TopRightQuarter", "BottomRightQuarter", "BottomLeftQuarter", "TopHalf", "BottomHalf", "WholePage".
+    '                 "RequireQuietZones": true, // Whether the quite zone is obligatory for 1D barcodes. Values: true / false
+    '                 "MaxNumberOfBarcodesPerPage": 0, // 0 - unlimited.
+    '                 "MaxNumberOfBarcodesPerDocument": 0, // 0 - unlimited.
+    '                 "ScanStep": 1, // Scan interval for linear (1-dimensional) barcodes.
+    '                 "MinimalDataLength": 0, // Minimal acceptable length of decoded data.                
+    '             }
+    '         }
+    '     ]
+    ' }
+
     ' Sample profile that sets advanced conversion options
     ' Advanced options are properties of Reader class from Bytescout BarCodeReader used in the back-end:
     ' https//cdn.bytescout.com/help/BytescoutBarCodeReaderSDK/html/ba101d21-3db7-eb54-d112-39cadc023d02.htm

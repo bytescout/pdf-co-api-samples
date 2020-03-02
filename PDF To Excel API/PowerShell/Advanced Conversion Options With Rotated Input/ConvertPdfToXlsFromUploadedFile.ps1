@@ -11,6 +11,31 @@ $Password = ""
 # Destination XLS file name
 $DestinationFile = ".\result.xls"
 
+# Some of advanced options available through profiles:
+# (JSON can be single/double-quoted and contain comments.)
+# {
+#     "profiles": [
+#         {
+#             "profile1": {
+#                 "NumberDecimalSeparator": "", // Allows to customize decimal separator in numbers.
+#                 "NumberGroupSeparator": "", // Allows to customize thousands separator.
+#                 "AutoDetectNumbers": true, // Whether to detect numbers. Values: true / false
+#                 "RichTextFormatting": true, // Whether to keep text style and fonts. Values: true / false
+#                 "PageToWorksheet": true, // Whether to create separate worksheet for each page of PDF document. Values: true / false
+#                 "ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+#                 "ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+#                 "LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+#                 "ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+#                 "Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+#                 "ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+#                 "DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+#                 "CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+#                 "CheckPermissions": true, // Ignore document permissions. Values: true / false
+#             }
+#         }
+#     ]
+# }
+
 # Sample profile that sets advanced conversion options
 # Advanced options are properties of XLSExtractor class from ByteScout PDF Extractor SDK used in the back-end:
 # https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/87ce5fa6-3143-167d-abbd-bc7b5e160fe5.htm

@@ -28,6 +28,24 @@ const BarcodeTypes = "Code128,Code39,Interleaved2of5,EAN13";
 // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 const Pages = "";
 
+/*
+Some of advanced options available through profiles:
+(JSON can be single/double-quoted and contain comments.)
+{
+    "profiles": [
+        {
+            "profile1": {
+                "ScanArea": "WholePage", // Values: "TopLeftQuarter", "TopRightQuarter", "BottomRightQuarter", "BottomLeftQuarter", "TopHalf", "BottomHalf", "WholePage".
+                "RequireQuietZones": true, // Whether the quite zone is obligatory for 1D barcodes. Values: true / false
+                "MaxNumberOfBarcodesPerPage": 0, // 0 - unlimited.
+                "MaxNumberOfBarcodesPerDocument": 0, // 0 - unlimited.
+                "ScanStep": 1, // Scan interval for linear (1-dimensional) barcodes.
+                "MinimalDataLength": 0, // Minimal acceptable length of decoded data.                
+            }
+        }
+    ]
+}
+*/
 // Sample profile that sets advanced conversion options
 //  Advanced options are properties of Reader class from Bytescout BarCodeReader used in the back-end:
 // https://cdn.bytescout.com/help/BytescoutBarCodeReaderSDK/html/ba101d21-3db7-eb54-d112-39cadc023d02.htm
