@@ -96,10 +96,14 @@
 \Barcode Reader API\Python
 \Barcode Reader API\VB.NET
 \Barcode Reader API\C#\Advanced Conversion Options
+\Barcode Reader API\C#\Async file upload and async barcode reading
 \Barcode Reader API\C#\Async File Uploading
 \Barcode Reader API\C#\Read Barcode From Uploaded File
 \Barcode Reader API\C#\Read Barcode From URL
 \Barcode Reader API\C#\Read Barcode From URL Asynchronously
+\Barcode Reader API\C#\Read Code 128
+\Barcode Reader API\C#\Read EAN 13
+\Barcode Reader API\C#\Read QR Code
 \Barcode Reader API\cURL\Advanced Conversation Options
 \Barcode Reader API\cURL\Read Barcode from File
 \Barcode Reader API\cURL\Read Barcode From URL
@@ -123,10 +127,14 @@
 \Barcode Reader API\Python\Read Barcode From Uploaded File
 \Barcode Reader API\Python\Read Barcode From URL
 \Barcode Reader API\VB.NET\Advanced Conversion Options
+\Barcode Reader API\VB.NET\Async File Upload and Async Barcode Reading
 \Barcode Reader API\VB.NET\Async File Uploading
 \Barcode Reader API\VB.NET\Read Barcode From Uploaded File
 \Barcode Reader API\VB.NET\Read Barcode From URL
 \Barcode Reader API\VB.NET\Read Barcode From URL Asynchronously
+\Barcode Reader API\VB.NET\Read Code 128
+\Barcode Reader API\VB.NET\Read EAN 13
+\Barcode Reader API\VB.NET\Read QR Code
 \CSV To PDF API\C#
 \CSV To PDF API\cURL
 \CSV To PDF API\Java
@@ -407,6 +415,7 @@
 \PDF Merging API\PowerShell
 \PDF Merging API\Python
 \PDF Merging API\VB.NET
+\PDF Merging API\C#\Async file upload and async Merge PDF
 \PDF Merging API\C#\Merge PDF Documents From Uploaded Files
 \PDF Merging API\C#\Merge PDF Documents From URLs
 \PDF Merging API\C#\Merge PDF Documents From URLs Asynchronously
@@ -425,6 +434,7 @@
 \PDF Merging API\PowerShell\Merge PDF Documents From URLs Asynchronously
 \PDF Merging API\Python\Merge PDF Documents From Uploaded Files
 \PDF Merging API\Python\Merge PDF Documents From Uploaded Files Asynchronously
+\PDF Merging API\VB.NET\Async file upload and async Merge PDF
 \PDF Merging API\VB.NET\Merge PDF Documents From Uploaded Files
 \PDF Merging API\VB.NET\Merge PDF Documents From URLs
 \PDF Merging API\VB.NET\Merge PDF Documents From URLs Asynchronously
@@ -468,6 +478,7 @@
 \PDF Splitting API\PowerShell
 \PDF Splitting API\Python
 \PDF Splitting API\VB.NET
+\PDF Splitting API\C#\Async file upload and async Split PDF
 \PDF Splitting API\C#\Split PDF From Uploaded File
 \PDF Splitting API\C#\Split PDF From URL
 \PDF Splitting API\C#\Split PDF From URL Asynchronously
@@ -488,6 +499,7 @@
 \PDF Splitting API\PowerShell\Split PDF From URL Asynchronously
 \PDF Splitting API\Python\Split PDF From Uploaded File
 \PDF Splitting API\Python\Split PDF From Uploaded File Asynchronously
+\PDF Splitting API\VB.NET\Async file upload and async Split PDF
 \PDF Splitting API\VB.NET\Split PDF From Uploaded File
 \PDF Splitting API\VB.NET\Split PDF From URL
 \PDF Splitting API\VB.NET\Split PDF From URL Asynchronously
@@ -497,6 +509,7 @@
 \PDF Text Search API\PowerShell
 \PDF Text Search API\Python
 \PDF Text Search API\VB.NET
+\PDF Text Search API\C#\Async file upload and async Search Text
 \PDF Text Search API\C#\PDF Text Search from Uploaded File
 \PDF Text Search API\C#\PDF Text Search from Uploaded File Asynchronously
 \PDF Text Search API\C#\PDF Text Search from URL
@@ -517,6 +530,7 @@
 \PDF Text Search API\PowerShell\PDF Text Search from URL Asynchronously
 \PDF Text Search API\Python\PDF Text Search from Uploaded File
 \PDF Text Search API\Python\PDF Text Search from Uploaded File Asynchronously
+\PDF Text Search API\VB.NET\Async file upload and async Search Text
 \PDF Text Search API\VB.NET\PDF Text Search from Uploaded File
 \PDF Text Search API\VB.NET\PDF Text Search from Uploaded File Asynchronously
 \PDF Text Search API\VB.NET\PDF Text Search from URL
@@ -531,6 +545,7 @@
 \PDF To CSV API\VB.NET
 \PDF To CSV API\C#\Advanced Conversion Options
 \PDF To CSV API\C#\Advanced Conversion Options With Rotated Input
+\PDF To CSV API\C#\Async file upload and async PDF to CSV
 \PDF To CSV API\C#\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\C#\Convert PDF To CSV From URL
 \PDF To CSV API\C#\Convert PDF To CSV From URL Asynchronously
@@ -566,6 +581,7 @@
 \PDF To CSV API\Python\Convert PDF To CSV From Uploaded File Asynchronously
 \PDF To CSV API\VB.NET\Advanced Conversion Options
 \PDF To CSV API\VB.NET\Advanced Conversion Options With Rotated Input
+\PDF To CSV API\VB.NET\Async file upload and async PDF to CSV
 \PDF To CSV API\VB.NET\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\VB.NET\Convert PDF To CSV From URL
 \PDF To CSV API\VB.NET\Convert PDF To CSV From URL Asynchronously
@@ -814,6 +830,7 @@
 \PDF To Text API\VB.NET
 \PDF To Text API\C#\Advanced Conversion Options
 \PDF To Text API\C#\Advanced Conversion Options With Rotated Input
+\PDF To Text API\C#\Async file upload and async PDF to Text
 \PDF To Text API\C#\Convert PDF To Text From Uploaded File
 \PDF To Text API\C#\Convert PDF To Text From URL
 \PDF To Text API\C#\Convert PDF To Text From URL Asynchronously
@@ -848,6 +865,7 @@
 \PDF To Text API\Python\Convert PDF To Text From Uploaded File Asynchronously
 \PDF To Text API\VB.NET\Advanced Conversion Options
 \PDF To Text API\VB.NET\Advanced Conversion Options With Rotated Input
+\PDF To Text API\VB.NET\Async file upload and async PDF to Text
 \PDF To Text API\VB.NET\Convert PDF To Text From Uploaded File
 \PDF To Text API\VB.NET\Convert PDF To Text From URL
 \PDF To Text API\VB.NET\Convert PDF To Text From URL Asynchronously
