@@ -236,11 +236,21 @@
 \Document Parser API\JavaScript
 \Document Parser API\Powershell
 \Document Parser API\Python
+\Document Parser API\Sample_Files
+\Document Parser API\Sample_Templates
 \Document Parser API\VB.NET
+\Document Parser API\C#\Create Custom Template
+\Document Parser API\C#\Extract line items from tables on multiple pages
+\Document Parser API\C#\Parse and Generate HL7 Output
 \Document Parser API\C#\Parse From URL
 \Document Parser API\C#\Parse From URL Asynchronously
+\Document Parser API\C#\Parse Multipage Table
+\Document Parser API\C#\Parse Simple Document
 \Document Parser API\C#\Parse Uploaded File
 \Document Parser API\C#\Parse Uploaded File Asynchronously
+\Document Parser API\C#\Parse with OCR
+\Document Parser API\C#\Parsing and reading data from Airline Tickets
+\Document Parser API\C#\Parse and Generate HL7 Output\Src
 \Document Parser API\Java\Parse From Url
 \Document Parser API\Java\Parse Uploaded File
 \Document Parser API\JavaScript\Parse From Url (Node.js)
@@ -249,8 +259,15 @@
 \Document Parser API\Powershell\Parse From Url
 \Document Parser API\Python\Parse From Uploaded File
 \Document Parser API\Python\Parse From Url
+\Document Parser API\VB.NET\Create Custom Template
+\Document Parser API\VB.NET\Extract line items from tables on multiple pages
 \Document Parser API\VB.NET\Parse From Url
+\Document Parser API\VB.NET\Parse Multipage Table
+\Document Parser API\VB.NET\Parse Simple Document
 \Document Parser API\VB.NET\Parse Uploaded File
+\Document Parser API\VB.NET\Parse Uploaded File Asynchronously
+\Document Parser API\VB.NET\Parse with OCR
+\Document Parser API\VB.NET\Parsing and reading data from Airline Tickets
 \Excel To CSV API\JavaScript
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery - Async API
