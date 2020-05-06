@@ -239,6 +239,7 @@
 \Document Parser API\Sample_Files
 \Document Parser API\Sample_Templates
 \Document Parser API\VB.NET
+\Document Parser API\C#\Blood Test Results to JSON
 \Document Parser API\C#\Create Custom Template
 \Document Parser API\C#\Extract line items from tables on multiple pages
 \Document Parser API\C#\Parse and Generate HL7 Output
@@ -259,6 +260,7 @@
 \Document Parser API\Powershell\Parse From Url
 \Document Parser API\Python\Parse From Uploaded File
 \Document Parser API\Python\Parse From Url
+\Document Parser API\VB.NET\Blood Test Results to JSON
 \Document Parser API\VB.NET\Create Custom Template
 \Document Parser API\VB.NET\Extract line items from tables on multiple pages
 \Document Parser API\VB.NET\Parse From Url
