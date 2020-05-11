@@ -1,12 +1,4 @@
-## How to get invoice info from URL (node for invoice parser API in JavaScript and PDF.co Web API
-
-### Follow this simple tutorial to learn get invoice info from URL (node to have invoice parser API in JavaScript
-
-On this page, you will find sample source codes which show you how to handle a complex task, such as, invoice parser API in JavaScript. PDF.co Web API was designed to assist invoice parser API in JavaScript. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-JavaScript code snippet like this for PDF.co Web API works best when you need to quickly implement invoice parser API in your JavaScript application. For implementation of this functionality, please copy and paste the code below into your app using code editor. Then compile and run your app. Check JavaScript sample code examples to see if they respond to your needs and requirements for the project.
-
-Free! Free! Free! ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are assembled.
+## How to get invoice info from URL (node for invoice parser API in JavaScript with PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### **GetInvoiceInfoFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");
@@ -65,10 +57,10 @@ https.get(reqOptions, (response) => {
         // Parse JSON response
         var data = JSON.parse(d);        
         if (data.error == false) {
-            // Display PDF document information
-            for (var key in data.info) {  
-                console.log(`${key}: ${data.info[key]}`);
-            }  
+            // Display extracted invoice fields
+            for (var key in data.body) {  
+                console.log(`${key}: ${JSON.stringify(data.body[key])}`);
+            }
         }
         else {
             // Service reported error

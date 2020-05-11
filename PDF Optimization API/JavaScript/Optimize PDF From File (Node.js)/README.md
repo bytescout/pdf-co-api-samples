@@ -1,12 +1,4 @@
-## How to optimize PDF from file (node for PDF optimization API in JavaScript with PDF.co Web API
-
-### How to optimize PDF from file (node in JavaScript with easy ByteScout code samples to make PDF optimization API. Step-by-step tutorial
-
-Every ByteScout tool contains example JavaScript source codes that you can find here or in the folder with installed ByteScout product. PDF.co Web API was made to help with PDF optimization API in JavaScript. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-You will save a lot of time on writing and testing code as you may just take the code below and use it in your application. Open your JavaScript project and simply copy & paste the code and then run your app! Use of PDF.co Web API in JavaScript is also explained in the documentation included along with the product.
-
-Trial version of ByteScout is available for free download from our website. This and other source code samples for JavaScript and other programming languages are available.
+## How to optimize PDF from file (node for PDF optimization API in JavaScript using PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****OptimizePdfFromFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

@@ -1,12 +1,4 @@
-## PDF to excel API in JavaScript and PDF.co Web API
-
-### PDF to excel API in JavaScript
-
-The sample source codes on this page will demonstrate you how to make PDF to excel API in JavaScript. PDF.co Web API was made to help with PDF to excel API in JavaScript. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-This rich sample source code in JavaScript for PDF.co Web API includes the number of functions and options you should do calling the API to implement PDF to excel API. In order to implement this functionality, you should copy and paste code below into your app using code editor. Then compile and run your application. Further enhancement of the code will make it more vigorous.
-
-Free trial version of PDF.co Web API is available on our website. Get it to try other samples for JavaScript.
+## PDF to excel API in JavaScript and PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToXlsFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");
@@ -58,6 +50,32 @@ const Password = "";
 // Destination XLS file name
 const DestinationFile = "./result.xls";
 
+/*
+Some of advanced options available through profiles:
+(JSON can be single/double-quoted and contain comments.)
+{
+    "profiles": [
+        {
+            "profile1": {
+                "NumberDecimalSeparator": "", // Allows to customize decimal separator in numbers.
+                "NumberGroupSeparator": "", // Allows to customize thousands separator.
+                "AutoDetectNumbers": true, // Whether to detect numbers. Values: true / false
+                "RichTextFormatting": true, // Whether to keep text style and fonts. Values: true / false
+                "PageToWorksheet": true, // Whether to create separate worksheet for each page of PDF document. Values: true / false
+                "ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+                "ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+                "LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+                "ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+                "Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+                "ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+                "DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+                "CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+                "CheckPermissions": true, // Ignore document permissions. Values: true / false
+            }
+        }
+    ]
+}
+*/
 // Sample profile that sets advanced conversion options.
 // Advanced options are properties of XLSExtractor class from ByteScout PDF Extractor SDK used in the back-end:
 // https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/2712c05b-9674-5253-df76-2a31ed055afd.htm

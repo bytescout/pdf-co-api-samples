@@ -1,12 +1,4 @@
-## How to convert PDF to JSON from uploaded file (node for PDF to JSON API in JavaScript with PDF.co Web API
-
-### See how to convert PDF to JSON from uploaded file (node to have PDF to JSON API in JavaScript
-
-The sample source codes on this page will demonstrate you how to make PDF to JSON API in JavaScript. PDF.co Web API was made to help with PDF to JSON API in JavaScript. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-This rich sample source code in JavaScript for PDF.co Web API includes the number of functions and options you should do calling the API to implement PDF to JSON API. This JavaScript sample code should be copied and pasted into your project. After doing this just compile your project and click Run. Test JavaScript sample code examples whether they respond your needs and requirements for the project.
-
-ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are included.
+## How to convert PDF to JSON from uploaded file (node for PDF to JSON API in JavaScript and PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToJsonFromUploadedFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

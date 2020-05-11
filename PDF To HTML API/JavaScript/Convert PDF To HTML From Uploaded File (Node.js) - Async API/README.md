@@ -1,12 +1,4 @@
-## How to convert PDF to HTML from uploaded file (node for PDF to HTML API in JavaScript using PDF.co Web API
-
-### How to convert PDF to HTML from uploaded file (node in JavaScript with easy ByteScout code samples to make PDF to HTML API. Step-by-step tutorial
-
-Every ByteScout tool contains example JavaScript source codes that you can find here or in the folder with installed ByteScout product. PDF.co Web API was made to help with PDF to HTML API in JavaScript. PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
-
-Fast application programming interfaces of PDF.co Web API for JavaScript plus the instruction and the code below will help to learn how to convert PDF to HTML from uploaded file (node. Sample code in JavaScript is all you need. Copy-paste it to your the code editor, then add a reference to PDF.co Web API and you are ready to try it! Writing JavaScript application typically includes multiple stages of the software development so even if the functionality works please test it with your data and the production environment.
-
-ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are included.
+## How to convert PDF to HTML from uploaded file (node for PDF to HTML API in JavaScript and PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToHtmlFromUploadedFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

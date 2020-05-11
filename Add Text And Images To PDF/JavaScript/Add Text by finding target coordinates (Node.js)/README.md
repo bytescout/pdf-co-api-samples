@@ -1,12 +1,4 @@
-## How to add text and images to PDF in JavaScript with PDF.co Web API
-
-### This code in JavaScript shows how to add text and images to PDF with this how to tutorial
-
-On this page you will learn from code samples for programming in JavaScript.Writing of the code to add text and images to PDF in JavaScript can be done by developers of any level using PDF.co Web API. PDF.co Web API: the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf. It can add text and images to PDF in JavaScript.
-
-JavaScript code samples for JavaScript developers help to speed up coding of your application when using PDF.co Web API. Just copy and paste the code into your JavaScript application’s code and follow the instruction. Detailed tutorials and documentation are available along with installed PDF.co Web API if you'd like to dive deeper into the topic and the details of the API.
-
-Download free trial version of PDF.co Web API from our website with this and other source code samples for JavaScript.
+## How to add text and images to PDF in JavaScript and PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****AddTextByFindingTargetCoordinates.js:**
+##### **app.js:**
     
 ```
 var https = require("https");

@@ -116,9 +116,9 @@ function getPdfInfo(apiKey, uploadedFileUrl) {
             // Parse JSON response
             let data = JSON.parse(d);
             if (data.error == false) {
-                // Display PDF document information
+                // Display extracted invoice fields
                 for (var key in data.body) {  
-                    console.log(`${key}: ${data.info[key]}`);
+                    console.log(`${key}: ${JSON.stringify(data.body[key])}`);
                 }
             }
             else {

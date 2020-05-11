@@ -1,12 +1,4 @@
-## How to convert PDF to CSV from uploaded file (node for PDF to CSV API in JavaScript with PDF.co Web API
-
-### How to convert PDF to CSV from uploaded file (node for PDF to CSV API in JavaScript: Step By Step Tutorial
-
-Writing of the code to convert PDF to CSV from uploaded file (node in JavaScript can be done by developers of any level using PDF.co Web API. PDF to CSV API in JavaScript can be implemented with PDF.co Web API. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-JavaScript code snippet like this for PDF.co Web API works best when you need to quickly implement PDF to CSV API in your JavaScript application. Sample code in JavaScript is all you need. Copy-paste it to your the code editor, then add a reference to PDF.co Web API and you are ready to try it! Test JavaScript sample code examples whether they respond your needs and requirements for the project.
-
-Trial version of ByteScout is available for free download from our website. This and other source code samples for JavaScript and other programming languages are available.
+## How to convert PDF to CSV from uploaded file (node for PDF to CSV API in JavaScript using PDF.co Web API PDF.co Web API: the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToCsvFromUploadedFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

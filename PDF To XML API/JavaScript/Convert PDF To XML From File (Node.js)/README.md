@@ -1,12 +1,4 @@
-## How to convert PDF to XML from file (node for PDF to XML API in JavaScript using PDF.co Web API
-
-### Tutorial: how to convert PDF to XML from file (node for PDF to XML API in JavaScript
-
-Here you may find thousands pre-made source code pieces for easy implementation in your own programming projects. PDF.co Web API helps with PDF to XML API in JavaScript. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-You will save a lot of time on writing and testing code as you may just take the code below and use it in your application. Open your JavaScript project and simply copy & paste the code and then run your app! Further enhancement of the code will make it more vigorous.
-
-ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are included.
+## How to convert PDF to XML from file (node for PDF to XML API in JavaScript with PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToXmlFromFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

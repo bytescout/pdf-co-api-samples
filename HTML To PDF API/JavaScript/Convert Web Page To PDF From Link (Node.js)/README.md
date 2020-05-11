@@ -1,12 +1,4 @@
-## How to convert web page to PDF from link (node for HTML to PDF API in JavaScript using PDF.co Web API
-
-### How to convert web page to PDF from link (node for HTML to PDF API in JavaScript: Step By Step Tutorial
-
-Writing of the code to convert web page to PDF from link (node in JavaScript can be done by developers of any level using PDF.co Web API. PDF.co Web API was made to help with HTML to PDF API in JavaScript. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-Fast application programming interfaces of PDF.co Web API for JavaScript plus the instruction and the code below will help to learn how to convert web page to PDF from link (node. For implimentation of this functionality, please copy and paste code below into your app using code editor. Then compile and run your app. Code testing will allow the function to be tested and work properly with your data.
-
-PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your JavaScript application included into trial version.
+## How to convert web page to PDF from link (node for HTML to PDF API in JavaScript with PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertWebPageToPdfFromLink.js:**
+##### **app.js:**
     
 ```
 var https = require("https");

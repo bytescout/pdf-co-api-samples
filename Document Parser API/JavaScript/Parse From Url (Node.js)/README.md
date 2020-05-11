@@ -1,12 +1,4 @@
-## How to parse from url (node for document parser API in JavaScript and PDF.co Web API
-
-### Follow this simple tutorial to learn parse from url (node to have document parser API in JavaScript
-
-We regularly create and update our sample code library so you may quickly learn document parser API and the step-by-step process in JavaScript. Document parser API in JavaScript can be applied with PDF.co Web API. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-This simple and easy to understand sample source code in JavaScript for PDF.co Web API contains different functions and options you should do calling the API to implement document parser API. For implementation of this functionality, please copy and paste the code below into your app using code editor. Then compile and run your app. Writing JavaScript application mostly includes various stages of the software development so even if the functionality works please check it with your data and the production environment.
-
-Our website provides free trial version of PDF.co Web API that gives source code samples to assist with your JavaScript project.
+## How to parse from url (node for document parser API in JavaScript with PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****MultiPageTable-template1.yml:**
+##### **MultiPageTable-template1.yml:**
     
 ```
 ---
@@ -44,8 +36,8 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 # regular expressions for the table start, end, and rows.
 # If regular expression cannot be written for every table row (for example, 
 # if the table contains empty cells), try the second method demonstrated 
-# in 'MultiPageTable-template2.yml' template.
-templateVersion: 2
+# in `MultiPageTable-template2.yml` template.
+templateVersion: 3
 templatePriority: 0
 sourceId: Multipage Table Test
 detectionRules:
@@ -53,7 +45,9 @@ detectionRules:
   - Sample document with multi-page table
 fields:
   total:
-    expression: TOTAL {{DECIMAL}}    
+    type: regex
+    expression: TOTAL {{DECIMAL}}
+    dataType: decimal
 tables:
 - name: table1
   start:
@@ -83,7 +77,7 @@ tables:
 
 <!-- code block begin -->
 
-##### ****ParsePdfFromUploadedFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

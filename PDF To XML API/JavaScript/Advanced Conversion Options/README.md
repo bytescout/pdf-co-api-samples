@@ -1,12 +1,4 @@
-## PDF to XML API in JavaScript and PDF.co Web API
-
-### Tutorial: how to do PDF to XML API in JavaScript
-
-Today you are going to learn how to PDF to XML API in JavaScript. PDF.co Web API was made to help with PDF to XML API in JavaScript. PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
-
-JavaScript code snippet like this for PDF.co Web API works best when you need to quickly implement PDF to XML API in your JavaScript application. In order to implement this functionality, you should copy and paste code below into your app using code editor. Then compile and run your application. Enhanced documentation and tutorials are available along with installed PDF.co Web API if you'd like to dive deeper into the topic and the details of the API.
-
-PDF.co Web API is available as free trial. You may get it from our website along with all other source code samples for JavaScript applications.
+## PDF to XML API in JavaScript and PDF.co Web API What is PDF.co Web API? It is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToXmlFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");
@@ -56,7 +48,32 @@ const Password = "";
 // Destination XML file name
 const DestinationFile = "./result.xml";
 
-// Sample profile that sets advanced conversion options
+/*
+Some of advanced options available through profiles:
+(it can be single/double-quoted and contain comments.)
+{
+	"profiles": [
+		{
+			"profile1": {
+				"SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
+				"ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
+				"SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
+				"ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+				"ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+				"LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+				"ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+				"Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+				"ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+				"DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+				"CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+				"CheckPermissions": true, // Ignore document permissions. Values: true / false
+			}
+		}
+	]
+}
+*/
+
+        // Sample profile that sets advanced conversion options
 // Advanced options are properties of XMLExtractor class from ByteScout XML Extractor SDK used in the back-end:
 // https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/6f2b5e9c-ba15-f9fe-192b-c3e31ec4a0ee.htm
 const Profiles = '{ "profiles": [ { "profile1": { "TrimSpaces": "False", "PreserveFormattingOnTextExtraction": "True", "Unwrap": "True", "ShrinkMultipleSpaces": "True" } } ] }';

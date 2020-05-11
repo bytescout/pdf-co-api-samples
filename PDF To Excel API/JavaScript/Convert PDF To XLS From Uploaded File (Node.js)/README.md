@@ -1,12 +1,4 @@
-## How to convert PDF to XLS from uploaded file (node for PDF to excel API in JavaScript using PDF.co Web API
-
-### Step By Step Tutorial: how to convert PDF to XLS from uploaded file (node for PDF to excel API in JavaScript
-
-Source code documentation samples provide quick and easy way to add a required functionality into your application. PDF to excel API in JavaScript can be implemented with PDF.co Web API. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-The SDK samples like this one below explain how to quickly make your application do PDF to excel API in JavaScript with the help of PDF.co Web API. This JavaScript sample code should be copied and pasted into your project. After doing this just compile your project and click Run. You can use these JavaScript sample examples in one or many applications.
-
-ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are included.
+## How to convert PDF to XLS from uploaded file (node for PDF to excel API in JavaScript with PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToXlsFromUploadedFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

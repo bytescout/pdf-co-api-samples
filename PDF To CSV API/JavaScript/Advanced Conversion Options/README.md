@@ -1,12 +1,4 @@
-## PDF to CSV API in JavaScript with PDF.co Web API
-
-### How to code PDF to CSV API in JavaScript: How-To tutorial
-
-The coding tutorials are designed to help you test the features without need to write your own code. PDF to CSV API in JavaScript can be implemented with PDF.co Web API. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-You will save a lot of time on writing and testing code as you may just take the code below and use it in your application. JavaScript sample code is all you need: copy and paste the code to your JavaScript application's code editor, add a reference to PDF.co Web API (if you haven't added yet) and you are ready to go! JavaScript application implementation typically includes multiple stages of the software development so even if the functionality works please test it with your data and the production environment.
-
-Trial version can be obtained from our website for free. It includes this and other source code samples for JavaScript.
+## PDF to CSV API in JavaScript and PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToCsvFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");
@@ -56,6 +48,29 @@ const Password = "";
 // Destination CSV file name
 const DestinationFile = "./result.csv";
 
+/*
+Some of advanced options available through profiles:
+(JSON can be single/double-quoted and contain comments.)
+{
+	"profiles": [
+		{
+			"profile1": {
+				"CSVSeparatorSymbol": ",", // Separator symbol.
+				"CSVQuotaionSymbol": "\"", // Quotation symbol.
+				"ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+				"ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+				"LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+				"ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+				"Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+				"ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+				"DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+				"CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+				"CheckPermissions": true, // Ignore document permissions. Values: true / false
+			}
+		}
+	]
+}
+*/
 // Sample profile that sets advanced conversion options
 // Advanced options are properties of CSVExtractor class from ByteScout PDF Extractor SDK used in the back-end:
 // https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/87ce5fa6-3143-167d-abbd-bc7b5e160fe5.htm

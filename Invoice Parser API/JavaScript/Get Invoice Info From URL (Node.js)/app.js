@@ -11,48 +11,43 @@
 //*******************************************************************************************//
 
 
-/*jshint esversion: 6 */
-
-var fs = require("fs");
-
-// `request` module is required for file upload.
-// Use "npm install request" command to install.
-var request = require("request");
+var https = require("https");
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co/documentation/api
 const API_KEY = "***********************************";
 
 
-// Source PDF file to get information
-const SourceFile = "./sample.pdf";
+// Direct URL of PDF file to get information
+const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-to-json/sample.pdf";
 
-// Prepare URL for `Invoice Parser` API call
-var query = `https://api.pdf.co/v1/pdf/invoiceparser?inline=True`;
-let reqOptions = {
-    uri: query,
-    headers: { "x-api-key": API_KEY },
-    formData: {
-        file: fs.createReadStream(SourceFile)
+
+// Prepare request to `Invoice Parser` API endpoint
+var queryPath = `/v1/pdf/invoiceparser?url=${SourceFileUrl}&inline=True`;
+var reqOptions = {
+    host: "api.pdf.co",
+    path: encodeURI(queryPath),
+    headers: {
+        "x-api-key": API_KEY
     }
 };
-
 // Send request
-request.post(reqOptions, function (error, response, body) {
-    if (error) {
-        return console.error("Error: ", error);
-    }
-
-    // Parse JSON response
-    let data = JSON.parse(body);
-    if (data.error == false) {
-         // Display PDF document information
-         for (var key in data.body) {  
-            console.log(`${key}: ${data.info[key]}`);
+https.get(reqOptions, (response) => {
+    response.on("data", (d) => {
+        // Parse JSON response
+        var data = JSON.parse(d);        
+        if (data.error == false) {
+            // Display extracted invoice fields
+            for (var key in data.body) {  
+                console.log(`${key}: ${JSON.stringify(data.body[key])}`);
+            }
         }
-    }
-    else {
-        // Service reported error
-        console.log("Error: " + data.message);
-    }
+        else {
+            // Service reported error
+            console.log(data.message);
+        }
+    });
+}).on("error", (e) => {
+    // Request error
+    console.error(e);
 });

@@ -1,12 +1,4 @@
-## How to get invoice info from file (node for invoice parser API in JavaScript with PDF.co Web API
-
-### Follow this simple tutorial to learn get invoice info from file (node to have invoice parser API in JavaScript
-
-These simple tutorials explain the code material for beginners and advanced programmers who are using JavaScript. PDF.co Web API was designed to assist invoice parser API in JavaScript. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-The SDK samples displayed below below explain how to quickly make your application do invoice parser API in JavaScript with the help of PDF.co Web API.  This sample code in JavaScript is all you need. Just copy-paste it to the code editor, then add a reference to PDF.co Web API and you are ready to try it! This basic programming language sample code for JavaScript will do the whole work for you in implementing invoice parser API in your app.
-
-Trial version of ByteScout is available for free download from our website. This and other source code samples for JavaScript and other programming languages are available.
+## How to get invoice info from file (node for invoice parser API in JavaScript with PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,9 +28,22 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### **GetInvoiceInfoFromFile.js:**
+##### **app.js:**
     
 ```
+//*******************************************************************************************//
+//                                                                                           //
+// Download Free Evaluation Version From: https://bytescout.com/download/web-installer       //
+//                                                                                           //
+// Also available as Web API! Get Your Free API Key: https://app.pdf.co/signup               //
+//                                                                                           //
+// Copyright © 2017-2020 ByteScout, Inc. All rights reserved.                                //
+// https://www.bytescout.com                                                                 //
+// https://pdf.co                                                                            //
+//                                                                                           //
+//*******************************************************************************************//
+
+
 /*jshint esversion: 6 */
 
 var fs = require("fs");
@@ -49,7 +54,7 @@ var request = require("request");
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co/documentation/api
-const API_KEY = "***********************************";
+const API_KEY = "XXXXXXXXXXXXX";
 
 
 // Source PDF file to get information
@@ -74,9 +79,9 @@ request.post(reqOptions, function (error, response, body) {
     // Parse JSON response
     let data = JSON.parse(body);
     if (data.error == false) {
-         // Display PDF document information
+         // Display extracted invoice fields
          for (var key in data.body) {  
-            console.log(`${key}: ${data.info[key]}`);
+            console.log(`${key}: ${JSON.stringify(data.body[key])}`);
         }
     }
     else {
@@ -84,6 +89,7 @@ request.post(reqOptions, function (error, response, body) {
         console.log("Error: " + data.message);
     }
 });
+
 ```
 
 <!-- code block end -->

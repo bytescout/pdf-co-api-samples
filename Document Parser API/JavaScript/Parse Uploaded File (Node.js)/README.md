@@ -1,12 +1,4 @@
-## How to parse uploaded file (node for document parser API in JavaScript using PDF.co Web API
-
-### How to parse uploaded file (node for document parser API in JavaScript: Step By Step Instructions
-
-These source code samples are listed and grouped by their programming language and functions they use. Document parser API in JavaScript can be applied with PDF.co Web API. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-Use the code displayed below in your application to save a lot of time on writing and testing code.  This sample code in JavaScript is all you need. Just copy-paste it to the code editor, then add a reference to PDF.co Web API and you are ready to try it! Enjoy writing a code with ready-to-use sample JavaScript codes to implement document parser API using PDF.co Web API.
-
-Free! Free! Free! ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are assembled.
+## How to parse uploaded file (node for document parser API in JavaScript with PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****MultiPageTable-template1.yml:**
+##### **MultiPageTable-template1.yml:**
     
 ```
 ---
@@ -44,8 +36,8 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 # regular expressions for the table start, end, and rows.
 # If regular expression cannot be written for every table row (for example, 
 # if the table contains empty cells), try the second method demonstrated 
-# in 'MultiPageTable-template2.yml' template.
-templateVersion: 2
+# in `MultiPageTable-template2.yml` template.
+templateVersion: 3
 templatePriority: 0
 sourceId: Multipage Table Test
 detectionRules:
@@ -53,7 +45,9 @@ detectionRules:
   - Sample document with multi-page table
 fields:
   total:
-    expression: TOTAL {{DECIMAL}}    
+    type: regex
+    expression: TOTAL {{DECIMAL}}
+    dataType: decimal
 tables:
 - name: table1
   start:
@@ -83,7 +77,7 @@ tables:
 
 <!-- code block begin -->
 
-##### ****ParsePdfFromUploadedFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

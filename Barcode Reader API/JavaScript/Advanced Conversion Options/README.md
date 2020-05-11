@@ -1,12 +1,4 @@
-## barcode reader API in JavaScript with PDF.co Web API
-
-### barcode reader API in JavaScript
-
-These source code samples are listed and grouped by their programming language and functions they use. PDF.co Web API helps with barcode reader API in JavaScript. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-JavaScript, code samples for JavaScript, developers help to speed up the application development and writing a code when using PDF.co Web API. To do barcode reader API in your JavaScript project or application you may simply copy & paste the code and then run your app! Code testing will allow the function to be tested and work properly with your data.
-
-On our website you may get trial version of PDF.co Web API for free. Source code samples are included to help you with your JavaScript application.
+## barcode reader API in JavaScript with PDF.co Web API What is PDF.co Web API? It is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ReadBarcodeFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");
@@ -56,6 +48,24 @@ const BarcodeTypes = "Code128,Code39,Interleaved2of5,EAN13";
 // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 const Pages = "";
 
+/*
+Some of advanced options available through profiles:
+(JSON can be single/double-quoted and contain comments.)
+{
+    "profiles": [
+        {
+            "profile1": {
+                "ScanArea": "WholePage", // Values: "TopLeftQuarter", "TopRightQuarter", "BottomRightQuarter", "BottomLeftQuarter", "TopHalf", "BottomHalf", "WholePage".
+                "RequireQuietZones": true, // Whether the quite zone is obligatory for 1D barcodes. Values: true / false
+                "MaxNumberOfBarcodesPerPage": 0, // 0 - unlimited.
+                "MaxNumberOfBarcodesPerDocument": 0, // 0 - unlimited.
+                "ScanStep": 1, // Scan interval for linear (1-dimensional) barcodes.
+                "MinimalDataLength": 0, // Minimal acceptable length of decoded data.                
+            }
+        }
+    ]
+}
+*/
 // Sample profile that sets advanced conversion options
 //  Advanced options are properties of Reader class from Bytescout BarCodeReader used in the back-end:
 // https://cdn.bytescout.com/help/BytescoutBarCodeReaderSDK/html/ba101d21-3db7-eb54-d112-39cadc023d02.htm

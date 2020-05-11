@@ -1,12 +1,4 @@
-## How to generate barcode (node for barcode generator API in JavaScript using PDF.co Web API
-
-### How to generate barcode (node for barcode generator API in JavaScript: How To Tutorial
-
-Today you are going to learn how to generate barcode (node in JavaScript. PDF.co Web API was made to help with barcode generator API in JavaScript. PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
-
-JavaScript code snippet like this for PDF.co Web API works best when you need to quickly implement barcode generator API in your JavaScript application. Sample code in JavaScript is all you need. Copy-paste it to your the code editor, then add a reference to PDF.co Web API and you are ready to try it! Enjoy writing a code with ready-to-use sample JavaScript codes to add barcode generator API functions using PDF.co Web API in JavaScript.
-
-PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your JavaScript application included into trial version.
+## How to generate barcode (node for barcode generator API in JavaScript using PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****GenerateBarcode.js:**
+##### **app.js:**
     
 ```
 var https = require("https");

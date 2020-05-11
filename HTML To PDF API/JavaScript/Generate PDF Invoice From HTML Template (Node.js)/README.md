@@ -1,12 +1,4 @@
-## How to generate PDF invoice from HTML template (node for HTML to PDF API in JavaScript and PDF.co Web API
-
-### Step By Step Tutorial: how to generate PDF invoice from HTML template (node for HTML to PDF API in JavaScript
-
-Today we will explain the steps and algorithm of how to generate PDF invoice from HTML template (node and how to make it work in your application. PDF.co Web API helps with HTML to PDF API in JavaScript. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-Fast application programming interfaces of PDF.co Web API for JavaScript plus the instruction and the code below will help to learn how to generate PDF invoice from HTML template (node. For implimentation of this functionality, please copy and paste code below into your app using code editor. Then compile and run your app. Use of PDF.co Web API in JavaScript is also explained in the documentation included along with the product.
-
-Trial version of ByteScout is available for free download from our website. This and other source code samples for JavaScript and other programming languages are available.
+## How to generate PDF invoice from HTML template (node for HTML to PDF API in JavaScript and PDF.co Web API What is PDF.co Web API? It is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****GeneratePdfInvoiceFromHtmlTemplate.js:**
+##### **app.js:**
     
 ```
 var https = require("https");

@@ -1,12 +1,4 @@
-## PDF to JSON API in JavaScript with PDF.co Web API
-
-### PDF to JSON API in JavaScript
-
-Here you may find thousands pre-made source code pieces for easy implementation in your own programming JavaScript projects. PDF to JSON API in JavaScript can be implemented with PDF.co Web API. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-JavaScript, code samples for JavaScript, developers help to speed up the application development and writing a code when using PDF.co Web API. Follow the instruction from the scratch to work and copy and paste code for JavaScript into your editor. Enjoy writing a code with ready-to-use sample JavaScript codes to add PDF to JSON API functions using PDF.co Web API in JavaScript.
-
-Our website provides free trial version of PDF.co Web API. It comes along with all these source code samples with the goal to help you with your JavaScript application implementation.
+## PDF to JSON API in JavaScript with PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToJsonFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");
@@ -55,6 +47,31 @@ const Pages = "";
 const Password = "";
 // Destination JSON file name
 const DestinationFile = "./result.json";
+
+/*
+Some of advanced options available through profiles:
+(it can be single/double-quoted and contain comments.)
+{
+	"profiles": [
+		{
+			"profile1": {
+				"SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
+				"ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
+				"SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
+				"ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+				"ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+				"LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+				"ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+				"Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+				"ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+				"DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+				"CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+				"CheckPermissions": true, // Ignore document permissions. Values: true / false
+			}
+		}
+	]
+}
+*/
 
 // Sample profile that sets advanced conversion options
 // Advanced options are properties of JSONExtractor class from ByteScout JSON Extractor SDK used in the back-end:

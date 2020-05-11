@@ -1,12 +1,4 @@
-## How to convert DOC to PDF from URL (node for DOC to PDF API in JavaScript with PDF.co Web API
-
-### Step By Step Tutorial: how to convert DOC to PDF from URL (node for DOC to PDF API in JavaScript
-
-Today you are going to learn how to convert DOC to PDF from URL (node in JavaScript. PDF.co Web API was made to help with DOC to PDF API in JavaScript. PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
-
-You will save a lot of time on writing and testing code as you may just take the code below and use it in your application. Follow the instruction and copy - paste code for JavaScript into your project's code editor. Further enhancement of the code will make it more vigorous.
-
-PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your JavaScript application included into trial version.
+## How to convert DOC to PDF from URL (node for DOC to PDF API in JavaScript and PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertDocToPdfFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");

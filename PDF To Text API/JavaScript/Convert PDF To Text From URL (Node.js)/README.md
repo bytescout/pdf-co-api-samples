@@ -1,12 +1,4 @@
-## How to convert PDF to text from URL (node for PDF to text API in JavaScript using PDF.co Web API
-
-### Tutorial: how to convert PDF to text from URL (node for PDF to text API in JavaScript
-
-These source code samples are listed and grouped by their programming language and functions they use. PDF.co Web API was made to help with PDF to text API in JavaScript. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-Fast application programming interfaces of PDF.co Web API for JavaScript plus the instruction and the code below will help to learn how to convert PDF to text from URL (node. Sample code in JavaScript is all you need. Copy-paste it to your the code editor, then add a reference to PDF.co Web API and you are ready to try it! Further enhancement of the code will make it more vigorous.
-
-Our website provides free trial version of PDF.co Web API that includes source code samples to help with your JavaScript project.
+## How to convert PDF to text from URL (node for PDF to text API in JavaScript and PDF.co Web API PDF.co Web API: the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToTextFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");

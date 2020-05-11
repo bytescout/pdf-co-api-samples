@@ -1,12 +1,4 @@
-## PDF to text API in JavaScript using PDF.co Web API
-
-### How to use PDF.co Web API for PDF to text API in JavaScript
-
-The coding tutorials are designed to help you test the features without need to write your own code. PDF.co Web API helps with PDF to text API in JavaScript. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-The SDK samples like this one below explain how to quickly make your application do PDF to text API in JavaScript with the help of PDF.co Web API. Follow the instruction from the scratch to work and copy and paste code for JavaScript into your editor. Code testing will allow the function to be tested and work properly with your data.
-
-PDF.co Web API is available as free trial. You may get it from our website along with all other source code samples for JavaScript applications.
+## PDF to text API in JavaScript and PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToTextFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");
@@ -55,6 +47,24 @@ const Pages = "";
 const Password = "";
 // Destination TXT file name
 const DestinationFile = "./result.txt";
+
+/*
+Some of advanced options available through profiles:
+(JSON can be single/double-quoted and contain comments.)
+{
+    "profiles": [
+        {
+            "profile1": {                
+                "ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+                "ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+                "ExtractAnnotations": true, // Whether to extract PDF annotations.
+                "CheckPermissions": true, // Ignore document permissions. Values: true / false
+                "DetectNewColumnBySpacesRatio": 1.2, // A ratio affecting number of spaces between words. 
+            }
+        }
+    ]
+}
+*/
 
 // Sample profile that sets advanced conversion options
 // Advanced options are properties of TextExtractor class from ByteScout Text Extractor SDK used in the back-end:

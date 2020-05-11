@@ -1,12 +1,4 @@
-## How to PDF text search API in JavaScript and PDF.co Web API
-
-### Write code in JavaScript to PDF text search API with this step-by-step tutorial
-
-The sample source codes on this page shows how to PDF text search API in JavaScript. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf. It can PDF text search API in JavaScript.
-
-The SDK samples like this one below explain how to quickly make your application do PDF text search API in JavaScript with the help of PDF.co Web API. Just copy and paste the code into your JavaScript application’s code and follow the instruction. Test JavaScript sample code examples whether they respond your needs and requirements for the project.
-
-Trial version of PDF.co Web API can be downloaded for free from our website. It also includes source code samples for JavaScript and other programming languages.
+## How to PDF text search API in JavaScript and PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****PDFTextSearchFromUploadedFileAsyncAPI.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

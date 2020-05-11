@@ -1,12 +1,4 @@
-## How to get PDF info from URL (node for PDF information API in JavaScript and PDF.co Web API
-
-### Step By Step Tutorial: how to get PDF info from URL (node for PDF information API in JavaScript
-
-On this page you will learn from code samples for programming in JavaScript. PDF.co Web API was made to help with PDF information API in JavaScript. PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
-
-You will save a lot of time on writing and testing code as you may just take the code below and use it in your application. This JavaScript sample code should be copied and pasted into your project. After doing this just compile your project and click Run. Enjoy writing a code with ready-to-use sample JavaScript codes to add PDF information API functions using PDF.co Web API in JavaScript.
-
-Our website provides free trial version of PDF.co Web API that includes source code samples to help with your JavaScript project.
+## How to get PDF info from URL (node for PDF information API in JavaScript using PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****GetPdfInfoFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");

@@ -1,12 +1,4 @@
-## How to convert PDF to TIFF from file (node for PDF to image API in JavaScript with PDF.co Web API
-
-### How to convert PDF to TIFF from file (node in JavaScript with easy ByteScout code samples to make PDF to image API. Step-by-step tutorial
-
-Sample source codes below will show you how to cope with a difficult task, for example, PDF to image API in JavaScript. PDF to image API in JavaScript can be implemented with PDF.co Web API. PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
-
-You will save a lot of time on writing and testing code as you may just take the code below and use it in your application. Follow the instruction and copy - paste code for JavaScript into your project's code editor. Enjoy writing a code with ready-to-use sample JavaScript codes to add PDF to image API functions using PDF.co Web API in JavaScript.
-
-Trial version of ByteScout is available for free download from our website. This and other source code samples for JavaScript and other programming languages are available.
+## How to convert PDF to TIFF from file (node for PDF to image API in JavaScript with PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ConvertPdfToTiffFromFile.js:**
+##### **app.js:**
     
 ```
 /*jshint esversion: 6 */

@@ -1,12 +1,4 @@
-## How to PDF make searchable API in JavaScript with PDF.co Web API
-
-### Write code in JavaScript to PDF make searchable API with this step-by-step tutorial
-
-Learn how to PDF make searchable API in JavaScript with this source code sample. Want to PDF make searchable API in your JavaScript app? PDF.co Web API is designed for it. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-You will save a lot of time on writing and testing code as you may just take the JavaScript code from PDF.co Web API for PDF make searchable API below and use it in your application. In order to implement the functionality, you should copy and paste this code for JavaScript below into your code editor with your app, compile and run your application. This basic programming language sample code for JavaScript will do the whole work for you to PDF make searchable API.
-
-PDF.co Web API free trial version is available on our website. JavaScript and other programming languages are supported.
+## How to PDF make searchable API in JavaScript and PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****MakeSearchablePdfFromUrl.js:**
+##### **app.js:**
     
 ```
 var https = require("https");

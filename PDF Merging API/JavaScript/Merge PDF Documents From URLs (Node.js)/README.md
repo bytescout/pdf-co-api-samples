@@ -1,12 +1,4 @@
-## How to merge PDF documents from urls (node for PDF merging API in JavaScript and PDF.co Web API
-
-### See how to merge PDF documents from urls (node to have PDF merging API in JavaScript
-
-The documentation is designed to help you to implement the features on your side. PDF.co Web API was made to help with PDF merging API in JavaScript. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-Fast application programming interfaces of PDF.co Web API for JavaScript plus the instruction and the code below will help to learn how to merge PDF documents from urls (node. Sample code in JavaScript is all you need. Copy-paste it to your the code editor, then add a reference to PDF.co Web API and you are ready to try it! Further enhancement of the code will make it more vigorous.
-
-Our website provides free trial version of PDF.co Web API that includes source code samples to help with your JavaScript project.
+## How to merge PDF documents from urls (node for PDF merging API in JavaScript with PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -36,7 +28,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****MergePdfDocumentsFromUrls.js:**
+##### **app.js:**
     
 ```
 var https = require("https");
