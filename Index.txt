@@ -252,8 +252,17 @@
 \Document Parser API\C#\Parse with OCR
 \Document Parser API\C#\Parsing and reading data from Airline Tickets
 \Document Parser API\C#\Parse and Generate HL7 Output\Src
+\Document Parser API\Java\Blood Test Results to JSON
+\Document Parser API\Java\Create Custom Template
+\Document Parser API\Java\Extract line items from tables on multiple pages
 \Document Parser API\Java\Parse From Url
+\Document Parser API\Java\Parse From URL Asynchronously
+\Document Parser API\Java\Parse Multipage Table
+\Document Parser API\Java\Parse Simple Document
 \Document Parser API\Java\Parse Uploaded File
+\Document Parser API\Java\Parse Uploaded File Asynchronously
+\Document Parser API\Java\Parse with OCR
+\Document Parser API\Java\Parsing and reading data from Airline Tickets
 \Document Parser API\JavaScript\Parse From Url (Node.js)
 \Document Parser API\JavaScript\Parse Uploaded File (Node.js)
 \Document Parser API\Powershell\Parse From Uploaded File

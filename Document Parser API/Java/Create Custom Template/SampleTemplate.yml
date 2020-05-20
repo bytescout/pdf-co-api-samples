@@ -1,0 +1,48 @@
+﻿sourceId: My Custom Template
+detectionRules:
+  keywords:
+  - Your Company Name
+  - Invoice No\.
+  - TOTAL
+fields:
+  total:
+    expression: TOTAL {{DECIMAL}}
+    type: decimal
+    pageIndex: 0
+  dateIssued:
+    expression: Invoice Date {{DATE}}
+    type: date
+    dateFormat: auto-mdy
+    pageIndex: 0
+  invoiceId:
+    expression: Invoice No. {{123}}
+    pageIndex: 0
+  companyName:
+    expression: Vendor Company
+    static: true
+    pageIndex: 0
+  billTo:
+    rect:
+    - 32.25
+    - 150
+    - 348
+    - 70.5
+    pageIndex: 0
+  notes:
+    rect:
+    - 32.25
+    - 227.25
+    - 531
+    - 47.25
+    pageIndex: 0
+tables:
+- name: table1
+  start:
+    expression: Item\s+Quantity\s+Price\s+Total
+  end:
+    expression: TOTAL
+  subItemStart: {}
+  subItemEnd: {}
+  row:
+    expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$
+
