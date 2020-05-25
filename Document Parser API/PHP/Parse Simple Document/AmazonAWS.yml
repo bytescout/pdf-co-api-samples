@@ -1,0 +1,56 @@
+---
+templateVersion: 3
+templatePriority: 0
+sourceId: Amazon Web Services Invoice
+detectionRules:
+  keywords:
+  - Amazon Web Services
+  - ATTN
+  - Invoice
+fields:
+  total:
+    type: macros
+    expression: 'TOTAL AMOUNT DUE ON{{Anything}}{{Dollar}}({{Number}})'
+    dataType: decimal
+  subTotal:
+    type: macros
+    expression: '{{LineStart}}{{Spaces}}Charges{{Spaces}}{{Dollar}}({{Number}})'
+    dataType: decimal
+  dateIssued:
+    type: macros
+    expression: 'Invoice Date:{{Spaces}}({{Anything}}){{LineEnd}}'
+    dataType: date
+    dateFormat: MMMM d , yyyy
+  invoiceId:
+    type: macros
+    expression: 'Invoice Number:{{Spaces}}({{Digits}})'
+  companyName:
+    type: static
+    expression: Amazon Web Services, Inc.
+  companyWebsite:
+    type: static
+    expression: aws.amazon.com
+  billTo:
+    type: rectangle
+    expression: 'Bill to Address:{{ToggleSingleLineMode}}({{AnythingGreedy}})'
+    rectangle:
+    - 33
+    - 115.5
+    - 213.75
+    - 72.75
+    pageIndex: 0
+  currency:
+    type: static
+    expression: USD
+tables:
+- name: table1
+  start:
+    expression: '{{LineStart}}{{Spaces}}Detail{{LineEnd}}'
+  end:
+    expression: '{{EndOfPage}}'
+  row:
+    expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}}){{LineEnd}}'
+  columns:
+  - name: unitPrice
+    type: decimal
+

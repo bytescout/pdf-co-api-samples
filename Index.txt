@@ -234,6 +234,7 @@
 \Document Parser API\C#
 \Document Parser API\Java
 \Document Parser API\JavaScript
+\Document Parser API\PHP
 \Document Parser API\Powershell
 \Document Parser API\Python
 \Document Parser API\Sample_Files
@@ -266,6 +267,15 @@
 \Document Parser API\Java\Parsing and reading data from Airline Tickets
 \Document Parser API\JavaScript\Parse From Url (Node.js)
 \Document Parser API\JavaScript\Parse Uploaded File (Node.js)
+\Document Parser API\PHP\Blood Test Results to JSON
+\Document Parser API\PHP\Create Custom Template
+\Document Parser API\PHP\Extract line items from tables on multiple pages
+\Document Parser API\PHP\Parse From URL Asynchronously
+\Document Parser API\PHP\Parse Multipage Table
+\Document Parser API\PHP\Parse Simple Document
+\Document Parser API\PHP\Parse Uploaded File Asynchronously
+\Document Parser API\PHP\Parse with OCR
+\Document Parser API\PHP\Parsing and reading data from Airline Tickets
 \Document Parser API\Powershell\Parse From Uploaded File
 \Document Parser API\Powershell\Parse From Url
 \Document Parser API\Python\Parse From Uploaded File

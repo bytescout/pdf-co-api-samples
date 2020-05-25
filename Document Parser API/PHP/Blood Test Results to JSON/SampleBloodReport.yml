@@ -1,0 +1,35 @@
+﻿templateVersion: 3
+templatePriority: 0
+sourceId: BloodTestTemplate
+detectionRules:
+  keywords: []
+fields:
+  PatientName:
+    type: rectangle
+    rectangle:
+    - 177.75
+    - 123.75
+    - 62.25
+    - 12.75
+    pageIndex: 0
+  ReportName:
+    type: rectangle
+    expression: '{{SmartDate}}'
+    dataType: date
+    rectangle:
+    - 335.25
+    - 94.5
+    - 65.25
+    - 12
+    pageIndex: 0
+  TestResults:
+    type: rectangle
+    dataType: table
+    rectangle:
+    - 41.25
+    - 261.75
+    - 532.5
+    - 450.75
+    pageIndex: 0
+    rowMergingRule: byBorders
+
