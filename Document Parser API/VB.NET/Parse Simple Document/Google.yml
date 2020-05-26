@@ -1,0 +1,58 @@
+﻿---
+templateVersion: 3
+templatePriority: 0
+sourceId: Google Invoice
+detectionRules:
+  keywords:
+  - Google
+  - 77-0493581
+  - Invoice
+fields:
+  invoiceId:
+    expression: 'Invoice number:{{Spaces}}({{Digits}})'
+  dateIssued:
+    expression: 'Issue date:{{Spaces}}({{SmartDate}})'
+    dataType: date
+    dateFormat: MMM d, yyyy
+  total:
+    expression: 'Amount due in USD:{{Spaces}}{{Number}}'
+    dataType: decimal
+  subTotal:
+    expression: 'Subtotal in USD:{{Spaces}}{{Number}}'
+    dataType: decimal
+  taxRate:
+    expression: 'State sales tax {{OpeningParenthesis}}{{Digits}}{{Percent}}{{ClosingParenthesis}}'
+    dataType: integer
+  tax:
+    expression: 'State sales tax{{Anything}}{{Number}}{{LineEnd}}'
+    dataType: decimal
+  companyName:
+    type: static
+    expression: 'Google LLC'
+  billTo:
+    type: rectangle
+    rectangle:
+    - 0
+    - 152
+    - 280
+    - 72
+    pageIndex: 0
+  billingId:
+    expression: 'Billing ID:{{Spaces}}({{DigitsOrSymbols}})'
+  currency:
+    type: static
+    expression: 'USD'
+tables:
+- name: table1
+  start:
+    expression: 'Description{{Spaces}}Interval{{Spaces}}Quantity{{Spaces}}Amount'
+  end:
+    expression: 'Subtotal in USD'
+  row:
+    expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<interval>{{3Letters}}{{Space}}{{Digits}}{{Space}}{{Minus}}{{Space}}{{3Letters}}{{Space}}{{Digits}}){{Spaces}}(?<quantity>{{Digits}}){{Spaces}}(?<amount>{{Number}})'
+  columns:
+  - name: quantity
+    type: integer
+  - name: amount
+    type: decimal
+

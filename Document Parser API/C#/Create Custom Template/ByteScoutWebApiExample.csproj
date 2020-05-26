@@ -45,10 +45,10 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Sample_Templates\SampleTemplate.yml">
+    <None Include="SampleTemplate.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Files\SampleInvoice.pdf">
+    <None Include="SampleInvoice.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

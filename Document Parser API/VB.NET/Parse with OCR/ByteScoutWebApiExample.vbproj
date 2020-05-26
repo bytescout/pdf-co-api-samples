@@ -72,10 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="..\..\Sample_Files\DigitalOcean-scanned.jpg">
+    <None Include="DigitalOcean-scanned.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Templates\DigitalOcean.yml">
+    <None Include="DigitalOcean.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -72,10 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="..\..\Sample_Files\SampleTicket.pdf">
+    <None Include="SampleTicket.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Templates\SampleTicket.yml">
+    <None Include="SampleTicket.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

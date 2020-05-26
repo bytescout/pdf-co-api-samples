@@ -72,10 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="..\..\Sample_Files\MultiPageTable.pdf">
+    <None Include="MultiPageTable.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Templates\MultiPageTable-template1.yml">
+    <None Include="MultiPageTable-template1.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

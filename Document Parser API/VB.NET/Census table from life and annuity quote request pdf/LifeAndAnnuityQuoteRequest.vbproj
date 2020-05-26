@@ -71,10 +71,10 @@
     <Compile Include="Module1.vb" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Sample_Templates\SampleGroupDisabilityForm.yml">
+    <None Include="SampleGroupDisabilityForm.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Files\SampleGroupDisabilityForm.pdf">
+    <None Include="SampleGroupDisabilityForm.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

@@ -57,10 +57,10 @@
     <Compile Include="Src\SubComponent.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Sample_Templates\TestReportFormat.yml">
+    <None Include="TestReportFormat.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Files\Test_Report_Format.pdf">
+    <None Include="Test_Report_Format.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

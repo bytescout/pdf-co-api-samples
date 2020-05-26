@@ -72,22 +72,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="..\..\Sample_Files\DigitalOcean.pdf">
+    <None Include="DigitalOcean.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Files\AmazonAWS.pdf">
+    <None Include="AmazonAWS.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Files\Google.pdf">
+    <None Include="Google.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Templates\DigitalOcean.yml">
+    <None Include="DigitalOcean.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Templates\AmazonAWS.yml">
+    <None Include="AmazonAWS.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Templates\Google.yml">
+    <None Include="Google.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
