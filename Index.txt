@@ -31,6 +31,7 @@
 \Render Url As Png
 \Replace Text From PDF
 \Replace Text With Image From PDF
+\Zapier
 \Add Text And Images To PDF\C#
 \Add Text And Images To PDF\cURL
 \Add Text And Images To PDF\Java
@@ -1052,3 +1053,4 @@
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL Asynchronously
+\Zapier\Search in PDF
