@@ -1,0 +1,26 @@
+1. Select "Pipedrive" as an application. In this demo we'll create PDF report for new Deals created, hence "New Deal" will be selected as an event.
+[Screenshot_1.png]
+
+2. This is how new deal is created in Pipedrive.
+[Screenshot_2.png]
+
+3. Now that new deal is created, it’s time to Test trigger.
+[Screenshot_3.png]"
+
+4. Test trigger data contains all deals related information such as organization name, contact name, etc. 
+[Screenshot_4.png]
+
+5. In order to create PDF report, we'll use "PDF.co" as app and "Anything to PDF Converter" as an event. Method "Anything to PDF Converter" can convert most of formats such as HTML, document, spreadsheet, presentation or even URL to PDF output type. 
+[Screenshot_5.png]
+
+6. Now we need to provide all event parameters such as source type, input, etc. Select "Raw HTML code to convert to PDF" as "Source Type". In "Input" field specify basic html report which covers deal information as shown in screenshot. Lastly, we've provided output file name as deal name with PDF extension.
+[Screenshot_6.png]
+
+7. Here's final input request which will be sent to PDF.co for PDF output generation.
+[Screenshot_7.png]
+
+8. Output received from PDF.co is in json format and contains fields such as url, pagecount, error, etc. Here URL is referring to PDF output report.
+[Screenshot_8.png]
+
+9. Here's how PDF output for deal report looked like when opened.
+[Screenshot_9.png]

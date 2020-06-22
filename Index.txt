@@ -1054,6 +1054,8 @@
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL Asynchronously
 \Zapier\Generate Barcode and Save to Dropbox
+\Zapier\Gmail PDF Attachments to CSV
 \Zapier\Google Forms to PDF
 \Zapier\Google Sheets to PDF export type
+\Zapier\Pipedrive CRM to PDF
 \Zapier\Search in PDF
