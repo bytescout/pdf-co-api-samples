@@ -1057,5 +1057,7 @@
 \Zapier\Gmail PDF Attachments to CSV
 \Zapier\Google Forms to PDF
 \Zapier\Google Sheets to PDF export type
+\Zapier\PDF.co to Dropbox
+\Zapier\PDF.co to Google Drive
 \Zapier\Pipedrive CRM to PDF
 \Zapier\Search in PDF

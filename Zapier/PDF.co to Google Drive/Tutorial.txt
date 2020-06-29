@@ -1,0 +1,29 @@
+1. For this demo we already have input source configured. It can be anything based on requirement. We have selected PDF.co as input app and selected "PDF Filler" as preferred event. This "PDF Filler" event can add multiple text or images PDF document.
+[Screenshot_1.png]
+
+2. As we can see in screenshot, we have provided various PDF.co configuration options. In "Direct Link to Source PDF", we have provided input file which will be processed. In "Text Objects" we have provided input text in pre-defined format such as X location, Y location, page index, input text, font size, font family, etc. After that we've provided output file name.
+[Screenshot_2.png]
+
+3. Now we're ready to send input request to PDF.co. We're shown input request data here. If it looks good then we'll proceed with "TEST & REVIEW".
+[Screenshot_3.png]"
+
+4. Once response received from PDF.co, we can see output contains URL which contains processed output file. 
+[Screenshot_4.png]
+
+5. This is how output file looks like. In top-left corner it contains text "Hello World!" like we've specified in input request. 
+[Screenshot_5.png]
+
+6. Let's proceed with saving resulting file to Google Drive. Here we've selected input app as "Google Drive" and event as "Upload File".
+[Screenshot_6.png]
+
+7. With Google Drive account is added, it's time to configure upload details. In field for "Folder", we've specified output Google Drive folder name. In "File" field, we've specified output file URL from PDF.co response. Then we've provided input fields like whether convert to document, output file name and lastly extension of output file.
+[Screenshot_7.png]
+
+8. We're ready send request for save file to Google Drive. We’re presented with request data before sending to Google Drive API. If it looks good then we can proceed with "TEST & REVIEW".
+[Screenshot_8.png]
+
+9. Here's how successful Google Drive file save request’s response data looks like. 
+[Screenshot_9.png]
+
+10. In Google Drive output folder we can find new output file successfully saved.
+[Screenshot_10.png]
