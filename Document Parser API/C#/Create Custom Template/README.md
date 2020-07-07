@@ -9,14 +9,16 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
-[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Source Code Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/)
 [Sign Up For Online Training](https://academy.bytescout.com/)
 
 
 ## ON-DEMAND REST WEB API
 
-[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
-[Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Get your API key](https://app.pdf.co/signup?utm_source=github-readme)
+[Security](https://pdf.co/security)
+[Explore Web API Documentation](https://apidocs.pdf.co?utm_source=github-readme)
 [Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
 ## VIDEO REVIEW
@@ -78,10 +80,10 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Sample_Templates\SampleTemplate.yml">
+    <None Include="SampleTemplate.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\Sample_Files\SampleInvoice.pdf">
+    <None Include="SampleInvoice.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -298,6 +300,64 @@ namespace ByteScoutWebApiExample
         }
 	}
 }
+
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### **SampleTemplate.yml:**
+    
+```
+sourceId: My Custom Template
+detectionRules:
+  keywords:
+  - Your Company Name
+  - Invoice No\.
+  - TOTAL
+fields:
+  total:
+    expression: TOTAL {{DECIMAL}}
+    type: decimal
+    pageIndex: 0
+  dateIssued:
+    expression: Invoice Date {{DATE}}
+    type: date
+    dateFormat: auto-mdy
+    pageIndex: 0
+  invoiceId:
+    expression: Invoice No. {{123}}
+    pageIndex: 0
+  companyName:
+    expression: Vendor Company
+    static: true
+    pageIndex: 0
+  billTo:
+    rect:
+    - 32.25
+    - 150
+    - 348
+    - 70.5
+    pageIndex: 0
+  notes:
+    rect:
+    - 32.25
+    - 227.25
+    - 531
+    - 47.25
+    pageIndex: 0
+tables:
+- name: table1
+  start:
+    expression: Item\s+Quantity\s+Price\s+Total
+  end:
+    expression: TOTAL
+  subItemStart: {}
+  subItemEnd: {}
+  row:
+    expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$
+
 
 ```
 

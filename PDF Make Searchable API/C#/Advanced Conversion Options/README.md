@@ -17,14 +17,16 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
-[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Source Code Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/)
 [Sign Up For Online Training](https://academy.bytescout.com/)
 
 
 ## ON-DEMAND REST WEB API
 
-[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
-[Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Get your API key](https://app.pdf.co/signup?utm_source=github-readme)
+[Security](https://pdf.co/security)
+[Explore Web API Documentation](https://apidocs.pdf.co?utm_source=github-readme)
 [Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
 ## VIDEO REVIEW
@@ -36,7 +38,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ByteScoutWebApiExample.csproj:**
+##### **ByteScoutWebApiExample.csproj:**
     
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -106,7 +108,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ByteScoutWebApiExample.sln:**
+##### **ByteScoutWebApiExample.sln:**
     
 ```
 
@@ -138,7 +140,7 @@ EndGlobal
 
 <!-- code block begin -->
 
-##### ****Program.cs:**
+##### **Program.cs:**
     
 ```
 using System;
@@ -229,13 +231,32 @@ namespace ByteScoutWebApiExample
 
 <!-- code block begin -->
 
-##### ****packages.config:**
+##### **packages.config:**
     
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
   <package id="Newtonsoft.Json" version="10.0.3" targetFramework="net40" />
 </packages>
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### **profile.json:**
+    
+```
+{
+  "profiles": [
+    {
+      "profile1": {
+        "OCRLanguage": "eng",
+        "OCRResolution":  300
+      }
+    }
+  ]
+}
 ```
 
 <!-- code block end -->

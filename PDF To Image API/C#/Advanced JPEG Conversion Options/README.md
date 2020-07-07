@@ -9,14 +9,16 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
-[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Source Code Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/)
 [Sign Up For Online Training](https://academy.bytescout.com/)
 
 
 ## ON-DEMAND REST WEB API
 
-[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
-[Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Get your API key](https://app.pdf.co/signup?utm_source=github-readme)
+[Security](https://pdf.co/security)
+[Explore Web API Documentation](https://apidocs.pdf.co?utm_source=github-readme)
 [Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
 ## VIDEO REVIEW
@@ -142,6 +144,33 @@ using System.Threading;
 
 // Cloud API asynchronous "PDF To JPEG" job example.
 // Allows to avoid timeout errors when processing huge or scanned PDF documents.
+
+/*
+The following options are available through profiles:
+(JSON can be single/double-quoted and contain comments.)
+{
+    "profiles": [
+        {
+            "profile1": {
+                "TextSmoothingMode": "HighQuality", // Valid values: "HighSpeed", "HighQuality"
+                "VectorSmoothingMode": "HighQuality", // Valid values: "HighSpeed", "HighQuality"
+                "ImageInterpolationMode": "HighQuality", // Valid values: "HighSpeed", "HighQuality"
+                "RenderTextObjects": true, // Valid values: true, false
+                "RenderVectorObjects": true, // Valid values: true, false
+                "RenderImageObjects": true, // Valid values: true, false
+                "RenderCurveVectorObjects": true, // Valid values: true, false
+                "JPEGQuality": 85, // from 0 (lowest) to 100 (highest)
+                "TIFFCompression": "LZW", // Valid values: "None", "LZW", "CCITT3", "CCITT4", "RLE"
+                "RotateFlipType": "RotateNoneFlipNone", // RotateFlipType enum values from here: https://docs.microsoft.com/en-us/dotnet/api/system.drawing.rotatefliptype?view=netframework-2.0
+                "ImageBitsPerPixel": "BPP24", // Valid values: "BPP1", "BPP8", "BPP24", "BPP32"
+                "OneBitConversionAlgorithm": "OtsuThreshold", // Valid values: "OtsuThreshold", "BayerOrderedDithering"
+                "FontHintingMode": "Default", // Valid values: "Default", "Stronger"
+                "NightMode": false // Valid values: true, false
+            }
+        }
+    ]
+}
+*/
 
 namespace ByteScoutWebApiExample
 {

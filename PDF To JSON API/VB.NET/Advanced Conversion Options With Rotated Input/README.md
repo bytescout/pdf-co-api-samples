@@ -17,14 +17,16 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
-[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Source Code Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/)
 [Sign Up For Online Training](https://academy.bytescout.com/)
 
 
 ## ON-DEMAND REST WEB API
 
-[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
-[Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Get your API key](https://app.pdf.co/signup?utm_source=github-readme)
+[Security](https://pdf.co/security)
+[Explore Web API Documentation](https://apidocs.pdf.co?utm_source=github-readme)
 [Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
 ## VIDEO REVIEW
@@ -217,6 +219,29 @@ Module Module1
     ' Destination JSON file name
     Const DestinationFile As String = ".\result.json"
 
+    ' Some of advanced options available through profiles:
+    ' (it can be single/double-quoted and contain comments.)
+    ' {
+    ' 	"profiles": [
+    ' 		{
+    ' 			"profile1": {
+    ' 				"SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
+    ' 				"ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
+    ' 				"SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
+    ' 				"ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+    ' 				"ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+    ' 				"LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+    ' 				"ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+    ' 				"Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+    ' 				"ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+    ' 				"DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+    ' 				"CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+    ' 				"CheckPermissions": true, // Ignore document permissions. Values: true / false
+    ' 			}
+    ' 		}
+    ' 	]
+    ' }
+
     ' Sample profile that sets advanced conversion options.
     ' Advanced options are properties of JSONExtractor class from ByteScout PDF Extractor SDK used in the back-end:
     ' https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/87ce5fa6-3143-167d-abbd-bc7b5e160fe5.htm
@@ -323,6 +348,24 @@ End Module
 <packages>
   <package id="Newtonsoft.Json" version="10.0.3" targetFramework="net40" />
 </packages>
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### **profile.json:**
+    
+```
+{
+  "profiles": [
+    {
+      "profile1": {
+        "RotationAngle": 1
+      }
+    }
+  ]
+}
 ```
 
 <!-- code block end -->

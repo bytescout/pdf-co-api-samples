@@ -17,14 +17,16 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
-[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Source Code Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/)
 [Sign Up For Online Training](https://academy.bytescout.com/)
 
 
 ## ON-DEMAND REST WEB API
 
-[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
-[Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Get your API key](https://app.pdf.co/signup?utm_source=github-readme)
+[Security](https://pdf.co/security)
+[Explore Web API Documentation](https://apidocs.pdf.co?utm_source=github-readme)
 [Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
 ## VIDEO REVIEW
@@ -36,7 +38,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ReadBarcodeFromURL.ps1:**
+##### **ReadBarcodeFromURL.ps1:**
     
 ```
 # The authentication key (API Key).
@@ -50,6 +52,23 @@ $SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-
 $BarcodeTypes = "Code128,Code39,Interleaved2of5,EAN13"
 # Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 $Pages = ""
+
+# Some of advanced options available through profiles:
+# (JSON can be single/double-quoted and contain comments.)
+# {
+#     "profiles": [
+#         {
+#             "profile1": {
+#                 "ScanArea": "WholePage", // Values: "TopLeftQuarter", "TopRightQuarter", "BottomRightQuarter", "BottomLeftQuarter", "TopHalf", "BottomHalf", "WholePage".
+#                 "RequireQuietZones": true, // Whether the quite zone is obligatory for 1D barcodes. Values: true / false
+#                 "MaxNumberOfBarcodesPerPage": 0, // 0 - unlimited.
+#                 "MaxNumberOfBarcodesPerDocument": 0, // 0 - unlimited.
+#                 "ScanStep": 1, // Scan interval for linear (1-dimensional) barcodes.
+#                 "MinimalDataLength": 0, // Minimal acceptable length of decoded data.                
+#             }
+#         }
+#     ]
+# }
 
 # Sample profile that sets advanced conversion options
 # Advanced options are properties of Reader class from Bytescout BarCodeReader used in the back-end:
@@ -93,7 +112,7 @@ catch {
 
 <!-- code block begin -->
 
-##### ****run.bat:**
+##### **run.bat:**
     
 ```
 @echo off

@@ -17,14 +17,16 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ## ON-PREMISE OFFLINE SDK 
 
 [Get Your 60 Day Free Trial](https://bytescout.com/download/web-installer?utm_source=github-readme)
-[Explore SDK Docs](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Documentation](https://bytescout.com/documentation/index.html?utm_source=github-readme)
+[Explore Source Code Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/)
 [Sign Up For Online Training](https://academy.bytescout.com/)
 
 
 ## ON-DEMAND REST WEB API
 
-[Get your API key](https://pdf.co/documentation/api?utm_source=github-readme)
-[Explore Web API Documentation](https://pdf.co/documentation/api?utm_source=github-readme)
+[Get your API key](https://app.pdf.co/signup?utm_source=github-readme)
+[Security](https://pdf.co/security)
+[Explore Web API Documentation](https://apidocs.pdf.co?utm_source=github-readme)
 [Explore Web API Samples](https://github.com/bytescout/ByteScout-SDK-SourceCode/tree/master/PDF.co%20Web%20API)
 
 ## VIDEO REVIEW
@@ -36,7 +38,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### ****ByteScoutWebApiExample.sln:**
+##### **ByteScoutWebApiExample.sln:**
     
 ```
 
@@ -71,7 +73,7 @@ EndGlobal
 
 <!-- code block begin -->
 
-##### ****ByteScoutWebApiExample.vbproj:**
+##### **ByteScoutWebApiExample.vbproj:**
     
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -197,7 +199,7 @@ EndGlobal
 
 <!-- code block begin -->
 
-##### ****Module1.vb:**
+##### **Module1.vb:**
     
 ```
 Imports System.IO
@@ -279,7 +281,31 @@ End Module
 
 <!-- code block begin -->
 
-##### ****packages.config:**
+##### **invoice_data.json:**
+    
+```
+{
+    "number": "1234567",
+    "date": "April 30, 2016",
+    "from": "Acme Inc., City, Street 3rd , +1 888 123-456, support@example.com",
+    "to": "Food Delivery Inc., New York, Some Street, 42",
+    "lines": [{
+        "title": "Setting up new web-site",
+        "quantity": 3,
+        "price": 50
+    }, {
+        "title": "Configuring mail server and mailboxes",
+        "quantity": 5,
+        "price": 50
+    }]
+}
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### **packages.config:**
     
 ```
 <?xml version="1.0" encoding="utf-8"?>
