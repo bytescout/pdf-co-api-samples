@@ -1,48 +1,43 @@
-﻿---
-# Template that demonstrates parsing of multi-page table without using 
-# macro expression for table rows. Rows and cells are extracted automatically 
-# by specified column coordinates. Use `Template Editor` app to find the coordinates 
-# (coordinates of the mouse cursor are displayed in the toolbar).
-templateVersion: 3
+﻿templateName: Multipage Table Test
+templateVersion: 4
 templatePriority: 0
-sourceId: Multipage Table Test
 detectionRules:
   keywords:
   - Sample document with multi-page table
-fields:
-  total:
-    type: regex
-    expression: 'TOTAL{{Spaces}}({{Number}})'
+objects:
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: regex
+    expression: TOTAL{{Spaces}}({{Number}})
+    regex: true
     dataType: decimal
-tables:
 - name: table1
-  # coordinate OR macro expression to find the table start on each document page
-  start:
-    #y: 136
-    expression: 'Item{{Spaces}}Description{{Spaces}}Price'
-  # coordinate OR macro expression to find the table end on each document page
-  end:
-    #y: 787
-    expression: (Page {{Digits}} of {{Digits}})|(TOTAL{{Spaces}}{{Number}})
-  # left coordinate of the table (optional)
-  left: 51
-  # right coordinate of the table (optional)
-  right: 528
-  # column names, output data types and coordinates (left column edge)
-  columns: 
-  - name: itemNo
-    x: 51
-    type: integer
-  - name: description
-    x: 102
-    type: string
-  - name: price
-    x: 324
-    type: decimal
-  - name: qty
-    x: 396
-    type: integer
-  - name: extPrice
-    x: 441
-    type: decimal
-  multipage: true
+  objectType: table
+  tableProperties:
+    start:
+      expression: Item{{Spaces}}Description{{Spaces}}Price
+      regex: true
+    end:
+      expression: (Page {{Digits}} of {{Digits}})|(TOTAL{{Spaces}}{{Number}})
+      regex: true
+    left: 51
+    right: 528
+    columns:
+    - x: 51
+      name: itemNo
+      dataType: integer
+    - x: 102
+      name: description
+      dataType: string
+    - x: 324
+      name: price
+      dataType: decimal
+    - x: 396
+      name: qty
+      dataType: integer
+    - x: 441
+      name: extPrice
+      dataType: decimal
+    multipage: true
+
