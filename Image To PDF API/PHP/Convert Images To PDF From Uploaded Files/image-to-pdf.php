@@ -48,7 +48,7 @@ for($i = 0; $i < $fileCount; $i++)
             // Get URL of uploaded file to use with later API calls
             $uploadedFileUrl = $json["url"];
 
-            // 1b. UPLOAD THE FILE TO CLOUD.
+            // 1b. UPLOAD THE FILE TO CLOUD.            
 
             $tmpFilePath = $_FILES["files"]["tmp_name"][$i];
 
@@ -75,6 +75,7 @@ for($i = 0; $i < $fileCount; $i++)
                 {
                     // Display request error
                     echo "<p>Uploading File Status code: " . $status_code . " : " . $uploadedFileUrl . "</p>"; 
+                    echo "<p>error status for uploading files (1 means error related to php.ini config or tmp folder permissions): " . $_FILES['files']['error'] . "</p>";
                     echo "<p>" . $result . "</p>"; 
                 }
             }
