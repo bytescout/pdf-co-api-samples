@@ -8,7 +8,6 @@ objects:
   objectType: field
   fieldProperties:
     fieldType: rectangle
-    regex: true
     rectangle:
     - 177.75
     - 123.75
@@ -20,7 +19,6 @@ objects:
   fieldProperties:
     fieldType: rectangle
     expression: '{{SmartDate}}'
-    regex: true
     dataType: date
     rectangle:
     - 335.25

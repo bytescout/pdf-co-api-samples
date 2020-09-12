@@ -8,6 +8,7 @@ objects:
 - name: total
   objectType: field
   fieldProperties:
+    fieldType: macros
     expression: TOTAL{{Spaces}}({{Number}})
     regex: true
     dataType: decimal

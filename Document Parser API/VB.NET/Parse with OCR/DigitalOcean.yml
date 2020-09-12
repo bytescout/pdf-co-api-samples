@@ -31,7 +31,7 @@ objects:
   objectType: field
   fieldProperties:
     fieldType: macros
-    expression: 'Total: {{Dollar}}({{Number}})'
+    expression: 'Total: ({{Money}})'
     regex: true
     dataType: decimal
 - name: currency

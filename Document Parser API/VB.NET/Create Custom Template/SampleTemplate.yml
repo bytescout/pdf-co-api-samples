@@ -11,16 +11,14 @@ objects:
   objectType: field
   fieldProperties:
     fieldType: macros
-    expression: TOTAL {{DECIMAL}}
-    regex: true
+    expression: TOTAL{{Spaces}}{{Number}}
     dataType: decimal
     pageIndex: 0
 - name: dateIssued
   objectType: field
   fieldProperties:
     fieldType: macros
-    expression: Invoice Date {{DATE}}
-    regex: true
+    expression: Invoice Date {{SmartDate}}
     dataType: date
     dateFormat: auto-mdy
     pageIndex: 0
@@ -28,21 +26,18 @@ objects:
   objectType: field
   fieldProperties:
     fieldType: macros
-    expression: Invoice No. {{123}}
-    regex: true
+    expression: Invoice No. {{Digits}}
     pageIndex: 0
 - name: companyName
   objectType: field
   fieldProperties:
     fieldType: static
     expression: Vendor Company
-    regex: true
     pageIndex: 0
 - name: billTo
   objectType: field
   fieldProperties:
     fieldType: rectangle
-    regex: true
     rectangle:
     - 32.25
     - 150
@@ -53,7 +48,6 @@ objects:
   objectType: field
   fieldProperties:
     fieldType: rectangle
-    regex: true
     rectangle:
     - 32.25
     - 227.25
@@ -68,10 +62,6 @@ objects:
       regex: true
     end:
       expression: TOTAL
-      regex: true
-    subItemStart:
-      regex: true
-    subItemEnd:
       regex: true
     row:
       expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$

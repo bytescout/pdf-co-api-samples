@@ -8,21 +8,21 @@ objects:
 - name: total
   objectType: field
   fieldProperties:
-    fieldType: regex
-    expression: TOTAL {{DECIMAL}}
+    fieldType: macros
+    expression: TOTAL{{Spaces}}({{Number}})
     regex: true
     dataType: decimal
 - name: table1
   objectType: table
   tableProperties:
     start:
-      expression: Item\s+Description\s+Price\s+Qty\s+Extended Price
+      expression: Item{{Spaces}}Description{{Spaces}}Price
       regex: true
     end:
-      expression: TOTAL\s+\d+\.\d\d
+      expression: TOTAL{{Spaces}}{{Number}}
       regex: true
     row:
-      expression: ^\s*(?<itemNo>\d+)\s+(?<description>.+?)\s+(?<price>\d+\.\d\d)\s+(?<qty>\d+)\s+(?<extPrice>\d+\.\d\d)
+      expression: '{{LineStart}}{{Spaces}}(?<itemNo>{{Digits}}){{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}(?<extPrice>{{Number}})'
       regex: true
     columns:
     - name: itemNo
