@@ -34,6 +34,7 @@
 \Zapier
 \Add Text And Images To PDF\C#
 \Add Text And Images To PDF\cURL
+\Add Text And Images To PDF\Delphi
 \Add Text And Images To PDF\Java
 \Add Text And Images To PDF\JavaScript
 \Add Text And Images To PDF\PowerShell
@@ -45,6 +46,7 @@
 \Add Text And Images To PDF\C#\Add Text to Existing PDF
 \Add Text And Images To PDF\cURL\Add Images to Existing PDF
 \Add Text And Images To PDF\cURL\Add Text to Existing PDF
+\Add Text And Images To PDF\Delphi\Add Text And Images To PDF
 \Add Text And Images To PDF\Java\Add Image by finding target coordinates
 \Add Text And Images To PDF\Java\Add Images to Existing PDF
 \Add Text And Images To PDF\Java\Add Text by finding target coordinates
@@ -69,6 +71,7 @@
 \Add Text And Images To PDF\VB.NET\Add Text to Existing PDF
 \Barcode Generator API\C#
 \Barcode Generator API\cURL
+\Barcode Generator API\Delphi
 \Barcode Generator API\Java
 \Barcode Generator API\JavaScript
 \Barcode Generator API\PHP
@@ -77,6 +80,7 @@
 \Barcode Generator API\VB.NET
 \Barcode Generator API\C#\Generate Barcode
 \Barcode Generator API\cURL\Generate Barcode
+\Barcode Generator API\Delphi\Generate Barcode
 \Barcode Generator API\Java\Generate Barcode
 \Barcode Generator API\JavaScript\Generate Barcode
 \Barcode Generator API\JavaScript\Generate Barcode (JQuery)
@@ -170,6 +174,7 @@
 \CSV To PDF API\VB.NET\Convert CSV To PDF From URL Asynchronously
 \Delete Text From PDF\C#
 \Delete Text From PDF\cURL
+\Delete Text From PDF\Delphi
 \Delete Text From PDF\Java
 \Delete Text From PDF\JavaScript
 \Delete Text From PDF\PHP
@@ -181,6 +186,7 @@
 \Delete Text From PDF\C#\Delete PDF Text From URL Asynchronously
 \Delete Text From PDF\cURL\Delete PDF Text From File
 \Delete Text From PDF\cURL\Delete PDF Text From URL
+\Delete Text From PDF\Delphi\Delete PDF Text From URL
 \Delete Text From PDF\Java\Delete PDF Text From Uploaded File
 \Delete Text From PDF\Java\Delete PDF Text From URL
 \Delete Text From PDF\JavaScript\Delete PDF Text From File (Node.js)
@@ -202,6 +208,7 @@
 \Delete Text From PDF\VB.NET\Delete PDF Text From URL Asynchronously
 \DOC To PDF API\C#
 \DOC To PDF API\cURL
+\DOC To PDF API\Delphi
 \DOC To PDF API\Java
 \DOC To PDF API\JavaScript
 \DOC To PDF API\PHP
@@ -213,6 +220,7 @@
 \DOC To PDF API\C#\Convert DOC To PDF From URL Asynchronously
 \DOC To PDF API\cURL\Convert DOC to PDF from File
 \DOC To PDF API\cURL\Convert DOC To PDF From URL
+\DOC To PDF API\Delphi\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From URL
 \DOC To PDF API\JavaScript\Convert DOC To PDF From File (Node.js)
@@ -448,6 +456,7 @@
 \PDF Make Searchable API\VB.NET\Make Searchable PDF From URL Asynchronously
 \PDF Merging API\C#
 \PDF Merging API\cURL
+\PDF Merging API\Delphi
 \PDF Merging API\Java
 \PDF Merging API\JavaScript
 \PDF Merging API\PHP
@@ -459,6 +468,7 @@
 \PDF Merging API\C#\Merge PDF Documents From URLs
 \PDF Merging API\C#\Merge PDF Documents From URLs Asynchronously
 \PDF Merging API\cURL\Merge PDF Documents From URLs
+\PDF Merging API\Delphi\Merge PDF Documents From URLs
 \PDF Merging API\Java\Merge PDF Documents From Uploaded Files
 \PDF Merging API\Java\Merge PDF Documents From URLs
 \PDF Merging API\JavaScript\Merge PDF Documents (jQuery)
