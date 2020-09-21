@@ -12,9 +12,11 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
@@ -29,11 +31,14 @@ namespace ByteScoutWebApiExample
 		// Get your own by registering at https://app.pdf.co/documentation/api
 		const String API_KEY = "***********************************";
 		
+
 		// Direct URL of source CSV file.
 		const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/csv-to-pdf/sample.csv";
-		// Destination PDF file name
+		
+        // Destination PDF file name
 		const string DestinationFile = @".\result.pdf";
-		// (!) Make asynchronous job
+		
+        // (!) Make asynchronous job
 		const bool Async = true;
 
 
@@ -45,17 +50,23 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `CSV To PDF` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/convert/from/csv?name={0}&url={1}&async={2}",
-				Path.GetFileName(DestinationFile),
-				SourceFileUrl,
-				Async));
+
+            // Prepare requests params as JSON
+            // See documentation: https://apidocs.pdf.co/?#barcode-reader
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("url", SourceFileUrl);
+            parameters.Add("name", Path.GetFileName(DestinationFile));
+            parameters.Add("async", Async.ToString());
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+                // URL of "CSV to PDF" endpoint
+                string url = "https://api.pdf.co/v1/pdf/convert/from/csv";
+
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);

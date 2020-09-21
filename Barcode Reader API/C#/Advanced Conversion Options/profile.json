@@ -1,8 +1,9 @@
 ﻿{
   "profiles": [
     {
-      "profile1": {
-        "FastMode": true
+      "profile1": 
+      {
+        "ScanStep": 5
       }
     }
   ]

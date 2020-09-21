@@ -18,6 +18,7 @@
 \PDF Make Searchable API
 \PDF Merging API
 \PDF Optimization API
+\PDF Security
 \PDF Splitting API
 \PDF Text Search API
 \PDF To CSV API
@@ -519,6 +520,8 @@
 \PDF Optimization API\VB.NET\Optimize PDF From Uploaded File
 \PDF Optimization API\VB.NET\Optimize PDF From URL
 \PDF Optimization API\VB.NET\Optimize PDF From URL Asynchronously
+\PDF Security\C#
+\PDF Security\C#\Protect PDF Document
 \PDF Splitting API\C#
 \PDF Splitting API\cURL
 \PDF Splitting API\Java

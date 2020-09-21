@@ -12,6 +12,7 @@
 
 
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -26,17 +27,49 @@ namespace ByteScoutWebApiExample
         // Get your own by registering at https://app.pdf.co/documentation/api
         const String API_KEY = "***********************************";
         
-        // Source file name
+
+        // Source PDF file
         const string SourceFile = @".\sample.pdf";
-
-        // Comma-separated list of barcode types to search. 
-        // See the documentation: https://apidocs.pdf.co/?#barcode-reader
-        const string BarcodeTypes = "Code128,Code39,Interleaved2of5,EAN13";
         
-        // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
-        const string Pages = "";
+        // Destination PDF file name
+        const string DestinationFile = @".\protected.pdf";
 
+        // Passwords to protect PDF document
+        // The owner password will be required for document modification.
+        // The user password only allows to view and print the document.
+        const string OwnerPassword = "123456";
+        const string UserPassword = "654321";
 
+        // Encryption algorithm. 
+        // Valid values: "RC4_40bit", "RC4_128bit", "AES_128bit", "AES_256bit".
+        const string EncryptionAlgorithm = "AES_128bit";
+
+        // Allow or prohibit content extraction for accessibility needs.
+        const bool AllowAccessibilitySupport = true;
+
+        // Allow or prohibit assembling the document.
+        const bool AllowAssemblyDocument = true;
+
+        // Allow or prohibit printing PDF document.
+        const bool AllowPrintDocument = true;
+
+        // Allow or prohibit filling of interactive form fields (including signature fields) in PDF document.
+        const bool AllowFillForms = true;
+
+        // Allow or prohibit modification of PDF document.
+        const bool AllowModifyDocument = true;
+
+        // Allow or prohibit copying content from PDF document.
+        const bool AllowContentExtraction = true;
+
+        // Allow or prohibit interacting with text annotations and forms in PDF document.
+        const bool AllowModifyAnnotations = true;
+
+        // Allowed printing quality.
+        // Valid values: "HighResolution", "LowResolution"
+        const string PrintQuality = "HighResolution";
+
+        
         static void Main(string[] args)
         {
             // Create standard .NET web client instance
@@ -45,31 +78,36 @@ namespace ByteScoutWebApiExample
             // Set API Key
             webClient.Headers.Add("x-api-key", API_KEY);
 
+
             // Upload file to the cloud
             string uploadedFileUrl = UploadFile(SourceFile);
 
-            if (string.IsNullOrEmpty(uploadedFileUrl))
-            {
-                Console.WriteLine("File upload error.");
-                return;
-            }
 
-
-            // READ BARCODES FROM UPLOADED FILE
+            // PROTECT UPLOADED PDF DOCUMENT
 
             // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#barcode-reader
+            // See documentation: https://apidocs.pdf.co/?#pdf-security
             Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("name", Path.GetFileName(DestinationFile));
             parameters.Add("url", uploadedFileUrl);
-            parameters.Add("type", BarcodeTypes);
-            parameters.Add("pages", Pages);
+            parameters.Add("ownerPassword", OwnerPassword);
+            parameters.Add("userPassword", UserPassword);
+            parameters.Add("encryptionAlgorithm", EncryptionAlgorithm);
+            parameters.Add("allowAccessibilitySupport", AllowAccessibilitySupport.ToString());
+            parameters.Add("allowAssemblyDocument", AllowAssemblyDocument.ToString());
+            parameters.Add("allowPrintDocument", AllowPrintDocument.ToString());
+            parameters.Add("allowFillForms", AllowFillForms.ToString());
+            parameters.Add("allowModifyDocument", AllowModifyDocument.ToString());
+            parameters.Add("allowContentExtraction", AllowContentExtraction.ToString());
+            parameters.Add("allowModifyAnnotations", AllowModifyAnnotations.ToString());
+            parameters.Add("printQuality", PrintQuality);
             // Convert dictionary of params to JSON
             string jsonPayload = JsonConvert.SerializeObject(parameters);
 
             try
             {
-                // URL of "Barcode Reader" endpoint
-                string url = "https://api.pdf.co/v1/barcode/read/from/url";
+                // URL of "PDF Security" endpoint
+                string url = "https://api.pdf.co/v1/pdf/security/add";
 
                 // Execute POST request with JSON payload
                 string response = webClient.UploadString(url, jsonPayload);
@@ -79,33 +117,25 @@ namespace ByteScoutWebApiExample
 
                 if (json["error"].ToObject<bool>() == false)
                 {
-                    // Display found barcodes in console
-                    foreach (JToken token in json["barcodes"])
-                    {
-                        Console.WriteLine("Found barcode:");
-                        Console.WriteLine("  Type: " + token["TypeName"]);
-                        Console.WriteLine("  Value: " + token["Value"]);
-                        Console.WriteLine("  Document Page Index: " + token["Page"]);
-                        Console.WriteLine("  Rectangle: " + token["Rect"]);
-                        Console.WriteLine("  Confidence: " + token["Confidence"]);
-                        Console.WriteLine();
-                    }
+                    // Get URL of generated PDF file
+                    string resultFileUrl = json["url"].ToString();
+
+                    // Download generated PDF file
+                    webClient.DownloadFile(resultFileUrl, DestinationFile);
+
+                    Console.WriteLine("Generated PDF file saved as \"{0}\" file.", DestinationFile);
                 }
                 else
                 {
-                    // Display service reported error
                     Console.WriteLine(json["message"].ToString());
                 }
             }
             catch (WebException e)
             {
-                // Display request error
                 Console.WriteLine(e.ToString());
             }
-            finally
-            {
-                webClient.Dispose();
-            }
+
+            webClient.Dispose();
 
 
             Console.WriteLine();

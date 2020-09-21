@@ -12,8 +12,12 @@
 
 
 using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Net;
+using System.Runtime.ConstrainedExecution;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -46,33 +50,38 @@ namespace ByteScoutWebApiExample
             // Set API Key
             webClient.Headers.Add("x-api-key", API_KEY);
 
-            // Find Text coordinates to add image
-            var oCoordinates = FindCoordinates(API_KEY, SourceFileUrl, "Your Company Name");
-            var Y1 = oCoordinates.y;
-            var X1 = 450;
-            var Width1 = 119;
-            var Height1 = 32;
-
+            // Find coordinates of key phrase to add image at the same Y coordinate
+            var coordinates = FindCoordinates(API_KEY, SourceFileUrl, "Your Company Name");
+            var y1 = coordinates.Y;
+            var x1 = 450;
+            var width1 = 119;
+            var height1 = 32;
 
             // * Add image *
-            // Prepare URL for `PDF Edit` API call
-            string query = Uri.EscapeUriString(string.Format(
-                    "https://api.pdf.co/v1/pdf/edit/add?name={0}&password={1}&pages={2}&url={3}&type={4}&x={5}&y={6}&width={7}&height={8}&urlimage={9}",
-                    Path.GetFileName(DestinationFile),
-                    Password,
-                    Pages,
-                    SourceFileUrl,
-                    Type1,
-                    X1,
-                    Y1,
-                    Width1,
-                    Height1,
-                    ImageUrl));
+            
+            // Prepare requests params as JSON
+            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("name", Path.GetFileName(DestinationFile));
+            parameters.Add("password", Password);
+            parameters.Add("pages", Pages);
+            parameters.Add("url", SourceFileUrl);
+            parameters.Add("type", Type1);
+            parameters.Add("x", x1.ToString());
+            parameters.Add("y", y1.ToString());
+            parameters.Add("width", width1.ToString());
+            parameters.Add("height", height1.ToString());
+            parameters.Add("urlimage", ImageUrl);
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
             try
             {
-                // Execute request
-                string response = webClient.DownloadString(query);
+                // URL of "PDF Edit" endpoint
+                string url = "https://api.pdf.co/v1/pdf/edit/add";
+
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
                 // Parse JSON response
                 JObject json = JObject.Parse(response);
@@ -82,7 +91,7 @@ namespace ByteScoutWebApiExample
                     // Get URL of generated PDF file
                     string resultFileUrl = json["url"].ToString();
 
-                    // Download PDF file
+                    // Download generated PDF file
                     webClient.DownloadFile(resultFileUrl, DestinationFile);
 
                     Console.WriteLine("Generated PDF file saved as \"{0}\" file.", DestinationFile);
@@ -96,9 +105,11 @@ namespace ByteScoutWebApiExample
             {
                 Console.WriteLine(e.ToString());
             }
-
-            webClient.Dispose();
-
+            finally
+            {
+                webClient.Dispose();
+            }
+            
             Console.WriteLine();
             Console.WriteLine("Press any key...");
             Console.ReadKey();
@@ -106,29 +117,33 @@ namespace ByteScoutWebApiExample
 
 
         /// <summary>
-        /// Find result coordinates
+        /// Find text coordinates
         /// </summary>
-        public static ResultCoOrdinates FindCoordinates(string API_KEY, string SourceFileUrl, string SearchString)
+        public static ResultCoordinates FindCoordinates(string apiKey, string sourceFileUrl, string searchString)
         {
-            ResultCoOrdinates oResult = null;
+            ResultCoordinates result = null;
 
             // Create standard .NET web client instance
             WebClient webClient = new WebClient();
 
             // Set API Key
-            webClient.Headers.Add("x-api-key", API_KEY);
+            webClient.Headers.Add("x-api-key", apiKey);
 
-            // Prepare URL for PDF text search API call.
-            // See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
-            string query = Uri.EscapeUriString(string.Format(
-                "https://api.pdf.co/v1/pdf/find?url={0}&searchString={1}",
-                SourceFileUrl,
-                SearchString));
+            // Prepare requests params as JSON
+            // See documentation: https://apidocs.pdf.co/?#pdf-search-text
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("url", sourceFileUrl);
+            parameters.Add("searchString", searchString);
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
             try
             {
-                // Execute request
-                string response = webClient.DownloadString(query);
+                // URL of "PDF Find" endpoint
+                string url = "https://api.pdf.co/v1/pdf/find";
+
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
                 // Parse JSON response
                 JObject json = JObject.Parse(response);
@@ -137,34 +152,35 @@ namespace ByteScoutWebApiExample
                 {
                     JToken item = json["body"][0];
 
-                    oResult = new ResultCoOrdinates
+                    result = new ResultCoordinates
                     {
-                        x = Convert.ToInt32(item["left"]),
-                        y = Convert.ToInt32(item["top"]),
-                        width = Convert.ToInt32(item["width"]),
-                        height = Convert.ToInt32(item["height"])
+                        X = Convert.ToInt32(item["left"]),
+                        Y = Convert.ToInt32(item["top"]),
+                        Width = Convert.ToInt32(item["width"]),
+                        Height = Convert.ToInt32(item["height"])
                     };
                 }
             }
             catch (WebException e)
             {
                 Console.WriteLine(e.ToString());
+                throw;
+            }
+            finally
+            {
+                webClient.Dispose();
             }
 
-            webClient.Dispose();
-
-            return oResult;
+            return result;
         }
     }
 
-
-
-    public class ResultCoOrdinates
+    public class ResultCoordinates
     {
-        public int x { get; set; }
-        public int y { get; set; }
-        public int width { get; set; }
-        public int height { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
     }
 
 }

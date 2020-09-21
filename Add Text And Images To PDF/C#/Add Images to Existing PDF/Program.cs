@@ -12,8 +12,10 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -23,7 +25,7 @@ namespace ByteScoutWebApiExample
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
 		const String API_KEY = "*****************************************";
-
+		
         // Direct URL of source PDF file.
         const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
 		// Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
@@ -51,24 +53,30 @@ namespace ByteScoutWebApiExample
 			webClient.Headers.Add("x-api-key", API_KEY);
 
             // * Add image *
-			// Prepare URL for `PDF Edit` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/edit/add?name={0}&password={1}&pages={2}&url={3}&type={4}&x={5}&y={6}&width={7}&height={8}&urlimage={9}",
-				Path.GetFileName(DestinationFile),
-				Password,
-				Pages,
-				SourceFileUrl,
-                Type1,
-                X1,
-                Y1,
-                Width1,
-                Height1,
-                ImageUrl));
+			
+            // Prepare requests params as JSON
+            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("name", Path.GetFileName(DestinationFile));
+            parameters.Add("password", Password);
+            parameters.Add("pages", Pages);
+            parameters.Add("url", SourceFileUrl);
+            parameters.Add("type", Type1);
+            parameters.Add("x", X1.ToString());
+            parameters.Add("y", Y1.ToString());
+            parameters.Add("width", Width1.ToString());
+            parameters.Add("height", Height1.ToString());
+            parameters.Add("urlimage", ImageUrl);
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+                // URL of "PDF Edit" endpoint
+                string url = "https://api.pdf.co/v1/pdf/edit/add";
+
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);
@@ -78,7 +86,7 @@ namespace ByteScoutWebApiExample
 					// Get URL of generated PDF file
 					string resultFileUrl = json["url"].ToString();
 
-					// Download PDF file
+                    // Download generated PDF file
 					webClient.DownloadFile(resultFileUrl, DestinationFile);
 
 					Console.WriteLine("Generated PDF file saved as \"{0}\" file.", DestinationFile);
@@ -92,8 +100,10 @@ namespace ByteScoutWebApiExample
 			{
 				Console.WriteLine(e.ToString());
 			}
-
-			webClient.Dispose();
+			finally
+            {
+                webClient.Dispose();
+            }
 
             Console.WriteLine();
 			Console.WriteLine("Press any key...");
