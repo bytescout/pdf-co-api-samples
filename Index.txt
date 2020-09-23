@@ -321,25 +321,39 @@
 \HTML To PDF API\VB.NET
 \HTML To PDF API\C#\Convert Web Page To PDF From Link
 \HTML To PDF API\C#\Convert Web Page To PDF From Link Asynchronously
+\HTML To PDF API\C#\Generate PDF From HTML File
+\HTML To PDF API\C#\Generate PDF From Large HTML File
 \HTML To PDF API\C#\Generate PDF Invoice From HTML Template
 \HTML To PDF API\cURL\Convert Web Page To PDF From Link
 \HTML To PDF API\Java\Convert Web Page To PDF From Link
+\HTML To PDF API\Java\Generate PDF From HTML File
+\HTML To PDF API\Java\Generate PDF From Large HTML File
 \HTML To PDF API\Java\Generate PDF Invoice From HTML Template
 \HTML To PDF API\JavaScript\Convert Web Page To PDF From Link (Node.js)
 \HTML To PDF API\JavaScript\Convert Web Page To PDF From Link (Node.js) - Async API
+\HTML To PDF API\JavaScript\Generate PDF From HTML File
+\HTML To PDF API\JavaScript\Generate PDF From Large HTML File
 \HTML To PDF API\JavaScript\Generate PDF Invoice From HTML Template (Node.js)
 \HTML To PDF API\JavaScript\Generate PDF Invoice From HTML Template (Node.js) - Async API
 \HTML To PDF API\PHP\Convert Web Page To PDF From Link
 \HTML To PDF API\PHP\Convert Web Page To PDF From Link Asynchronously
+\HTML To PDF API\PHP\Generate PDF From HTML File
+\HTML To PDF API\PHP\Generate PDF From Large HTML File
 \HTML To PDF API\PHP\Generate PDF Invoice From HTML Template
 \HTML To PDF API\PowerShell\Convert Web Page To PDF From Link
 \HTML To PDF API\PowerShell\Convert Web Page To PDF From Link Asynchronously
+\HTML To PDF API\PowerShell\Generate PDF From HTML File
+\HTML To PDF API\PowerShell\Generate PDF From Large HTML File
 \HTML To PDF API\PowerShell\Generate PDF Invoice From HTML Template
 \HTML To PDF API\Python\Convert Web Page To PDF From Link
 \HTML To PDF API\Python\Convert Web Page To PDF From Link Asynchronously
+\HTML To PDF API\Python\Generate PDF From HTML File
+\HTML To PDF API\Python\Generate PDF From Large HTML File
 \HTML To PDF API\Python\Generate PDF Invoice From HTML Template
 \HTML To PDF API\VB.NET\Convert Web Page To PDF From URL
 \HTML To PDF API\VB.NET\Convert Web Page To PDF From URL Asynchronously
+\HTML To PDF API\VB.NET\Generate PDF From HTML File
+\HTML To PDF API\VB.NET\Generate PDF From Large HTML File
 \HTML To PDF API\VB.NET\Generate PDF Invoice From HTML Template
 \Image To PDF API\C#
 \Image To PDF API\cURL
