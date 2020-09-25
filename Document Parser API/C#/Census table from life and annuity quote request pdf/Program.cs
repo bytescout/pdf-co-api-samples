@@ -120,17 +120,21 @@ namespace LifeAndAnnuityQuoteRequest
 
                     // 3. PARSE UPLOADED PDF DOCUMENT
 
-                    // URL for `Document Parser` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/documentparser?url={0}&async={1}",
-                        uploadedFileUrl,
-                        Async));
+                    // URL of `Document Parser` API call
+                    string url = "https://api.pdf.co/v1/pdf/documentparser";
 
-                    Dictionary<string, string> requestBody = new Dictionary<string, string>();
+                    // Prepare requests params as JSON
+                    Dictionary<string, object> requestBody = new Dictionary<string, object>();
                     requestBody.Add("template", templateText);
+                    requestBody.Add("name", Path.GetFileName(DestinationFile));
+                    requestBody.Add("url", uploadedFileUrl);
+                    requestBody.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
                     // Execute request
-                    response = webClient.UploadString(query, "POST", JsonConvert.SerializeObject(requestBody));
+                    response = webClient.UploadString(url, "POST", jsonPayload);
 
                     // Parse JSON response
                     json = JObject.Parse(response);

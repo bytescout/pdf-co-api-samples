@@ -12,8 +12,10 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -35,15 +37,21 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `Invoice Parser` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/invoiceparser?url={0}&inline=True", 
-				SourceFileURL));
+			// URL for `Invoice Parser` API call
+			string url = "https://api.pdf.co/v1/pdf/invoiceparser";
+
+			// Prepare requests params as JSON
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add("url", SourceFileURL);
+			parameters.Add("inline", true);
+
+			// Convert dictionary of params to JSON
+			string jsonPayload = JsonConvert.SerializeObject(parameters);
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Execute POST request with JSON payload
+				string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);
@@ -68,7 +76,6 @@ namespace ByteScoutWebApiExample
 			}
 
 			webClient.Dispose();
-
 
 			Console.WriteLine();
 			Console.WriteLine("Press any key...");

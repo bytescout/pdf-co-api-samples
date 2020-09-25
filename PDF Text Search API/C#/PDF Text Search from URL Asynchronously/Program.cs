@@ -11,11 +11,12 @@
 //*******************************************************************************************//
 
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading;
-using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
 {
@@ -56,19 +57,24 @@ namespace ByteScoutWebApiExample
 
             // Prepare URL for PDF text search API call.
             // See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
-            string query = Uri.EscapeUriString(string.Format(
-                "https://api.pdf.co/v1/pdf/find?password={0}&pages={1}&url={2}&searchString={3}&regexSearch={4}&async={5}",
-                Password,
-                Pages,
-                SourceFileUrl,
-                SearchString,
-                RegexSearch,
-                Async));
+            string url = "https://api.pdf.co/v1/pdf/find";
+
+            // Prepare requests params as JSON
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("password", Password);
+            parameters.Add("pages", Pages);
+            parameters.Add("url", SourceFileUrl);
+            parameters.Add("searchString", SearchString);
+            parameters.Add("regexSearch", RegexSearch);
+            parameters.Add("async", Async);
+
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
             try
             {
-                // Execute request
-                string response = webClient.DownloadString(query);
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
                 // Parse JSON response
                 JObject json = JObject.Parse(response);
@@ -131,7 +137,6 @@ namespace ByteScoutWebApiExample
             }
 
             webClient.Dispose();
-
 
             Console.WriteLine();
             Console.WriteLine("Press any key...");

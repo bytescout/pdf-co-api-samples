@@ -16,10 +16,10 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using System.Threading;
-
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 // Cloud API asynchronous "Delete Text from PDF" job example.
-
 
 namespace ByteScoutWebApiExample
 {
@@ -47,18 +47,25 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `Delete Text from PDF` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/edit/delete-text?name={0}&password={1}&url={2}&async={3}&searchString=conspicuous",
-				Path.GetFileName(DestinationFile),
-				Password,
-				SourceFileUrl, 
-				Async));
+			// Prepare requests params as JSON
+			// See documentation: https://apidocs.pdf.co/#pdf-search-and-delete-text-from-pdf
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add("name", Path.GetFileName(DestinationFile));
+			parameters.Add("password", Password);
+			parameters.Add("url", SourceFileUrl);
+			parameters.Add("searchString", "conspicuous");
+			parameters.Add("async", true); // ! Making Async request
+
+			// Convert dictionary of params to JSON
+			string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+			// URL of `Delete Text from PDF` API call
+			string url = "https://api.pdf.co/v1/pdf/edit/delete-text";
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Execute POST request with JSON payload
+				string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);

@@ -55,7 +55,7 @@ namespace ByteScoutWebApiExample
             // CONVERT UPLOADED CSV FILE TO PDF
 
             // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#barcode-reader
+            // See documentation: https://apidocs.pdf.co/#1-json-pdfconvertfromcsv
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("url", uploadedFileUrl);
             parameters.Add("name", Path.GetFileName(DestinationFile));

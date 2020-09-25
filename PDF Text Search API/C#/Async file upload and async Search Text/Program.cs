@@ -12,9 +12,11 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -81,19 +83,24 @@ namespace ByteScoutWebApiExample
 
                     // 3. MAKE UPLOADED PDF FILE SEARCHABLE
 
-                    // Prepare URL for `PDF Text Search` API call
+                    // URL for `PDF Text Search` API call
                     // See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
-                    query = Uri.EscapeUriString(string.Format(
-                                "https://api.pdf.co/v1/pdf/find?password={0}&pages={1}&url={2}&searchString={3}&regexSearch={4}&async={5}",
-                                Password,
-                                Pages,
-                                uploadedFileUrl,
-                                SearchString,
-                                RegexSearch,
-                                Async));
+                    var url = "https://api.pdf.co/v1/pdf/find";
 
-                    // Execute request
-                    response = webClient.DownloadString(query);
+                    // Prepare requests params as JSON
+                    Dictionary<string, object> parameters = new Dictionary<string, object>();
+                    parameters.Add("password", Password);
+                    parameters.Add("pages", Password);
+                    parameters.Add("url", uploadedFileUrl);
+                    parameters.Add("searchString", SearchString);
+                    parameters.Add("regexSearch", RegexSearch);
+                    parameters.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+                    // Execute POST request with JSON payload
+                    response = webClient.UploadString(url, jsonPayload);
 
                     // Parse JSON response
                     json = JObject.Parse(response);

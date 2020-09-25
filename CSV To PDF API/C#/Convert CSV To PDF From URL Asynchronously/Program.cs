@@ -52,7 +52,7 @@ namespace ByteScoutWebApiExample
 
 
             // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#barcode-reader
+            // See documentation: https://apidocs.pdf.co/#1-json-pdfconvertfromcsv
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("url", SourceFileUrl);
             parameters.Add("name", Path.GetFileName(DestinationFile));

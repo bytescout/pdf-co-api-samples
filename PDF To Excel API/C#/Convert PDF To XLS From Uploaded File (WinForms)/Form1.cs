@@ -108,17 +108,22 @@ namespace PdfToExcelFrom
                         // 3. CONVERT UPLOADED PDF FILE TO Excel
 
                         // Prepare URL for `PDF To Excel` API call
-                        query = Uri.EscapeUriString(string.Format(
-                            "https://api.pdf.co/v1/pdf/convert/to/{4}?name={0}&password={1}&pages={2}&url={3}&encrypt=true&inline={5}",
-                            Path.GetFileName(DestinationFile),
-                            Password,
-                            Pages,
-                            uploadedFileUrl,
-                            Convert.ToString(cmbConvertTo.SelectedItem).ToLower(),
-                            isInline));
+                        var url = string.Format("https://api.pdf.co/v1/pdf/convert/to/{0}",Convert.ToString(cmbConvertTo.SelectedItem).ToLower());
 
-                        // Execute request
-                        response = webClient.DownloadString(query);
+                        // Prepare requests params as JSON
+                        Dictionary<string, object> parameters = new Dictionary<string, object>();
+                        parameters.Add("name", Path.GetFileName(DestinationFile));
+                        parameters.Add("password", Password);
+                        parameters.Add("pages", Password);
+                        parameters.Add("url", uploadedFileUrl);
+                        parameters.Add("encrypt", true);
+                        parameters.Add("inline", isInline);
+
+                        // Convert dictionary of params to JSON
+                        string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+                        // Execute POST request with JSON payload
+                        string response = webClient.UploadString(url, jsonPayload);
 
                         // Parse JSON response
                         json = JObject.Parse(response);

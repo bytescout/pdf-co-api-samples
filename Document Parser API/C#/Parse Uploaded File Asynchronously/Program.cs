@@ -11,22 +11,20 @@
 //*******************************************************************************************//
 
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Threading;
 
 // Cloud API asynchronous "Document Parser" job example.
 // Allows to avoid timeout errors when processing huge or scanned PDF documents.
 
 namespace ByteScoutWebApiExample
 {
-	class Program
+    class Program
 	{
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
@@ -86,19 +84,22 @@ namespace ByteScoutWebApiExample
 					webClient.UploadFile(uploadUrl, "PUT", SourceFile); // You can use UploadData() instead if your file is byte[] or Stream
 					webClient.Headers.Remove("content-type");
 
-					// 3. PARSE UPLOADED PDF DOCUMENT
+                    // 3. PARSE UPLOADED PDF DOCUMENT
 
-                    // URL for `Document Parser` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/documentparser?url={0}&async={1}",
-                        uploadedFileUrl,
-                        Async));
+                    // URL of `Document Parser` API call
+                    string url = "https://api.pdf.co/v1/pdf/documentparser";
 
-                    Dictionary<string, string> requestBody = new Dictionary<string, string>();
+                    Dictionary<string, object> requestBody = new Dictionary<string, object>();
                     requestBody.Add("template", templateText);
+                    requestBody.Add("name", Path.GetFileName(DestinationFile));
+                    requestBody.Add("url", uploadedFileUrl);
+                    requestBody.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
                     // Execute request
-                    response = webClient.UploadString(query, "POST", JsonConvert.SerializeObject(requestBody));
+                    response = webClient.UploadString(url, "POST", jsonPayload);
                     
                     // Parse JSON response
                     json = JObject.Parse(response);

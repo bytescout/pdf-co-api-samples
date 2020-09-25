@@ -11,27 +11,29 @@
 //*******************************************************************************************//
 
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
 {
-	class Program
-	{
-		// The authentication key (API Key).
-		// Get your own by registering at https://app.pdf.co/documentation/api
-		const String API_KEY = "***********************************";
+    class Program
+    {
+        // The authentication key (API Key).
+        // Get your own by registering at https://app.pdf.co/documentation/api
+        const String API_KEY = "***********************************";
 
         // Direct URL of source PDF file.
         const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-make-searchable/sample.pdf";
-		// Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
-		const string Pages = "";
-		// PDF document password. Leave empty for unprotected documents.
-		const string Password = "";
-		// Destination PDF file name
-		const string DestinationFile = @".\result.pdf";
+        // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
+        const string Pages = "";
+        // PDF document password. Leave empty for unprotected documents.
+        const string Password = "";
+        // Destination PDF file name
+        const string DestinationFile = @".\result.pdf";
 
         // Sample profile that sets advanced conversion options
         // Advanced options are properties of SearchablePDFMaker class from ByteScout PDF Extractor SDK used in the back-end:
@@ -40,56 +42,66 @@ namespace ByteScoutWebApiExample
 
 
         static void Main(string[] args)
-		{
-			// Create standard .NET web client instance
-			WebClient webClient = new WebClient();
+        {
+            // Create standard .NET web client instance
+            WebClient webClient = new WebClient();
 
-			// Set API Key
-			webClient.Headers.Add("x-api-key", API_KEY);
+            // Set API Key
+            webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `Make Searchable PDF` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/makesearchable?name={0}&password={1}&pages={2}&url={3}&profiles={4}",
-				Path.GetFileName(DestinationFile),
-				Password,
-				Pages,
-				SourceFileUrl,
+            // URL for `Make Searchable PDF` API call
+            string url = Uri.EscapeUriString(string.Format(
+                "https://api.pdf.co/v1/pdf/makesearchable?name={0}&password={1}&pages={2}&url={3}&profiles={4}",
+                Path.GetFileName(DestinationFile),
+                Password,
+                Pages,
+                SourceFileUrl,
                 Profiles));
 
-			try
-			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+            // Prepare requests params as JSON
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("name", Path.GetFileName(DestinationFile));
+            parameters.Add("password", Password);
+            parameters.Add("pages", Pages);
+            parameters.Add("url", SourceFileUrl);
+            parameters.Add("profiles", Profiles);
 
-				// Parse JSON response
-				JObject json = JObject.Parse(response);
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
-				if (json["error"].ToObject<bool>() == false)
-				{
-					// Get URL of generated PDF file
-					string resultFileUrl = json["url"].ToString();
+            try
+            {
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
-					// Download PDF file
-					webClient.DownloadFile(resultFileUrl, DestinationFile);
+                // Parse JSON response
+                JObject json = JObject.Parse(response);
 
-					Console.WriteLine("Generated PDF file saved as \"{0}\" file.", DestinationFile);
-				}
-				else
-				{
-					Console.WriteLine(json["message"].ToString());
-				}
-			}
-			catch (WebException e)
-			{
-				Console.WriteLine(e.ToString());
-			}
+                if (json["error"].ToObject<bool>() == false)
+                {
+                    // Get URL of generated PDF file
+                    string resultFileUrl = json["url"].ToString();
 
-			webClient.Dispose();
+                    // Download PDF file
+                    webClient.DownloadFile(resultFileUrl, DestinationFile);
 
+                    Console.WriteLine("Generated PDF file saved as \"{0}\" file.", DestinationFile);
+                }
+                else
+                {
+                    Console.WriteLine(json["message"].ToString());
+                }
+            }
+            catch (WebException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
 
-			Console.WriteLine();
-			Console.WriteLine("Press any key...");
-			Console.ReadKey();
-		}
-	}
+            webClient.Dispose();
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key...");
+            Console.ReadKey();
+        }
+    }
 }

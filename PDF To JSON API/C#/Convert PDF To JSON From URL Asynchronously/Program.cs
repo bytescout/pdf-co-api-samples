@@ -16,7 +16,8 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using System.Threading;
-
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 // Cloud API asynchronous "PDF To JSON" job example.
 // Allows to avoid timeout errors when processing huge or scanned PDF documents.
@@ -49,19 +50,24 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `PDF To JSON` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/convert/to/json?name={0}&password={1}&pages={2}&url={3}&async={4}", 
-				Path.GetFileName(DestinationFile),
-				Password,
-				Pages,
-				SourceFileUrl,
-				Async));
+			// URL for `PDF To JSON` API call
+			string url = "https://api.pdf.co/v1/pdf/convert/to/json";
+
+			// Prepare requests params as JSON
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add("name", Path.GetFileName(DestinationFile));
+			parameters.Add("password", Password);
+			parameters.Add("pages", Pages);
+			parameters.Add("url", SourceFileUrl);
+			parameters.Add("async", Async);
+
+			// Convert dictionary of params to JSON
+			string jsonPayload = JsonConvert.SerializeObject(parameters);
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Execute POST request with JSON payload
+				string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);
@@ -115,7 +121,6 @@ namespace ByteScoutWebApiExample
 			}
 
 			webClient.Dispose();
-
 
 			Console.WriteLine();
 			Console.WriteLine("Press any key...");

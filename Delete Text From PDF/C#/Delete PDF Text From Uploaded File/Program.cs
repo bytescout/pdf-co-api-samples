@@ -62,7 +62,7 @@ namespace ByteScoutWebApiExample
             // DELETE TEXT FROM UPLOADED PDF FILE
 
             // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#barcode-reader
+            // See documentation: https://apidocs.pdf.co/#pdf-search-and-delete-text-from-pdf
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("url", uploadedFileUrl);
             parameters.Add("password", Password);

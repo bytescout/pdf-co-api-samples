@@ -12,8 +12,10 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -39,22 +41,26 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-            try
-            {
-                // Prepare URL for `HTML to PDF` API call
-				string request = Uri.EscapeUriString(string.Format(
+			webClient.Headers.Add("Content-Type", "application/json");
+
+			try
+			{
+                // URL for `HTML to PDF` API call
+				string url = Uri.EscapeUriString(string.Format(
 					"https://api.pdf.co/v1/pdf/convert/from/html?name={0}", 
 					Path.GetFileName(destinationFile)));
 
-                // Prepare request body in JSON format
-                JObject jsonObject = new JObject(
-                    new JProperty("html", template),
-                    new JProperty("templateData", templateData));
+				// Prepare requests params as JSON
+				Dictionary<string, object> parameters = new Dictionary<string, object>();
+				parameters.Add("name", Path.GetFileName(destinationFile));
+				parameters.Add("html", template);
+				parameters.Add("templateData", templateData);
 
-                webClient.Headers.Add("Content-Type", "application/json");
+				// Convert dictionary of params to JSON
+				string jsonPayload = JsonConvert.SerializeObject(parameters);
 
                 // Execute request
-				string response = webClient.UploadString(request, jsonObject.ToString());
+				string response = webClient.UploadString(url, jsonPayload);
 
 	            // Parse JSON response
 	            JObject json = JObject.Parse(response);

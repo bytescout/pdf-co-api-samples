@@ -16,6 +16,8 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using System.Threading;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 
 // Cloud API asynchronous "Make Searchable PDF" job example.
@@ -42,7 +44,6 @@ namespace ByteScoutWebApiExample
 		// (!) Make asynchronous job
 		const bool Async = true;
 
-
 		static void Main(string[] args)
 		{
 			// Create standard .NET web client instance
@@ -51,20 +52,25 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `Make Searchable PDF` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/makesearchable?name={0}&password={1}&pages={2}&lang={3}&url={4}&async={5}",
-				Path.GetFileName(DestinationFile),
-				Password,
-				Pages,
-				Language,
-				SourceFileUrl, 
-				Async));
+			// URL for `Make Searchable PDF` API call
+			string url = "https://api.pdf.co/v1/pdf/makesearchable";
+
+			// Prepare requests params as JSON
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add("name", Path.GetFileName(DestinationFile));
+			parameters.Add("password", Password);
+			parameters.Add("url", SourceFileUrl);
+			parameters.Add("pages", Pages);
+			parameters.Add("lang", Language);
+			parameters.Add("async", Async);
+
+			// Convert dictionary of params to JSON
+			string jsonPayload = JsonConvert.SerializeObject(parameters);
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Execute POST request with JSON payload
+				string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);

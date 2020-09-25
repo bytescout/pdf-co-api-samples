@@ -11,10 +11,11 @@
 //*******************************************************************************************//
 
 
-using System;
-using System.IO;
-using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Net;
 
 namespace ByteScoutWebApiExample
 {
@@ -22,7 +23,7 @@ namespace ByteScoutWebApiExample
 	{
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
-		const String API_KEY = "***********************************";
+		const String API_KEY = "********************************";
 
 		// Source PDF file to split
 		const string SourceFileUrl = @"https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
@@ -39,14 +40,19 @@ namespace ByteScoutWebApiExample
 
 			try
 			{
-				// Prepare URL for `Split PDF` API call
-				string query = Uri.EscapeUriString(string.Format(
-					"https://api.pdf.co/v1/pdf/split?pages={0}&url={1}",
-					Pages,
-					SourceFileUrl));
+				// URL for `Split PDF` API call
+				string url = "https://api.pdf.co/v1/pdf/split";
 
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Prepare requests params as JSON
+				Dictionary<string, object> parameters = new Dictionary<string, object>();
+				parameters.Add("pages", Pages);
+				parameters.Add("url", SourceFileUrl);
+
+				// Convert dictionary of params to JSON
+				string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+				// Execute POST request with JSON payload
+				string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);
@@ -77,7 +83,6 @@ namespace ByteScoutWebApiExample
 			}
 
 			webClient.Dispose();
-
 
 			Console.WriteLine();
 			Console.WriteLine("Press any key...");
