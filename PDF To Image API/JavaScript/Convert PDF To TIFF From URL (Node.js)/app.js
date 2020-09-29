@@ -33,15 +33,24 @@ const DestinationFile = "./result.tif";
 
 // Prepare request to `PDF To TIFF` API endpoint
 var queryPath = `/v1/pdf/convert/to/tiff?name=${path.basename(DestinationFile)}&password=${Password}&pages=${Pages}&url=${SourceFileUrl}`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name=path.basename(DestinationFile), password: Password, pages: Pages, url: SourceFileUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);        
@@ -64,3 +73,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.log(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

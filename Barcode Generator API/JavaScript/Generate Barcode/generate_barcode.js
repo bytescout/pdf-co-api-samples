@@ -42,7 +42,7 @@ function generateBarcode()
 
     // Prepare request
     var httpRequest = new XMLHttpRequest();
-    httpRequest.open("GET", url, true);
+    httpRequest.open("POST", url, true);
     httpRequest.setRequestHeader("x-api-key", apiKey); // set API Key
     // Asynchronous response handler
     httpRequest.onreadystatechange = function() {

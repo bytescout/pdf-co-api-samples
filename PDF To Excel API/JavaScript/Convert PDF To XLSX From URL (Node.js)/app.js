@@ -32,16 +32,25 @@ const DestinationFile = "./result.xlsx";
 
 
 // Prepare request to `PDF To XLSX` API endpoint
-var queryPath = `/v1/pdf/convert/to/xlsx?name=${path.basename(DestinationFile)}&password=${Password}&pages=${Pages}&url=${SourceFileUrl}`;
+var queryPath = `/v1/pdf/convert/to/xlsx`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(DestinationFile), password: Password, pages: Pages, url: SourceFileUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);        
@@ -64,3 +73,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.log(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

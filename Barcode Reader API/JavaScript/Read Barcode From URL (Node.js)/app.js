@@ -26,22 +26,33 @@ const BarcodeTypes = "Code128,Code39,Interleaved2of5,EAN13";
 // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 const Pages = "";
 
-
 // Prepare request to `Barcode Reader` API endpoint
-var queryPath = `/v1/barcode/read/from/url?types=${BarcodeTypes}&pages=${Pages}&url=${SourceFileUrl}`;
+var queryPath = `/v1/barcode/read/from/url`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    types: BarcodeTypes,
+    pages: Pages,
+    url: SourceFileUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
+
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);
-        
+
         if (data.error == false) {
             // Display found barcodes in console
             data.barcodes.forEach((element) => {
@@ -63,3 +74,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.error(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

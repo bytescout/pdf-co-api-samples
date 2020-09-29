@@ -23,22 +23,31 @@ const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/c
 
 
 // Prepare request to `Invoice Parser` API endpoint
-var queryPath = `/v1/pdf/invoiceparser?url=${SourceFileUrl}&inline=True`;
+var queryPath = `/v1/pdf/invoiceparser`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    url: SourceFileUrl, inline: true
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
-        var data = JSON.parse(d);        
+        var data = JSON.parse(d);
         if (data.error == false) {
             // Display extracted invoice fields
-            for (var key in data.body) {  
+            for (var key in data.body) {
                 console.log(`${key}: ${JSON.stringify(data.body[key])}`);
             }
         }
@@ -51,3 +60,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.error(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

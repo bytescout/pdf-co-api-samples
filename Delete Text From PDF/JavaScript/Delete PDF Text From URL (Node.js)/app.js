@@ -30,27 +30,36 @@ const DestinationFile = "./result.pdf";
 
 
 // Prepare request to `Delete Text from PDF` API endpoint
-var queryPath = `/v1/pdf/edit/delete-text?name=${path.basename(DestinationFile)}&password=${Password}&url=${SourceFileUrl}&searchString=conspicuous`;
+var queryPath = `/v1/pdf/edit/delete-text`;
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(destinationFile), password: password, url: SourceFileUrl, searchString: 'conspicuous'
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
+
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
-        var data = JSON.parse(d);        
+        var data = JSON.parse(d);
         if (data.error == false) {
             // Download PDF file
             var file = fs.createWriteStream(DestinationFile);
             https.get(data.url, (response2) => {
                 response2.pipe(file)
-                .on("close", () => {
-                    console.log(`Generated PDF file saved as "${DestinationFile}" file.`);
-                });
+                    .on("close", () => {
+                        console.log(`Generated PDF file saved as "${DestinationFile}" file.`);
+                    });
             });
         }
         else {
@@ -62,3 +71,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.log(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

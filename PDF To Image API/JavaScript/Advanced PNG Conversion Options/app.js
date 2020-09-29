@@ -56,16 +56,25 @@ const Password = "";
 const Profiles = "{ 'profiles': [ { 'profile1': { 'ImageBitsPerPixel': 'BPP1' } } ] }"
 
 // Prepare request to `PDF To PNG` API endpoint
-var queryPath = `/v1/pdf/convert/to/png?password=${Password}&pages=${Pages}&url=${SourceFileUrl}&profiles=${Profiles}`;
+var queryPath = `/v1/pdf/convert/to/png`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    password: Password, pages: Pages, url: SourceFileUrl, profiles: Profiles
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);        
@@ -93,3 +102,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.error(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

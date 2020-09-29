@@ -97,7 +97,7 @@ postRequest.write(jsonPayload);
 postRequest.end();
 
 function checkIfJobIsCompleted(jobId, resultFileUrl) {
-    let queryPath = `/v1/job/check?jobid=${jobId}`;
+    let queryPath = `/v1/job/check`;
     let reqOptions = {
         host: "api.pdf.co",
         path: encodeURI(queryPath),

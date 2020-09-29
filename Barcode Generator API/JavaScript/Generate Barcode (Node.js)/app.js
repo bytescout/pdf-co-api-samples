@@ -15,11 +15,9 @@ var https = require("https");
 var path = require("path");
 var fs = require("fs");
 
-
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co/documentation/api
 const API_KEY = "***********************************";
-
 
 // Result image file name
 const DestinationFile = "./barcode.png";
@@ -28,18 +26,28 @@ const BarcodeType = "Code128";
 // Barcode value
 const BarcodeValue = "qweasd123456";
 
-
 // Prepare request to `Barcode Generator` API endpoint
-var queryPath = `/v1/barcode/generate?name=${path.basename(DestinationFile)}&type=${BarcodeType}&value=${BarcodeValue}`;
+var queryPath = `/v1/barcode/generate`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(DestinationFile),
+    type: BarcodeType,
+    value: BarcodeValue
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    path: queryPath,
+    method: "POST",
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);
@@ -62,3 +70,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.error(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

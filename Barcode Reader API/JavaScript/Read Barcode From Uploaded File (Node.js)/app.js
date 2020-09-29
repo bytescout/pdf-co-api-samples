@@ -36,20 +36,20 @@ const Pages = "";
 
 // 1. RETRIEVE THE PRESIGNED URL TO UPLOAD THE FILE.
 getPresignedUrl(API_KEY, SourceFile)
-.then(([uploadUrl, uploadedFileUrl]) => {
-    // 2. UPLOAD THE FILE TO CLOUD.
-    uploadFile(API_KEY, SourceFile, uploadUrl)
-    .then(() => {
-        // 3. READ BARCODES FROM UPLOADED FILE
-        readBarcodes(API_KEY, uploadedFileUrl, Pages, BarcodeTypes);
+    .then(([uploadUrl, uploadedFileUrl]) => {
+        // 2. UPLOAD THE FILE TO CLOUD.
+        uploadFile(API_KEY, SourceFile, uploadUrl)
+            .then(() => {
+                // 3. READ BARCODES FROM UPLOADED FILE
+                readBarcodes(API_KEY, uploadedFileUrl, Pages, BarcodeTypes);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     })
     .catch(e => {
         console.log(e);
     });
-})
-.catch(e => {
-    console.log(e);
-});
 
 
 function getPresignedUrl(apiKey, localFile) {
@@ -75,10 +75,10 @@ function getPresignedUrl(apiKey, localFile) {
                 }
             });
         })
-        .on("error", (e) => {
-            // Request error
-            console.log("getPresignedUrl(): " + e);
-        });
+            .on("error", (e) => {
+                // Request error
+                console.log("getPresignedUrl(): " + e);
+            });
     });
 }
 
@@ -106,15 +106,27 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function readBarcodes(apiKey, uploadedFileUrl, pages, barcodeTypes) {
     // Prepare request to `Barcode Reader` API endpoint
-    let queryPath = `/v1/barcode/read/from/url?types=${BarcodeTypes}&pages=${Pages}&url=${uploadedFileUrl}`;
+    let queryPath = `/v1/barcode/read/from/url`;
+
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        types: barcodeTypes,
+        pages: pages,
+        url: uploadedFileUrl
+    });
+
     let reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        method: "POST",
+        path: queryPath,
+        headers: {
+            "x-api-key": apiKey,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
             // Parse JSON response
@@ -137,9 +149,13 @@ function readBarcodes(apiKey, uploadedFileUrl, pages, barcodeTypes) {
             }
         });
     })
-    .on("error", (e) => {
-        // Request error
-        console.log("readBarcodes(): " + e);
-    });
+        .on("error", (e) => {
+            // Request error
+            console.log("readBarcodes(): " + e);
+        });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 

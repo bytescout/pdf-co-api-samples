@@ -55,15 +55,27 @@ $(document).on("click", "#submit", function () {
                     processData: false,
                     success: function (result) {
 
-                        var cUrl = 'https://api.pdf.co/v1/pdf/edit/add?name=result.pdf&type=image&x=' + destinationXCoordinate +
-                            "&y=" + destinationYCoordinate + "&width=" + destinationWidth + "&height=" + destinationHeight +
-                            "&urlimage=" + signatureImageUrl + "&url=" + presignedUrl;
+                        // PDF.co API URL
+                        var cUrl = 'https://api.pdf.co/v1/pdf/edit/add';
+
+                        // Input data
+                        var data = {
+                            name: 'result.pdf',
+                            type: image,
+                            x: destinationXCoordinate,
+                            y: destinationYCoordinate,
+                            width: destinationWidth,
+                            height: destinationHeight,
+                            urlimage: signatureImageUrl,
+                            url: presignedUrl
+                        };
 
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
                         $.ajax({
                             url: cUrl,
                             type: 'POST',
-                            headers: { 'x-api-key': apiKey },
+                            headers: { 'x-api-key': apiKey, 'Content-Type': 'application/json' },
+                            data: data,
                             processData: false,
                             contentType: false,
                             //data: oData,
@@ -86,8 +98,6 @@ $(document).on("click", "#submit", function () {
                         $("#status").text('error');
                     }
                 });
-
-
             }
         }
     });

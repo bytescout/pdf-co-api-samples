@@ -29,19 +29,27 @@ const DestinationFile = "./result.pdf";
 
 
 // Prepare request to `Replace Text With Image from PDF` API endpoint
-var queryPath = `/v1/pdf/edit/replace-text-with-image?name=${path.basename(DestinationFile)}&password=${Password}&url=${SourceFileUrl}&async=True&searchString=/creativecommons.org/licenses/by-sa/3.0/&replaceImage=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png`;
+var queryPath = `/v1/pdf/edit/replace-text-with-image`;
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(DestinationFile), password: Password, url: SourceFileUrl, async: true, searchString: '/creativecommons.org/licenses/by-sa/3.0/', replaceImage: 'https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png'
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
-        var data = JSON.parse(d);        
+        var data = JSON.parse(d);
         if (data.error == false) {
             console.log(`Job #${data.jobId} has been created!`);
             checkIfJobIsCompleted(data.jobId, data.url);
@@ -56,26 +64,41 @@ https.get(reqOptions, (response) => {
     console.log(e);
 });
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
+
 function checkIfJobIsCompleted(jobId, resultFileUrl) {
-    let queryPath = `/v1/job/check?jobid=${jobId}`;
+    let queryPath = `/v1/job/check`;
+
+    // JSON payload for api request
+    let jsonPayload = JSON.stringify({
+        jobid: jobId
+    });
+
     let reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        path: queryPath,
+        method: "POST",
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
 
-    https.get(reqOptions, (response) => {
+    // Send request
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
 
             // Parse JSON response
             let data = JSON.parse(d);
             console.log(`Checking Job #${jobId}, Status: ${data.status}, Time: ${new Date().toLocaleString()}`);
-            
+
             if (data.status == "working") {
                 // Check again after 3 seconds
-				setTimeout(function(){ checkIfJobIsCompleted(jobId, resultFileUrl);}, 3000);
+                setTimeout(function () { checkIfJobIsCompleted(jobId, resultFileUrl); }, 3000);
             }
             else if (data.status == "success") {
                 // Download PDF file
@@ -92,4 +115,8 @@ function checkIfJobIsCompleted(jobId, resultFileUrl) {
             }
         })
     });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }

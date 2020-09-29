@@ -36,20 +36,20 @@ const DestinationFile = "./result.pdf";
 
 // 1. RETRIEVE PRESIGNED URL TO UPLOAD FILE.
 getPresignedUrl(API_KEY, SourceFile)
-.then(([uploadUrl, uploadedFileUrl]) => {
-    // 2. UPLOAD THE FILE TO CLOUD.
-    uploadFile(API_KEY, SourceFile, uploadUrl)
-    .then(() => {
-        // 3. Replace Text With Image FROM UPLOADED PDF FILE
-        replaceImageFromPdf(API_KEY, uploadedFileUrl, Password, DestinationFile);
+    .then(([uploadUrl, uploadedFileUrl]) => {
+        // 2. UPLOAD THE FILE TO CLOUD.
+        uploadFile(API_KEY, SourceFile, uploadUrl)
+            .then(() => {
+                // 3. Replace Text With Image FROM UPLOADED PDF FILE
+                replaceImageFromPdf(API_KEY, uploadedFileUrl, Password, DestinationFile);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     })
     .catch(e => {
         console.log(e);
     });
-})
-.catch(e => {
-    console.log(e);
-});
 
 
 function getPresignedUrl(apiKey, localFile) {
@@ -75,10 +75,10 @@ function getPresignedUrl(apiKey, localFile) {
                 }
             });
         })
-        .on("error", (e) => {
-            // Request error
-            console.log("getPresignedUrl(): " + e);
-        });
+            .on("error", (e) => {
+                // Request error
+                console.log("getPresignedUrl(): " + e);
+            });
     });
 }
 
@@ -106,15 +106,24 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function replaceImageFromPdf(apiKey, uploadedFileUrl, password, destinationFile) {
     // Prepare request to `Replace Text With Image from PDF` API endpoint
-    var queryPath = `/v1/pdf/edit/replace-text-with-image?name=${path.basename(destinationFile)}&password=${password}&url=${uploadedFileUrl}&searchString=/creativecommons.org/licenses/by-sa/3.0/&replaceImage=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png`;
-    let reqOptions = {
+    var queryPath = `/v1/pdf/edit/replace-text-with-image`;
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        name: path.basename(destinationFile), password: password, url: uploadedFileUrl, searchString: '/creativecommons.org/licenses/by-sa/3.0/', replaceImage: 'https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png'
+    });
+
+    var reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        method: "POST",
+        path: queryPath,
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
             // Parse JSON response
@@ -124,9 +133,9 @@ function replaceImageFromPdf(apiKey, uploadedFileUrl, password, destinationFile)
                 var file = fs.createWriteStream(destinationFile);
                 https.get(data.url, (response2) => {
                     response2.pipe(file)
-                    .on("close", () => {
-                        console.log(`Generated PDF file saved as "${destinationFile}" file.`);
-                    });
+                        .on("close", () => {
+                            console.log(`Generated PDF file saved as "${destinationFile}" file.`);
+                        });
                 });
             }
             else {
@@ -135,9 +144,13 @@ function replaceImageFromPdf(apiKey, uploadedFileUrl, password, destinationFile)
             }
         });
     })
-    .on("error", (e) => {
-        // Request error
-        console.log("readBarcodes(): " + e);
-    });
-}
+        .on("error", (e) => {
+            // Request error
+            console.log("readBarcodes(): " + e);
+        });
 
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
+}

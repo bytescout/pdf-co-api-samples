@@ -42,20 +42,20 @@ const ColumnLayout = false;
 
 // 1. RETRIEVE PRESIGNED URL TO UPLOAD FILE.
 getPresignedUrl(API_KEY, SourceFile)
-.then(([uploadUrl, uploadedFileUrl]) => {
-    // 2. UPLOAD THE FILE TO CLOUD.
-    uploadFile(API_KEY, SourceFile, uploadUrl)
-    .then(() => {
-        // 3. CONVERT UPLOADED PDF FILE TO HTML
-        convertPdfToHtml(API_KEY, uploadedFileUrl, Password, Pages, PlainHtml, ColumnLayout, DestinationFile);
+    .then(([uploadUrl, uploadedFileUrl]) => {
+        // 2. UPLOAD THE FILE TO CLOUD.
+        uploadFile(API_KEY, SourceFile, uploadUrl)
+            .then(() => {
+                // 3. CONVERT UPLOADED PDF FILE TO HTML
+                convertPdfToHtml(API_KEY, uploadedFileUrl, Password, Pages, PlainHtml, ColumnLayout, DestinationFile);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     })
     .catch(e => {
         console.log(e);
     });
-})
-.catch(e => {
-    console.log(e);
-});
 
 
 function getPresignedUrl(apiKey, localFile) {
@@ -81,10 +81,10 @@ function getPresignedUrl(apiKey, localFile) {
                 }
             });
         })
-        .on("error", (e) => {
-            // Request error
-            console.log("getPresignedUrl(): " + e);
-        });
+            .on("error", (e) => {
+                // Request error
+                console.log("getPresignedUrl(): " + e);
+            });
     });
 }
 
@@ -112,16 +112,25 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function convertPdfToHtml(apiKey, uploadedFileUrl, password, pages, plainHtml, columnLayout, destinationFile) {
     // Prepare request to `PDF To HTML` API endpoint
-    var queryPath = `/v1/pdf/convert/to/html?name=${path.basename(destinationFile)}&password=${password}&pages=${pages}` + 
-        `&simple=${plainHtml}&columns=${columnLayout}&url=${uploadedFileUrl}`;
-    let reqOptions = {
+    var queryPath = `/v1/pdf/convert/to/html`;
+
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        name: path.basename(destinationFile), password: password, pages: pages, simple: plainHtml, columns: columnLayout, url: uploadedFileUrl
+    });
+
+    var reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        method: "POST",
+        path: queryPath,
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
             // Parse JSON response
@@ -131,9 +140,9 @@ function convertPdfToHtml(apiKey, uploadedFileUrl, password, pages, plainHtml, c
                 var file = fs.createWriteStream(destinationFile);
                 https.get(data.url, (response2) => {
                     response2.pipe(file)
-                    .on("close", () => {
-                        console.log(`Generated HTML file saved as "${destinationFile}" file.`);
-                    });
+                        .on("close", () => {
+                            console.log(`Generated HTML file saved as "${destinationFile}" file.`);
+                        });
                 });
             }
             else {
@@ -142,9 +151,12 @@ function convertPdfToHtml(apiKey, uploadedFileUrl, password, pages, plainHtml, c
             }
         });
     })
-    .on("error", (e) => {
-        // Request error
-        console.log("convertPdfToHtml(): " + e);
-    });
+        .on("error", (e) => {
+            // Request error
+            console.log("convertPdfToHtml(): " + e);
+        });
 }
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

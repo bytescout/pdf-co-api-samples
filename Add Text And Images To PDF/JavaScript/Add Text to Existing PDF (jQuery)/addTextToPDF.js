@@ -57,8 +57,21 @@ $(document).on("click", "#submit", function () {
                     processData: false,
                     success: function (result) {
 
-                        var cUrl = 'https://api.pdf.co/v1/pdf/edit/add?name=result.pdf&type=annotation&x=' + destinationXCoordinate +
-                            "&y=" + destinationYCoordinate + "&text=" + inputText + "&fontname="+ fontName +"&size="+ fontSize +"&color=" + fontColor + "&url=" + presignedUrl;
+                        // Request Url
+                        var cUrl = 'https://api.pdf.co/v1/pdf/edit/add';
+
+                        // Input Data
+                        var data = {
+                            name: 'result.pdf',
+                            type: annotation,
+                            x: destinationXCoordinate,
+                            y: destinationYCoordinate,
+                            text: inputText,
+                            fontname: fontName,
+                            size: fontSize,
+                            color: fontColor,
+                            url: presignedUrl
+                        };
 
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
                         $.ajax({
@@ -67,7 +80,7 @@ $(document).on("click", "#submit", function () {
                             headers: { 'x-api-key': apiKey },
                             processData: false,
                             contentType: false,
-                            //data: oData,
+                            data: data,
                             success: function (result) {
                                 $("#status").text('done processing.');
 
@@ -87,8 +100,6 @@ $(document).on("click", "#submit", function () {
                         $("#status").text('error');
                     }
                 });
-
-
             }
         }
     });

@@ -37,20 +37,20 @@ const DestinationFile = "./result.txt";
 
 // 1. RETRIEVE PRESIGNED URL TO UPLOAD FILE.
 getPresignedUrl(API_KEY, SourceFile)
-.then(([uploadUrl, uploadedFileUrl]) => {
-    // 2. UPLOAD THE FILE TO CLOUD.
-    uploadFile(API_KEY, SourceFile, uploadUrl)
-    .then(() => {
-        // 3. CONVERT UPLOADED PDF FILE TO TEXT
-        convertPdfToText(API_KEY, uploadedFileUrl, Password, Pages, DestinationFile);
+    .then(([uploadUrl, uploadedFileUrl]) => {
+        // 2. UPLOAD THE FILE TO CLOUD.
+        uploadFile(API_KEY, SourceFile, uploadUrl)
+            .then(() => {
+                // 3. CONVERT UPLOADED PDF FILE TO TEXT
+                convertPdfToText(API_KEY, uploadedFileUrl, Password, Pages, DestinationFile);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     })
     .catch(e => {
         console.log(e);
     });
-})
-.catch(e => {
-    console.log(e);
-});
 
 
 function getPresignedUrl(apiKey, localFile) {
@@ -76,10 +76,10 @@ function getPresignedUrl(apiKey, localFile) {
                 }
             });
         })
-        .on("error", (e) => {
-            // Request error
-            console.log("getPresignedUrl(): " + e);
-        });
+            .on("error", (e) => {
+                // Request error
+                console.log("getPresignedUrl(): " + e);
+            });
     });
 }
 
@@ -107,15 +107,25 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function convertPdfToText(apiKey, uploadedFileUrl, password, pages, destinationFile) {
     // Prepare request to `PDF To Text` API endpoint
-    var queryPath = `/v1/pdf/convert/to/text?name=${path.basename(destinationFile)}&password=${password}&pages=${pages}&url=${uploadedFileUrl}`;
-    let reqOptions = {
+    var queryPath = `/v1/pdf/convert/to/text`;
+
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        name: path.basename(destinationFile), password: password, pages: pages, url: uploadedFileUrl
+    });
+
+    var reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        method: "POST",
+        path: queryPath,
+        headers: {
+            "x-api-key": apiKey,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
             // Parse JSON response
@@ -125,9 +135,9 @@ function convertPdfToText(apiKey, uploadedFileUrl, password, pages, destinationF
                 var file = fs.createWriteStream(destinationFile);
                 https.get(data.url, (response2) => {
                     response2.pipe(file)
-                    .on("close", () => {
-                        console.log(`Generated TXT file saved as "${destinationFile}" file.`);
-                    });
+                        .on("close", () => {
+                            console.log(`Generated TXT file saved as "${destinationFile}" file.`);
+                        });
                 });
             }
             else {
@@ -136,9 +146,14 @@ function convertPdfToText(apiKey, uploadedFileUrl, password, pages, destinationF
             }
         });
     })
-    .on("error", (e) => {
-        // Request error
-        console.log("convertPdfToText(): " + e);
-    });
+        .on("error", (e) => {
+            // Request error
+            console.log("convertPdfToText(): " + e);
+        });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
+
 }
 

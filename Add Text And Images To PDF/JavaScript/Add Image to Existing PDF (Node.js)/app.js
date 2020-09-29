@@ -41,20 +41,38 @@ const ImageUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-
 
 // * Add image *
 // Prepare request to `PDF Edit` API endpoint
-var queryPath = `/v1/pdf/edit/add?name=${path.basename(DestinationFile)}&password=${Password}&pages=${Pages}&url=${SourceFileUrl}&type=${Type}&x=${X}&y=${Y}&width=${Width}&height=${Height}&urlimage=${ImageUrl}`;
+var queryPath = `/v1/pdf/edit/add`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(DestinationFile),
+    password: Password,
+    pages: Pages,
+    url: SourceFileUrl,
+    type: Type,
+    x: X,
+    y: Y,
+    width: Width,
+    height: Height,
+    urlimage: ImageUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);
-        
+
         if (data.error == false) {
             // Download the PDF file
             var file = fs.createWriteStream(DestinationFile);
@@ -73,3 +91,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.error(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();

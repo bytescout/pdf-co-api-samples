@@ -42,7 +42,23 @@ const Color = "FF0000";
 
 // * Add Text *
 // Prepare request to `PDF Edit` API endpoint
-var queryPath = `/v1/pdf/edit/add?name=${path.basename(DestinationFile)}&password=${Password}&pages=${Pages}&url=${SourceFileUrl}&type=${Type}&x=${X}&y=${Y}&text=${Text}&fontname=${FontName}&size=${FontSize}&color=${Color}`;
+var queryPath = `/v1/pdf/edit/add`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(DestinationFile),
+    password: Password,
+    pages: Pages,
+    url: SourceFileUrl,
+    type: Type,
+    x: X,
+    y: Y,
+    text: Text,
+    fontname: FontName,
+    size: FontSize,
+    color: Color
+});
+
 var reqOptions = {
     host: "api.pdf.co",
     path: encodeURI(queryPath),
@@ -50,12 +66,13 @@ var reqOptions = {
         "x-api-key": API_KEY
     }
 };
+
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);
-        
+
         if (data.error == false) {
             // Download the output file
             var file = fs.createWriteStream(DestinationFile);
@@ -74,3 +91,7 @@ https.get(reqOptions, (response) => {
     // Request error
     console.error(e);
 });
+
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
