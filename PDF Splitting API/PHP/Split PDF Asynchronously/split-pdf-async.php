@@ -14,7 +14,7 @@
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co/documentation/api
-$apiKey = "***********************************";
+$apiKey = "********************************";
 
 // Direct URL of source PDF file. Check another example if you need to upload a local file to the cloud.
 $sourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
@@ -23,16 +23,24 @@ $pages = "1-2,3-";
 
 
 // Prepare URL for `Split PDF` API call
-$url = "https://api.pdf.co/v1/pdf/split" . 
-    "?url=" . $sourceFileUrl .
-    "&pages=" . $pages .
-    "&async=true"; // (!) Make asynchronous job
+$url = "https://api.pdf.co/v1/pdf/split";
+
+// Prepare requests params
+$parameters = array();
+$parameters["url"] = $sourceFileUrl;
+$parameters["pages"] = $pages;
+$parameters["async"] = true; // (!) Make asynchronous job
+
+// Create Json payload
+$data = json_encode($parameters);
 
 // Create request
 $curl = curl_init();
-curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
 curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
 // Execute request
 $result = curl_exec($curl);
@@ -55,7 +63,7 @@ if (curl_errno($curl) == 0)
             // Check the job status in a loop
             do
             {
-                $status = CheckJobStatus($jobId); // Possible statuses: "working", "failed", "aborted", "success".
+                $status = CheckJobStatus($jobId, $apiKey); // Possible statuses: "working", "failed", "aborted", "success".
                 
                 // Display timestamp and status (for demo purposes)
                 echo "<p>" . date(DATE_RFC2822) . ": " . $status . "</p>";
@@ -102,18 +110,27 @@ else
 curl_close($curl);
 
 
-function CheckJobStatus($jobId)
+function CheckJobStatus($jobId, $apiKey)
 {
     $status = null;
     
-    // Create URL
-    $url = "https://api.pdf.co/v1/job/check?jobid=" . $jobId;
+	// Create URL
+    $url = "https://api.pdf.co/v1/job/check";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["jobid"] = $jobId;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     
     // Execute request
     $result = curl_exec($curl);

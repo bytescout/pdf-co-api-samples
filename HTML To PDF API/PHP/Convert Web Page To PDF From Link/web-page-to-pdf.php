@@ -12,18 +12,24 @@
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api
 $sourceUrl = $_POST["sourceUrl"];
 
-
 // Prepare URL for `Web Page to PDF` API call
-$url = "https://api.pdf.co/v1/pdf/convert/from/url" . 
-    "?name=result.pdf" .
-    "&url=" . $sourceUrl;
+$url = "https://api.pdf.co/v1/pdf/convert/from/url";
+
+// Prepare requests params
+$parameters = array();
+$parameters["name"] = "result.pdf";
+$parameters["url"] = $sourceUrl;
+
+// Create Json payload
+$data = json_encode($parameters);
 
 // Create request
 $curl = curl_init();
-curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
 // Execute request
 $result = curl_exec($curl);

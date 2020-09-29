@@ -113,16 +113,23 @@ if (count($uploadedFiles) > 0)
 function MergePdf($apiKey, $uploadedFiles) 
 {
     // Create URL
-    $url = "https://api.pdf.co/v1/pdf/merge" .
-        "?name=result.pdf" .
-        "&url=" . join(",", $uploadedFiles);
+    $url = "https://api.pdf.co/v1/pdf/merge";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["name"] = "result.pdf";
+    $parameters["url"] = join(",", $uploadedFiles);
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);

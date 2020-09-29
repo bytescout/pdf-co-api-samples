@@ -101,17 +101,24 @@ else
 function ReadBarcodes($apiKey, $barcodeTypesToFind, $uploadedFileUrl, $pages) 
 {
     // Prepare URL for `Barcode Reader` API call
-    $url = "https://api.pdf.co/v1/barcode/read/from/url" .
-        "?types=" . join(",", $barcodeTypesToFind) .
-        "&pages=" . $pages .
-        "&url=" . $uploadedFileUrl;
+    $url = "https://api.pdf.co/v1/barcode/read/from/url";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["types"] = join(",", $barcodeTypesToFind);
+    $parameters["pages"] = $pages;
+    $parameters["url"] = $uploadedFileUrl;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);

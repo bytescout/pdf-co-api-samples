@@ -70,7 +70,6 @@ if (curl_errno($curl) == 0)
             if ($status_code == 200)
             {
                 // 3. SPLIT UPLOADED PDF DOCUMENT
-                
                 SplitPdf($apiKey, $accessFileUrl, $pages);
             }
             else
@@ -100,17 +99,24 @@ else
 function SplitPdf($apiKey, $fileUrl, $pages) 
 {
     // Prepare URL for `Split PDF` API call
-    $url = "https://api.pdf.co/v1/pdf/split" .
-        "?name=part.pdf" .
-        "&url=" . $fileUrl .
-        "&pages=" . $pages;
+    $url = "https://api.pdf.co/v1/pdf/split";
         
+    // Prepare requests params
+    $parameters = array();
+    $parameters["name"] = "part.pdf";
+    $parameters["url"] = $fileUrl;
+    $parameters["pages"] = $pages;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PDF Optimization Results</title>
+    <title>Replace Text with Image Results</title>
 </head>
 <body>
 
@@ -64,7 +64,6 @@ if (curl_errno($curl) == 0)
             if ($status_code == 200)
             {
                 // 3. Replace Text With Image FROM UPLOADED PDF FILE
-                
                 replaceImageFromPdf($apiKey, $uploadedFileUrl);
             }
             else
@@ -98,17 +97,25 @@ else
 function replaceImageFromPdf($apiKey, $uploadedFileUrl) 
 {
     // Prepare URL for `Replace Text With Image from PDF` API call
-    $url = "https://api.pdf.co/v1/pdf/edit/replace-text-with-image" . 
-        "?name=result.pdf" .
-        "&searchString=/creativecommons.org/licenses/by-sa/3.0/&replaceImage=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png" .
-        "&url=" . $uploadedFileUrl;
+    $url = "https://api.pdf.co/v1/pdf/edit/replace-text-with-image";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["name"] = "result.pdf";
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["searchString"] = "/creativecommons.org/licenses/by-sa/3.0/";
+    $parameters["replaceImage"] = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png";
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);

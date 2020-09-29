@@ -11,7 +11,6 @@
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://pdf.co
 
-
 // 1. UPLOAD FILES TO CLOUD
 // If you already have direct file links, skip to Step 2.
 
@@ -69,7 +68,7 @@ for($i = 0; $i < $fileCount; $i++)
 
                 if ($status_code == 200)
                 {
-                    $uploadedFiles[] = urlencode($uploadedFileUrl);
+                    $uploadedFiles[] = $uploadedFileUrl;
                 }
                 else
                 {
@@ -114,16 +113,23 @@ if (count($uploadedFiles) > 0)
 function ImageToPdf($apiKey, $uploadedFiles) 
 {
     // Create URL
-    $url = "https://api.pdf.co/v1/pdf/convert/from/image" .
-        "?name=result.pdf" .
-        "&url=" . join(",", $uploadedFiles);
+    $url = "https://api.pdf.co/v1/pdf/convert/from/image";
+
+    // Prepare requests params
+    $parameters = array();
+    $parameters["name"] = "result.pdf";
+    $parameters["url"] = join(",", $uploadedFiles);
+
+    // Create Json payload
+    $data = json_encode($parameters);
 
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);
@@ -165,7 +171,6 @@ function ImageToPdf($apiKey, $uploadedFiles)
     // Cleanup
     curl_close($curl);
 }
-
 
 ?>
 

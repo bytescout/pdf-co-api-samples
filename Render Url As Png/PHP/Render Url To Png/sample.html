@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Url to PNG API Example</title>
+</head>
+
+<body>
+
+    <form name="form1" method="post" action="RenderUrlToPng.php">
+        <p>
+            <label>Authentication key (API Key). Get your own by registering at <a href="https://app.pdf.co/documentation/api">https://app.pdf.co/documentation/api</a>.</label>
+            <br/>
+            <input type="text" name="apiKey" placeholder="API Key"/>
+        </p>
+        <p>
+            <label>URL of web page to convert to Image.</label>
+            <br/>
+            <input type="text" name="inputUrl" placeholder="http://www.usa.gov"/>
+        </p>
+        <input type="submit" name="submit" value="Generate" />
+    </form>
+
+</body>
+</html>

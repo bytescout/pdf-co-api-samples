@@ -18,13 +18,16 @@ $templateData = file_get_contents("./invoice_data.json");
 
 
 // Prepare URL for HTML to PDF API call
-$url = "https://api.pdf.co/v1/pdf/convert/from/html?name=result.pdf";
+$url = "https://api.pdf.co/v1/pdf/convert/from/html";
 
-// Create HTML to PDF options
-$data = json_encode(array(
-    "html" => utf8_encode($template),
-    "templateData" => utf8_encode($templateData)
-    ));
+// Prepare requests params
+$parameters = array();
+$parameters["name"] = "result.pdf";
+$parameters["html"] = utf8_encode($template);
+$parameters["templateData"] = utf8_encode($templateData);
+
+// Create Json payload
+$data = json_encode($parameters);
 
 // Create request
 $curl = curl_init();

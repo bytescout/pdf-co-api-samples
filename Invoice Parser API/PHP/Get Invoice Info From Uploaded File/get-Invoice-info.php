@@ -100,12 +100,21 @@ function ExtractInfo($apiKey, $uploadedFileUrl)
     // Create URL
     $url = "https://api.pdf.co/v1/pdf/invoiceparser?inline=True&url=" . $uploadedFileUrl;
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["inline"] = true;
+    $parameters["url"] = $uploadedFileUrl;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);
@@ -126,7 +135,7 @@ function ExtractInfo($apiKey, $uploadedFileUrl)
                 echo "<div><h2>Document Info:</h2><p>";
                 foreach ($documentInfo as $key => $value) 
                 {
-                    echo $key . ' = ' . $value . '<br/>';
+                    echo $key . ' = ' . json_encode($value) . '<br/>';
                 }
                 echo "</p></div>";
             }

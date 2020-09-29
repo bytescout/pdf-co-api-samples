@@ -13,18 +13,24 @@ $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by
 $barcodeType = $_POST["barcodeType"];
 $barcodeValue = $_POST["inputValue"];
 
-
 // Create URL
-$url = "https://api.pdf.co/v1/barcode/generate" . 
-    "?value=" . $barcodeValue .
-    "&type=" . $barcodeType;
+$url = "https://api.pdf.co/v1/barcode/generate";
+
+// Prepare requests params
+$parameters = array();
+$parameters["value"] = $barcodeValue;
+$parameters["type"] = $barcodeType;
+
+// Create Json payload
+$data = json_encode($parameters);
 
 // Create request
 $curl = curl_init();
-curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
 // Execute request
 $result = curl_exec($curl);
