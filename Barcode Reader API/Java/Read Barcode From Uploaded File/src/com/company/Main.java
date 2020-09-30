@@ -96,12 +96,8 @@ public class Main
 
     public static void readBarcodes(OkHttpClient webClient, String uploadedFileUrl, String barcodeTypes, String pages) throws IOException {
         // Prepare URL for `Barcode Reader` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/barcode/read/from/url?types=%s&pages=%s&url=%s",
-                barcodeTypes,
-                pages,
-                uploadedFileUrl);
-        
+        String query = "https://api.pdf.co/v1/barcode/read/from/url";
+
         // Make correctly escaped (encoded) URL
         URL url = null;
         try
@@ -113,11 +109,22 @@ public class Main
             e.printStackTrace();
         }
 
+        // Create JSON payload
+        String jsonPayload = String.format("{\"types\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\"}",
+            barcodeTypes,
+            pages,
+            uploadedFileUrl);
+
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+
         // Prepare request
         Request request = new Request.Builder()
-                .url(url)
-                .addHeader("x-api-key", API_KEY) // (!) Set API Key
-                .build();
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
 
         // Execute request
         Response response = webClient.newCall(request).execute();

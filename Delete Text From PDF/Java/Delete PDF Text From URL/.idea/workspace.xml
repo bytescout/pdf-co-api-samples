@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fcbade34-542c-492b-ab48-7c6955eebf88" name="Default" comment="" />
+    <list default="true" id="fcbade34-542c-492b-ab48-7c6955eebf88" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Image by finding target coordinates/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Image by finding target coordinates/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Images to Existing PDF/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Images to Existing PDF/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Text by finding target coordinates/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Text by finding target coordinates/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Text to Existing PDF/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Text to Existing PDF/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Barcode Generator API/Java/Generate Barcode/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Barcode Generator API/Java/Generate Barcode/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Advanced Conversation Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Advanced Conversation Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Read Barcode From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Read Barcode From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Read Barcode From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Read Barcode From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CSV To PDF API/Java/Convert CSV To PDF From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CSV To PDF API/Java/Convert CSV To PDF From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CSV To PDF API/Java/Convert CSV To PDF From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CSV To PDF API/Java/Convert CSV To PDF From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Delete PDF Text From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Delete PDF Text From Uploaded File/src/com/company/Main.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" column="70" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="70" />
+            <state relative-caret-position="274">
+              <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,10 +83,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1933" />
-    <option name="height" value="1057" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1934" />
+    <option name="height" value="1058" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -91,19 +105,20 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19555555" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -248,7 +263,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17718121" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17986578" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -266,8 +281,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
-      <window_info anchor="right" id="Maven" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -279,6 +293,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" x="140" y="110" width="1732" height="856" id="Documentation" order="10" type="FLOATING" />
+      <window_info anchor="right" id="Maven" order="11" />
     </layout>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -326,8 +341,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="70" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="70" />
+        <state relative-caret-position="274">
+          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

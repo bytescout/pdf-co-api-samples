@@ -15,9 +15,7 @@ package com.company;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 
 import java.io.*;
 import java.net.*;
@@ -55,18 +53,7 @@ public class Main
 
         // * Add image *
         // Prepare URL for `PDF Edit` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/pdf/edit/add?name=%s&password=%s&pages=%s&url=%s&type=%s&x=%s&y=%s&width=%s&height=%s&urlimage=%s",
-                ResultFile.getFileName(),
-                Password,
-                Pages,
-                SourceFileUrl,
-                Type1,
-                X1,
-                Y1,
-                Width1,
-                Height1,
-                ImageUrl);
+        String query = "https://api.pdf.co/v1/pdf/edit/add";
 
         // Make correctly escaped (encoded) URL
         URL url = null;
@@ -79,10 +66,27 @@ public class Main
             e.printStackTrace();
         }
 
+        // Create JSON payload
+        String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"type\": \"%s\", \"x\": \"%s\", \"y\": \"%s\", \"width\": \"%s\", \"height\": \"%s\", \"urlimage\": \"%s\" }",
+        ResultFile.getFileName(),
+        Password,
+        Pages,
+        SourceFileUrl,
+        Type1,
+        X1,
+        Y1,
+        Width1,
+        Height1,
+        ImageUrl);
+
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
         // Prepare request
         Request request = new Request.Builder()
                 .url(url)
                 .addHeader("x-api-key", API_KEY) // (!) Set API Key
+                .addHeader("Content-Type", "application/json")
+                .post(body)
                 .build();
 
         // Execute request

@@ -42,11 +42,8 @@ public class Main
         OkHttpClient webClient = new OkHttpClient();
         
         // Prepare URL for `Urlto Png` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/url/convert/to/png?name=%s&url=%s",
-                ResultFile.getFileName(),
-                InputUrl);
-        
+        String query = "https://api.pdf.co/v1/url/convert/to/png";
+
         // Make correctly escaped (encoded) URL
         URL url = null;
         try
@@ -58,15 +55,25 @@ public class Main
             e.printStackTrace();
         }
 
+        // Create JSON payload
+		String jsonPayload = String.format("{\"name\": \"%s\", \"url\": \"%s\"}",
+                ResultFile.getFileName(),
+                InputUrl);
+
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+        
         // Prepare request
         Request request = new Request.Builder()
-                .url(url)
-                .addHeader("x-api-key", API_KEY) // (!) Set API Key
-                .build();
-
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
+        
         // Execute request
         Response response = webClient.newCall(request).execute();
-
+        
         if (response.code() == 200)
         {
             // Parse JSON response

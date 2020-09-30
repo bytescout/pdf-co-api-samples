@@ -15,9 +15,7 @@ package com.company;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 
 import java.io.*;
 import java.net.*;
@@ -44,12 +42,8 @@ public class Main
         OkHttpClient webClient = new OkHttpClient();
         
         // Prepare URL for `Barcode Generator` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/barcode/generate?name=%s&type=%s&value=%s",
-                ResultFile.getFileName(),
-                BarcodeType,
-                BarcodeValue);
-        
+        String query = "https://api.pdf.co/v1/barcode/generate";
+
         // Make correctly escaped (encoded) URL
         URL url = null;
         try
@@ -61,15 +55,26 @@ public class Main
             e.printStackTrace();
         }
 
+        // Create JSON payload
+        String jsonPayload = String.format("{\"name\": \"%s\", \"type\": \"%s\", \"value\": \"%s\"}",
+            ResultFile.getFileName(),
+            BarcodeType,
+            BarcodeValue);
+
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+
         // Prepare request
         Request request = new Request.Builder()
-                .url(url)
-                .addHeader("x-api-key", API_KEY) // (!) Set API Key
-                .build();
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
 
         // Execute request
         Response response = webClient.newCall(request).execute();
-
+ 
         if (response.code() == 200)
         {
             // Parse JSON response

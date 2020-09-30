@@ -40,10 +40,7 @@ public class Main
         OkHttpClient webClient = new OkHttpClient();
 
         // Prepare URL for `CSV To PDF` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/pdf/convert/from/csv?name=%s&url=%s",
-                DestinationFile.getFileName(),
-                SourceFileUrl);
+        String query = "https://api.pdf.co/v1/pdf/convert/from/csv";
 
         // Make correctly escaped (encoded) URL
         URL url = null;
@@ -56,11 +53,21 @@ public class Main
             e.printStackTrace();
         }
 
+        // Create JSON payload
+        String jsonPayload = String.format("{\"name\": \"%s\", \"url\": \"%s\"}",
+            DestinationFile.getFileName(),
+            SourceFileUrl);
+
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+
         // Prepare request
         Request request = new Request.Builder()
-                .url(url)
-                .addHeader("x-api-key", API_KEY) // (!) Set API Key
-                .build();
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
 
         // Execute request
         Response response = webClient.newCall(request).execute();

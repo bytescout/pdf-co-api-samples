@@ -74,13 +74,7 @@ public class Main
         String Profiles = "{ 'profiles': [ { 'profile1': { 'TrimSpaces': 'False', 'PreserveFormattingOnTextExtraction': 'True', 'Unwrap': 'True', 'ShrinkMultipleSpaces': 'True' } } ] }";
 
         // Prepare URL for `PDF To XML` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/pdf/convert/to/xml?name=%s&password=%s&pages=%s&url=%s&profiles=%s",
-                DestinationFile.getFileName(),
-                Password,
-                Pages,
-                SourceFileUrl,
-                Profiles);
+        String query = "https://api.pdf.co/v1/pdf/convert/to/xml";
 
         // Make correctly escaped (encoded) URL
         URL url = null;
@@ -93,12 +87,25 @@ public class Main
             e.printStackTrace();
         }
 
+        // Create JSON payload
+		String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"profiles\": \"%s\"}",
+                DestinationFile.getFileName(),
+                Password,
+                Pages,
+                SourceFileUrl,
+                Profiles);
+
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+        
         // Prepare request
         Request request = new Request.Builder()
-                .url(url)
-                .addHeader("x-api-key", API_KEY) // (!) Set API Key
-                .build();
-
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
+        
         // Execute request
         Response response = webClient.newCall(request).execute();
 

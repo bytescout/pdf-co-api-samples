@@ -140,19 +140,38 @@ public class Main
 
 
         // Prepare URL for `PDF To TXT` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/pdf/convert/to/text?name=%s&password=%s&pages=%s&url=%s&profiles=%s",
+        String query = "https://api.pdf.co/v1/pdf/convert/to/text";
+
+        // Make correctly escaped (encoded) URL
+        URL url = null;
+        try
+        {
+            url = new URI(null, query, null).toURL();
+        }
+        catch (URISyntaxException e)
+        {
+            e.printStackTrace();
+        }
+
+        // Create JSON payload
+		String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"profiles\": \"%s\"}",
                 destinationFile.getFileName(),
                 password,
                 pages,
                 uploadedFileUrl,
                 profiles);
 
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+        
         // Prepare request
         Request request = new Request.Builder()
-                .url(query)
-                .addHeader("x-api-key", apiKey) // (!) Set API Key
-                .build();
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
+        
         // Execute request
         Response response = webClient.newCall(request).execute();
 

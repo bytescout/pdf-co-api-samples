@@ -1,10 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fcbade34-542c-492b-ab48-7c6955eebf88" name="Default" comment="" />
+    <list default="true" id="fcbade34-542c-492b-ab48-7c6955eebf88" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From Uploaded File/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Image by finding target coordinates/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Image by finding target coordinates/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Images to Existing PDF/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Images to Existing PDF/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Text by finding target coordinates/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Text by finding target coordinates/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Text to Existing PDF/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Add Text And Images To PDF/Java/Add Text to Existing PDF/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Barcode Generator API/Java/Generate Barcode/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Barcode Generator API/Java/Generate Barcode/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Advanced Conversation Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Advanced Conversation Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Read Barcode From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Read Barcode From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Read Barcode From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Barcode Reader API/Java/Read Barcode From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CSV To PDF API/Java/Convert CSV To PDF From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CSV To PDF API/Java/Convert CSV To PDF From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../CSV To PDF API/Java/Convert CSV To PDF From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CSV To PDF API/Java/Convert CSV To PDF From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DOC To PDF API/Java/Convert DOC To PDF From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DOC To PDF API/Java/Convert DOC To PDF From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DOC To PDF API/Java/Convert DOC To PDF From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DOC To PDF API/Java/Convert DOC To PDF From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Delete Text From PDF/Java/Delete PDF Text From URL/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Delete Text From PDF/Java/Delete PDF Text From URL/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Delete Text From PDF/Java/Delete PDF Text From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Delete Text From PDF/Java/Delete PDF Text From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Delete Text From PDF/Java/Delete PDF Text From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Delete Text From PDF/Java/Delete PDF Text From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../HTML To PDF API/Java/Convert Web Page To PDF From Link/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../HTML To PDF API/Java/Convert Web Page To PDF From Link/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Image To PDF API/Java/Convert Images To PDF From URLs/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Image To PDF API/Java/Convert Images To PDF From URLs/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Image To PDF API/Java/Convert Images To PDF From Uploaded Files/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Image To PDF API/Java/Convert Images To PDF From Uploaded Files/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Invoice Parser API/Java/Get Invoice Info From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Invoice Parser API/Java/Get Invoice Info From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Invoice Parser API/Java/Get Invoice Info From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Invoice Parser API/Java/Get Invoice Info From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Information API/Java/Get PDF Info From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Information API/Java/Get PDF Info From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Information API/Java/Get PDF Info From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Information API/Java/Get PDF Info From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Make Searchable API/Java/Advanced Conversation Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Make Searchable API/Java/Advanced Conversation Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Make Searchable API/Java/Make Searchable PDF From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Make Searchable API/Java/Make Searchable PDF From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Make Searchable API/Java/Make Searchable PDF From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Make Searchable API/Java/Make Searchable PDF From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Merging API/Java/Merge PDF Documents From URLs/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Merging API/Java/Merge PDF Documents From URLs/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Merging API/Java/Merge PDF Documents From Uploaded Files/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Merging API/Java/Merge PDF Documents From Uploaded Files/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Optimization API/Java/Optimize PDF From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Optimization API/Java/Optimize PDF From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Optimization API/Java/Optimize PDF From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Optimization API/Java/Optimize PDF From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From Uploaded File/.idea/libraries/com_squareup_okhttp3_okhttp_3_8_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From Uploaded File/.idea/libraries/com_squareup_okhttp3_okhttp_3_8_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From Uploaded File/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From Uploaded File/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Splitting API/Java/Split PDF From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Text Search API/Java/PDF Text Search from URL Asynchronously/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Text Search API/Java/PDF Text Search from URL Asynchronously/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Text Search API/Java/PDF Text Search from URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Text Search API/Java/PDF Text Search from URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Text Search API/Java/PDF Text Search from Uploaded File Asynchronously/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Text Search API/Java/PDF Text Search from Uploaded File Asynchronously/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF Text Search API/Java/PDF Text Search from Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF Text Search API/Java/PDF Text Search from Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Advanced Conversion Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Advanced Conversion Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Convert PDF To CSV From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Convert PDF To CSV From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Convert PDF To CSV From Uploaded File Asynchronously/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Convert PDF To CSV From Uploaded File Asynchronously/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Convert PDF To CSV From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To CSV API/Java/Convert PDF To CSV From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Advanced Conversion Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Advanced Conversion Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Convert PDF To XLS From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Convert PDF To XLS From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Convert PDF To XLS From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Convert PDF To XLS From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Convert PDF To XLSX From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Convert PDF To XLSX From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Convert PDF To XLSX From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Excel API/Java/Convert PDF To XLSX From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To HTML API/Java/Convert PDF To HTML From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To HTML API/Java/Convert PDF To HTML From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To HTML API/Java/Convert PDF To HTML From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To HTML API/Java/Convert PDF To HTML From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Advanced JPEG Conversion Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Advanced JPEG Conversion Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Advanced PNG Conversion Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Advanced PNG Conversion Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Advanced TIFF Conversion Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Advanced TIFF Conversion Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_squareup_okhttp3_okhttp_3_8_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/com_squareup_okhttp3_okhttp_3_8_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Convert PDF To JPEG From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Convert PDF To JPEG From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Convert PDF To PNG From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Convert PDF To PNG From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Convert PDF To PNG From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Convert PDF To PNG From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Convert PDF To TIFF From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Convert PDF To TIFF From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Convert PDF To TIFF From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Convert PDF To TIFF From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To JSON API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To JSON API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To JSON API/Java/Advanced Conversion Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To JSON API/Java/Advanced Conversion Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To JSON API/Java/Convert PDF To JSON From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To JSON API/Java/Convert PDF To JSON From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To JSON API/Java/Convert PDF To JSON From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To JSON API/Java/Convert PDF To JSON From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Text API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Text API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Text API/Java/Advanced Conversion Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Text API/Java/Advanced Conversion Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Text API/Java/Convert PDF To Text From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Text API/Java/Convert PDF To Text From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To Text API/Java/Convert PDF To Text From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To Text API/Java/Convert PDF To Text From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To XML API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To XML API/Java/Advanced Conversion Options With Rotated Input/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To XML API/Java/Advanced Conversion Options/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To XML API/Java/Advanced Conversion Options/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To XML API/Java/Convert PDF To XML From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To XML API/Java/Convert PDF To XML From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../PDF To XML API/Java/Convert PDF To XML From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../PDF To XML API/Java/Convert PDF To XML From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Render Url As Jpg/Java/Render Url To Jpg/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Render Url As Jpg/Java/Render Url To Jpg/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Render Url As Png/Java/Render Url To Png/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Render Url As Png/Java/Render Url To Png/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Replace Text From PDF/Java/Replace Text From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Replace Text From PDF/Java/Replace Text From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Replace Text From PDF/Java/Replace Text From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Replace Text From PDF/Java/Replace Text From Uploaded File/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Replace Text With Image From PDF/Java/Replace Text With Image From URL/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Replace Text With Image From PDF/Java/Replace Text With Image From URL/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Replace Text With Image From PDF/Java/Replace Text With Image From Uploaded File/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Replace Text With Image From PDF/Java/Replace Text With Image From Uploaded File/src/com/company/Main.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,11 +99,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="57" lean-forward="true" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+            <state relative-caret-position="252">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,10 +127,8 @@
       <find>%20</find>
     </findStrings>
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -65,29 +144,17 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1932" />
-    <option name="height" value="1056" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1933" />
+    <option name="height" value="1057" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -99,18 +166,20 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19555555" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -129,157 +198,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
-    <configuration name="Unnamed" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ByteScoutWebApiExample" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
-        <option name="GAPID_ENABLED" value="false" />
-        <option name="GAPID_DISABLE_PCS" value="false" />
-        <option name="SUPPORT_LIB_ENABLED" value="true" />
-        <option name="INSTRUMENTATION_ENABLED" value="true" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
-        <option name="GAPID_ENABLED" value="false" />
-        <option name="GAPID_DISABLE_PCS" value="false" />
-        <option name="SUPPORT_LIB_ENABLED" value="true" />
-        <option name="INSTRUMENTATION_ENABLED" value="true" />
-      </Profilers>
-      <method />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -300,58 +219,34 @@
       <kind value="DIRECTORY" />
       <method />
     </configuration>
-    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method />
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="JarApplication" factoryName="JAR Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SCRATCH_FILE_ID" value="0" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
+    <configuration name="Unnamed" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="ByteScoutWebApiExample" />
-      <envs />
-      <method />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="filePath" />
       <option name="vmParameters" />
       <option name="alternativeJrePath" />
@@ -359,12 +254,53 @@
       <option name="passParentEnvs" value="true" />
       <option name="workingDirectory" />
       <option name="isAlternativeJrePathEnabled" value="false" />
-      <envs />
-      <method />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -386,188 +322,89 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27391306" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1748401" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29782608" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="140" y="110" width="1732" height="856" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17718121" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Nl-Palette" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2733711" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29782608" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Properties" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.32995737" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32995737" />
+      <window_info anchor="right" x="140" y="110" width="1732" height="856" id="Documentation" order="10" type="FLOATING" />
     </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
-      <option name="time" value="13" />
-    </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_92/src.zip!/javax/xml/ws/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_92/src.zip!/java/util/Formatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="2578" column="0" lean-forward="false" selection-start-line="2578" selection-start-column="0" selection-end-line="2578" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_92/src.zip!/javax/xml/ws/Response.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_92/src.zip!/java/util/Formatter.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar!/okhttp3/HttpUrl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-482">
-          <caret line="879" column="36" lean-forward="false" selection-start-line="879" selection-start-column="36" selection-end-line="879" selection-end-column="36" />
+          <caret line="879" column="36" selection-start-line="879" selection-start-column="36" selection-end-line="879" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar!/okhttp3/Request.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="115" column="44" lean-forward="false" selection-start-line="115" selection-start-column="44" selection-end-line="115" selection-end-column="44" />
+          <caret line="115" column="44" selection-start-line="115" selection-start-column="44" selection-end-line="115" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar!/okhttp3/ResponseBody.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="70" column="22" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar!/okhttp3/Response.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
-          <caret line="111" column="24" lean-forward="false" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+          <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../Barcode Generator/Java/Generate Barcode/ByteScoutWebApiExample.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Barcode Generator/Java/Generate Barcode/ByteScoutWebApiExample.iml" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.8.1/okhttp-3.8.1.jar!/okhttp3/OkHttpClient.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
-          <caret line="225" column="19" lean-forward="false" selection-start-line="225" selection-start-column="19" selection-end-line="225" selection-end-column="19" />
+          <caret line="225" column="19" selection-start-line="225" selection-start-column="19" selection-end-line="225" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="57" lean-forward="true" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
+        <state relative-caret-position="252">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

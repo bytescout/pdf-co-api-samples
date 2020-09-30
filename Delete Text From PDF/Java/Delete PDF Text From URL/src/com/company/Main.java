@@ -26,7 +26,7 @@ public class Main
 {
     // The authentication key (API Key).
     // Get your own by registering at https://app.pdf.co/documentation/api
-    final static String API_KEY = "***********************************";
+    final static String API_KEY = "**********************************";
 
     // Direct URL of source PDF file.
     final static String SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
@@ -42,17 +42,36 @@ public class Main
         OkHttpClient webClient = new OkHttpClient();
 
         // Prepare URL for `Delete Text from PDF` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/pdf/edit/delete-text?name=%s&password=%s&url=%s&searchString=conspicuous",
+        String query = "https://api.pdf.co/v1/pdf/edit/delete-text";
+
+        // Make correctly escaped (encoded) URL
+        URL url = null;
+        try
+        {
+            url = new URI(null, query, null).toURL();
+        }
+        catch (URISyntaxException e)
+        {
+            e.printStackTrace();
+        }
+
+        // Create JSON payload
+        String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"url\": \"%s\", \"searchString\": \"conspicuous\"}",
                 DestinationFile.getFileName(),
                 Password,
                 SourceFileUrl);
 
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+
         // Prepare request
         Request request = new Request.Builder()
-                .url(query)
-                .addHeader("x-api-key", API_KEY) // (!) Set API Key
-                .build();
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
+
         // Execute request
         Response response = webClient.newCall(request).execute();
 

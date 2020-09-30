@@ -42,19 +42,39 @@ public class Main
         OkHttpClient webClient = new OkHttpClient();
 
         // Prepare URL for `Replace Text With Image from PDF` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/pdf/edit/replace-text-with-image?name=%s&password=%s&url=%s&searchString=/creativecommons.org/licenses/by-sa/3.0/&replaceImage=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png",
+        String query = "https://api.pdf.co/v1/pdf/edit/replace-text-with-image";
+
+        // Make correctly escaped (encoded) URL
+        URL url = null;
+        try
+        {
+            url = new URI(null, query, null).toURL();
+        }
+        catch (URISyntaxException e)
+        {
+            e.printStackTrace();
+        }
+
+        // Create JSON payload
+		String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"url\": \"%s\", \"searchString\": \"/creativecommons.org/licenses/by-sa/3.0/\", \"replaceImage\": \"https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png\"}",
                 DestinationFile.getFileName(),
                 Password,
                 SourceFileUrl);
 
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+        
         // Prepare request
         Request request = new Request.Builder()
-                .url(query)
-                .addHeader("x-api-key", API_KEY) // (!) Set API Key
-                .build();
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
+        
         // Execute request
         Response response = webClient.newCall(request).execute();
+        
 
         if (response.code() == 200)
         {

@@ -110,10 +110,7 @@ public class Main
     public static void ConvertImagesToPdf(OkHttpClient webClient, String apiKey, Path destinationFile, List<String> uploadedFileUrls) throws IOException
     {
         // Prepare URL for `Image To PDF` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/pdf/convert/from/image?name=%s&url=%s",
-                destinationFile.getFileName(),
-                String.join(",", uploadedFileUrls));
+        String query = "https://api.pdf.co/v1/pdf/convert/from/image";
 
         // Make correctly escaped (encoded) URL
         URL url = null;
@@ -126,14 +123,25 @@ public class Main
             e.printStackTrace();
         }
 
+        // Create JSON payload
+		String jsonPayload = String.format("{\"name\": \"%s\", \"url\": \"%s\"}",
+                destinationFile.getFileName(),
+                String.join(",", uploadedFileUrls));
+
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+        
         // Prepare request
         Request request = new Request.Builder()
-                .url(url)
-                .addHeader("x-api-key", apiKey) // (!) Set API Key
-                .build();
-
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
+        
         // Execute request
         Response response = webClient.newCall(request).execute();
+        
 
         if (response.code() == 200)
         {

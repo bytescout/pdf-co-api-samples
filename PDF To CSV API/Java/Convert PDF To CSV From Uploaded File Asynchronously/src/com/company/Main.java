@@ -102,13 +102,7 @@ public class Main
         String password, String pages, String uploadedFileUrl) throws IOException
     {
         // Prepare URL for `PDF To CSV` API call
-        String query = String.format(
-                "https://api.pdf.co/v1/pdf/convert/to/csv?name=%s&password=%s&pages=%s&url=%s&async=%s",
-                destinationFile.getFileName(),
-                password,
-                pages,
-                uploadedFileUrl,
-                Async);
+        String query = "https://api.pdf.co/v1/pdf/convert/to/csv";
 
         // Make correctly escaped (encoded) URL
         URL url = null;
@@ -121,12 +115,25 @@ public class Main
             e.printStackTrace();
         }
 
+        // Create JSON payload
+		String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"async\": \"%s\"}",
+                destinationFile.getFileName(),
+                password,
+                pages,
+                uploadedFileUrl,
+                Async);
+
+        // Prepare request body
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);
+        
         // Prepare request
         Request request = new Request.Builder()
-                .url(url)
-                .addHeader("x-api-key", apiKey) // (!) Set API Key
-                .build();
-
+            .url(url)
+            .addHeader("x-api-key", API_KEY) // (!) Set API Key
+            .addHeader("Content-Type", "application/json")
+            .post(body)
+            .build();
+        
         // Execute request
         Response response = webClient.newCall(request).execute();
 
