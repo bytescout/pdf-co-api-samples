@@ -7,12 +7,20 @@ $SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-
 
 
 # Prepare URL for `Invoice Parser` API call
-$query = "https://api.pdf.co/v1/pdf/invoiceparser?url=$($SourceFileURL)&inline=True"
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/invoiceparser"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "url" = $SourceFileURL
+    "inline" = True
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Display PDF document information

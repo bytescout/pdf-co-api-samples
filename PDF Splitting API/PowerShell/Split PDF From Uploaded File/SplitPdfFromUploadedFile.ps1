@@ -35,12 +35,20 @@ try {
             # 3. SPLIT UPLOADED PDF
 
             # Prepare URL for `Split PDF` API call
-            $query = "https://api.pdf.co/v1/pdf/split?pages=$($Pages)&url=$($uploadedFileUrl)"
-            $query = [System.Uri]::EscapeUriString($query)
+            $query = "https://api.pdf.co/v1/pdf/split"
 
+            # Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+            # See documentation: https://apidocs.pdf.co
+            $body = @{
+                "pages" = $Pages
+                "url" = $uploadedFileUrl
+            } | ConvertTo-Json
+            
             # Execute request
-            $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
-
+            $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+            
+            $jsonResponse = $response.Content | ConvertFrom-Json
+            
             if ($jsonResponse.error -eq $false) {
                 # Download generated PDF files
                 $part = 1;

@@ -40,13 +40,23 @@ $Profiles = "{ 'profiles': [ { 'profile1': { 'TIFFCompression': 'CCITT4' } } ] }
 
 
 # Prepare URL for `PDF To TIFF` API call
-$query = "https://api.pdf.co/v1/pdf/convert/to/tiff?name={0}&password={1}&pages={2}&url={3}&profiles={4}" -f `
-    $(Split-Path $DestinationFile -Leaf), $Password, $Pages, $SourceFileUrl, $Profiles
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/convert/to/tiff"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "name" = $(Split-Path $DestinationFile -Leaf)
+    "password" = $Password
+    "pages" = $Pages
+    "url" = $SourceFileUrl
+    "profiles" = $Profiles
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Get URL of generated TIFF file

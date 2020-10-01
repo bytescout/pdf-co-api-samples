@@ -26,12 +26,28 @@ $resultFileName = [System.IO.Path]::GetFileName($DestinationFile)
 
 # * Add image *
 # Prepare request to `PDF Edit` API endpoint
-$query = "https://api.pdf.co/v1/pdf/edit/add?name=$($resultFileName)&password=$($Password)&pages=$($Pages)&url=$($SourceFileUrl)&type=$($Type)&x=$($X)&y=$($Y)&width=$($Width)&height=$($Height)&urlimage=$($ImageUrl)";
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/edit/add"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "name" = $resultFileName
+    "password" = $Password
+    "pages" = $Pages
+    "url" = $SourceFileUrl
+    "type" = $Type
+    "x" = $X
+    "y" = $Y
+    "width" = $Width
+    "height" = $Height
+    "urlimage" = $ImageUrl
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Get URL of generated barcode image file

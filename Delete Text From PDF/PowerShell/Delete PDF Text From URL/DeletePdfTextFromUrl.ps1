@@ -11,13 +11,22 @@ $DestinationFile = ".\result.pdf"
 
 
 # Prepare URL for `Delete Text from PDF` API call
-$query = "https://api.pdf.co/v1/pdf/edit/delete-text?name={0}&password={1}&url={2}&searchString=conspicuous" -f `
-    $(Split-Path $DestinationFile -Leaf), $Password, $SourceFileURL
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/edit/delete-text"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "name" = $(Split-Path $DestinationFile -Leaf)
+    "password" = $Password
+    "url" = $SourceFileURL
+    "searchString" = "conspicuous"
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Get URL of generated PDF file

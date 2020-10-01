@@ -10,12 +10,20 @@ $SearchString = 'Your Company Name'
 
 # Prepare URL for PDF text search API call.
 # See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
-$queryFindText = "https://api.pdf.co/v1/pdf/find?url=$($SourceFileURL)&searchString=$($SearchString)"
-$queryFindText = [System.Uri]::EscapeUriString($queryFindText)
+$queryFindText = "https://api.pdf.co/v1/pdf/find"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$bodyFindText = @{
+    "url" = $SourceFileURL
+    "searchString" = $SearchString
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponseFindText = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $queryFindText
+    $responseFindText = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $bodyFindText -Uri $queryFindText
+
+    $jsonResponseFindText = $responseFindText.Content | ConvertFrom-Json
 
     if ($jsonResponseFindText.error -eq $false) {
 
@@ -46,12 +54,28 @@ try {
 
         # * Add image *
         # Prepare request to `PDF Edit` API endpoint
-        $query = "https://api.pdf.co/v1/pdf/edit/add?name=$($resultFileName)&password=$($Password)&pages=$($Pages)&url=$($SourceFileUrl)&type=$($Type)&x=$($X)&y=$($Y)&width=$($Width)&height=$($Height)&urlimage=$($ImageUrl)";
-        $query = [System.Uri]::EscapeUriString($query)
+        $query = "https://api.pdf.co/v1/pdf/edit/add"
 
+        # Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+        # See documentation: https://apidocs.pdf.co
+        $body = @{
+            "name" = $resultFileName
+            "password" = $Password
+            "pages" = $Pages
+            "url" = $SourceFileUrl
+            "type" = $Type
+            "x" = $X
+            "y" = $Y
+            "width" = $Width
+            "height" = $Height
+            "urlimage" = $ImageUrl
+        } | ConvertTo-Json
+        
         try {
             # Execute request
-            $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+            $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+            
+            $jsonResponse = $response.Content | ConvertFrom-Json
 
             if ($jsonResponse.error -eq $false) {
                 # Get URL of generated barcode image file

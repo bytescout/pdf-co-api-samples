@@ -12,12 +12,20 @@ $DestinationFile = ".\result.pdf"
 
 
 # Prepare URL for `Image To PDF` API call
-$query = "https://api.pdf.co/v1/pdf/convert/from/image?name=$(Split-Path $DestinationFile -Leaf)&url=$($SourceFiles -join ",")"
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/convert/from/image"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "name" = $(Split-Path $DestinationFile -Leaf)
+    "url" = $SourceFiles -join ","
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Get URL of generated PDF file

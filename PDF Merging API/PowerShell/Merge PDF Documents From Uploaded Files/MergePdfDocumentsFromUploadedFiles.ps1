@@ -50,13 +50,20 @@ try {
         # 2. MERGE UPLOADED PDF DOCUMENTS
     
         # Prepare URL for `Merge PDF` API call
-        $query = "https://api.pdf.co/v1/pdf/merge?name={0}&url={1}" -f `
-            $(Split-Path $DestinationFile -Leaf), $($uploadedFiles -join ",")
-        $query = [System.Uri]::EscapeUriString($query)
+        $query = "https://api.pdf.co/v1/pdf/merge"
+
+        # Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+        # See documentation: https://apidocs.pdf.co
+        $body = @{
+            "name" = $(Split-Path $DestinationFile -Leaf)
+            "url" = $uploadedFiles -join ","
+        } | ConvertTo-Json
         
         # Execute request
-        $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
-
+        $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+        
+        $jsonResponse = $response.Content | ConvertFrom-Json
+        
         if ($jsonResponse.error -eq $false) {
             # Get URL of generated PDF file
             $resultFileUrl = $jsonResponse.url;

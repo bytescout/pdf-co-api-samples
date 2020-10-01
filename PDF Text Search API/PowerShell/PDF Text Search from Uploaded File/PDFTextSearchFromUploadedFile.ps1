@@ -45,11 +45,22 @@ try {
 
             # Prepare URL for PDF text search API call.
             # See documentation: https://app.pdf.co/documentation/api
-            $query = "https://api.pdf.co/v1/pdf/find?password=$($Password)&pages=$($Pages)&url=$($uploadedFileUrl)&searchString=$($SearchString)&regexSearch=$($RegexSearch)"
-            $query = [System.Uri]::EscapeUriString($query)
+            $query = "https://api.pdf.co/v1/pdf/find"
 
+            # Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+            # See documentation: https://apidocs.pdf.co
+            $body = @{
+                "password" = $Password
+                "pages" = $Pages
+                "url" = $uploadedFileUrl
+                "searchString" = $SearchString
+                "regexSearch" = $RegexSearch
+            } | ConvertTo-Json
+            
             # Execute request
-            $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+            $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+            
+            $jsonResponse = $response.Content | ConvertFrom-Json
 
             if ($jsonResponse.error -eq $false) {
                 # Display found barcodes in console
