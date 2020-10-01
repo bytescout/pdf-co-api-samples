@@ -46,14 +46,16 @@ def findTextWithinPDF(sourceFile, searchText):
 
     retVal = dict()
 
-    url = "{}/pdf/find?url={}&searchString={}".format(
-        BASE_URL,
-        sourceFile,
-        searchText
-    )
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["url"] = sourceFile
+    parameters["searchString"] = searchText
+
+    url = "{}/pdf/find".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={"x-api-key": API_KEY, "content-type": "application/octet-stream"})
+    response = requests.post(url, data=parameters, headers={"x-api-key": API_KEY})
     if (response.status_code == 200):
         json = response.json()
 
@@ -75,23 +77,25 @@ def findTextWithinPDF(sourceFile, searchText):
 def addImageToPDF(destinationFile, top, left):
     """Add image using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["url"] = SourceFileUrl
+    parameters["type"] = Type
+    parameters["x"] = top + 300
+    parameters["y"] = left
+    parameters["width"] = Width
+    parameters["height"] = Height
+    parameters["urlimage"] = ImageUrl
+
     # Prepare URL for 'PDF Edit' API request
-    url = "{}/pdf/edit/add?name={}&password={}&pages={}&url={}&type={}&x={}&y={}&width={}&height={}&urlimage={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        Password,
-        Pages,
-        SourceFileUrl,
-        Type,
-        top + 300,
-        left,
-        Width,
-        Height,
-        ImageUrl
-    )
+    url = "{}/pdf/edit/add".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={"x-api-key": API_KEY})
 
     if (response.status_code == 200):
 

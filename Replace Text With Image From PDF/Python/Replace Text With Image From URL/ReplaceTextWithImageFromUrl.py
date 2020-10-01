@@ -22,16 +22,21 @@ def main(args = None):
 def replaceImageFromPdf(uploadedFileUrl, destinationFile):
     """Replace Text With Image from PDF using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["url"] = uploadedFileUrl
+    parameters["searchString"] = "/creativecommons.org/licenses/by-sa/3.0/"
+    parameters["replaceImage"] = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png"
+
     # Prepare URL for 'Replace Text With Image from PDF' API request
-    url = "{}/pdf/edit/replace-text-with-image?name={}&password={}&url={}&searchString=/creativecommons.org/licenses/by-sa/3.0/&replaceImage=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        Password,
-        uploadedFileUrl
-    )
+    url = "{}/pdf/edit/replace-text-with-image".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
+
     if (response.status_code == 200):
         json = response.json()
 

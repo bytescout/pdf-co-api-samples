@@ -43,19 +43,21 @@ def main(args = None):
 def searchTextInPDF(uploadedFileUrl):
     """Search Text using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["async"] = Async
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["url"] = uploadedFileUrl
+    parameters["searchString"] = SearchString
+    parameters["regexSearch"] = RegexSearch
+
     # Prepare URL for 'PDF Text Search' API request
-    url = "{}/pdf/find?async={}&password={}&pages={}&url={}&searchString={}&regexSearch={}".format(
-        BASE_URL,
-        Async,
-        Password,
-        Pages,
-        uploadedFileUrl,
-        SearchString,
-        RegexSearch
-    )
+    url = "{}/pdf/find".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

@@ -23,15 +23,17 @@ def main(args = None):
 def splitPDF(uploadedFileUrl):
     """Split PDF using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["pages"] = Pages
+    parameters["url"] = uploadedFileUrl
+
     # Prepare URL for 'Split PDF' API request
-    url = "{}/pdf/split?pages={}&url={}".format(
-        BASE_URL,
-        Pages,
-        uploadedFileUrl
-    )
+    url = "{}/pdf/split".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

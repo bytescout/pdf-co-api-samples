@@ -51,17 +51,19 @@ def main(args = None):
 def convertPdfToImage(uploadedFileUrl):
     """Converts PDF To Image using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["url"] = uploadedFileUrl
+    parameters["profiles"] = Profiles
+
     # Prepare URL for 'PDF To PNG' API request
-    url = "{}/pdf/convert/to/png?password={}&pages={}&url={}&profiles={}".format(
-        BASE_URL,
-        Password,
-        Pages,
-        uploadedFileUrl,
-        Profiles
-    )
+    url = "{}/pdf/convert/to/png".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

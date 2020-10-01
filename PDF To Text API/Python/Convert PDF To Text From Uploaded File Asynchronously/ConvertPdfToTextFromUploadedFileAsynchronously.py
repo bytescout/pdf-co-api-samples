@@ -34,18 +34,21 @@ def main(args = None):
 def convertPdfToText(uploadedFileUrl, destinationFile):
     """Converts PDF To Text using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["async"] = Async
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["url"] = uploadedFileUrl
+
     # Prepare URL for 'PDF To Text' API request
-    url = "{}/pdf/convert/to/text?async={}&name={}&password={}&pages={}&url={}".format(
-        BASE_URL,
-        Async,
-        os.path.basename(destinationFile),
-        Password,
-        Pages,
-        uploadedFileUrl
-    )
+    url = "{}/pdf/convert/to/text".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
+
     if (response.status_code == 200):
         json = response.json()
 

@@ -30,24 +30,24 @@ def convertPdfToXml(uploadedFileUrl, destinationFile):
     # Some of advanced options available through profiles:
     # (it can be single/double-quoted and contain comments.)
     # {
-    # 	"profiles": [
-    # 		{
-    # 			"profile1": {
-    # 				"SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
-    # 				"ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
-    # 				"SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
-    # 				"ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
-    # 				"ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
-    # 				"LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
-    # 				"ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
-    # 				"Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
-    # 				"ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
-    # 				"DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
-    # 				"CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
-    # 				"CheckPermissions": true, // Ignore document permissions. Values: true / false
-    # 			}
-    # 		}
-    # 	]
+    #     "profiles": [
+    #         {
+    #             "profile1": {
+    #                 "SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
+    #                 "ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
+    #                 "SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
+    #                 "ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+    #                 "ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+    #                 "LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+    #                 "ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+    #                 "Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+    #                 "ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+    #                 "DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+    #                 "CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+    #                 "CheckPermissions": true, // Ignore document permissions. Values: true / false
+    #             }
+    #         }
+    #     ]
     # }
     
     # Sample profile that sets advanced conversion options
@@ -61,18 +61,20 @@ def convertPdfToXml(uploadedFileUrl, destinationFile):
     # 3 - 270 degrees
     Profiles = '{ "profiles": [{ "profile1": { "RotationAngle": 1 } } ] }'
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["url"] = uploadedFileUrl
+    parameters["profile"] = Profiles
+
     # Prepare URL for 'PDF To XML' API request
-    url = "{}/pdf/convert/to/xml?name={}&password={}&pages={}&url={}&profile={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        Password,
-        Pages,
-        uploadedFileUrl,
-        Profiles
-    )
+    url = "{}/pdf/convert/to/xml".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

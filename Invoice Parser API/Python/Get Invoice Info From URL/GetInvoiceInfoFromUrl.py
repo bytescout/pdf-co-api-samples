@@ -19,14 +19,17 @@ def main(args=None):
 def getInfoFromUrl(uploadedFileUrl):
     """Get Information using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["url"] = uploadedFileUrl
+    parameters["inline"] = True
+
     # Prepare URL for 'invoice info' API request
-    url = "{}/pdf/invoiceparser?url={}&inline=True".format(
-        BASE_URL,
-        uploadedFileUrl
-    )
+    url = "{}/pdf/invoiceparser".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={"x-api-key": API_KEY, "content-type": "application/octet-stream"})
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 
