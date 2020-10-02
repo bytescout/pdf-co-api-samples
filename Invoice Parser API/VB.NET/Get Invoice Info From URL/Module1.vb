@@ -12,6 +12,7 @@
 
 Imports System.IO
 Imports System.Net
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -36,14 +37,24 @@ Module Module1
 		' Set API Key
 		webClient.Headers.Add("x-api-key", API_KEY)
 
+        ' Set JSON content type
+        webClient.Headers.Add("Content-Type", "application/json")
+
 		' Prepare URL for `Invoice Parser` API call
-		Dim query As String = Uri.EscapeUriString(String.Format(
-			"https://api.pdf.co/v1/pdf/invoiceparser?url={0}&inline=True", 
-			SourceFileURL))
+		Dim url As String = "https://api.pdf.co/v1/pdf/invoiceparser"
+
+        ' Prepare requests params as JSON
+        ' See documentation: https : //apidocs.pdf.co
+        Dim parameters As New Dictionary(Of String, Object)
+		parameters.Add("url", SourceFileURL)
+		parameters.Add("inline", True)
+
+        ' Convert dictionary of params to JSON
+        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
 		Try
-			' Execute request
-			Dim response As String = webClient.DownloadString(query)
+			' Execute POST request with JSON payload
+			Dim response As String = webClient.UploadString(url, jsonPayload)
 
 			' Parse JSON response
 			Dim json As JObject = JObject.Parse(response)

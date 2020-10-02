@@ -12,6 +12,7 @@
 
 Imports System.IO
 Imports System.Net
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -46,6 +47,9 @@ Module Module1
         ' Set API Key
         webClient.Headers.Add("x-api-key", API_KEY)
 
+        ' Set JSON content type
+        webClient.Headers.Add("Content-Type", "application/json")
+
         ' Find Text coordinates to add image
         Dim oCoordinates = FindCoordinates(API_KEY, SourceFileUrl, "Your Company Name")
 
@@ -54,22 +58,28 @@ Module Module1
 
         ' * Add image *
         ' Prepare URL for `PDF Edit` API call
-        Dim query As String = Uri.EscapeUriString(String.Format(
-            "https://api.pdf.co/v1/pdf/edit/add?name={0}&password={1}&pages={2}&url={3}&type={4}&x={5}&y={6}&width={7}&height={8}&urlimage={9}",
-            Path.GetFileName(DestinationFile),
-                Password,
-                Pages,
-                SourceFileUrl,
-                Type1,
-                X1,
-                Y1,
-                Width1,
-                Height1,
-                ImageUrl))
+		Dim url As String = "https://api.pdf.co/v1/pdf/edit/add"
+
+        ' Prepare requests params as JSON
+        ' See documentation: https : //apidocs.pdf.co
+        Dim parameters As New Dictionary(Of String, Object)
+		parameters.Add("name", Path.GetFileName(DestinationFile))
+		parameters.Add("password", Password)
+		parameters.Add("pages", Pages)
+		parameters.Add("url", SourceFileUrl)
+		parameters.Add("type", Type1)
+		parameters.Add("x", X1)
+		parameters.Add("y", Y1)
+		parameters.Add("width", Width1)
+		parameters.Add("height", Height1)
+		parameters.Add("urlimage", ImageUrl)
+
+        ' Convert dictionary of params to JSON
+        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
         Try
-            ' Execute request
-            Dim response As String = webClient.DownloadString(query)
+            ' Execute POST request with JSON payload
+            Dim response As String = webClient.UploadString(url, jsonPayload)
 
             ' Parse JSON response
             Dim json As JObject = JObject.Parse(response)
@@ -113,16 +123,25 @@ Module Module1
         ' Set API Key
         webClient.Headers.Add("x-api-key", API_KEY)
 
+        ' Set JSON content type
+        webClient.Headers.Add("Content-Type", "application/json")
+
         ' Prepare URL for PDF text search API call.
         ' See documentation: https : //app.pdf.co/documentation/api/1.0/pdf/find.html
-        Dim query As String = Uri.EscapeUriString(
-            String.Format("https://api.pdf.co/v1/pdf/find?url={0}&searchString={1}",
-                SourceFileUrl,
-                SearchString))
+		Dim url As String = "https://api.pdf.co/v1/pdf/find"
+
+        ' Prepare requests params as JSON
+        ' See documentation: https : //apidocs.pdf.co
+        Dim parameters As New Dictionary(Of String, Object)
+		parameters.Add("url", SourceFileUrl)
+		parameters.Add("searchString", SearchString)
+
+        ' Convert dictionary of params to JSON
+        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
         Try
-            ' Execute request
-            Dim response As String = webClient.DownloadString(query)
+            ' Execute POST request with JSON payload
+            Dim response As String = webClient.UploadString(url, jsonPayload)
 
             ' Parse JSON response
             Dim json As JObject = JObject.Parse(response)

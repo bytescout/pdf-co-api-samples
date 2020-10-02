@@ -12,6 +12,7 @@
 
 Imports System.IO
 Imports System.Net
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -35,16 +36,27 @@ Module Module1
 		' Set API Key
 		webClient.Headers.Add("x-api-key", API_KEY)
 
+        ' Set JSON content type
+        webClient.Headers.Add("Content-Type", "application/json")
+
 		' Prepare URL for `Replace Text With Image from PDF` API call
-		Dim query As String = Uri.EscapeUriString(String.Format(
-			"https://api.pdf.co/v1/pdf/edit/replace-text-with-image?name={0}&password={1}&url={2}&searchString=/creativecommons.org/licenses/by-sa/3.0/&replaceImage=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png",
-			Path.GetFileName(DestinationFile),
-			Password,
-			SourceFileUrl))
+		Dim url As String = "https://api.pdf.co/v1/pdf/edit/replace-text-with-image"
+
+        ' Prepare requests params as JSON
+        ' See documentation: https : //apidocs.pdf.co
+        Dim parameters As New Dictionary(Of String, Object)
+		parameters.Add("name", Path.GetFileName(DestinationFile))
+		parameters.Add("password", Password)
+		parameters.Add("url", SourceFileUrl)
+		parameters.Add("searchString", "/creativecommons.org/licenses/by-sa/3.0/")
+		parameters.Add("replaceImage", "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png")
+
+        ' Convert dictionary of params to JSON
+        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
 		Try
-			' Execute request
-			Dim response As String = webClient.DownloadString(query)
+			' Execute POST request with JSON payload
+			Dim response As String = webClient.UploadString(url, jsonPayload)
 
 			' Parse JSON response
 			Dim json As JObject = JObject.Parse(response)

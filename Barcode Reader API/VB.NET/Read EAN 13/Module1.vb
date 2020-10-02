@@ -13,6 +13,7 @@
 Imports System.IO
 Imports System.Net
 Imports System.Threading
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -65,19 +66,29 @@ Module Module1
                 webClient.Headers.Add("content-type", "application/octet-stream")
                 webClient.UploadFile(uploadUrl, "PUT", SourceFile) ' You can use UploadData() instead if your file is byte array or Stream
 
+                ' Set JSON content type
+                webClient.Headers.Add("Content-Type", "application/json")
+
                 ' 3. READ BARCODES FROM UPLOADED FILE
 
                 ' Prepare URL for `Barcode Reader` API call
-                query = Uri.EscapeUriString(String.Format(
-                    "https://api.pdf.co/v1/barcode/read/from/url?types={0}&pages={1}&url={2}&async={3}",
-                    BarcodeTypes,
-                    Pages,
-                    uploadedFileUrl,
-                    Async))
+                Dim url As String = "https://api.pdf.co/v1/barcode/read/from/url"
+
+                ' Prepare requests params as JSON
+                ' See documentation: https : //apidocs.pdf.co
+                Dim parameters As New Dictionary(Of String, Object)
+                parameters.Add("types", BarcodeTypes)
+                parameters.Add("pages", Pages)
+                parameters.Add("url", uploadedFileUrl)
+                parameters.Add("async", Async)
+
+                ' Convert dictionary of params to JSON
+                Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
                 Try
-                    ' Execute request
-                    response = webClient.DownloadString(query)
+
+                    ' Execute POST request with JSON payload
+                    response = webClient.UploadString(url, jsonPayload)
 
                     ' Parse JSON response
                     json = JObject.Parse(response)
