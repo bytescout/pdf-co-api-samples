@@ -45,8 +45,8 @@
 \Add Text And Images To PDF\C#\Add Images to Existing PDF
 \Add Text And Images To PDF\C#\Add Text by finding target coordinates
 \Add Text And Images To PDF\C#\Add Text to Existing PDF
-\Add Text And Images To PDF\cURL\Add Images to Existing PDF
-\Add Text And Images To PDF\cURL\Add Text to Existing PDF
+\Add Text And Images To PDF\cURL\PDF Add Text, Images, Text Fields, Checkboxes
+\Add Text And Images To PDF\cURL\PDF Add Text, Images, Text Fields, Checkboxes - Simplified
 \Add Text And Images To PDF\Delphi\Add Text And Images To PDF
 \Add Text And Images To PDF\Java\Add Image by finding target coordinates
 \Add Text And Images To PDF\Java\Add Images to Existing PDF
@@ -110,9 +110,7 @@
 \Barcode Reader API\C#\Read Code 128
 \Barcode Reader API\C#\Read EAN 13
 \Barcode Reader API\C#\Read QR Code
-\Barcode Reader API\cURL\Advanced Conversation Options
-\Barcode Reader API\cURL\Read Barcode from File
-\Barcode Reader API\cURL\Read Barcode From URL
+\Barcode Reader API\cURL\Barcode Reader
 \Barcode Reader API\Java\Advanced Conversation Options
 \Barcode Reader API\Java\Read Barcode From Uploaded File
 \Barcode Reader API\Java\Read Barcode From URL
@@ -152,8 +150,7 @@
 \CSV To PDF API\C#\Convert CSV To PDF From Uploaded File
 \CSV To PDF API\C#\Convert CSV To PDF From URL
 \CSV To PDF API\C#\Convert CSV To PDF From URL Asynchronously
-\CSV To PDF API\cURL\Convert CSV to PDF from File
-\CSV To PDF API\cURL\Convert CSV To PDF From URL
+\CSV To PDF API\cURL\PDF from CSV (CSV to PDF)
 \CSV To PDF API\Java\Convert CSV To PDF From Uploaded File
 \CSV To PDF API\Java\Convert CSV To PDF From URL
 \CSV To PDF API\JavaScript\Convert CSV To PDF From File (Node.js)
@@ -185,8 +182,8 @@
 \Delete Text From PDF\C#\Delete PDF Text From Uploaded File
 \Delete Text From PDF\C#\Delete PDF Text From URL
 \Delete Text From PDF\C#\Delete PDF Text From URL Asynchronously
-\Delete Text From PDF\cURL\Delete PDF Text From File
-\Delete Text From PDF\cURL\Delete PDF Text From URL
+\Delete Text From PDF\cURL\Delete Multiple Replacement
+\Delete Text From PDF\cURL\Delete Single Replacement
 \Delete Text From PDF\Delphi\Delete PDF Text From URL
 \Delete Text From PDF\Java\Delete PDF Text From Uploaded File
 \Delete Text From PDF\Java\Delete PDF Text From URL
@@ -219,8 +216,7 @@
 \DOC To PDF API\C#\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\C#\Convert DOC To PDF From URL
 \DOC To PDF API\C#\Convert DOC To PDF From URL Asynchronously
-\DOC To PDF API\cURL\Convert DOC to PDF from File
-\DOC To PDF API\cURL\Convert DOC To PDF From URL
+\DOC To PDF API\cURL\Document to PDF
 \DOC To PDF API\Delphi\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From URL
@@ -242,6 +238,7 @@
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL Asynchronously
 \Document Parser API\C#
+\Document Parser API\cURL
 \Document Parser API\Java
 \Document Parser API\JavaScript
 \Document Parser API\PHP
@@ -262,6 +259,10 @@
 \Document Parser API\C#\Parse with OCR
 \Document Parser API\C#\Parsing and reading data from Airline Tickets
 \Document Parser API\C#\Parse and Generate HL7 Output\Src
+\Document Parser API\cURL\Document Parser Custom Template Code
+\Document Parser API\cURL\Document Parser Output as CSV
+\Document Parser API\cURL\Document Parser Output as JSON
+\Document Parser API\cURL\Document Parser Results
 \Document Parser API\Java\Blood Test Results to JSON
 \Document Parser API\Java\Create Custom Template
 \Document Parser API\Java\Extract line items from tables on multiple pages
@@ -299,16 +300,24 @@
 \Document Parser API\VB.NET\Parse Uploaded File Asynchronously
 \Document Parser API\VB.NET\Parse with OCR
 \Document Parser API\VB.NET\Parsing and reading data from Airline Tickets
+\Excel To CSV API\cURL
 \Excel To CSV API\JavaScript
+\Excel To CSV API\cURL\Excel To CSV
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery - Async API
+\Excel To HTML API\cURL
 \Excel To HTML API\JavaScript
+\Excel To HTML API\cURL\Excel To HTML
 \Excel To HTML API\JavaScript\Convert Excel to HTML jQuery
 \Excel To HTML API\JavaScript\Convert Excel to HTML jQuery - Async API
+\Excel To JSON API\cURL
 \Excel To JSON API\JavaScript
+\Excel To JSON API\cURL\Excel To JSON
 \Excel To JSON API\JavaScript\Convert Excel to JSON in jQuery
 \Excel To JSON API\JavaScript\Convert Excel to JSON in jQuery - Async API
+\Excel To PDF API\cURL
 \Excel To PDF API\JavaScript
+\Excel To PDF API\cURL\Excel To PDF
 \Excel To PDF API\JavaScript\Convert Excel to PDF in JQuery
 \Excel To PDF API\JavaScript\Convert Excel to PDF in JQuery - Async API
 \HTML To PDF API\C#
@@ -324,7 +333,7 @@
 \HTML To PDF API\C#\Generate PDF From HTML File
 \HTML To PDF API\C#\Generate PDF From Large HTML File
 \HTML To PDF API\C#\Generate PDF Invoice From HTML Template
-\HTML To PDF API\cURL\Convert Web Page To PDF From Link
+\HTML To PDF API\cURL\PDF From HTML
 \HTML To PDF API\Java\Convert Web Page To PDF From Link
 \HTML To PDF API\Java\Generate PDF From HTML File
 \HTML To PDF API\Java\Generate PDF From Large HTML File
@@ -366,7 +375,7 @@
 \Image To PDF API\C#\Convert Images To PDF From Uploaded Files
 \Image To PDF API\C#\Convert Images To PDF From URLs
 \Image To PDF API\C#\Convert Images To PDF From URLs Asynchronously
-\Image To PDF API\cURL\Convert Images To PDF From URLs
+\Image To PDF API\cURL\Image To PDF
 \Image To PDF API\Java\Convert Images To PDF From Uploaded Files
 \Image To PDF API\Java\Convert Images To PDF From URLs
 \Image To PDF API\JavaScript\Convert Images To PDF From URLs (Node.js)
@@ -416,8 +425,7 @@
 \PDF Information API\VB.NET
 \PDF Information API\C#\Get PDF Info From Uploaded File
 \PDF Information API\C#\Get PDF Info From URL
-\PDF Information API\cURL\Get PDF Info from File
-\PDF Information API\cURL\Get PDF Info From URL
+\PDF Information API\cURL\PDF Info Reader
 \PDF Information API\Java\Get PDF Info From Uploaded File
 \PDF Information API\Java\Get PDF Info From URL
 \PDF Information API\JavaScript\Get PDF Info From File (Node.js)
@@ -442,9 +450,7 @@
 \PDF Make Searchable API\C#\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\C#\Make Searchable PDF From URL
 \PDF Make Searchable API\C#\Make Searchable PDF From URL Asynchronously
-\PDF Make Searchable API\cURL\Advanced Conversion Options
-\PDF Make Searchable API\cURL\Make Searchable PDF from File
-\PDF Make Searchable API\cURL\Make Searchable PDF From URL
+\PDF Make Searchable API\cURL\PDF to Text Searchable
 \PDF Make Searchable API\Java\Advanced Conversation Options
 \PDF Make Searchable API\Java\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\Java\Make Searchable PDF From URL
@@ -482,7 +488,7 @@
 \PDF Merging API\C#\Merge PDF Documents From Uploaded Files
 \PDF Merging API\C#\Merge PDF Documents From URLs
 \PDF Merging API\C#\Merge PDF Documents From URLs Asynchronously
-\PDF Merging API\cURL\Merge PDF Documents From URLs
+\PDF Merging API\cURL\PDF Merger
 \PDF Merging API\Delphi\Merge PDF Documents From URLs
 \PDF Merging API\Java\Merge PDF Documents From Uploaded Files
 \PDF Merging API\Java\Merge PDF Documents From URLs
@@ -513,8 +519,7 @@
 \PDF Optimization API\C#\Optimize PDF From Uploaded File
 \PDF Optimization API\C#\Optimize PDF From URL
 \PDF Optimization API\C#\Optimize PDF From URL Asynchronously
-\PDF Optimization API\cURL\Optimize PDF from File
-\PDF Optimization API\cURL\Optimize PDF From URL
+\PDF Optimization API\cURL\PDF Optimize
 \PDF Optimization API\Java\Optimize PDF From Uploaded File
 \PDF Optimization API\Java\Optimize PDF From URL
 \PDF Optimization API\JavaScript\Optimize PDF From File (Node.js)
@@ -548,8 +553,7 @@
 \PDF Splitting API\C#\Split PDF From Uploaded File
 \PDF Splitting API\C#\Split PDF From URL
 \PDF Splitting API\C#\Split PDF From URL Asynchronously
-\PDF Splitting API\cURL\Split PDF from File
-\PDF Splitting API\cURL\Split PDF From URL
+\PDF Splitting API\cURL\PDF Split
 \PDF Splitting API\Java\Split PDF From Uploaded File
 \PDF Splitting API\Java\Split PDF From URL
 \PDF Splitting API\JavaScript\Split PDF From File (Node.js)
@@ -570,6 +574,7 @@
 \PDF Splitting API\VB.NET\Split PDF From URL
 \PDF Splitting API\VB.NET\Split PDF From URL Asynchronously
 \PDF Text Search API\C#
+\PDF Text Search API\cURL
 \PDF Text Search API\Java
 \PDF Text Search API\JavaScript
 \PDF Text Search API\PowerShell
@@ -580,6 +585,7 @@
 \PDF Text Search API\C#\PDF Text Search from Uploaded File Asynchronously
 \PDF Text Search API\C#\PDF Text Search from URL
 \PDF Text Search API\C#\PDF Text Search from URL Asynchronously
+\PDF Text Search API\cURL\PDF Search Text
 \PDF Text Search API\Java\PDF Text Search from Uploaded File
 \PDF Text Search API\Java\PDF Text Search from Uploaded File Asynchronously
 \PDF Text Search API\Java\PDF Text Search from URL
@@ -615,10 +621,8 @@
 \PDF To CSV API\C#\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\C#\Convert PDF To CSV From URL
 \PDF To CSV API\C#\Convert PDF To CSV From URL Asynchronously
-\PDF To CSV API\cURL\Advanced Conversion Options
-\PDF To CSV API\cURL\Advanced Conversion Options With Rotated Input
-\PDF To CSV API\cURL\Convert PDF to CSV from File
-\PDF To CSV API\cURL\Convert PDF To CSV From URL
+\PDF To CSV API\cURL\PDF to CSV
+\PDF To CSV API\cURL\PDF to CSV - Custom Seperator
 \PDF To CSV API\Java\Advanced Conversion Options
 \PDF To CSV API\Java\Advanced Conversion Options With Rotated Input
 \PDF To CSV API\Java\Convert PDF To CSV From Uploaded File
@@ -668,12 +672,8 @@
 \PDF To Excel API\C#\Convert PDF To XLSX From Uploaded File
 \PDF To Excel API\C#\Convert PDF To XLSX From URL
 \PDF To Excel API\C#\Convert PDF To XLSX From URL Asynchronously
-\PDF To Excel API\cURL\Advanced Conversion Options
-\PDF To Excel API\cURL\Advanced Conversion Options With Rotated Input
-\PDF To Excel API\cURL\Convert PDF to XLS from File
-\PDF To Excel API\cURL\Convert PDF To XLS From URL
-\PDF To Excel API\cURL\Convert PDF to XLSX from File
-\PDF To Excel API\cURL\Convert PDF To XLSX From URL
+\PDF To Excel API\cURL\Convert PDF to XLS
+\PDF To Excel API\cURL\Convert PDF to XLSX
 \PDF To Excel API\Java\Advanced Conversion Options
 \PDF To Excel API\Java\Advanced Conversion Options With Rotated Input
 \PDF To Excel API\Java\Convert PDF To XLS From Uploaded File
@@ -730,8 +730,8 @@
 \PDF To HTML API\C#\Convert PDF To HTML From Uploaded File
 \PDF To HTML API\C#\Convert PDF To HTML From URL
 \PDF To HTML API\C#\Convert PDF To HTML From URL Asynchronously
-\PDF To HTML API\cURL\Convert PDF to HTML from File
-\PDF To HTML API\cURL\Convert PDF To HTML From URL
+\PDF To HTML API\cURL\Convert PDF to HTML
+\PDF To HTML API\cURL\Convert PDF to HTML With OCR
 \PDF To HTML API\Java\Convert PDF To HTML From Uploaded File
 \PDF To HTML API\Java\Convert PDF To HTML From URL
 \PDF To HTML API\JavaScript\Convert PDF To HTML From File (Node.js)
@@ -772,15 +772,9 @@
 \PDF To Image API\C#\Convert PDF To TIFF From Uploaded File
 \PDF To Image API\C#\Convert PDF To TIFF From URL
 \PDF To Image API\C#\Convert PDF To TIFF From URL Asynchronously
-\PDF To Image API\cURL\Advanced JPEG Conversion Options
-\PDF To Image API\cURL\Advanced PNG Conversion Options
-\PDF To Image API\cURL\Advanced TIFF Conversion Options
-\PDF To Image API\cURL\Convert PDF to JPEG from File
-\PDF To Image API\cURL\Convert PDF To JPEG From URL
-\PDF To Image API\cURL\Convert PDF to PNG from File
-\PDF To Image API\cURL\Convert PDF To PNG From URL
-\PDF To Image API\cURL\Convert PDF to TIFF from File
-\PDF To Image API\cURL\Convert PDF To TIFF From URL
+\PDF To Image API\cURL\PDF To JPEG
+\PDF To Image API\cURL\PDF to PNG
+\PDF To Image API\cURL\PDF to TIFF
 \PDF To Image API\Java\Advanced JPEG Conversion Options
 \PDF To Image API\Java\Advanced PNG Conversion Options
 \PDF To Image API\Java\Advanced TIFF Conversion Options
@@ -854,8 +848,7 @@
 \PDF To JSON API\C#\Convert PDF To JSON From Uploaded File Asynchronously
 \PDF To JSON API\C#\Convert PDF To JSON From URL
 \PDF To JSON API\C#\Convert PDF To JSON From URL Asynchronously
-\PDF To JSON API\cURL\Advanced Conversion Options
-\PDF To JSON API\cURL\Convert PDF To JSON From URL
+\PDF To JSON API\cURL\Convert PDF To JSON
 \PDF To JSON API\Java\Advanced Conversion Options
 \PDF To JSON API\Java\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\Java\Convert PDF To JSON From Uploaded File
@@ -900,10 +893,7 @@
 \PDF To Text API\C#\Convert PDF To Text From Uploaded File
 \PDF To Text API\C#\Convert PDF To Text From URL
 \PDF To Text API\C#\Convert PDF To Text From URL Asynchronously
-\PDF To Text API\cURL\Advanced Conversion Options
-\PDF To Text API\cURL\Advanced Conversion Options With Rotated Input
-\PDF To Text API\cURL\Convert PDF to Text from File
-\PDF To Text API\cURL\Convert PDF To Text From URL
+\PDF To Text API\cURL\Convert PDF To Text
 \PDF To Text API\Java\Advanced Conversion Options
 \PDF To Text API\Java\Advanced Conversion Options With Rotated Input
 \PDF To Text API\Java\Convert PDF To Text From Uploaded File
@@ -948,10 +938,7 @@
 \PDF To XML API\C#\Convert PDF To XML From Uploaded File
 \PDF To XML API\C#\Convert PDF To XML From URL
 \PDF To XML API\C#\Convert PDF To XML From URL Asynchronously
-\PDF To XML API\cURL\Advanced Conversion Options
-\PDF To XML API\cURL\Advanced Conversion Options With Rotated Input
-\PDF To XML API\cURL\Convert PDF to XML from File
-\PDF To XML API\cURL\Convert PDF To XML From URL
+\PDF To XML API\cURL\Convert PDF To XML
 \PDF To XML API\Java\Advanced Conversion Options
 \PDF To XML API\Java\Advanced Conversion Options With Rotated Input
 \PDF To XML API\Java\Convert PDF To XML From Uploaded File
@@ -1027,8 +1014,8 @@
 \Replace Text From PDF\C#\Replace Text From Uploaded File
 \Replace Text From PDF\C#\Replace Text From URL
 \Replace Text From PDF\C#\Replace Text From URL Asynchronously
-\Replace Text From PDF\cURL\Replace Text From File
-\Replace Text From PDF\cURL\Replace Text From URL
+\Replace Text From PDF\cURL\Replace Text
+\Replace Text From PDF\cURL\Replace Text Multiple Occurances
 \Replace Text From PDF\Java\Replace Text From Uploaded File
 \Replace Text From PDF\Java\Replace Text From URL
 \Replace Text From PDF\JavaScript\Replace Text From File (Node.js)
@@ -1059,8 +1046,7 @@
 \Replace Text With Image From PDF\C#\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\C#\Replace Text With Image From URL
 \Replace Text With Image From PDF\C#\Replace Text With Image From URL Asynchronously
-\Replace Text With Image From PDF\cURL\Replace Text With Image From File
-\Replace Text With Image From PDF\cURL\Replace Text With Image From URL
+\Replace Text With Image From PDF\cURL\Replace Text With Image
 \Replace Text With Image From PDF\Java\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\Java\Replace Text With Image From URL
 \Replace Text With Image From PDF\JavaScript\Replace Text With Image From File (Node.js)
