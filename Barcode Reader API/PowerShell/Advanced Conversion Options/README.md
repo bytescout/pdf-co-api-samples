@@ -76,12 +76,22 @@ $Pages = ""
 $Profiles = '{ "profiles": [ { "profile1": { "FastMode": true } } ] }'
 
 # Prepare URL for `Barcode Reader` API call
-$query = "https://api.pdf.co/v1/barcode/read/from/url?types=$($BarcodeTypes)&pages=$($Pages)&url=$($SourceFileURL)&profiles=$($Profiles)"
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/barcode/read/from/url"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "types" = $BarcodeTypes
+    "pages" = $Pages
+    "url" = $SourceFileURL
+    "profiles" = $Profiles
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Display found barcodes in console

@@ -65,16 +65,18 @@ def main(args = None):
 def generateBarcode(destinationFile):
     """Generates Barcode using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["type"] = BarcodeType
+    parameters["value"] = BarcodeValue
+
     # Prepare URL for 'Barcode Generate' API request
-    url = "{}/barcode/generate?name={}&type={}&value={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        BarcodeType,
-        BarcodeValue
-    )
+    url = "{}/barcode/generate".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

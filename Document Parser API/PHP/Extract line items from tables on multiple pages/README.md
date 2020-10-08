@@ -33,46 +33,46 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ##### **MultiPageTable-template1.yml:**
     
 ```
----
-# Template that demonstrates parsing of multi-page table using only 
-# macro expressions for the table start, end, and rows.
-# If macro expression cannot be written for every table row (for example, 
-# if the table contains empty cells), try the second method demonstrated 
-# in `MultiPageTable-template2.yml` template.
-templateVersion: 3
+templateName: Multipage Table Test
+templateVersion: 4
 templatePriority: 0
-sourceId: Multipage Table Test
 detectionRules:
   keywords:
   - Sample document with multi-page table
-fields:
-  total:
-    expression: 'TOTAL{{Spaces}}({{Number}})'
+objects:
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: TOTAL{{Spaces}}({{Number}})
+    regex: true
     dataType: decimal
-tables:
 - name: table1
-  start:
-    # macro expression to find the table start in document
-    expression: 'Item{{Spaces}}Description{{Spaces}}Price'
-  end:
-    # macro expression to find the table end in document
-    expression: 'TOTAL{{Spaces}}{{Number}}'
-  row:
-    # macro expression to find table rows
-    expression: '{{LineStart}}{{Spaces}}(?<itemNo>{{Digits}}){{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}(?<extPrice>{{Number}})'
-  # output data types for columns
-  columns: 
-  - name: itemNo
-    type: integer
-  - name: description
-    type: string
-  - name: price
-    type: decimal
-  - name: qty
-    type: integer
-  - name: extPrice
-    type: decimal
-  multipage: true
+  objectType: table
+  tableProperties:
+    start:
+      expression: Item{{Spaces}}Description{{Spaces}}Price
+      regex: true
+    end:
+      expression: TOTAL{{Spaces}}{{Number}}
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<itemNo>{{Digits}}){{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}(?<extPrice>{{Number}})'
+      regex: true
+    columns:
+    - name: itemNo
+      dataType: integer
+    - name: description
+      dataType: string
+    - name: price
+      dataType: decimal
+    - name: qty
+      dataType: integer
+    - name: extPrice
+      dataType: decimal
+    multipage: true
+
+
 ```
 
 <!-- code block end -->    
@@ -82,54 +82,50 @@ tables:
 ##### **MultiPageTable-template2.yml:**
     
 ```
----
-# Template that demonstrates parsing of multi-page table without using 
-# macro expression for table rows. Rows and cells are extracted automatically 
-# by specified column coordinates. Use `Template Editor` app to find the coordinates 
-# (coordinates of the mouse cursor are displayed in the toolbar).
-templateVersion: 3
+templateName: Multipage Table Test
+templateVersion: 4
 templatePriority: 0
-sourceId: Multipage Table Test
 detectionRules:
   keywords:
   - Sample document with multi-page table
-fields:
-  total:
-    type: regex
-    expression: 'TOTAL{{Spaces}}({{Number}})'
+objects:
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: regex
+    expression: TOTAL{{Spaces}}({{Number}})
+    regex: true
     dataType: decimal
-tables:
 - name: table1
-  # coordinate OR macro expression to find the table start on each document page
-  start:
-    #y: 136
-    expression: 'Item{{Spaces}}Description{{Spaces}}Price'
-  # coordinate OR macro expression to find the table end on each document page
-  end:
-    #y: 787
-    expression: (Page {{Digits}} of {{Digits}})|(TOTAL{{Spaces}}{{Number}})
-  # left coordinate of the table (optional)
-  left: 51
-  # right coordinate of the table (optional)
-  right: 528
-  # column names, output data types and coordinates (left column edge)
-  columns: 
-  - name: itemNo
-    x: 51
-    type: integer
-  - name: description
-    x: 102
-    type: string
-  - name: price
-    x: 324
-    type: decimal
-  - name: qty
-    x: 396
-    type: integer
-  - name: extPrice
-    x: 441
-    type: decimal
-  multipage: true
+  objectType: table
+  tableProperties:
+    start:
+      expression: Item{{Spaces}}Description{{Spaces}}Price
+      regex: true
+    end:
+      expression: (Page {{Digits}} of {{Digits}})|(TOTAL{{Spaces}}{{Number}})
+      regex: true
+    left: 51
+    right: 528
+    columns:
+    - x: 51
+      name: itemNo
+      dataType: integer
+    - x: 102
+      name: description
+      dataType: string
+    - x: 324
+      name: price
+      dataType: decimal
+    - x: 396
+      name: qty
+      dataType: integer
+    - x: 441
+      name: extPrice
+      dataType: decimal
+    multipage: true
+
+
 ```
 
 <!-- code block end -->    
@@ -246,19 +242,24 @@ function ParseDocument($apiKey, $uploadedFileUrl, $templateText)
 
     // Prepare URL for Document parser API call.
     // See documentation: https://apidocs.pdf.co/?#1-pdfdocumentparser
-    $url = "https://api.pdf.co/v1/pdf/documentparser" .
-        "?async=" . $async;
-    
-    // Post fields
-    $data = array('url'=>$uploadedFileUrl, 'template'=>$templateText);
+    $url = "https://api.pdf.co/v1/pdf/documentparser";
+
+    // Prepare requests params
+    $parameters = array();
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["template"] = $templateText;
+    $parameters["async"] = $async;
+
+    // Create Json payload
+    $data = json_encode($parameters);
 
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);
@@ -330,14 +331,23 @@ function CheckJobStatus($jobId, $apiKey)
 {
     $status = null;
     
-    // Create URL
-    $url = "https://api.pdf.co/v1/job/check?jobid=" . $jobId;
+	// Create URL
+    $url = "https://api.pdf.co/v1/job/check";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["jobid"] = $jobId;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     
     // Execute request
     $result = curl_exec($curl);

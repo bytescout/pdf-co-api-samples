@@ -99,7 +99,6 @@ if (curl_errno($curl) == 0)
             if ($status_code == 200)
             {
                 // 3. Replace Text FROM UPLOADED PDF FILE
-                
                 replaceStringFromPdf($apiKey, $uploadedFileUrl);
             }
             else
@@ -133,17 +132,25 @@ else
 function replaceStringFromPdf($apiKey, $uploadedFileUrl) 
 {
     // Prepare URL for `Replace Text from PDF` API call
-    $url = "https://api.pdf.co/v1/pdf/edit/replace-text" . 
-        "?name=result.pdf" .
-        "&searchString=The most conspicuous feature of&replaceString=replaced text" .
-        "&url=" . $uploadedFileUrl;
+    $url = "https://api.pdf.co/v1/pdf/edit/replace-text";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["name"] = "result.pdf";
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["searchString"] = "The most conspicuous feature of";
+    $parameters["replaceString"] = "replaced text";
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);

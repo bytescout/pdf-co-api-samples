@@ -84,13 +84,23 @@ try {
             # 3. MAKE UPLOADED PDF FILE SEARCHABLE
 
             # Prepare URL for `Make Searchable PDF` API call
-            $query = "https://api.pdf.co/v1/pdf/makesearchable?name={0}&password={1}&pages={2}&lang={3}&url={4}" -f `
-                $(Split-Path $DestinationFile -Leaf), $Password, $Pages, $Language, $uploadedFileUrl
-            $query = [System.Uri]::EscapeUriString($query)
+            $query = "https://api.pdf.co/v1/pdf/makesearchable"
 
+            # Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+            # See documentation: https://apidocs.pdf.co
+            $body = @{
+                "name" = $(Split-Path $DestinationFile -Leaf)
+                "password" = $Password
+                "pages" = $Pages
+                "lang" = $Language
+                "url" = $uploadedFileUrl
+            } | ConvertTo-Json
+            
             # Execute request
-            $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
-
+            $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+            
+            $jsonResponse = $response.Content | ConvertFrom-Json
+            
             if ($jsonResponse.error -eq $false) {
                 # Get URL of generated PDF file
                 $resultFileUrl = $jsonResponse.url;

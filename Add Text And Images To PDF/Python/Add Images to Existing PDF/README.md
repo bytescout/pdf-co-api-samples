@@ -78,23 +78,25 @@ def main(args = None):
 def addImageToExistingPdf(destinationFile):
     """Add image using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["url"] = SourceFileUrl
+    parameters["type"] = Type
+    parameters["x"] = X
+    parameters["y"] = Y
+    parameters["width"] = Width
+    parameters["height"] = Height
+    parameters["urlimage"] = ImageUrl
+
     # Prepare URL for 'PDF Edit' API request
-    url = "{}/pdf/edit/add?name={}&password={}&pages={}&url={}&type={}&x={}&y={}&width={}&height={}&urlimage={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        Password,
-        Pages,
-        SourceFileUrl,
-        Type,
-        X,
-        Y,
-        Width,
-        Height,
-        ImageUrl
-    )
+    url = "{}/pdf/edit/add".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

@@ -33,53 +33,74 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ##### **SampleTemplate.yml:**
     
 ```
-sourceId: My Custom Template
+templateName: My Custom Template
+templateVersion: 4
+templatePriority: 0
 detectionRules:
   keywords:
   - Your Company Name
   - Invoice No\.
   - TOTAL
-fields:
-  total:
-    expression: TOTAL {{DECIMAL}}
-    type: decimal
+objects:
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: TOTAL{{Spaces}}{{Number}}
+    dataType: decimal
     pageIndex: 0
-  dateIssued:
-    expression: Invoice Date {{DATE}}
-    type: date
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: Invoice Date {{SmartDate}}
+    dataType: date
     dateFormat: auto-mdy
     pageIndex: 0
-  invoiceId:
-    expression: Invoice No. {{123}}
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: Invoice No. {{Digits}}
     pageIndex: 0
-  companyName:
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: Vendor Company
-    static: true
     pageIndex: 0
-  billTo:
-    rect:
+- name: billTo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    rectangle:
     - 32.25
     - 150
     - 348
     - 70.5
     pageIndex: 0
-  notes:
-    rect:
+- name: notes
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    rectangle:
     - 32.25
     - 227.25
     - 531
     - 47.25
     pageIndex: 0
-tables:
 - name: table1
-  start:
-    expression: Item\s+Quantity\s+Price\s+Total
-  end:
-    expression: TOTAL
-  subItemStart: {}
-  subItemEnd: {}
-  row:
-    expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$
+  objectType: table
+  tableProperties:
+    start:
+      expression: Item\s+Quantity\s+Price\s+Total
+      regex: true
+    end:
+      expression: TOTAL
+      regex: true
+    row:
+      expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$
+      regex: true
 
 
 ```
@@ -198,19 +219,24 @@ function ParseDocument($apiKey, $uploadedFileUrl, $templateText)
 
     // Prepare URL for Document parser API call.
     // See documentation: https://apidocs.pdf.co/?#1-pdfdocumentparser
-    $url = "https://api.pdf.co/v1/pdf/documentparser" .
-        "?async=" . $async;
-    
-    // Post fields
-    $data = array('url'=>$uploadedFileUrl, 'template'=>$templateText);
+    $url = "https://api.pdf.co/v1/pdf/documentparser";
+
+    // Prepare requests params
+    $parameters = array();
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["template"] = $templateText;
+    $parameters["async"] = $async;
+
+    // Create Json payload
+    $data = json_encode($parameters);
 
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);
@@ -282,14 +308,23 @@ function CheckJobStatus($jobId, $apiKey)
 {
     $status = null;
     
-    // Create URL
-    $url = "https://api.pdf.co/v1/job/check?jobid=" . $jobId;
+	// Create URL
+    $url = "https://api.pdf.co/v1/job/check";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["jobid"] = $jobId;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     
     // Execute request
     $result = curl_exec($curl);

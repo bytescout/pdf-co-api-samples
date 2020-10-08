@@ -65,24 +65,24 @@ def convertPdfToJson(uploadedFileUrl, destinationFile):
     # Some of advanced options available through profiles:
     # (it can be single/double-quoted and contain comments.)
     # {
-    # 	"profiles": [
-    # 		{
-    # 			"profile1": {
-    # 				"SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
-    # 				"ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
-    # 				"SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
-    # 				"ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
-    # 				"ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
-    # 				"LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
-    # 				"ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
-    # 				"Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
-    # 				"ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
-    # 				"DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
-    # 				"CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
-    # 				"CheckPermissions": true, // Ignore document permissions. Values: true / false
-    # 			}
-    # 		}
-    # 	]
+    #     "profiles": [
+    #         {
+    #             "profile1": {
+    #                 "SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
+    #                 "ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
+    #                 "SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
+    #                 "ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+    #                 "ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+    #                 "LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+    #                 "ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+    #                 "Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+    #                 "ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+    #                 "DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+    #                 "CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+    #                 "CheckPermissions": true, // Ignore document permissions. Values: true / false
+    #             }
+    #         }
+    #     ]
     # }
 
     # Sample profile that sets advanced conversion options
@@ -90,18 +90,20 @@ def convertPdfToJson(uploadedFileUrl, destinationFile):
     # https://cdn.bytescout.com/help/BytescoutPDFExtractorSDK/html/84356d44-6249-3251-2da8-83c1f34a2f39.htm
     profiles = '{ "profiles": [ { "profile1": { "TrimSpaces": "False", "PreserveFormattingOnTextExtraction": "True" } } ] }'
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["url"] = uploadedFileUrl
+    parameters["profiles"] = profiles
+
     # Prepare URL for 'PDF To Json' API request
-    url = "{}/pdf/convert/to/json?name={}&password={}&pages={}&url={}&profiles={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        Password,
-        Pages,
-        uploadedFileUrl,
-        profiles
-    )
+    url = "{}/pdf/convert/to/json".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

@@ -188,6 +188,7 @@ EndGlobal
 ```
 Imports System.IO
 Imports System.Net
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -211,15 +212,24 @@ Module Module1
 		' Set API Key
 		webClient.Headers.Add("x-api-key", API_KEY)
 
+        ' Set JSON content type
+        webClient.Headers.Add("Content-Type", "application/json")
+
 		' Prepare URL for `Url to Jpg` API call
-		Dim query As String = Uri.EscapeUriString(string.Format(
-			"https://api.pdf.co/v1/url/convert/to/jpg?name={0}&url={1}", 
-			Path.GetFileName(ResultFileName), 
-			InputUrl))
+		Dim url As String = "https://api.pdf.co/v1/url/convert/to/jpg"
+
+        ' Prepare requests params as JSON
+        ' See documentation: https : //apidocs.pdf.co
+        Dim parameters As New Dictionary(Of String, Object)
+		parameters.Add("name", Path.GetFileName(ResultFileName))
+		parameters.Add("url", InputUrl)
+
+        ' Convert dictionary of params to JSON
+        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
 		Try
-			' Execute request
-			Dim response As String = webClient.DownloadString(query)
+			' Execute POST request with JSON payload
+			Dim response As String = webClient.UploadString(url, jsonPayload)
 
 			' Parse JSON response
 			Dim json As JObject = JObject.Parse(response)

@@ -60,9 +60,6 @@ $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by
 
 $uploadedFiles = array();
 $fileCount = count($_FILES["files"]["name"]);
-if (!file_exists("./uploads")) {
-    mkdir("./uploads");
-}
 
 for($i = 0; $i < $fileCount; $i++)
 {
@@ -97,16 +94,14 @@ for($i = 0; $i < $fileCount; $i++)
             // 1b. UPLOAD THE FILE TO CLOUD.
             
             $tmpFilePath = $_FILES["files"]["tmp_name"][$i];
-            $localFile = "./uploads/" . $_FILES["files"]['name'][$i];
-            move_uploaded_file($tmpFilePath, $localFile);
             
-            $fileHandle = fopen($localFile, "r");
+            $fileHandle = fopen($tmpFilePath, "r");
             
             curl_setopt($curl, CURLOPT_URL, $uploadFileUrl);
             curl_setopt($curl, CURLOPT_HTTPHEADER, array("content-type: application/octet-stream"));
             curl_setopt($curl, CURLOPT_PUT, true);
             curl_setopt($curl, CURLOPT_INFILE, $fileHandle);
-            curl_setopt($curl, CURLOPT_INFILESIZE, filesize($localFile));
+            curl_setopt($curl, CURLOPT_INFILESIZE, filesize($tmpFilePath));
     
             // Execute request
             curl_exec($curl);
@@ -161,16 +156,23 @@ if (count($uploadedFiles) > 0)
 function MergePdf($apiKey, $uploadedFiles) 
 {
     // Create URL
-    $url = "https://api.pdf.co/v1/pdf/merge" .
-        "?name=result.pdf" .
-        "&url=" . join(",", $uploadedFiles);
+    $url = "https://api.pdf.co/v1/pdf/merge";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["name"] = "result.pdf";
+    $parameters["url"] = join(",", $uploadedFiles);
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);
@@ -218,6 +220,7 @@ function MergePdf($apiKey, $uploadedFiles)
 
 </body>
 </html>
+
 ```
 
 <!-- code block end -->

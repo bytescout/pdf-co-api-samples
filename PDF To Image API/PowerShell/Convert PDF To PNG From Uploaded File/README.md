@@ -80,13 +80,21 @@ try {
             # 3. CONVERT UPLOADED PDF FILE TO PNG
 
             # Prepare URL for `PDF To PNG` API call
-            $query = "https://api.pdf.co/v1/pdf/convert/to/png?password={0}&pages={1}&url={2}" -f `
-                $Password, $Pages, $uploadedFileUrl
-            $query = [System.Uri]::EscapeUriString($query)
+            $query = "https://api.pdf.co/v1/pdf/convert/to/png"
 
+            # Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+            # See documentation: https://apidocs.pdf.co
+            $body = @{
+                "password" = $Password
+                "pages" = $Pages
+                "url" = $uploadedFileUrl
+            } | ConvertTo-Json
+            
             # Execute request
-            $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
-
+            $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+            
+            $jsonResponse = $response.Content | ConvertFrom-Json
+            
             if ($jsonResponse.error -eq $false) {
                 # Download generated PNG files
                 $part = 1;

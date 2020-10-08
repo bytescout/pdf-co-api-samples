@@ -138,8 +138,10 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -194,15 +196,22 @@ namespace ByteScoutWebApiExample
 
 					// 3. Replace Text FROM UPLOADED PDF FILE
 
-					// Prepare URL for `Replace Text from PDF` API call
-					query = Uri.EscapeUriString(string.Format(
-						"https://api.pdf.co/v1/pdf/edit/replace-text?name={0}&password={1}&url={2}&searchString=The most conspicuous feature of&replaceString=replaced text",
-						Path.GetFileName(DestinationFile),
-						Password,
-						uploadedFileUrl));
+					// URL for `Replace Text from PDF` API call
+					var url = "https://api.pdf.co/v1/pdf/edit/replace-text";
 
-					// Execute request
-					response = webClient.DownloadString(query);
+					// Prepare requests params as JSON
+					Dictionary<string, object> parameters = new Dictionary<string, object>();
+					parameters.Add("name", Path.GetFileName(DestinationFile));
+					parameters.Add("password", Password);
+					parameters.Add("url", uploadedFileUrl);
+					parameters.Add("searchString", "The most conspicuous feature of");
+					parameters.Add("replaceString", "replaced text");
+
+					// Convert dictionary of params to JSON
+					string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+					// Execute POST request with JSON payload
+					response = webClient.UploadString(url, jsonPayload);
 
 					// Parse JSON response
 					json = JObject.Parse(response);
@@ -233,7 +242,6 @@ namespace ByteScoutWebApiExample
 			}
 
 			webClient.Dispose();
-
 
 			Console.WriteLine();
 			Console.WriteLine("Press any key...");

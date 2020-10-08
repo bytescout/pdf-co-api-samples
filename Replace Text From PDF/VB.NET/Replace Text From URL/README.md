@@ -188,6 +188,7 @@ EndGlobal
 ```
 Imports System.IO
 Imports System.Net
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -211,16 +212,26 @@ Module Module1
 		' Set API Key
 		webClient.Headers.Add("x-api-key", API_KEY)
 
-		' Prepare URL for `Replace Text from PDF` API call
-		Dim query As String = Uri.EscapeUriString(String.Format(
-			"https://api.pdf.co/v1/pdf/edit/replace-text?name={0}&password={1}&url={2}&searchString=The most conspicuous feature of&replaceString=replaced text",
-			Path.GetFileName(DestinationFile),
-			Password,
-			SourceFileUrl))
+        ' Set JSON content type
+        webClient.Headers.Add("Content-Type", "application/json")
+
+		Dim url As String = "https://api.pdf.co/v1/pdf/edit/replace-text"
+
+        ' Prepare requests params as JSON
+        ' See documentation: https : //apidocs.pdf.co
+        Dim parameters As New Dictionary(Of String, Object)
+		parameters.Add("name", Path.GetFileName(DestinationFile))
+		parameters.Add("password", Password)
+		parameters.Add("url", SourceFileUrl)
+		parameters.Add("searchString", "The most conspicuous feature of")
+		parameters.Add("replaceString", "replaced text")
+
+        ' Convert dictionary of params to JSON
+        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
 		Try
-			' Execute request
-			Dim response As String = webClient.DownloadString(query)
+			' Execute POST request with JSON payload
+			Dim response As String = webClient.UploadString(url, jsonPayload)
 
 			' Parse JSON response
 			Dim json As JObject = JObject.Parse(response)

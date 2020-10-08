@@ -68,13 +68,25 @@ $Profiles = '{ "profiles": [ { "profile1": { "OCRLanguage": "eng", "OCRResolutio
 
 
 # Prepare URL for `Make Searchable PDF` API call
-$query = "https://api.pdf.co/v1/pdf/makesearchable?name={0}&password={1}&pages={2}&lang={3}&url={4}&async={5}&profiles={6}" -f `
-    $(Split-Path $DestinationFile -Leaf), $Password, $Pages, $Language, $SourceFileURL, $Async, $Profiles
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/makesearchable"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "name" = $(Split-Path $DestinationFile -Leaf)
+    "password" = $Password
+    "pages" = $Pages
+    "lang" = $Language
+    "url" = $SourceFileURL
+    "async" = $Async
+    "profiles" = $Profiles
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Asynchronous job ID

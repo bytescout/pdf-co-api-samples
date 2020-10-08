@@ -54,20 +54,20 @@ const SourceFile = "./sample.pdf";
 
 // 1. RETRIEVE THE PRESIGNED URL TO UPLOAD THE FILE.
 getPresignedUrl(API_KEY, SourceFile)
-.then(([uploadUrl, uploadedFileUrl]) => {
-    // 2. UPLOAD THE FILE TO CLOUD.
-    uploadFile(API_KEY, SourceFile, uploadUrl)
-    .then(() => {
-        // 3. GET INFORMATION FROM UPLOADED FILE
-        getPdfInfo(API_KEY, uploadedFileUrl);
+    .then(([uploadUrl, uploadedFileUrl]) => {
+        // 2. UPLOAD THE FILE TO CLOUD.
+        uploadFile(API_KEY, SourceFile, uploadUrl)
+            .then(() => {
+                // 3. GET INFORMATION FROM UPLOADED FILE
+                getPdfInfo(API_KEY, uploadedFileUrl);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     })
     .catch(e => {
         console.log(e);
     });
-})
-.catch(e => {
-    console.log(e);
-});
 
 
 function getPresignedUrl(apiKey, localFile) {
@@ -93,10 +93,10 @@ function getPresignedUrl(apiKey, localFile) {
                 }
             });
         })
-        .on("error", (e) => {
-            // Request error
-            console.log("getPresignedUrl(): " + e);
-        });
+            .on("error", (e) => {
+                // Request error
+                console.log("getPresignedUrl(): " + e);
+            });
     });
 }
 
@@ -124,22 +124,32 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function getPdfInfo(apiKey, uploadedFileUrl) {
     // Prepare URL for `Invoice Parser` API call
-    var queryPath = `/v1/pdf/invoiceparser?url=${uploadedFileUrl}&inline=True`;
-    let reqOptions = {
+    var queryPath = `/v1/pdf/invoiceparser`;
+
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        url: uploadedFileUrl, inline: true
+    });
+
+    var reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        method: "POST",
+        path: queryPath,
+        headers: {
+            "x-api-key": apiKey,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
             // Parse JSON response
             let data = JSON.parse(d);
             if (data.error == false) {
                 // Display extracted invoice fields
-                for (var key in data.body) {  
+                for (var key in data.body) {
                     console.log(`${key}: ${JSON.stringify(data.body[key])}`);
                 }
             }
@@ -149,10 +159,14 @@ function getPdfInfo(apiKey, uploadedFileUrl) {
             }
         });
     })
-    .on("error", (e) => {
-        // Request error
-        console.log("getPdfInfo(): " + e);
-    });
+        .on("error", (e) => {
+            // Request error
+            console.log("getPdfInfo(): " + e);
+        });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 
 

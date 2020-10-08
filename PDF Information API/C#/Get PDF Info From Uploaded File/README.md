@@ -146,8 +146,10 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -198,13 +200,18 @@ namespace ByteScoutWebApiExample
 					
 					// 3. GET INFORMATION FROM UPLOADED FILE
 
-					// Prepare URL for `PDF Info` API call
-					query = Uri.EscapeUriString(string.Format(
-						"https://api.pdf.co/v1/pdf/info?url={0}",
-						uploadedFileUrl));
+					// URL for `PDF Info` API call
+					var url = "https://api.pdf.co/v1/pdf/info";
 
-					// Execute request
-					response = webClient.DownloadString(query);
+					// Prepare requests params as JSON
+					Dictionary<string, object> parameters = new Dictionary<string, object>();
+					parameters.Add("url", uploadedFileUrl);
+
+					// Convert dictionary of params to JSON
+					string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+					// Execute POST request with JSON payload
+					response = webClient.UploadString(url, jsonPayload);
 
 					// Parse JSON response
 					json = JObject.Parse(response);
@@ -234,7 +241,6 @@ namespace ByteScoutWebApiExample
 			}
 
 			webClient.Dispose();
-
 
 			Console.WriteLine();
 			Console.WriteLine("Press any key...");

@@ -326,53 +326,74 @@ End Module
 ##### **SampleTemplate.yml:**
     
 ```
-sourceId: My Custom Template
+templateName: My Custom Template
+templateVersion: 4
+templatePriority: 0
 detectionRules:
   keywords:
   - Your Company Name
   - Invoice No\.
   - TOTAL
-fields:
-  total:
-    expression: TOTAL {{DECIMAL}}
-    type: decimal
+objects:
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: TOTAL{{Spaces}}{{Number}}
+    dataType: decimal
     pageIndex: 0
-  dateIssued:
-    expression: Invoice Date {{DATE}}
-    type: date
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: Invoice Date {{SmartDate}}
+    dataType: date
     dateFormat: auto-mdy
     pageIndex: 0
-  invoiceId:
-    expression: Invoice No. {{123}}
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: Invoice No. {{Digits}}
     pageIndex: 0
-  companyName:
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: Vendor Company
-    static: true
     pageIndex: 0
-  billTo:
-    rect:
+- name: billTo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    rectangle:
     - 32.25
     - 150
     - 348
     - 70.5
     pageIndex: 0
-  notes:
-    rect:
+- name: notes
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    rectangle:
     - 32.25
     - 227.25
     - 531
     - 47.25
     pageIndex: 0
-tables:
 - name: table1
-  start:
-    expression: Item\s+Quantity\s+Price\s+Total
-  end:
-    expression: TOTAL
-  subItemStart: {}
-  subItemEnd: {}
-  row:
-    expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$
+  objectType: table
+  tableProperties:
+    start:
+      expression: Item\s+Quantity\s+Price\s+Total
+      regex: true
+    end:
+      expression: TOTAL
+      regex: true
+    row:
+      expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$
+      regex: true
 
 
 ```

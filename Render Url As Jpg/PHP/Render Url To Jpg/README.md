@@ -48,15 +48,22 @@ $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by
 $inputUrl = $_POST["inputUrl"];
 
 // Create URL
-$url = "https://api.pdf.co/v1/url/convert/to/jpg" . 
-    "?url=" . $inputUrl;
+$url = "https://api.pdf.co/v1/url/convert/to/jpg";
+
+// Prepare requests params
+$parameters = array();
+$parameters["url"] = $inputUrl;
+
+// Create Json payload
+$data = json_encode($parameters);
 
 // Create request
 $curl = curl_init();
-curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
 // Execute request
 $result = curl_exec($curl);

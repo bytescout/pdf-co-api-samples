@@ -139,10 +139,10 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using System.Threading;
-
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 // Cloud API asynchronous "Replace Text With Image from PDF" job example.
-
 
 namespace ByteScoutWebApiExample
 {
@@ -170,18 +170,25 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `Replace Text With Image from PDF` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/edit/replace-text-with-image?name={0}&password={1}&url={2}&async={3}&searchString=/creativecommons.org/licenses/by-sa/3.0/&replaceImage=https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png",
-				Path.GetFileName(DestinationFile),
-				Password,
-				SourceFileUrl, 
-				Async));
+			// URL for `Replace Text With Image from PDF` API call
+			string url = "https://api.pdf.co/v1/pdf/edit/replace-text-with-image";
+
+			// Prepare requests params as JSON
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add("name", Path.GetFileName(DestinationFile));
+			parameters.Add("password", Password);
+			parameters.Add("url", SourceFileUrl);
+			parameters.Add("async", Async);
+			parameters.Add("searchString", "/creativecommons.org/licenses/by-sa/3.0/");
+			parameters.Add("replaceImage", "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png");
+
+			// Convert dictionary of params to JSON
+			string jsonPayload = JsonConvert.SerializeObject(parameters);
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Execute POST request with JSON payload
+				string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);

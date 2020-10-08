@@ -197,6 +197,7 @@ EndGlobal
 Imports System.IO
 Imports System.Net
 Imports System.Threading
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 
@@ -225,16 +226,25 @@ Module Module1
 		' Set API Key
 		webClient.Headers.Add("x-api-key", API_KEY)
 
+        ' Set JSON content type
+        webClient.Headers.Add("Content-Type", "application/json")
+
 		' Prepare URL for `Split PDF` API call
-		Dim query As String = Uri.EscapeUriString(String.Format(
-			"https://api.pdf.co/v1/pdf/split?pages={0}&url={1}&async={2}",
-			Pages,
-			SourceFileUrl,
-			Async))
+		Dim url As String = "https://api.pdf.co/v1/pdf/split"
+
+        ' Prepare requests params as JSON
+        ' See documentation: https : //apidocs.pdf.co
+        Dim parameters As New Dictionary(Of String, Object)
+		parameters.Add("pages", Pages)
+		parameters.Add("url", SourceFileUrl)
+		parameters.Add("async", Async)
+
+        ' Convert dictionary of params to JSON
+        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
 		Try
-			' Execute request
-			Dim response As String = webClient.DownloadString(query)
+			' Execute POST request with JSON payload
+			Dim response As String = webClient.UploadString(url, jsonPayload)
 
 			' Parse JSON response
 			Dim json As JObject = JObject.Parse(response)

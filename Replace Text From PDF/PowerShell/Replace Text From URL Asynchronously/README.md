@@ -51,13 +51,24 @@ $Async = $true
 
 
 # Prepare URL for `Replace Text from PDF` API call
-$query = "https://api.pdf.co/v1/pdf/edit/replace-text?name={0}&password={1}&url={2}&async={3}&searchString=The most conspicuous feature of&replaceString=replaced text" -f `
-    $(Split-Path $DestinationFile -Leaf), $Password, $SourceFileURL, $Async
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/edit/replace-text"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "name" = $(Split-Path $DestinationFile -Leaf)
+    "password" = $Password
+    "url" = $SourceFileURL
+    "async" = $Async
+    "searchString" = "The most conspicuous feature of"
+    "replaceString" = "replaced text"
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Asynchronous job ID

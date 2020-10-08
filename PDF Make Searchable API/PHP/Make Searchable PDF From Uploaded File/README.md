@@ -143,18 +143,25 @@ else
 function MakePdfSearchable($apiKey, $uploadedFileUrl, $pages, $ocrLanguage) 
 {
     // Prepare URL for `Make Searchable PDF` API call
-    $url = "https://api.pdf.co/v1/pdf/makesearchable" . 
-        "?name=result.pdf" .
-        "&url=" . $uploadedFileUrl .
-        "&pages=" . $pages . 
-        "&lang=" . $ocrLanguage;
+    $url = "https://api.pdf.co/v1/pdf/makesearchable";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["name"] = "result.pdf";
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["pages"] = $pages;
+    $parameters["lang"] = $ocrLanguage;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);

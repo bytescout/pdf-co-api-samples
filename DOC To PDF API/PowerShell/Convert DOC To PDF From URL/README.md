@@ -52,12 +52,20 @@ $DestinationFile = ".\result.pdf"
 
 
 # Prepare URL for `DOC To PDF` API call
-$query = "https://api.pdf.co/v1/pdf/convert/from/doc?name=$(Split-Path $DestinationFile -Leaf)&url=$($SourceFileURL)"
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/convert/from/doc"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "name" = $(Split-Path $DestinationFile -Leaf)
+    "url" = $SourceFileURL
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Get URL of generated PDF file

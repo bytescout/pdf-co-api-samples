@@ -50,19 +50,28 @@ const Pages = "1-2,3-";
 
 
 // Prepare request to `Split PDF` API endpoint
-var queryPath = `/v1/pdf/split?pages=${Pages}&url=${SourceFileUrl}&async=True`;
+var queryPath = `/v1/pdf/split`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    pages: Pages, url: SourceFileUrl, async: true
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
-        var data = JSON.parse(d);        
+        var data = JSON.parse(d);
         if (data.error == false) {
             console.log(`Job #${data.jobId} has been created!`);
             checkIfJobIsCompleted(data.jobId, data.url);
@@ -77,17 +86,32 @@ https.get(reqOptions, (response) => {
     console.error(e);
 });
 
-function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
 
-    let queryPath = `/v1/job/check?jobid=${jobId}`;
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
+
+function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
+    let queryPath = `/v1/job/check`;
+
+    // JSON payload for api request
+    let jsonPayload = JSON.stringify({
+        jobid: jobId
+    });
+
     let reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        path: queryPath,
+        method: "POST",
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
 
-    https.get(reqOptions, (response) => {
+    // Send request
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
 
@@ -97,7 +121,7 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
 
             if (data.status == "working") {
                 // Check again after 3 seconds
-                setTimeout(function(){checkIfJobIsCompleted(jobId, resultFileUrlJson)} , 3000);
+                setTimeout(function () { checkIfJobIsCompleted(jobId, resultFileUrlJson) }, 3000);
             }
             else if (data.status == "success") {
 
@@ -127,6 +151,10 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
             }
         })
     });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 
 ```

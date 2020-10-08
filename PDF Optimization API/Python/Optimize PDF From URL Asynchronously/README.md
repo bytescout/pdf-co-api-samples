@@ -73,17 +73,19 @@ def main(args = None):
 def optimizePDF(uploadedFileUrl, destinationFile):
     """Optimize PDF using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["async"] = Async
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["url"] = uploadedFileUrl
+
     # Prepare URL for 'Optimize PDF' API request
-    url = "{}/pdf/optimize?async={}&name={}&password={}&url={}".format(
-        BASE_URL,
-        Async,
-        os.path.basename(destinationFile),
-        Password,
-        uploadedFileUrl
-    )
+    url = "{}/pdf/optimize".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

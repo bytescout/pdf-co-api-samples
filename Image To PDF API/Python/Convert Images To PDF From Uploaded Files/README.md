@@ -73,15 +73,17 @@ def main(args = None):
 def convertImageToPDF(uploadedFileUrl, destinationFile):
     """Converts Image to PDF using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["url"] = uploadedFileUrl
+
     # Prepare URL for 'Image To PDF' API request
-    url = "{}/pdf/convert/from/image?name={}&url={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        uploadedFileUrl
-    )
+    url = "{}/pdf/convert/from/image".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

@@ -149,8 +149,10 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -248,16 +250,21 @@ namespace ByteScoutWebApiExample
                     // 3. CONVERT UPLOADED PDF FILE TO XLS
 
                     // Prepare URL for `PDF To XLS` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/convert/to/xls?name={0}&password={1}&pages={2}&url={3}&profiles={4}",
-                        Path.GetFileName(DestinationFile),
-                        Password,
-                        Pages,
-                        uploadedFileUrl,
-                        Profiles));
+                    var url = "https://api.pdf.co/v1/pdf/convert/to/xls";
 
-                    // Execute request
-                    response = webClient.DownloadString(query);
+                    // Prepare requests params as JSON
+                    Dictionary<string, object> parameters = new Dictionary<string, object>();
+                    parameters.Add("name", Path.GetFileName(DestinationFile));
+                    parameters.Add("password", Password);
+                    parameters.Add("pages", Pages);
+                    parameters.Add("url", uploadedFileUrl);
+                    parameters.Add("profiles", Profiles);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+                    // Execute POST request with JSON payload
+                    response = webClient.UploadString(url, jsonPayload);
 
                     // Parse JSON response
                     json = JObject.Parse(response);

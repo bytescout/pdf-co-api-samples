@@ -33,78 +33,65 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ##### **DigitalOcean.yml:**
     
 ```
----
-templateVersion: 3
+templateName: DigitalOcean Invoice
+templateVersion: 4
 templatePriority: 0
-sourceId: DigitalOcean Invoice
 detectionRules:
   keywords:
-  # Template will match documents containing the following phrases:
   - DigitalOcean
   - 101 Avenue of the Americas
   - Invoice Number
-fields:
-  # Static field that will "DigitalOcean" to the result
-  companyName:
-    type: static
+objects:
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: DigitalOcean
-  # Macro field that will find the text "Invoice Number: 1234567" and return "1234567" to the result
-  invoiceId:
-    type: macros
+    regex: true
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    fieldType: macros
     expression: 'Invoice Number: ({{Digits}})'
-  # Macro field that will find the text "Date Issued: February 1, 2016" and return the date "February 1, 2016" in ISO format to the result
-  dateIssued:
-    type: macros
+    regex: true
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    fieldType: macros
     expression: 'Date Issued: ({{SmartDate}})'
+    regex: true
     dataType: date
     dateFormat: auto-mdy
-  # Macro field that will find the text "Total: 
-<!-- code block begin -->
-
-##### **{codeFileName}:**
-    
-```
-{code}
-```
-
-<!-- code block end -->    
-10.00" and return "110.00" to the result
-  total:
-    type: macros
-    expression: 'Total: {{Dollar}}({{Number}})'
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: 'Total: ({{Money}})'
+    regex: true
     dataType: decimal
-  # Static field that will "USD" to the result
-  currency:
-    type: static
+- name: currency
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: USD
-tables:
+    regex: true
 - name: table1
-  # The table will start after the text "Description     Hours"
-  start:
-    expression: 'Description{{Spaces}}Hours'
-  # The table will end before the text "Total:"
-  end:
-    expression: 'Total:'
-  # Macro expression that will find table rows "Website-Dev (1GB)    744    01-01 00:00    01-31 23:59    
-<!-- code block begin -->
-
-##### **{codeFileName}:**
-    
-```
-{code}
-```
-
-<!-- code block end -->    
-0.00", etc.
-  row:
-    # Groups <description>, <hours>, <start>, <end> and <unitPrice> will become columns in the result table.
-    expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<hours>{{Digits}}){{Spaces}}(?<start>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}(?<end>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}})'
-  # Suggest data types for table columns (missing columns will have the default "string" type):
-  columns:
-  - name: hours
-    type: integer
-  - name: unitPrice
-    type: decimal
+  objectType: table
+  tableProperties:
+    start:
+      expression: Description{{Spaces}}Hours
+      regex: true
+    end:
+      expression: 'Total:'
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<hours>{{Digits}}){{Spaces}}(?<start>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}(?<end>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}})'
+      regex: true
+    columns:
+    - name: hours
+      dataType: integer
+    - name: unitPrice
+      dataType: decimal
 
 
 ```
@@ -223,19 +210,24 @@ function ParseDocument($apiKey, $uploadedFileUrl, $templateText)
 
     // Prepare URL for Document parser API call.
     // See documentation: https://apidocs.pdf.co/?#1-pdfdocumentparser
-    $url = "https://api.pdf.co/v1/pdf/documentparser" .
-        "?async=" . $async;
-    
-    // Post fields
-    $data = array('url'=>$uploadedFileUrl, 'template'=>$templateText);
+    $url = "https://api.pdf.co/v1/pdf/documentparser";
+
+    // Prepare requests params
+    $parameters = array();
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["template"] = $templateText;
+    $parameters["async"] = $async;
+
+    // Create Json payload
+    $data = json_encode($parameters);
 
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);
@@ -307,14 +299,23 @@ function CheckJobStatus($jobId, $apiKey)
 {
     $status = null;
     
-    // Create URL
-    $url = "https://api.pdf.co/v1/job/check?jobid=" . $jobId;
+	// Create URL
+    $url = "https://api.pdf.co/v1/job/check";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["jobid"] = $jobId;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     
     // Execute request
     $result = curl_exec($curl);

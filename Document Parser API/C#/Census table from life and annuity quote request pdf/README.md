@@ -247,17 +247,21 @@ namespace LifeAndAnnuityQuoteRequest
 
                     // 3. PARSE UPLOADED PDF DOCUMENT
 
-                    // URL for `Document Parser` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/documentparser?url={0}&async={1}",
-                        uploadedFileUrl,
-                        Async));
+                    // URL of `Document Parser` API call
+                    string url = "https://api.pdf.co/v1/pdf/documentparser";
 
-                    Dictionary<string, string> requestBody = new Dictionary<string, string>();
+                    // Prepare requests params as JSON
+                    Dictionary<string, object> requestBody = new Dictionary<string, object>();
                     requestBody.Add("template", templateText);
+                    requestBody.Add("name", Path.GetFileName(DestinationFile));
+                    requestBody.Add("url", uploadedFileUrl);
+                    requestBody.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
                     // Execute request
-                    response = webClient.UploadString(query, "POST", JsonConvert.SerializeObject(requestBody));
+                    response = webClient.UploadString(url, "POST", jsonPayload);
 
                     // Parse JSON response
                     json = JObject.Parse(response);
@@ -463,64 +467,78 @@ namespace LifeAndAnnuityQuoteRequest
 ##### **SampleGroupDisabilityForm.yml:**
     
 ```
-templateVersion: 3
+templateName: Untitled document kind
+templateVersion: 4
 templatePriority: 0
-sourceId: Untitled document kind
 detectionRules:
   keywords: []
-fields:
-  CencusTable:
-    type: rectangle
-    dataType: table
-    rectangle:
-    - 27
-    - 324.75
-    - 554.25
-    - 358.5
-    pageIndex: 0
+objects:
+- name: CencusTable
+  objectType: table
+  tableProperties:
+    start:
+      y: 324.75
+      pageIndex: 0
+    end:
+      y: 683.25
+      pageIndex: 0
+    left: 27
+    right: 581.25
     rowMergingRule: byBorders
-  ContactPerson:
-    type: rectangle
+- name: ContactPerson
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     rectangle:
     - 178.5
     - 111
     - 76.5
     - 15
     pageIndex: 0
-  BusinessName:
-    type: rectangle
+- name: BusinessName
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     rectangle:
     - 177.75
     - 126
     - 105
     - 17.25
     pageIndex: 0
-  BusinessAddress:
-    type: rectangle
+- name: BusinessAddress
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     rectangle:
     - 183
     - 144.75
     - 187.5
     - 24
     pageIndex: 0
-  BusinessType:
-    type: rectangle
+- name: BusinessType
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     rectangle:
     - 183.75
     - 206.25
     - 77.25
     - 19.5
     pageIndex: 0
-  Phone:
-    type: rectangle
+- name: Phone
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     rectangle:
     - 181.5
     - 236.25
     - 86.25
     - 15
     pageIndex: 0
-  Email:
-    type: rectangle
+- name: Email
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     rectangle:
     - 182.25
     - 250.5

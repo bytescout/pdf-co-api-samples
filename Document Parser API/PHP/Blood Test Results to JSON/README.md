@@ -33,22 +33,26 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ##### **SampleBloodReport.yml:**
     
 ```
-templateVersion: 3
+templateName: BloodTestTemplate
+templateVersion: 4
 templatePriority: 0
-sourceId: BloodTestTemplate
 detectionRules:
   keywords: []
-fields:
-  PatientName:
-    type: rectangle
+objects:
+- name: PatientName
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     rectangle:
     - 177.75
     - 123.75
     - 62.25
     - 12.75
     pageIndex: 0
-  ReportName:
-    type: rectangle
+- name: ReportName
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     expression: '{{SmartDate}}'
     dataType: date
     rectangle:
@@ -57,15 +61,17 @@ fields:
     - 65.25
     - 12
     pageIndex: 0
-  TestResults:
-    type: rectangle
-    dataType: table
-    rectangle:
-    - 41.25
-    - 261.75
-    - 532.5
-    - 450.75
-    pageIndex: 0
+- name: TestResults
+  objectType: table
+  tableProperties:
+    start:
+      y: 261.75
+      pageIndex: 0
+    end:
+      y: 712.5
+      pageIndex: 0
+    left: 41.25
+    right: 573.75
     rowMergingRule: byBorders
 
 
@@ -185,19 +191,24 @@ function ParseDocument($apiKey, $uploadedFileUrl, $templateText)
 
     // Prepare URL for Document parser API call.
     // See documentation: https://apidocs.pdf.co/?#1-pdfdocumentparser
-    $url = "https://api.pdf.co/v1/pdf/documentparser" .
-        "?async=" . $async;
-    
-    // Post fields
-    $data = array('url'=>$uploadedFileUrl, 'template'=>$templateText);
+    $url = "https://api.pdf.co/v1/pdf/documentparser";
+
+    // Prepare requests params
+    $parameters = array();
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["template"] = $templateText;
+    $parameters["async"] = $async;
+
+    // Create Json payload
+    $data = json_encode($parameters);
 
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);
@@ -269,14 +280,23 @@ function CheckJobStatus($jobId, $apiKey)
 {
     $status = null;
     
-    // Create URL
-    $url = "https://api.pdf.co/v1/job/check?jobid=" . $jobId;
+	// Create URL
+    $url = "https://api.pdf.co/v1/job/check";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["jobid"] = $jobId;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     
     // Execute request
     $result = curl_exec($curl);

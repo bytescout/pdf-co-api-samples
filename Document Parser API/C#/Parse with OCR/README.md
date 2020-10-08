@@ -138,78 +138,65 @@ EndGlobal
 ##### **DigitalOcean.yml:**
     
 ```
----
-templateVersion: 3
+templateName: DigitalOcean Invoice
+templateVersion: 4
 templatePriority: 0
-sourceId: DigitalOcean Invoice
 detectionRules:
   keywords:
-  # Template will match documents containing the following phrases:
   - DigitalOcean
   - 101 Avenue of the Americas
   - Invoice Number
-fields:
-  # Static field that will "DigitalOcean" to the result
-  companyName:
-    type: static
+objects:
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: DigitalOcean
-  # Macro field that will find the text "Invoice Number: 1234567" and return "1234567" to the result
-  invoiceId:
-    type: macros
+    regex: true
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    fieldType: macros
     expression: 'Invoice Number: ({{Digits}})'
-  # Macro field that will find the text "Date Issued: February 1, 2016" and return the date "February 1, 2016" in ISO format to the result
-  dateIssued:
-    type: macros
+    regex: true
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    fieldType: macros
     expression: 'Date Issued: ({{SmartDate}})'
+    regex: true
     dataType: date
     dateFormat: auto-mdy
-  # Macro field that will find the text "Total: 
-<!-- code block begin -->
-
-##### **{codeFileName}:**
-    
-```
-{code}
-```
-
-<!-- code block end -->    
-10.00" and return "110.00" to the result
-  total:
-    type: macros
-    expression: 'Total: {{Dollar}}({{Number}})'
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: 'Total: ({{Money}})'
+    regex: true
     dataType: decimal
-  # Static field that will "USD" to the result
-  currency:
-    type: static
+- name: currency
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: USD
-tables:
+    regex: true
 - name: table1
-  # The table will start after the text "Description     Hours"
-  start:
-    expression: 'Description{{Spaces}}Hours'
-  # The table will end before the text "Total:"
-  end:
-    expression: 'Total:'
-  # Macro expression that will find table rows "Website-Dev (1GB)    744    01-01 00:00    01-31 23:59    
-<!-- code block begin -->
-
-##### **{codeFileName}:**
-    
-```
-{code}
-```
-
-<!-- code block end -->    
-0.00", etc.
-  row:
-    # Groups <description>, <hours>, <start>, <end> and <unitPrice> will become columns in the result table.
-    expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<hours>{{Digits}}){{Spaces}}(?<start>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}(?<end>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}})'
-  # Suggest data types for table columns (missing columns will have the default "string" type):
-  columns:
-  - name: hours
-    type: integer
-  - name: unitPrice
-    type: decimal
+  objectType: table
+  tableProperties:
+    start:
+      expression: Description{{Spaces}}Hours
+      regex: true
+    end:
+      expression: 'Total:'
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<hours>{{Digits}}){{Spaces}}(?<start>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}(?<end>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}})'
+      regex: true
+    columns:
+    - name: hours
+      dataType: integer
+    - name: unitPrice
+      dataType: decimal
 
 
 ```
@@ -294,19 +281,22 @@ namespace ByteScoutWebApiExample
 					webClient.UploadFile(uploadUrl, "PUT", SourceFile); // You can use UploadData() instead if your file is byte[] or Stream
 					webClient.Headers.Remove("content-type");
 
-					// 3. PARSE UPLOADED PDF DOCUMENT
+                    // 3. PARSE UPLOADED PDF DOCUMENT
 
-                    // URL for `Document Parser` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/documentparser?url={0}&async={1}",
-                        uploadedFileUrl,
-                        Async));
+                    // URL of `Document Parser` API call
+                    string url = "https://api.pdf.co/v1/pdf/documentparser";
 
-                    Dictionary<string, string> requestBody = new Dictionary<string, string>();
+                    Dictionary<string, object> requestBody = new Dictionary<string, object>();
                     requestBody.Add("template", templateText);
+                    requestBody.Add("name", Path.GetFileName(DestinationFile));
+                    requestBody.Add("url", uploadedFileUrl);
+                    requestBody.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
                     // Execute request
-                    response = webClient.UploadString(query, "POST", JsonConvert.SerializeObject(requestBody));
+                    response = webClient.UploadString(url, "POST", jsonPayload);
                     
                     // Parse JSON response
                     json = JObject.Parse(response);

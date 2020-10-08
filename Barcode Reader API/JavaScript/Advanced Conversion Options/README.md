@@ -71,19 +71,32 @@ Some of advanced options available through profiles:
 // Sample profile that sets advanced conversion options
 //  Advanced options are properties of Reader class from Bytescout BarCodeReader used in the back-end:
 // https://cdn.bytescout.com/help/BytescoutBarCodeReaderSDK/html/ba101d21-3db7-eb54-d112-39cadc023d02.htm
-const Profiles = '{ "profiles": [ { "profile1": { "FastMode": true } } ] }';
+const Profiles = { "profiles": [{ "profile1": { "FastMode": true } }] };
 
 // Prepare request to `Barcode Reader` API endpoint
-var queryPath = `/v1/barcode/read/from/url?types=${BarcodeTypes}&pages=${Pages}&url=${SourceFileUrl}&profiles=${Profiles}&async=True`;
+var queryPath = `/v1/barcode/read/from/url`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    types: BarcodeTypes,
+    pages: Pages,
+    url: SourceFileUrl,
+    profiles: Profiles,
+    async=true
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);
@@ -102,16 +115,31 @@ https.get(reqOptions, (response) => {
     console.error(e);
 });
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
+
+
 function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
     let queryPath = `/v1/job/check?jobid=${jobId}`;
+
+    // JSON payload for api request
+    let jsonPayload = JSON.stringify({
+        jobid: jobId
+    });
+
     let reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        path: queryPath,
+        method: "POST",
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
 
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
 
@@ -147,6 +175,10 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
             }
         })
     });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 
 ```

@@ -151,16 +151,25 @@ function uploadFile(sourceFile, uploadUrl) {
 
 function mergePDFDocuments(SourceFiles, DestinationFile) {
     // Prepare request to `Merge PDF` API endpoint
-    var queryPath = `/v1/pdf/merge?name=${path.basename(DestinationFile)}&url=${SourceFiles.join(",")}`;
+    var queryPath = `/v1/pdf/merge`;
+
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        name: path.basename(DestinationFile), url: SourceFiles.join(",")
+    });
+
     var reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
+        method: "POST",
+        path: queryPath,
         headers: {
-            "x-api-key": API_KEY
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
         }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             // Parse JSON response
             var data = JSON.parse(d);
@@ -183,7 +192,13 @@ function mergePDFDocuments(SourceFiles, DestinationFile) {
         // Request error
         console.log(e);
     });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
+
+
 ```
 
 <!-- code block end -->    

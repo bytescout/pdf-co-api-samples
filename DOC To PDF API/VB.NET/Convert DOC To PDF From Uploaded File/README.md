@@ -199,6 +199,7 @@ EndGlobal
 ```
 Imports System.IO
 Imports System.Net
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -245,18 +246,27 @@ Module Module1
 
 				webClient.Headers.Add("content-type", "application/octet-stream")
 				webClient.UploadFile(uploadUrl, "PUT", SourceFile) ' You can use UploadData() instead if your file is byte array or Stream
-				
+
+				' Set JSON content type
+				webClient.Headers.Add("Content-Type", "application/json")
+
 				' 3. CONVERT UPLOADED CSV FILE TO PDF
 
 				' Prepare URL for `DOC To PDF` API call
-				query = Uri.EscapeUriString(String.Format(
-					"https://api.pdf.co/v1/pdf/convert/from/doc?name={0}&url={1}",
-					Path.GetFileName(DestinationFile),
-					uploadedFileUrl))
+				Dim url As String = "https://api.pdf.co/v1/pdf/convert/from/doc"
 
-				' Execute request
-				response = webClient.DownloadString(query)
+				' Prepare requests params as JSON
+				' See documentation: https : //apidocs.pdf.co
+				Dim parameters As New Dictionary(Of String, Object)
+				parameters.Add("name", Path.GetFileName(DestinationFile))
+				parameters.Add("url", uploadedFileUrl)
 
+				' Convert dictionary of params to JSON
+				Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+
+				' Execute POST request with JSON payload
+				response = webClient.UploadString(url, jsonPayload)
+				
 				' Parse JSON response
 				json = JObject.Parse(response)
 

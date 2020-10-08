@@ -68,16 +68,18 @@ def main(args=None):
 def readBarcodes(uploadedFileUrl):
     """Get Barcode Information using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["types"] = BarcodeTypes
+    parameters["pages"] = Pages
+    parameters["url"] = uploadedFileUrl
+
     # Prepare URL for 'Barcode Reader' API request
-    url = "{}/barcode/read/from/url?types={}&pages={}&url={}".format(
-        BASE_URL,
-        BarcodeTypes,
-        Pages,
-        uploadedFileUrl
-    )
+    url = "{}/barcode/read/from/url".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={"x-api-key": API_KEY, "content-type": "application/octet-stream"})
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

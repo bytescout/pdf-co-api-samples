@@ -148,7 +148,7 @@ function pdfTextSearch(uploadedFileUrl) {
     };
 
     // Send request
-    request.get(reqOptions, function (error, response, body) {
+    request.post(reqOptions, function (error, response, body) {
         if (error) {
             return console.error("Error: ", error);
         }

@@ -126,15 +126,25 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function splitPdf(apiKey, uploadedFileUrl, pages) {
     // Prepare request to `Make Searchable PDF` API endpoint
-    var queryPath = `/v1/pdf/split?pages=${pages}&url=${uploadedFileUrl}&async=True`;
-    let reqOptions = {
+    var queryPath = `/v1/pdf/split`;
+
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        pages: pages, url: uploadedFileUrl, async: true
+    });
+
+    var reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        method: "POST",
+        path: queryPath,
+        headers: {
+            "x-api-key": apiKey,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
             // Parse JSON response
@@ -153,26 +163,39 @@ function splitPdf(apiKey, uploadedFileUrl, pages) {
             // Request error
             console.log("splitPdf(): " + e);
         });
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 
 function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
-    console.log("Here..");
-    let queryPath = `/v1/job/check?jobid=${jobId}`;
+    let queryPath = `/v1/job/check`;
+
+    // JSON payload for api request
+    let jsonPayload = JSON.stringify({
+        jobid: jobId
+    });
+
     let reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        path: queryPath,
+        method: "POST",
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
 
-    https.get(reqOptions, (response) => {
+    // Send request
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
 
             // Parse JSON response
             let data = JSON.parse(d);
             console.log(`Checking Job #${jobId}, Status: ${data.status}, Time: ${new Date().toLocaleString()}`);
-            
+
             if (data.status == "working") {
                 // Check again after 3 seconds
                 setTimeout(function () { checkIfJobIsCompleted(jobId, resultFileUrlJson) }, 3000);
@@ -205,6 +228,10 @@ function checkIfJobIsCompleted(jobId, resultFileUrlJson) {
             }
         })
     });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 
 ```

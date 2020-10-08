@@ -155,7 +155,7 @@ namespace ByteScoutWebApiExample
 	{
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
-		const String API_KEY = "***********************************";
+		const String API_KEY = "*******************************";
 		
 		// Source PDF file
 		const string SourceFile = @".\SampleInvoice.pdf";
@@ -211,19 +211,23 @@ namespace ByteScoutWebApiExample
 					webClient.UploadFile(uploadUrl, "PUT", SourceFile); // You can use UploadData() instead if your file is byte[] or Stream
 					webClient.Headers.Remove("content-type");
 
-					// 3. PARSE UPLOADED PDF DOCUMENT
+                    // 3. PARSE UPLOADED PDF DOCUMENT
 
-                    // URL for `Document Parser` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/documentparser?url={0}&async={1}",
-                        uploadedFileUrl,
-                        Async));
+                    // URL of `Document Parser` API call
+                    string url = "https://api.pdf.co/v1/pdf/documentparser";
 
-                    Dictionary<string, string> requestBody = new Dictionary<string, string>();
+                    // Prepare requests params as JSON
+                    Dictionary<string, object> requestBody = new Dictionary<string, object>();
                     requestBody.Add("template", templateText);
+                    requestBody.Add("name", Path.GetFileName(DestinationFile));
+                    requestBody.Add("url", uploadedFileUrl);
+                    requestBody.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
                     // Execute request
-                    response = webClient.UploadString(query, "POST", JsonConvert.SerializeObject(requestBody));
+                    response = webClient.UploadString(url, "POST", jsonPayload);
                     
                     // Parse JSON response
                     json = JObject.Parse(response);
@@ -310,53 +314,74 @@ namespace ByteScoutWebApiExample
 ##### **SampleTemplate.yml:**
     
 ```
-sourceId: My Custom Template
+templateName: My Custom Template
+templateVersion: 4
+templatePriority: 0
 detectionRules:
   keywords:
   - Your Company Name
   - Invoice No\.
   - TOTAL
-fields:
-  total:
-    expression: TOTAL {{DECIMAL}}
-    type: decimal
+objects:
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: TOTAL{{Spaces}}{{Number}}
+    dataType: decimal
     pageIndex: 0
-  dateIssued:
-    expression: Invoice Date {{DATE}}
-    type: date
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: Invoice Date {{SmartDate}}
+    dataType: date
     dateFormat: auto-mdy
     pageIndex: 0
-  invoiceId:
-    expression: Invoice No. {{123}}
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: Invoice No. {{Digits}}
     pageIndex: 0
-  companyName:
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: Vendor Company
-    static: true
     pageIndex: 0
-  billTo:
-    rect:
+- name: billTo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    rectangle:
     - 32.25
     - 150
     - 348
     - 70.5
     pageIndex: 0
-  notes:
-    rect:
+- name: notes
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    rectangle:
     - 32.25
     - 227.25
     - 531
     - 47.25
     pageIndex: 0
-tables:
 - name: table1
-  start:
-    expression: Item\s+Quantity\s+Price\s+Total
-  end:
-    expression: TOTAL
-  subItemStart: {}
-  subItemEnd: {}
-  row:
-    expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$
+  objectType: table
+  tableProperties:
+    start:
+      expression: Item\s+Quantity\s+Price\s+Total
+      regex: true
+    end:
+      expression: TOTAL
+      regex: true
+    row:
+      expression: ^\s*(?<description>\w+.*)(?<quantity>\d+)\s+(?<unitPrice>\d+\.\d{2})\s+(?<itemTotal>\d+\.\d{2})\s*$
+      regex: true
 
 
 ```

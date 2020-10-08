@@ -51,16 +51,25 @@ const Password = "";
 
 
 // Prepare request to `PDF To JPEG` API endpoint
-var queryPath = `/v1/pdf/convert/to/jpg?password=${Password}&pages=${Pages}&url=${SourceFileUrl}`;
+var queryPath = `/v1/pdf/convert/to/jpg`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    password: Password, pages: Pages, url: SourceFileUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);        
@@ -89,6 +98,9 @@ https.get(reqOptions, (response) => {
     console.error(e);
 });
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
 ```
 
 <!-- code block end -->    

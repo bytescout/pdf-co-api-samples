@@ -33,24 +33,30 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ##### **SampleTicket.yml:**
     
 ```
-templateVersion: 3
+templateName: MakeMyTrip Booking
+templateVersion: 4
 templatePriority: 0
-sourceId: MakeMyTrip Booking
 detectionRules:
   keywords:
   - MakeMyTrip
   - Eticket-Dom-Flight
-fields:
-  BookingNo:
-    type: rectangle
+objects:
+- name: BookingNo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 198.75
     - 85.625
     - 96.875
     - 12.500001
     pageIndex: 0
-  BookingDate:
-    type: rectangle
+- name: BookingDate
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     dataType: date
     rectangle:
     - 133.125
@@ -58,24 +64,33 @@ fields:
     - 78.75
     - 12.500001
     pageIndex: 0
-  DepartureFrom:
-    type: rectangle
+- name: DepartureFrom
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 153
     - 176
     - 77
     - 8.5
     pageIndex: 0
-  ArrivalTo:
-    type: rectangle
+- name: ArrivalTo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 285
     - 176
     - 84
     - 8.5
     pageIndex: 0
-  DepartureAt:
-    type: rectangle
+- name: DepartureAt
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     dataType: date
     rectangle:
     - 153.75
@@ -83,8 +98,11 @@ fields:
     - 123.75
     - 10.625
     pageIndex: 0
-  ArrivalAt:
-    type: rectangle
+- name: ArrivalAt
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     dataType: date
     rectangle:
     - 288.125
@@ -92,48 +110,66 @@ fields:
     - 125.625008
     - 11.25
     pageIndex: 0
-  FlightType:
-    type: rectangle
+- name: FlightType
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 433.5
     - 159.5
     - 68
     - 10.5
     pageIndex: 0
-  FlightDuration:
-    type: rectangle
+- name: FlightDuration
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 474.375031
     - 170.625
     - 30.0000019
     - 10
     pageIndex: 0
-  CabinType:
-    type: rectangle
+- name: CabinType
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 463.125031
     - 194.375015
     - 51.25
     - 10
     pageIndex: 0
-  PassengerName:
-    type: rectangle
+- name: PassengerName
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 85
     - 238.125
     - 93.125
     - 14.375
     pageIndex: 0
-  PassengerType:
-    type: rectangle
+- name: PassengerType
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 229.375015
     - 238.125
     - 31.25
     - 13.75
     pageIndex: 0
-  AirlinePNR:
-    type: rectangle
+- name: AirlinePNR
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 375
     - 240.000015
@@ -258,19 +294,24 @@ function ParseDocument($apiKey, $uploadedFileUrl, $templateText)
 
     // Prepare URL for Document parser API call.
     // See documentation: https://apidocs.pdf.co/?#1-pdfdocumentparser
-    $url = "https://api.pdf.co/v1/pdf/documentparser" .
-        "?async=" . $async;
-    
-    // Post fields
-    $data = array('url'=>$uploadedFileUrl, 'template'=>$templateText);
+    $url = "https://api.pdf.co/v1/pdf/documentparser";
+
+    // Prepare requests params
+    $parameters = array();
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["template"] = $templateText;
+    $parameters["async"] = $async;
+
+    // Create Json payload
+    $data = json_encode($parameters);
 
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);
@@ -342,15 +383,24 @@ function CheckJobStatus($jobId, $apiKey)
 {
     $status = null;
     
-    // Create URL
-    $url = "https://api.pdf.co/v1/job/check?jobid=" . $jobId;
+	// Create URL
+    $url = "https://api.pdf.co/v1/job/check";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["jobid"] = $jobId;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+ 
     // Execute request
     $result = curl_exec($curl);
     

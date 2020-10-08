@@ -197,6 +197,7 @@ EndGlobal
 Imports System.IO
 Imports System.Net
 Imports System.Threading
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 
@@ -233,20 +234,29 @@ Module Module1
 		' Set API Key
 		webClient.Headers.Add("x-api-key", API_KEY)
 
+        ' Set JSON content type
+        webClient.Headers.Add("Content-Type", "application/json")
+
 		' Prepare URL for `PDF To HTML` API call
-		Dim query As String = Uri.EscapeUriString(String.Format(
-			"https://api.pdf.co/v1/pdf/convert/to/html?name={0}&password={1}&pages={2}&simple={3}&columns={4}&url={5}&async={6}",
-			Path.GetFileName(DestinationFile),
-			Password,
-			Pages,
-			PlainHtml,
-			ColumnLayout,
-			SourceFileUrl,
-			Async))
+		Dim url As String = "https://api.pdf.co/v1/pdf/convert/to/html"
+
+        ' Prepare requests params as JSON
+        ' See documentation: https : //apidocs.pdf.co
+        Dim parameters As New Dictionary(Of String, Object)
+		parameters.Add("name", Path.GetFileName(DestinationFile))
+		parameters.Add("password", Password)
+		parameters.Add("pages", Pages)
+		parameters.Add("simple", PlainHtml)
+		parameters.Add("columns", ColumnLayout)
+		parameters.Add("url", SourceFileUrl)
+		parameters.Add("async", Async)
+
+        ' Convert dictionary of params to JSON
+        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
 		Try
-			' Execute request
-			Dim response As String = webClient.DownloadString(query)
+			' Execute POST request with JSON payload
+			Dim response As String = webClient.UploadString(url, jsonPayload)
 
 			' Parse JSON response
 			Dim json As JObject = JObject.Parse(response)

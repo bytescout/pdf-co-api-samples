@@ -69,15 +69,17 @@ def main(args = None):
 def mergeFiles(uploadedFileUrls, destinationFile):
     """Perform Merge using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["url"] = uploadedFileUrls
+
     # Prepare URL for 'Merge PDF' API request
-    url = "{}/pdf/merge?name={}&url={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        uploadedFileUrls
-    )
+    url = "{}/pdf/merge".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

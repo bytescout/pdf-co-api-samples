@@ -55,23 +55,23 @@ DestinationFile = ".\\result.csv"
 # Some of advanced options available through profiles:
 # (JSON can be single/double-quoted and contain comments.)
 # {
-# 	"profiles": [
-# 		{
-# 			"profile1": {
-# 				"CSVSeparatorSymbol": ",", // Separator symbol.
-# 				"CSVQuotaionSymbol": "\"", // Quotation symbol.
-# 				"ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
-# 				"ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
-# 				"LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
-# 				"ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
-# 				"Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
-# 				"ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
-# 				"DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
-# 				"CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
-# 				"CheckPermissions": true, // Ignore document permissions. Values: true / false
-# 			}
-# 		}
-# 	]
+#     "profiles": [
+#         {
+#             "profile1": {
+#                 "CSVSeparatorSymbol": ",", // Separator symbol.
+#                 "CSVQuotaionSymbol": "\"", // Quotation symbol.
+#                 "ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+#                 "ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+#                 "LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+#                 "ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+#                 "Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+#                 "ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+#                 "DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+#                 "CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+#                 "CheckPermissions": true, // Ignore document permissions. Values: true / false
+#             }
+#         }
+#     ]
 # }
 
 # Advanced Conversation Options
@@ -87,18 +87,20 @@ def main(args = None):
 def convertPdfToCSV(uploadedFileUrl, destinationFile):
     """Converts PDF To CSV using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["url"] = uploadedFileUrl
+    parameters["profiles"] = Profiles
+
     # Prepare URL for 'PDF To CSV' API request
-    url = "{}/pdf/convert/to/csv?name={}&password={}&pages={}&url={}&profiles={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        Password,
-        Pages,
-        uploadedFileUrl,
-        Profiles
-    )
+    url = "{}/pdf/convert/to/csv".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

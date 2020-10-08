@@ -167,6 +167,7 @@ EndGlobal
 ```
 Imports System.IO
 Imports System.Net
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -225,20 +226,29 @@ Module Module1
                 webClient.Headers.Add("content-type", "application/octet-stream")
                 webClient.UploadFile(uploadUrl, "PUT", SourceFile) ' You can use UploadData() instead if your file is byte array or Stream
 
+                ' Set JSON content type
+                webClient.Headers.Add("Content-Type", "application/json")
+
                 ' 3. MAKE UPLOADED PDF FILE SEARCHABLE
 
                 ' Prepare URL for PDF text search API call.
                 ' See documentation: https : //app.pdf.co/documentation/api/1.0/pdf/find.html
-                query = Uri.EscapeUriString(
-                            String.Format("https://api.pdf.co/v1/pdf/find?password={0}&pages={1}&url={2}&searchString={3}&regexSearch={4}",
-                                Password,
-                                Pages,
-                                uploadedFileUrl,
-                                SearchString,
-                                RegexSearch))
+                Dim url As String = "https://api.pdf.co/v1/pdf/find"
 
-                ' Execute request
-                response = webClient.DownloadString(query)
+                ' Prepare requests params as JSON
+                ' See documentation: https : //apidocs.pdf.co
+                Dim parameters As New Dictionary(Of String, Object)
+                parameters.Add("password", Password)
+                parameters.Add("pages", Pages)
+                parameters.Add("url", uploadedFileUrl)
+                parameters.Add("searchString", SearchString)
+                parameters.Add("regexSearch", RegexSearch)
+
+                ' Convert dictionary of params to JSON
+                Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+
+                ' Execute POST request with JSON payload
+                response = webClient.UploadString(url, jsonPayload)
 
                 ' Parse JSON response
                 json = JObject.Parse(response)

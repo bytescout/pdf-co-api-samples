@@ -56,15 +56,17 @@ def main(args = None):
 def generateResult(destinationFile):
     """Generates Result Image using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["url"] = InputUrl
+
     # Prepare URL for 'Url to Jpg' API request
-    url = "{}/url/convert/to/jpg?name={}&url={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        InputUrl
-    )
+    url = "{}/url/convert/to/jpg".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

@@ -38,7 +38,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### **make-pdf-searchable.php:**
+##### **optimize-pdf.php:**
     
 ```
 <!DOCTYPE html>
@@ -141,16 +141,23 @@ else
 function OptimizePdf($apiKey, $uploadedFileUrl) 
 {
     // Prepare URL for `Optimize PDF` API call
-    $url = "https://api.pdf.co/v1/pdf/optimize" . 
-        "?name=result.pdf" .
-        "&url=" . $uploadedFileUrl;
+    $url = "https://api.pdf.co/v1/pdf/optimize";
     
+    // Prepare requests params
+    $parameters = array();
+    $parameters["name"] = "result.pdf";
+    $parameters["url"] = $uploadedFileUrl;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);

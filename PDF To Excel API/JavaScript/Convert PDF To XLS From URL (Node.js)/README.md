@@ -54,27 +54,36 @@ const DestinationFile = "./result.xls";
 
 
 // Prepare request to `PDF To XLS` API endpoint
-var queryPath = `/v1/pdf/convert/to/xls?name=${path.basename(DestinationFile)}&password=${Password}&pages=${Pages}&url=${SourceFileUrl}`;
+var queryPath = `/v1/pdf/convert/to/xls`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(DestinationFile), password: Password, pages: Pages, url: SourceFileUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
-        var data = JSON.parse(d);        
+        var data = JSON.parse(d);
         if (data.error == false) {
             // Download XLS file
             var file = fs.createWriteStream(DestinationFile);
             https.get(data.url, (response2) => {
                 response2.pipe(file)
-                .on("close", () => {
-                    console.log(`Generated XLS file saved as "${DestinationFile}" file.`);
-                });
+                    .on("close", () => {
+                        console.log(`Generated XLS file saved as "${DestinationFile}" file.`);
+                    });
             });
         }
         else {
@@ -87,6 +96,9 @@ https.get(reqOptions, (response) => {
     console.log(e);
 });
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
 ```
 
 <!-- code block end -->    

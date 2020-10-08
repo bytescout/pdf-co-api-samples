@@ -143,9 +143,11 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 // Cloud API asynchronous "DOC To PDF" job example.
@@ -166,7 +168,6 @@ namespace ByteScoutWebApiExample
 		// (!) Make asynchronous job
 		const bool Async = true;
 
-
 		static void Main(string[] args)
 		{
 			// Create standard .NET web client instance
@@ -175,17 +176,23 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `DOC To PDF` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/convert/from/doc?name={0}&url={1}&async={2}",
-				Path.GetFileName(DestinationFile),
-				SourceFileUrl,
-				Async));
+			// Prepare requests params as JSON
+			// See documentation: https://apidocs.pdf.co/#1-json-pdfconvertfromdoc
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add("name", Path.GetFileName(DestinationFile));
+			parameters.Add("url", SourceFileUrl);
+			parameters.Add("async", Async);
+
+			// Convert dictionary of params to JSON
+			string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+			// URL of `DOC To PDF` API call
+			string url = "https://api.pdf.co/v1/pdf/convert/from/doc";
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Execute POST request with JSON payload
+				string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);

@@ -146,46 +146,46 @@ EndGlobal
 ##### **MultiPageTable-template1.yml:**
     
 ```
----
-# Template that demonstrates parsing of multi-page table using only 
-# regular expressions for the table start, end, and rows.
-# If regular expression cannot be written for every table row (for example, 
-# if the table contains empty cells), try the second method demonstrated 
-# in `MultiPageTable-template2.yml` template.
-templateVersion: 3
+templateName: Multipage Table Test
+templateVersion: 4
 templatePriority: 0
-sourceId: Multipage Table Test
 detectionRules:
   keywords:
   - Sample document with multi-page table
-fields:
-  total:
-    type: regex
-    expression: TOTAL {{DECIMAL}}
+objects:
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: TOTAL{{Spaces}}({{Number}})
+    regex: true
     dataType: decimal
-tables:
 - name: table1
-  start:
-    # regular expression to find the table start in document
-    expression: Item\s+Description\s+Price\s+Qty\s+Extended Price
-  end:
-    # regular expression to find the table end in document
-    expression: TOTAL\s+\d+\.\d\d
-  row:
-    # regular expression to find table rows
-    expression: '^\s*(?<itemNo>\d+)\s+(?<description>.+?)\s+(?<price>\d+\.\d\d)\s+(?<qty>\d+)\s+(?<extPrice>\d+\.\d\d)'
-  columns: 
-  - name: itemNo
-    type: integer
-  - name: description
-    type: string
-  - name: price
-    type: decimal
-  - name: qty
-    type: integer
-  - name: extPrice
-    type: decimal
-  multipage: true
+  objectType: table
+  tableProperties:
+    start:
+      expression: Item{{Spaces}}Description{{Spaces}}Price
+      regex: true
+    end:
+      expression: TOTAL{{Spaces}}{{Number}}
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<itemNo>{{Digits}}){{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}(?<extPrice>{{Number}})'
+      regex: true
+    columns:
+    - name: itemNo
+      dataType: integer
+    - name: description
+      dataType: string
+    - name: price
+      dataType: decimal
+    - name: qty
+      dataType: integer
+    - name: extPrice
+      dataType: decimal
+    multipage: true
+
+
 ```
 
 <!-- code block end -->    
@@ -195,22 +195,20 @@ tables:
 ##### **Program.cs:**
     
 ```
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Threading;
 
 // Cloud API asynchronous "Document Parser" job example.
 // Allows to avoid timeout errors when processing huge or scanned PDF documents.
 
 namespace ByteScoutWebApiExample
 {
-	class Program
+    class Program
 	{
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
@@ -270,19 +268,22 @@ namespace ByteScoutWebApiExample
 					webClient.UploadFile(uploadUrl, "PUT", SourceFile); // You can use UploadData() instead if your file is byte[] or Stream
 					webClient.Headers.Remove("content-type");
 
-					// 3. PARSE UPLOADED PDF DOCUMENT
+                    // 3. PARSE UPLOADED PDF DOCUMENT
 
-                    // URL for `Document Parser` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/documentparser?url={0}&async={1}",
-                        uploadedFileUrl,
-                        Async));
+                    // URL of `Document Parser` API call
+                    string url = "https://api.pdf.co/v1/pdf/documentparser";
 
-                    Dictionary<string, string> requestBody = new Dictionary<string, string>();
+                    Dictionary<string, object> requestBody = new Dictionary<string, object>();
                     requestBody.Add("template", templateText);
+                    requestBody.Add("name", Path.GetFileName(DestinationFile));
+                    requestBody.Add("url", uploadedFileUrl);
+                    requestBody.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
                     // Execute request
-                    response = webClient.UploadString(query, "POST", JsonConvert.SerializeObject(requestBody));
+                    response = webClient.UploadString(url, "POST", jsonPayload);
                     
                     // Parse JSON response
                     json = JObject.Parse(response);

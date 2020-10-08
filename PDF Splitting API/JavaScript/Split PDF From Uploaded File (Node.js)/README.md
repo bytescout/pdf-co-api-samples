@@ -56,20 +56,20 @@ const Pages = "1-2,3-";
 
 // 1. RETRIEVE PRESIGNED URL TO UPLOAD FILE.
 getPresignedUrl(API_KEY, SourceFile)
-.then(([uploadUrl, uploadedFileUrl]) => {
-    // 2. UPLOAD THE FILE TO CLOUD.
-    uploadFile(API_KEY, SourceFile, uploadUrl)
-    .then(() => {
-        // 3. SPLIT UPLOADED PDF
-        splitPdf(API_KEY, uploadedFileUrl, Pages);
+    .then(([uploadUrl, uploadedFileUrl]) => {
+        // 2. UPLOAD THE FILE TO CLOUD.
+        uploadFile(API_KEY, SourceFile, uploadUrl)
+            .then(() => {
+                // 3. SPLIT UPLOADED PDF
+                splitPdf(API_KEY, uploadedFileUrl, Pages);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     })
     .catch(e => {
         console.log(e);
     });
-})
-.catch(e => {
-    console.log(e);
-});
 
 
 function getPresignedUrl(apiKey, localFile) {
@@ -95,10 +95,10 @@ function getPresignedUrl(apiKey, localFile) {
                 }
             });
         })
-        .on("error", (e) => {
-            // Request error
-            console.log("getPresignedUrl(): " + e);
-        });
+            .on("error", (e) => {
+                // Request error
+                console.log("getPresignedUrl(): " + e);
+            });
     });
 }
 
@@ -126,15 +126,25 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function splitPdf(apiKey, uploadedFileUrl, pages) {
     // Prepare request to `Make Searchable PDF` API endpoint
-    var queryPath = `/v1/pdf/split?pages=${pages}&url=${uploadedFileUrl}`;
-    let reqOptions = {
+    var queryPath = `/v1/pdf/split`;
+
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        pages: pages, url: uploadedFileUrl
+    });
+
+    var reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        method: "POST",
+        path: queryPath,
+        headers: {
+            "x-api-key": apiKey,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
             // Parse JSON response
@@ -147,9 +157,9 @@ function splitPdf(apiKey, uploadedFileUrl, pages) {
                     var file = fs.createWriteStream(localFileName);
                     https.get(url, (response2) => {
                         response2.pipe(file)
-                        .on("close", () => {
-                            console.log(`Generated PDF file saved as "${localFileName}" file.`);
-                        });
+                            .on("close", () => {
+                                console.log(`Generated PDF file saved as "${localFileName}" file.`);
+                            });
                     });
                     part++;
                 }, this);
@@ -160,13 +170,15 @@ function splitPdf(apiKey, uploadedFileUrl, pages) {
             }
         });
     })
-    .on("error", (e) => {
-        // Request error
-        console.log("readBarcodes(): " + e);
-    });
+        .on("error", (e) => {
+            // Request error
+            console.log("readBarcodes(): " + e);
+        });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
-
-
 ```
 
 <!-- code block end -->    

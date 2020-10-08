@@ -59,20 +59,20 @@ const DestinationFile = "./result.xml";
 
 // 1. RETRIEVE PRESIGNED URL TO UPLOAD FILE.
 getPresignedUrl(API_KEY, SourceFile)
-.then(([uploadUrl, uploadedFileUrl]) => {
-    // 2. UPLOAD THE FILE TO CLOUD.
-    uploadFile(API_KEY, SourceFile, uploadUrl)
-    .then(() => {
-        // 3. CONVERT UPLOADED PDF FILE TO XML
-        convertPdfToXml(API_KEY, uploadedFileUrl, Password, Pages, DestinationFile);
+    .then(([uploadUrl, uploadedFileUrl]) => {
+        // 2. UPLOAD THE FILE TO CLOUD.
+        uploadFile(API_KEY, SourceFile, uploadUrl)
+            .then(() => {
+                // 3. CONVERT UPLOADED PDF FILE TO XML
+                convertPdfToXml(API_KEY, uploadedFileUrl, Password, Pages, DestinationFile);
+            })
+            .catch(e => {
+                console.log(e);
+            });
     })
     .catch(e => {
         console.log(e);
     });
-})
-.catch(e => {
-    console.log(e);
-});
 
 
 function getPresignedUrl(apiKey, localFile) {
@@ -98,10 +98,10 @@ function getPresignedUrl(apiKey, localFile) {
                 }
             });
         })
-        .on("error", (e) => {
-            // Request error
-            console.log("getPresignedUrl(): " + e);
-        });
+            .on("error", (e) => {
+                // Request error
+                console.log("getPresignedUrl(): " + e);
+            });
     });
 }
 
@@ -129,15 +129,25 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function convertPdfToXml(apiKey, uploadedFileUrl, password, pages, destinationFile) {
     // Prepare request to `PDF To XML` API endpoint
-    var queryPath = `/v1/pdf/convert/to/xml?name=${path.basename(destinationFile)}&password=${password}&pages=${pages}&url=${uploadedFileUrl}&async=True`;
-    let reqOptions = {
+    var queryPath = `/v1/pdf/convert/to/xml`;
+
+    // JSON payload for api request
+    var jsonPayload = JSON.stringify({
+        name: path.basename(destinationFile), password: password, pages: pages, url: uploadedFileUrl, async: true
+    });
+
+    var reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        method: "POST",
+        path: queryPath,
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
     // Send request
-    https.get(reqOptions, (response) => {
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
             // Parse JSON response
@@ -153,22 +163,37 @@ function convertPdfToXml(apiKey, uploadedFileUrl, password, pages, destinationFi
             }
         });
     })
-    .on("error", (e) => {
-        // Request error
-        console.log("convertPdfToXml(): " + e);
-    });
+        .on("error", (e) => {
+            // Request error
+            console.log("convertPdfToXml(): " + e);
+        });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 
 function checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile) {
-    let queryPath = `/v1/job/check?jobid=${jobId}`;
+    let queryPath = `/v1/job/check`;
+
+    // JSON payload for api request
+    let jsonPayload = JSON.stringify({
+        jobid: jobId
+    });
+
     let reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        path: queryPath,
+        method: "POST",
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
 
-    https.get(reqOptions, (response) => {
+    // Send request
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
 
@@ -178,7 +203,7 @@ function checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile) {
 
             if (data.status == "working") {
                 // Check again after 3 seconds
-                setTimeout(function(){
+                setTimeout(function () {
                     checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile);
                 }, 3000);
             }
@@ -197,6 +222,10 @@ function checkIfJobIsCompleted(jobId, resultFileUrl, destinationFile) {
             }
         })
     });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 
 ```

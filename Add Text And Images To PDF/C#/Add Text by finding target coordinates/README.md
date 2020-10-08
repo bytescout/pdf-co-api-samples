@@ -144,8 +144,11 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -167,11 +170,11 @@ namespace ByteScoutWebApiExample
         const string DestinationFile = @".\result.pdf";
 
         // Annotation params
-        private const string Type = "annotation";
-        private const string Text = "Some notes will go here... Some notes will go here.... Some notes will go here.....";
-        private const string FontName = "Times New Roman";
-        private const float FontSize = 12;
-        private const string Color = "FF0000";
+        const string Type = "annotation";
+        const string Text = "Some notes will go here... Some notes will go here.... Some notes will go here.....";
+        const string FontName = "Times New Roman";
+        const float FontSize = 12;
+        const string FontColor = "FF0000";
 
         static void Main(string[] args)
         {
@@ -183,32 +186,36 @@ namespace ByteScoutWebApiExample
 
             // * Add text annotation *
 
-            // Find Text coordinates to add Annotation
-            var oCoordinates = FindCoordinates(API_KEY, SourceFileUrl, "Notes");
+            // Find coordinates of key phrase to add annotation at the same Y coordinate
+            var coordinates = FindCoordinates(API_KEY, SourceFileUrl, "Notes");
+            var X = coordinates.X;
+            var Y = coordinates.Y + 25;
 
-            var X = oCoordinates.x;
-            var Y = oCoordinates.y + 25;
 
-
-            // Prepare URL for `PDF Edit` API call
-            string query = Uri.EscapeUriString(string.Format(
-                "https://api.pdf.co/v1/pdf/edit/add?name={0}&password={1}&pages={2}&url={3}&type={4}&x={5}&y={6}&text={7}&fontname={8}&size={9}&color={10}",
-                Path.GetFileName(DestinationFile),
-                Password,
-                Pages,
-                SourceFileUrl,
-                Type,
-                X,
-                Y,
-                Text,
-                FontName,
-                FontSize,
-                Color));
+            // Prepare requests params as JSON
+            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("name", Path.GetFileName(DestinationFile));
+            parameters.Add("password", Password);
+            parameters.Add("pages", Pages);
+            parameters.Add("url", SourceFileUrl);
+            parameters.Add("type", Type);
+            parameters.Add("x", X.ToString());
+            parameters.Add("y", Y.ToString());
+            parameters.Add("text", Text);
+            parameters.Add("fontname", FontName);
+            parameters.Add("size", FontSize.ToString(CultureInfo.InvariantCulture));
+            parameters.Add("color", FontColor);
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
             try
             {
-                // Execute request
-                string response = webClient.DownloadString(query);
+                // URL of "PDF Edit" endpoint
+                string url = "https://api.pdf.co/v1/pdf/edit/add";
+
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
                 // Parse JSON response
                 JObject json = JObject.Parse(response);
@@ -218,7 +225,7 @@ namespace ByteScoutWebApiExample
                     // Get URL of generated PDF file
                     string resultFileUrl = json["url"].ToString();
 
-                    // Download PDF file
+                    // Download generated PDF file
                     webClient.DownloadFile(resultFileUrl, DestinationFile);
 
                     Console.WriteLine("Generated PDF file saved as \"{0}\" file.", DestinationFile);
@@ -232,39 +239,44 @@ namespace ByteScoutWebApiExample
             {
                 Console.WriteLine(e.ToString());
             }
-
-            webClient.Dispose();
-
+            finally
+            {
+                webClient.Dispose();
+            }
+            
             Console.WriteLine();
             Console.WriteLine("Press any key...");
             Console.ReadKey();
         }
 
-
         /// <summary>
-        /// Find result coordinates
+        /// Find text coordinates
         /// </summary>
-        public static ResultCoOrdinates FindCoordinates(string API_KEY, string SourceFileUrl, string SearchString)
+        public static ResultCoordinates FindCoordinates(string apiKey, string sourceFileUrl, string searchString)
         {
-            ResultCoOrdinates oResult = null;
+            ResultCoordinates result = null;
 
             // Create standard .NET web client instance
             WebClient webClient = new WebClient();
 
             // Set API Key
-            webClient.Headers.Add("x-api-key", API_KEY);
+            webClient.Headers.Add("x-api-key", apiKey);
 
-            // Prepare URL for PDF text search API call.
-            // See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
-            string query = Uri.EscapeUriString(string.Format(
-                "https://api.pdf.co/v1/pdf/find?url={0}&searchString={1}",
-                SourceFileUrl,
-                SearchString));
+            // Prepare requests params as JSON
+            // See documentation: https://apidocs.pdf.co/?#pdf-search-text
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("url", sourceFileUrl);
+            parameters.Add("searchString", searchString);
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
             try
             {
-                // Execute request
-                string response = webClient.DownloadString(query);
+                // URL of "PDF Find" endpoint
+                string url = "https://api.pdf.co/v1/pdf/find";
+
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
                 // Parse JSON response
                 JObject json = JObject.Parse(response);
@@ -273,34 +285,35 @@ namespace ByteScoutWebApiExample
                 {
                     JToken item = json["body"][0];
 
-                    oResult = new ResultCoOrdinates
+                    result = new ResultCoordinates
                     {
-                        x = Convert.ToInt32(item["left"]),
-                        y = Convert.ToInt32(item["top"]),
-                        width = Convert.ToInt32(item["width"]),
-                        height = Convert.ToInt32(item["height"])
+                        X = Convert.ToInt32(item["left"]),
+                        Y = Convert.ToInt32(item["top"]),
+                        Width = Convert.ToInt32(item["width"]),
+                        Height = Convert.ToInt32(item["height"])
                     };
                 }
             }
             catch (WebException e)
             {
                 Console.WriteLine(e.ToString());
+                throw;
+            }
+            finally
+            {
+                webClient.Dispose();
             }
 
-            webClient.Dispose();
-
-            return oResult;
+            return result;
         }
     }
 
-
-
-    public class ResultCoOrdinates
+    public class ResultCoordinates
     {
-        public int x { get; set; }
-        public int y { get; set; }
-        public int width { get; set; }
-        public int height { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
     }
 
 }

@@ -143,8 +143,10 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -168,16 +170,21 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `Web Page to PDF` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/convert/from/url?name={0}&url={1}",
-				Path.GetFileName(DestinationFile),
-				SourceUrl));
+			// URL for `Web Page to PDF` API call
+			string url = "https://api.pdf.co/v1/pdf/convert/from/url";
+
+			// Prepare requests params as JSON
+			Dictionary<string, object> requestBody = new Dictionary<string, object>();
+			requestBody.Add("name", Path.GetFileName(DestinationFile));
+			requestBody.Add("url", SourceUrl);
+
+			// Convert dictionary of params to JSON
+			string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Execute POST request
+				var response = webClient.UploadString(url, "POST", jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);

@@ -192,6 +192,7 @@ EndGlobal
 Imports System.IO
 Imports System.Net
 Imports System.Threading
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -246,20 +247,29 @@ Module Module1
                 webClient.Headers.Add("content-type", "application/octet-stream")
                 webClient.UploadFile(uploadUrl, "PUT", SourceFile) ' You can use UploadData() instead if your file is byte array or Stream
 
+                ' Set JSON content type
+                webClient.Headers.Add("Content-Type", "application/json")
+
                 ' 3. CONVERT UPLOADED PDF FILE TO TXT
 
                 ' Prepare URL for `PDF To TXT` API call
-                query = Uri.EscapeUriString(String.Format(
-                    "https://api.pdf.co/v1/pdf/convert/to/text?name={0}&password={1}&pages={2}&url={3}&async={4}",
-                    Path.GetFileName(DestinationFile),
-                    Password,
-                    Pages,
-                    uploadedFileUrl,
-                    Async))
+                Dim url As String = "https://api.pdf.co/v1/pdf/convert/to/text"
+
+                ' Prepare requests params as JSON
+                ' See documentation: https : //apidocs.pdf.co
+                Dim parameters As New Dictionary(Of String, Object)
+                parameters.Add("name", Path.GetFileName(DestinationFile))
+                parameters.Add("password", Password)
+                parameters.Add("pages", Pages)
+                parameters.Add("url", uploadedFileUrl)
+                parameters.Add("async", Async)
+
+                ' Convert dictionary of params to JSON
+                Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
 
                 Try
-                    ' Execute request
-                    response = webClient.DownloadString(query)
+                    ' Execute POST request with JSON payload
+                    response = webClient.UploadString(url, jsonPayload)
 
                     ' Parse JSON response
                     json = JObject.Parse(response)

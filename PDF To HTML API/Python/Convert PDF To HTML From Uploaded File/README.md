@@ -74,19 +74,21 @@ def main(args = None):
 def convertPdfToHtml(uploadedFileUrl, destinationFile):
     """Converts PDF To Html using PDF.co Web API"""
 
+    # Prepare requests params as JSON
+    # See documentation: https://apidocs.pdf.co
+    parameters = {}
+    parameters["name"] = os.path.basename(destinationFile)
+    parameters["password"] = Password
+    parameters["pages"] = Pages
+    parameters["simple"] = PlainHtml
+    parameters["columns"] = ColumnLayout
+    parameters["url"] = uploadedFileUrl
+
     # Prepare URL for 'PDF To Html' API request
-    url = "{}/pdf/convert/to/html?name={}&password={}&pages={}&simple={}&columns={}&url={}".format(
-        BASE_URL,
-        os.path.basename(destinationFile),
-        Password,
-        Pages,
-        PlainHtml,
-        ColumnLayout,
-        uploadedFileUrl
-    )
+    url = "{}/pdf/convert/to/html".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.get(url, headers={ "x-api-key": API_KEY, "content-type": "application/octet-stream" })
+    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

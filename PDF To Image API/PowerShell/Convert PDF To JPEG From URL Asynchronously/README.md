@@ -59,13 +59,22 @@ $Async = $true
 
 
 # Prepare URL for `PDF To JPEG` API call
-$query = "https://api.pdf.co/v1/pdf/convert/to/jpg?password={0}&pages={1}&url={2}&async={3}" -f `
-    $Password, $Pages, $SourceFileUrl, $Async
-$query = [System.Uri]::EscapeUriString($query)
+$query = "https://api.pdf.co/v1/pdf/convert/to/jpg"
+
+# Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)
+# See documentation: https://apidocs.pdf.co
+$body = @{
+    "password" = $Password
+    "pages" = $Pages
+    "url" = $SourceFileUrl
+    "async" = $Async
+} | ConvertTo-Json
 
 try {
     # Execute request
-    $jsonResponse = Invoke-RestMethod -Method Get -Headers @{ "x-api-key" = $API_KEY } -Uri $query
+    $response = Invoke-WebRequest -Method Post -Headers @{ "x-api-key" = $API_KEY; "Content-Type" = "application/json" } -Body $body -Uri $query
+
+    $jsonResponse = $response.Content | ConvertFrom-Json
 
     if ($jsonResponse.error -eq $false) {
         # Asynchronous job ID

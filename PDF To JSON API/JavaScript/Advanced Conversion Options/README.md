@@ -54,24 +54,24 @@ const DestinationFile = "./result.json";
 Some of advanced options available through profiles:
 (it can be single/double-quoted and contain comments.)
 {
-	"profiles": [
-		{
-			"profile1": {
-				"SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
-				"ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
-				"SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
-				"ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
-				"ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
-				"LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
-				"ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
-				"Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
-				"ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
-				"DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
-				"CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
-				"CheckPermissions": true, // Ignore document permissions. Values: true / false
-			}
-		}
-	]
+    "profiles": [
+        {
+            "profile1": {
+                "SaveImages": "None", // Whether to extract images. Values: "None", "Embed".
+                "ImageFormat": "PNG", // Image format for extracted images. Values: "PNG", "JPEG", "GIF", "BMP".
+                "SaveVectors": false, // Whether to extract vector objects (vertical and horizontal lines). Values: true / false
+                "ExtractInvisibleText": true, // Invisible text extraction. Values: true / false
+                "ExtractShadowLikeText": true, // Shadow-like text extraction. Values: true / false
+                "LineGroupingMode": "None", // Values: "None", "GroupByRows", "GroupByColumns", "JoinOrphanedRows"
+                "ColumnDetectionMode": "ContentGroupsAndBorders", // Values: "ContentGroupsAndBorders", "ContentGroups", "Borders", "BorderedTables"
+                "Unwrap": false, // Unwrap grouped text in table cells. Values: true / false
+                "ShrinkMultipleSpaces": false, // Shrink multiple spaces in table cells that affect column detection. Values: true / false
+                "DetectNewColumnBySpacesRatio": 1, // Spacing ratio that affects column detection.
+                "CustomExtractionColumns": [ 0, 50, 150, 200, 250, 300 ], // Explicitly specify columns coordinates for table extraction.
+                "CheckPermissions": true, // Ignore document permissions. Values: true / false
+            }
+        }
+    ]
 }
 */
 
@@ -81,16 +81,25 @@ Some of advanced options available through profiles:
 const Profiles = '{ "profiles": [ { "profile1": { "TrimSpaces": "False", "PreserveFormattingOnTextExtraction": "True" } } ] }';
 
 // Prepare request to `PDF To JSON` API endpoint
-var queryPath = `/v1/pdf/convert/to/json?name=${path.basename(DestinationFile)}&password=${Password}&pages=${Pages}&url=${SourceFileUrl}&profiles=${Profiles}&async=True`;
+var queryPath = `/v1/pdf/convert/to/json`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(DestinationFile), password: Password, pages: Pages, url: SourceFileUrl, profiles: Profiles, async: true
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
 
         // Parse JSON response
@@ -112,16 +121,31 @@ https.get(reqOptions, (response) => {
     console.log(e);
 });
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
+
 function checkIfJobIsCompleted(jobId, resultFileUrl) {
-    let queryPath = `/v1/job/check?jobid=${jobId}`;
+    let queryPath = `/v1/job/check`;
+
+    // JSON payload for api request
+    let jsonPayload = JSON.stringify({
+        jobid: jobId
+    });
+
     let reqOptions = {
         host: "api.pdf.co",
-        path: encodeURI(queryPath),
-        method: "GET",
-        headers: { "x-api-key": API_KEY }
+        path: queryPath,
+        method: "POST",
+        headers: {
+            "x-api-key": API_KEY,
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+        }
     };
 
-    https.get(reqOptions, (response) => {
+    // Send request
+    var postRequest = https.request(reqOptions, (response) => {
         response.on("data", (d) => {
             response.setEncoding("utf8");
 
@@ -150,6 +174,10 @@ function checkIfJobIsCompleted(jobId, resultFileUrl) {
             }
         })
     });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 ```
 

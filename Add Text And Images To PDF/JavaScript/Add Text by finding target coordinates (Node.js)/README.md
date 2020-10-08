@@ -37,10 +37,6 @@ var https = require("https");
 var path = require("path");
 var fs = require("fs");
 
-// `request` module is required for file upload.
-// Use "npm install request" command to install.
-var request = require("request");
-
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co/documentation/api
 const API_KEY = "***********************************";
@@ -53,85 +49,117 @@ const SearchString = 'Notes';
 
 // Prepare URL for PDF text search API call.
 // See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
-var queryFindText = `https://api.pdf.co/v1/pdf/find`;
+var queryFindText = `/v1/pdf/find`;
+
+// JSON payload for find text
+var jsonPayload_findText = JSON.stringify({ url: SourceFileUrl, searchString: SearchString });
+
 let reqOptionsFindText = {
-    uri: queryFindText,
-    headers: { "x-api-key": API_KEY },
-    formData: {
-        url: SourceFileUrl,
-        searchString: SearchString
+    host: "api.pdf.co",
+    path: queryFindText,
+    method: "POST",
+    headers: {
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload_findText, 'utf8')
     }
 };
 
 // Send request
-request.get(reqOptionsFindText, function (error, responseFindText, bodyFindText) {
-    if (error) {
-        return console.error("Error: ", error);
-    }
+var postRequest_FindText = https.request(reqOptionsFindText, (response_findText) => {
+    response_findText.on("data", (d_findText) => {
+        // Parse JSON response
+        let dataFindText = JSON.parse(bodyFindText);
+        if (dataFindText.body.length > 0) {
+            var element = dataFindText.body[0];
+            console.log("Found text " + element["text"] + " at coordinates " + element["left"] + ", " + element["top"]);
 
-    // Parse JSON response
-    let dataFindText = JSON.parse(bodyFindText);
-    if (dataFindText.body.length > 0) {
-        var element = dataFindText.body[0];
-        console.log("Found text " + element["text"] + " at coordinates " + element["left"] + ", " + element["top"]);
+            // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
+            const Pages = "";
 
-        // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
-        const Pages = "";
+            // PDF document password. Leave empty for unprotected documents.
+            const Password = "";
 
-        // PDF document password. Leave empty for unprotected documents.
-        const Password = "";
+            // Destination PDF file name
+            const DestinationFile = "./result.pdf";
 
-        // Destination PDF file name
-        const DestinationFile = "./result.pdf";
+            // Text annotation params
+            const Type = "annotation";
+            const X = +element["left"];
+            const Y = +element["top"] + 25;
+            const Text = "Some notes will go here... Some notes will go here.... Some notes will go here.....";
+            const FontName = "Times New Roman";
+            const FontSize = 12;
+            const Color = "FF0000";
 
-        // Text annotation params
-        const Type = "annotation";
-        const X = +element["left"];
-        const Y = +element["top"] + 25;
-        const Text = "Some notes will go here... Some notes will go here.... Some notes will go here.....";
-        const FontName = "Times New Roman";
-        const FontSize = 12;
-        const Color = "FF0000";
+            // * Add Text *
+            // Prepare request to `PDF Edit` API endpoint
+            var queryPath = `/v1/pdf/edit/add`;
 
-        // * Add Text *
-        // Prepare request to `PDF Edit` API endpoint
-        var queryPath = `/v1/pdf/edit/add?name=${path.basename(DestinationFile)}&password=${Password}&pages=${Pages}&url=${SourceFileUrl}&type=${Type}&x=${X}&y=${Y}&text=${Text}&fontname=${FontName}&size=${FontSize}&color=${Color}`;
-        var reqOptions = {
-            host: "api.pdf.co",
-            path: encodeURI(queryPath),
-            headers: {
-                "x-api-key": API_KEY
-            }
-        };
-        // Send request
-        https.get(reqOptions, (response) => {
-            response.on("data", (d) => {
-                // Parse JSON response
-                var data = JSON.parse(d);
-
-                if (data.error == false) {
-                    // Download the PDF file
-                    var file = fs.createWriteStream(DestinationFile);
-                    https.get(data.url, (response2) => {
-                        response2.pipe(file).on("close", () => {
-                            console.log(`Generated PDF file saved to '${DestinationFile}' file.`);
-                        });
-                    });
-                }
-                else {
-                    // Service reported error
-                    console.log(data.message);
-                }
+            // JSON payload for api request
+            var jsonPayload = JSON.stringify({
+                name: path.basename(DestinationFile),
+                password: Password,
+                pages: Pages,
+                url: SourceFileUrl,
+                type: Type,
+                x: X,
+                y: Y,
+                text: Text,
+                fontname: FontName,
+                size: FontSize,
+                color: Color
             });
-        }).on("error", (e) => {
-            // Request error
-            console.error(e);
-        });
 
-    } else {
-        console.error("No result found.");
-    }
+            var reqOptions = {
+                host: "api.pdf.co",
+                path: queryPath,
+                headers: {
+                    "x-api-key": API_KEY,
+                    "Content-Type": "application/json",
+                    "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
+                }
+            };
+            // Send request
+            var postRequest = https.request(reqOptions, (response) => {
+                response.on("data", (d) => {
+                    // Parse JSON response
+                    var data = JSON.parse(d);
+
+                    if (data.error == false) {
+                        // Download the PDF file
+                        var file = fs.createWriteStream(DestinationFile);
+                        https.get(data.url, (response2) => {
+                            response2.pipe(file).on("close", () => {
+                                console.log(`Generated PDF file saved to '${DestinationFile}' file.`);
+                            });
+                        });
+                    }
+                    else {
+                        // Service reported error
+                        console.log(data.message);
+                    }
+                });
+            }).on("error", (e) => {
+                // Request error
+                console.error(e);
+            });
+
+            // Write request data
+            postRequest.write(jsonPayload);
+            postRequest.end();
+
+        } else {
+            console.error("No result found.");
+        }
+    }).on("error", (e) => {
+        console.error("Error: ", error);
+    })
 });
+
+// Write request data
+postRequest_FindText.write(jsonPayload_findText);
+postRequest_FindText.end();
 ```
 
 <!-- code block end -->    

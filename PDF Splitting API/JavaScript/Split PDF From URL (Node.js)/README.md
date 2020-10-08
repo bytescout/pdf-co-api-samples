@@ -49,19 +49,28 @@ const Pages = "1-2,3-";
 
 
 // Prepare request to `Split PDF` API endpoint
-var queryPath = `/v1/pdf/split?pages=${Pages}&url=${SourceFileUrl}`;
+var queryPath = `/v1/pdf/split`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    pages: Pages, url: SourceFileUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
-        var data = JSON.parse(d);        
+        var data = JSON.parse(d);
         if (data.error == false) {
             // Download generated PDF files
             var part = 1;
@@ -70,9 +79,9 @@ https.get(reqOptions, (response) => {
                 var file = fs.createWriteStream(localFileName);
                 https.get(url, (response2) => {
                     response2.pipe(file)
-                    .on("close", () => {
-                        console.log(`Generated PDF file saved as "${localFileName}" file.`);
-                    });
+                        .on("close", () => {
+                            console.log(`Generated PDF file saved as "${localFileName}" file.`);
+                        });
                 });
                 part++;
             }, this);
@@ -87,6 +96,9 @@ https.get(reqOptions, (response) => {
     console.error(e);
 });
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
 ```
 
 <!-- code block end -->    

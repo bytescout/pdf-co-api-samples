@@ -326,24 +326,30 @@ End Module
 ##### **SampleTicket.yml:**
     
 ```
-templateVersion: 3
+templateName: MakeMyTrip Booking
+templateVersion: 4
 templatePriority: 0
-sourceId: MakeMyTrip Booking
 detectionRules:
   keywords:
   - MakeMyTrip
   - Eticket-Dom-Flight
-fields:
-  BookingNo:
-    type: rectangle
+objects:
+- name: BookingNo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 198.75
     - 85.625
     - 96.875
     - 12.500001
     pageIndex: 0
-  BookingDate:
-    type: rectangle
+- name: BookingDate
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     dataType: date
     rectangle:
     - 133.125
@@ -351,24 +357,33 @@ fields:
     - 78.75
     - 12.500001
     pageIndex: 0
-  DepartureFrom:
-    type: rectangle
+- name: DepartureFrom
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 153
     - 176
     - 77
     - 8.5
     pageIndex: 0
-  ArrivalTo:
-    type: rectangle
+- name: ArrivalTo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 285
     - 176
     - 84
     - 8.5
     pageIndex: 0
-  DepartureAt:
-    type: rectangle
+- name: DepartureAt
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     dataType: date
     rectangle:
     - 153.75
@@ -376,8 +391,11 @@ fields:
     - 123.75
     - 10.625
     pageIndex: 0
-  ArrivalAt:
-    type: rectangle
+- name: ArrivalAt
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     dataType: date
     rectangle:
     - 288.125
@@ -385,48 +403,66 @@ fields:
     - 125.625008
     - 11.25
     pageIndex: 0
-  FlightType:
-    type: rectangle
+- name: FlightType
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 433.5
     - 159.5
     - 68
     - 10.5
     pageIndex: 0
-  FlightDuration:
-    type: rectangle
+- name: FlightDuration
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 474.375031
     - 170.625
     - 30.0000019
     - 10
     pageIndex: 0
-  CabinType:
-    type: rectangle
+- name: CabinType
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 463.125031
     - 194.375015
     - 51.25
     - 10
     pageIndex: 0
-  PassengerName:
-    type: rectangle
+- name: PassengerName
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 85
     - 238.125
     - 93.125
     - 14.375
     pageIndex: 0
-  PassengerType:
-    type: rectangle
+- name: PassengerType
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 229.375015
     - 238.125
     - 31.25
     - 13.75
     pageIndex: 0
-  AirlinePNR:
-    type: rectangle
+- name: AirlinePNR
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 375
     - 240.000015

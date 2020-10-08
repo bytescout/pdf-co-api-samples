@@ -145,18 +145,25 @@ else
 function PdfToHtml($apiKey, $uploadedFileUrl, $pages, $plainHtml, $columnLayout) 
 {
     // Create URL
-    $url = "https://api.pdf.co/v1/pdf/convert/to/html" . 
-        "?url=" . $uploadedFileUrl .
-        "&pages=" . $pages .
-        "&simple=" . $plainHtml . 
-        "&columns=" . $columnLayout;
+    $url = "https://api.pdf.co/v1/pdf/convert/to/html";
         
+    // Prepare requests params
+    $parameters = array();
+    $parameters["url"] = $uploadedFileUrl;
+    $parameters["pages"] = $pages;
+    $parameters["simple"] = $plainHtml;
+    $parameters["columns"] = $columnLayout;
+
+    // Create Json payload
+    $data = json_encode($parameters);
+
     // Create request
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey, "Content-type: application/json"));
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     // Execute request
     $result = curl_exec($curl);

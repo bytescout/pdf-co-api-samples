@@ -140,6 +140,8 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using System.Threading;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 // Cloud API asynchronous "PDF To TIFF" job example.
 // Allows to avoid timeout errors when processing huge or scanned PDF documents.
@@ -231,17 +233,22 @@ namespace ByteScoutWebApiExample
                     // 3. CONVERT UPLOADED PDF FILE TO TIFF
 
                     // Prepare URL for `PDF To TIFF` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/convert/to/tiff?name={0}&password={1}&pages={2}&url={3}&async={4}&profiles={5}", 
-                        Path.GetFileName(DestinationFile),
-                        Password,
-                        Pages,
-                        uploadedFileUrl,
-                        Async,
-                        Profiles));
+                    var url = "https://api.pdf.co/v1/pdf/convert/to/tiff";
 
-                    // Execute request
-                    response = webClient.DownloadString(query);
+                    // Prepare requests params as JSON
+                    Dictionary<string, object> parameters = new Dictionary<string, object>();
+                    parameters.Add("name", Path.GetFileName(DestinationFile));
+                    parameters.Add("password", Password);
+                    parameters.Add("pages", Pages);
+                    parameters.Add("url", uploadedFileUrl);
+                    parameters.Add("profiles", Profiles);
+                    parameters.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+                    // Execute POST request with JSON payload
+                    response = webClient.UploadString(url, jsonPayload);
 
                     // Parse JSON response
                     json = JObject.Parse(response);
@@ -296,7 +303,6 @@ namespace ByteScoutWebApiExample
             }
 
             webClient.Dispose();
-
 
             Console.WriteLine();
             Console.WriteLine("Press any key...");

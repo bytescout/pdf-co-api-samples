@@ -39,30 +39,37 @@ var https = require("https");
 // Get your own by registering at https://app.pdf.co/documentation/api
 const API_KEY = "***********************************";
 
-
 // Direct URL of PDF file to get information
 const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-info/sample.pdf";
 
-
 // Prepare request to `PDF Info` API endpoint
-var queryPath = `/v1/pdf/info?url=${SourceFileUrl}`;
+var queryPath = `/v1/pdf/info`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    url: SourceFileUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
-        var data = JSON.parse(d);        
+        var data = JSON.parse(d);
         if (data.error == false) {
             // Display PDF document information
-            for (var key in data.info) {  
+            for (var key in data.info) {
                 console.log(`${key}: ${data.info[key]}`);
-            }  
+            }
         }
         else {
             // Service reported error
@@ -74,6 +81,9 @@ https.get(reqOptions, (response) => {
     console.error(e);
 });
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
 ```
 
 <!-- code block end -->    

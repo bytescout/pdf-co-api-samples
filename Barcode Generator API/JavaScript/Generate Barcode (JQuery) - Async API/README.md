@@ -51,16 +51,21 @@ $(document).ready(function () {
 $(document).on("click", "#submit", function () {
     apiKey = $("#apiKey").val().trim(); //Get your API key by registering at https://app.pdf.co/documentation/api
 
-    var url = "https://api.pdf.co/v1/barcode/generate?name=barcode.png";
-    url += "&type=" + $("#barcodeType").val(); // Set barcode type (symbology)
-    url += "&value=" + $("#inputValue").val(); // Set barcode value
-    url += "&async=True"; // Set async
+    var url = "https://api.pdf.co/v1/barcode/generate";
+
+    var oData = {
+        name: 'barcode.png',
+        type: $("#barcodeType").val(), // Set barcode type (symbology)
+        value: $("#inputValue").val(), // Set barcode value
+        async: true
+    };
 
     // Show loader
     $("#loader").show();
 
     $.ajax({
         url: url,
+        data: oData,
         type: "GET",
         headers: {
             "x-api-key": apiKey
@@ -87,7 +92,7 @@ $(document).on("click", "#submit", function () {
 function checkIfJobIsCompleted(jobId, resultFileUrl) {
     $.ajax({
         url: 'https://api.pdf.co/v1/job/check?jobid=' + jobId,
-        type: 'GET',
+        type: 'POST',
         headers: { 'x-api-key': apiKey }, // passing our api key
         success: function (jobResult) {
 

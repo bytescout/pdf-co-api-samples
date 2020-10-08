@@ -138,9 +138,11 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -197,15 +199,20 @@ namespace ByteScoutWebApiExample
 
                     // 3. SPLIT UPLOADED PDF
 
-                    // Prepare URL for `Split PDF` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/split?pages={0}&url={1}&async={2}",
-                        Pages,
-                        uploadedFileUrl,
-                        Async));
+                    // URL for `Split PDF` API call
+                    var url = "https://api.pdf.co/v1/pdf/split";
 
-                    // Execute request
-                    response = webClient.DownloadString(query);
+                    // Prepare requests params as JSON
+                    Dictionary<string, object> parameters = new Dictionary<string, object>();
+                    parameters.Add("pages", Pages);
+                    parameters.Add("url", uploadedFileUrl);
+                    parameters.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+                    // Execute POST request with JSON payload
+                    response = webClient.UploadString(url, jsonPayload);
 
                     // Parse JSON response
                     json = JObject.Parse(response);
@@ -278,7 +285,6 @@ namespace ByteScoutWebApiExample
 			}
 
 			webClient.Dispose();
-
 
 			Console.WriteLine();
 			Console.WriteLine("Press any key...");

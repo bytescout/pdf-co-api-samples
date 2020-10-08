@@ -147,6 +147,8 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using System.Threading;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 
 // Cloud API asynchronous "Web Page to PDF" job example.
@@ -177,16 +179,21 @@ namespace ByteScoutWebApiExample
 			webClient.Headers.Add("x-api-key", API_KEY);
 
 			// Prepare URL for `Web Page to PDF` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/pdf/convert/from/url?name={0}&url={1}&async={2}",
-				Path.GetFileName(DestinationFile),
-				SourceUrl,
-				Async));
+			string url = "https://api.pdf.co/v1/pdf/convert/from/url";
+
+			// Prepare requests params as JSON
+			Dictionary<string, object> parameters = new Dictionary<string, object>();
+			parameters.Add("name", Path.GetFileName(DestinationFile));
+			parameters.Add("url", SourceUrl);
+			parameters.Add("async", true);
+
+			// Convert dictionary of params to JSON
+			string jsonPayload = JsonConvert.SerializeObject(parameters);
 
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+				// Execute POST request with JSON payload
+				string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);

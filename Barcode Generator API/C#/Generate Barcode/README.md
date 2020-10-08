@@ -143,8 +143,10 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -155,6 +157,7 @@ namespace ByteScoutWebApiExample
 		// Get your own by registering at https://app.pdf.co/documentation/api
 		const String API_KEY = "***********************************";
 		
+
 		// Result file name
 		const string ResultFileName = @".\barcode.png";
 		// Barcode type. See valid barcode types in the documentation https://secure.bytescout.com/cloudapi.html#api-Default-barcodeGenerateGet
@@ -171,17 +174,22 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-			// Prepare URL for `Barcode Generator` API call
-			string query = Uri.EscapeUriString(string.Format(
-				"https://api.pdf.co/v1/barcode/generate?name={0}&type={1}&value={2}", 
-				Path.GetFileName(ResultFileName), 
-				BarcodeType, 
-				BarcodeValue));
-
+			// Prepare requests params as JSON
+            // See documentation: https://apidocs.pdf.co/#barcode-generator
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("name", Path.GetFileName(ResultFileName));
+            parameters.Add("type", BarcodeType);
+            parameters.Add("value", BarcodeValue);
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
+			
 			try
 			{
-				// Execute request
-				string response = webClient.DownloadString(query);
+                // URL of "Barcode Generator" endpoint
+                string url = "https://api.pdf.co/v1/barcode/generate";
+
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
 
 				// Parse JSON response
 				JObject json = JObject.Parse(response);
@@ -191,7 +199,7 @@ namespace ByteScoutWebApiExample
 					// Get URL of generated barcode image file
 					string resultFileURI = json["url"].ToString();
 					
-					// Download the image file
+					// Download generated image file
 					webClient.DownloadFile(resultFileURI, ResultFileName);
 
 					Console.WriteLine("Generated barcode saved to \"{0}\" file.", ResultFileName);
@@ -205,8 +213,10 @@ namespace ByteScoutWebApiExample
 			{
 				Console.WriteLine(e.ToString());
 			}
-
-			webClient.Dispose();
+            finally
+            {
+                webClient.Dispose();
+            }
 			
 
 			Console.WriteLine();

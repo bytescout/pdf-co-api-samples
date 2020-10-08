@@ -33,61 +33,88 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ##### **AmazonAWS.yml:**
     
 ```
----
-templateVersion: 3
+templateName: Amazon Web Services Invoice
+templateVersion: 4
 templatePriority: 0
-sourceId: Amazon Web Services Invoice
 detectionRules:
   keywords:
   - Amazon Web Services
   - ATTN
   - Invoice
-fields:
-  total:
-    type: macros
-    expression: 'TOTAL AMOUNT DUE ON{{Anything}}{{Dollar}}({{Number}})'
+objects:
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: TOTAL AMOUNT DUE ON{{Anything}}{{Dollar}}({{Number}})
+    regex: true
     dataType: decimal
-  subTotal:
-    type: macros
+- name: subTotal
+  objectType: field
+  fieldProperties:
+    fieldType: macros
     expression: '{{LineStart}}{{Spaces}}Charges{{Spaces}}{{Dollar}}({{Number}})'
+    regex: true
     dataType: decimal
-  dateIssued:
-    type: macros
-    expression: 'Invoice Date:{{Spaces}}({{Anything}}){{LineEnd}}'
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: Invoice Date:{{Spaces}}({{Anything}}){{LineEnd}}
+    regex: true
     dataType: date
     dateFormat: MMMM d , yyyy
-  invoiceId:
-    type: macros
-    expression: 'Invoice Number:{{Spaces}}({{Digits}})'
-  companyName:
-    type: static
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: Invoice Number:{{Spaces}}({{Digits}})
+    regex: true
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: Amazon Web Services, Inc.
-  companyWebsite:
-    type: static
+    regex: true
+- name: companyWebsite
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: aws.amazon.com
-  billTo:
-    type: rectangle
-    expression: 'Bill to Address:{{ToggleSingleLineMode}}({{AnythingGreedy}})'
+    regex: true
+- name: billTo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    expression: Bill to Address:{{ToggleSingleLineMode}}({{AnythingGreedy}})
+    regex: true
     rectangle:
     - 33
     - 115.5
     - 213.75
     - 72.75
     pageIndex: 0
-  currency:
-    type: static
+- name: currency
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: USD
-tables:
+    regex: true
 - name: table1
-  start:
-    expression: '{{LineStart}}{{Spaces}}Detail{{LineEnd}}'
-  end:
-    expression: '{{EndOfPage}}'
-  row:
-    expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}}){{LineEnd}}'
-  columns:
-  - name: unitPrice
-    type: decimal
+  objectType: table
+  tableProperties:
+    start:
+      expression: '{{LineStart}}{{Spaces}}Detail{{LineEnd}}'
+      regex: true
+    end:
+      expression: '{{EndOfPage}}'
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}}){{LineEnd}}'
+      regex: true
+    columns:
+    - name: unitPrice
+      dataType: decimal
 
 
 ```
@@ -216,78 +243,65 @@ EndGlobal
 ##### **DigitalOcean.yml:**
     
 ```
----
-templateVersion: 3
+templateName: DigitalOcean Invoice
+templateVersion: 4
 templatePriority: 0
-sourceId: DigitalOcean Invoice
 detectionRules:
   keywords:
-  # Template will match documents containing the following phrases:
   - DigitalOcean
   - 101 Avenue of the Americas
   - Invoice Number
-fields:
-  # Static field that will "DigitalOcean" to the result
-  companyName:
-    type: static
+objects:
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: DigitalOcean
-  # Macro field that will find the text "Invoice Number: 1234567" and return "1234567" to the result
-  invoiceId:
-    type: macros
+    regex: true
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    fieldType: macros
     expression: 'Invoice Number: ({{Digits}})'
-  # Macro field that will find the text "Date Issued: February 1, 2016" and return the date "February 1, 2016" in ISO format to the result
-  dateIssued:
-    type: macros
+    regex: true
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    fieldType: macros
     expression: 'Date Issued: ({{SmartDate}})'
+    regex: true
     dataType: date
     dateFormat: auto-mdy
-  # Macro field that will find the text "Total: 
-<!-- code block begin -->
-
-##### **{codeFileName}:**
-    
-```
-{code}
-```
-
-<!-- code block end -->    
-10.00" and return "110.00" to the result
-  total:
-    type: macros
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
     expression: 'Total: {{Dollar}}({{Number}})'
+    regex: true
     dataType: decimal
-  # Static field that will "USD" to the result
-  currency:
-    type: static
+- name: currency
+  objectType: field
+  fieldProperties:
+    fieldType: static
     expression: USD
-tables:
+    regex: true
 - name: table1
-  # The table will start after the text "Description     Hours"
-  start:
-    expression: 'Description{{Spaces}}Hours'
-  # The table will end before the text "Total:"
-  end:
-    expression: 'Total:'
-  # Macro expression that will find table rows "Website-Dev (1GB)    744    01-01 00:00    01-31 23:59    
-<!-- code block begin -->
-
-##### **{codeFileName}:**
-    
-```
-{code}
-```
-
-<!-- code block end -->    
-0.00", etc.
-  row:
-    # Groups <description>, <hours>, <start>, <end> and <unitPrice> will become columns in the result table.
-    expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<hours>{{Digits}}){{Spaces}}(?<start>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}(?<end>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}})'
-  # Suggest data types for table columns (missing columns will have the default "string" type):
-  columns:
-  - name: hours
-    type: integer
-  - name: unitPrice
-    type: decimal
+  objectType: table
+  tableProperties:
+    start:
+      expression: Description{{Spaces}}Hours
+      regex: true
+    end:
+      expression: 'Total:'
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<hours>{{Digits}}){{Spaces}}(?<start>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}(?<end>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}})'
+      regex: true
+    columns:
+    - name: hours
+      dataType: integer
+    - name: unitPrice
+      dataType: decimal
 
 
 ```
@@ -299,63 +313,96 @@ tables:
 ##### **Google.yml:**
     
 ```
----
-templateVersion: 3
+templateName: Google Invoice
+templateVersion: 4
 templatePriority: 0
-sourceId: Google Invoice
 detectionRules:
   keywords:
   - Google
   - 77-0493581
   - Invoice
-fields:
-  invoiceId:
-    expression: 'Invoice number:{{Spaces}}({{Digits}})'
-  dateIssued:
-    expression: 'Issue date:{{Spaces}}({{SmartDate}})'
+objects:
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    expression: Invoice number:{{Spaces}}({{Digits}})
+    regex: true
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    expression: Issue date:{{Spaces}}({{SmartDate}})
+    regex: true
     dataType: date
     dateFormat: MMM d, yyyy
-  total:
-    expression: 'Amount due in USD:{{Spaces}}{{Number}}'
+- name: total
+  objectType: field
+  fieldProperties:
+    expression: Amount due in USD:{{Spaces}}{{Number}}
+    regex: true
     dataType: decimal
-  subTotal:
-    expression: 'Subtotal in USD:{{Spaces}}{{Number}}'
+- name: subTotal
+  objectType: field
+  fieldProperties:
+    expression: Subtotal in USD:{{Spaces}}{{Number}}
+    regex: true
     dataType: decimal
-  taxRate:
-    expression: 'State sales tax {{OpeningParenthesis}}{{Digits}}{{Percent}}{{ClosingParenthesis}}'
+- name: taxRate
+  objectType: field
+  fieldProperties:
+    expression: State sales tax {{OpeningParenthesis}}{{Digits}}{{Percent}}{{ClosingParenthesis}}
+    regex: true
     dataType: integer
-  tax:
-    expression: 'State sales tax{{Anything}}{{Number}}{{LineEnd}}'
+- name: tax
+  objectType: field
+  fieldProperties:
+    expression: State sales tax{{Anything}}{{Number}}{{LineEnd}}
+    regex: true
     dataType: decimal
-  companyName:
-    type: static
-    expression: 'Google LLC'
-  billTo:
-    type: rectangle
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
+    expression: Google LLC
+    regex: true
+- name: billTo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
     rectangle:
     - 0
     - 152
     - 280
     - 72
     pageIndex: 0
-  billingId:
-    expression: 'Billing ID:{{Spaces}}({{DigitsOrSymbols}})'
-  currency:
-    type: static
-    expression: 'USD'
-tables:
+- name: billingId
+  objectType: field
+  fieldProperties:
+    expression: Billing ID:{{Spaces}}({{DigitsOrSymbols}})
+    regex: true
+- name: currency
+  objectType: field
+  fieldProperties:
+    fieldType: static
+    expression: USD
+    regex: true
 - name: table1
-  start:
-    expression: 'Description{{Spaces}}Interval{{Spaces}}Quantity{{Spaces}}Amount'
-  end:
-    expression: 'Subtotal in USD'
-  row:
-    expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<interval>{{3Letters}}{{Space}}{{Digits}}{{Space}}{{Minus}}{{Space}}{{3Letters}}{{Space}}{{Digits}}){{Spaces}}(?<quantity>{{Digits}}){{Spaces}}(?<amount>{{Number}})'
-  columns:
-  - name: quantity
-    type: integer
-  - name: amount
-    type: decimal
+  objectType: table
+  tableProperties:
+    start:
+      expression: Description{{Spaces}}Interval{{Spaces}}Quantity{{Spaces}}Amount
+      regex: true
+    end:
+      expression: Subtotal in USD
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<interval>{{3Letters}}{{Space}}{{Digits}}{{Space}}{{Minus}}{{Space}}{{3Letters}}{{Space}}{{Digits}}){{Spaces}}(?<quantity>{{Digits}}){{Spaces}}(?<amount>{{Number}})'
+      regex: true
+    columns:
+    - name: quantity
+      dataType: integer
+    - name: amount
+      dataType: decimal
 
 
 ```
@@ -384,7 +431,7 @@ namespace ByteScoutWebApiExample
 	{
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
-		const String API_KEY = "***********************************";
+		const String API_KEY = "*************************";
 		
 		// Source PDF file
 		const string SourceFile = @".\AmazonAWS.pdf";
@@ -444,19 +491,22 @@ namespace ByteScoutWebApiExample
 					webClient.UploadFile(uploadUrl, "PUT", SourceFile); // You can use UploadData() instead if your file is byte[] or Stream
 					webClient.Headers.Remove("content-type");
 
-					// 3. PARSE UPLOADED PDF DOCUMENT
+                    // 3. PARSE UPLOADED PDF DOCUMENT
 
-                    // URL for `Document Parser` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/documentparser?url={0}&async={1}",
-                        uploadedFileUrl,
-                        Async));
+                    // URL of `Document Parser` API call
+                    string url = "https://api.pdf.co/v1/pdf/documentparser";
 
-                    Dictionary<string, string> requestBody = new Dictionary<string, string>();
+                    Dictionary<string, object> requestBody = new Dictionary<string, object>();
                     requestBody.Add("template", templateText);
+                    requestBody.Add("name", Path.GetFileName(DestinationFile));
+                    requestBody.Add("url", uploadedFileUrl);
+                    requestBody.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
                     // Execute request
-                    response = webClient.UploadString(query, "POST", JsonConvert.SerializeObject(requestBody));
+                    response = webClient.UploadString(url, "POST", jsonPayload);
                     
                     // Parse JSON response
                     json = JObject.Parse(response);

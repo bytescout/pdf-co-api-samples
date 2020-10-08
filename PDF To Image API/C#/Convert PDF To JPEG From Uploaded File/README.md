@@ -146,8 +146,10 @@ EndGlobal
     
 ```
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
@@ -200,18 +202,23 @@ namespace ByteScoutWebApiExample
 
 					webClient.Headers.Add("content-type", "application/octet-stream");
 					webClient.UploadFile(uploadUrl, "PUT", SourceFile); // You can use UploadData() instead if your file is byte[] or Stream
-					
+
 					// 3. CONVERT UPLOADED PDF FILE TO JPEG
 
 					// Prepare URL for `PDF To JPEG` API call
-					query = Uri.EscapeUriString(string.Format(
-						"https://api.pdf.co/v1/pdf/convert/to/jpg?password={0}&pages={1}&url={2}",
-						Password,
-						Pages,
-						uploadedFileUrl));
+					var url = "https://api.pdf.co/v1/pdf/convert/to/jpg";
 
-					// Execute request
-					response = webClient.DownloadString(query);
+					// Prepare requests params as JSON
+					Dictionary<string, object> parameters = new Dictionary<string, object>();
+					parameters.Add("password", Password);
+					parameters.Add("pages", Pages);
+					parameters.Add("url", uploadedFileUrl);
+
+					// Convert dictionary of params to JSON
+					string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+					// Execute POST request with JSON payload
+					response = webClient.UploadString(url, jsonPayload);
 
 					// Parse JSON response
 					json = JObject.Parse(response);

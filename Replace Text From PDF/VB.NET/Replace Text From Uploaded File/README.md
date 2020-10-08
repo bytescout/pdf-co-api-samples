@@ -191,6 +191,7 @@ EndGlobal
 ```
 Imports System.IO
 Imports System.Net
+Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -239,16 +240,30 @@ Module Module1
 
 				webClient.Headers.Add("content-type", "application/octet-stream")
 				webClient.UploadFile(uploadUrl, "PUT", SourceFile) ' You can use UploadData() instead if your file is byte array or Stream
-				
+
+				' Set JSON content type
+				webClient.Headers.Add("Content-Type", "application/json")
+
 				' 3. Replace Text FROM UPLOADED PDF FILE
 
 				' Prepare URL for `Replace Text from PDF` API call
-				query = Uri.EscapeUriString(String.Format(
-					"https://api.pdf.co/v1/pdf/edit/replace-text?name={0}&password={1}&url={2}&searchString=The most conspicuous feature of&replaceString=replaced text",
-					Path.GetFileName(DestinationFile),
-					Password,
-					uploadedFileUrl))
+				Dim url As String = "https://api.pdf.co/v1/pdf/edit/replace-text"
 
+				' Prepare requests params as JSON
+				' See documentation: https : //apidocs.pdf.co
+				Dim parameters As New Dictionary(Of String, Object)
+				parameters.Add("name", Path.GetFileName(DestinationFile))
+				parameters.Add("password", Password)
+				parameters.Add("url", uploadedFileUrl)
+				parameters.Add("searchString", "The most conspicuous feature of")
+				parameters.Add("replaceString", "replaced text")
+
+				' Convert dictionary of params to JSON
+				Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+
+				' Execute POST request with JSON payload
+				response = webClient.UploadString(url, jsonPayload)
+				
 				' Execute request
 				response = webClient.DownloadString(query)
 

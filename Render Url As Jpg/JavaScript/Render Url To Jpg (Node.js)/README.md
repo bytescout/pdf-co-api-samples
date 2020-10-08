@@ -50,16 +50,25 @@ const DestinationFile = "./result.jpg";
 
 
 // Prepare request to `Url to Jpg` API endpoint
-var queryPath = `/v1/url/convert/to/jpg?name=${path.basename(DestinationFile)}&url=${InputUrl}`;
+var queryPath = `/v1/url/convert/to/jpg`;
+
+// JSON payload for api request
+var jsonPayload = JSON.stringify({
+    name: path.basename(DestinationFile), url: InputUrl
+});
+
 var reqOptions = {
     host: "api.pdf.co",
-    path: encodeURI(queryPath),
+    method: "POST",
+    path: queryPath,
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 // Send request
-https.get(reqOptions, (response) => {
+var postRequest = https.request(reqOptions, (response) => {
     response.on("data", (d) => {
         // Parse JSON response
         var data = JSON.parse(d);
@@ -83,6 +92,9 @@ https.get(reqOptions, (response) => {
     console.error(e);
 });
 
+// Write request data
+postRequest.write(jsonPayload);
+postRequest.end();
 ```
 
 <!-- code block end -->    

@@ -212,19 +212,23 @@ namespace BloodTestResultsToJson
 					webClient.UploadFile(uploadUrl, "PUT", SourceFile); // You can use UploadData() instead if your file is byte[] or Stream
 					webClient.Headers.Remove("content-type");
 
-					// 3. PARSE UPLOADED PDF DOCUMENT
+                    // 3. PARSE UPLOADED PDF DOCUMENT
 
-                    // URL for `Document Parser` API call
-                    query = Uri.EscapeUriString(string.Format(
-                        "https://api.pdf.co/v1/pdf/documentparser?url={0}&async={1}",
-                        uploadedFileUrl,
-                        Async));
+                    // URL of `Document Parser` API call
+                    string url = "https://api.pdf.co/v1/pdf/documentparser";
 
-                    Dictionary<string, string> requestBody = new Dictionary<string, string>();
+                    // Prepare requests params as JSON
+                    Dictionary<string, object> requestBody = new Dictionary<string, object>();
                     requestBody.Add("template", templateText);
+                    requestBody.Add("name", Path.GetFileName(DestinationFile));
+                    requestBody.Add("url", uploadedFileUrl);
+                    requestBody.Add("async", Async);
+
+                    // Convert dictionary of params to JSON
+                    string jsonPayload = JsonConvert.SerializeObject(requestBody);
 
                     // Execute request
-                    response = webClient.UploadString(query, "POST", JsonConvert.SerializeObject(requestBody));
+                    response = webClient.UploadString(url, "POST", jsonPayload);
                     
                     // Parse JSON response
                     json = JObject.Parse(response);
@@ -314,22 +318,26 @@ namespace BloodTestResultsToJson
 ##### **SampleBloodReport.yml:**
     
 ```
-templateVersion: 3
+templateName: BloodTestTemplate
+templateVersion: 4
 templatePriority: 0
-sourceId: BloodTestTemplate
 detectionRules:
   keywords: []
-fields:
-  PatientName:
-    type: rectangle
+objects:
+- name: PatientName
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     rectangle:
     - 177.75
     - 123.75
     - 62.25
     - 12.75
     pageIndex: 0
-  ReportName:
-    type: rectangle
+- name: ReportName
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
     expression: '{{SmartDate}}'
     dataType: date
     rectangle:
@@ -338,15 +346,17 @@ fields:
     - 65.25
     - 12
     pageIndex: 0
-  TestResults:
-    type: rectangle
-    dataType: table
-    rectangle:
-    - 41.25
-    - 261.75
-    - 532.5
-    - 450.75
-    pageIndex: 0
+- name: TestResults
+  objectType: table
+  tableProperties:
+    start:
+      y: 261.75
+      pageIndex: 0
+    end:
+      y: 712.5
+      pageIndex: 0
+    left: 41.25
+    right: 573.75
     rowMergingRule: byBorders
 
 
