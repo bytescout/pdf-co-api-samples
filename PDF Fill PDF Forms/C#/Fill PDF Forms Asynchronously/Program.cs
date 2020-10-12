@@ -1,0 +1,162 @@
+//*******************************************************************************************//
+//                                                                                           //
+// Download Free Evaluation Version From: https://bytescout.com/download/web-installer       //
+//                                                                                           //
+// Also available as Web API! Get Your Free API Key: https://app.pdf.co/signup               //
+//                                                                                           //
+// Copyright © 2017-2020 ByteScout, Inc. All rights reserved.                                //
+// https://www.bytescout.com                                                                 //
+// https://pdf.co                                                                            //
+//                                                                                           //
+//*******************************************************************************************//
+
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Runtime.InteropServices;
+using System.Threading;
+
+namespace ByteScoutWebApiExample
+{
+    class Program
+    {
+        // The authentication key (API Key).
+        // Get your own by registering at https://app.pdf.co/documentation/api
+        const String API_KEY = "*************************";
+
+        // Direct URL of source PDF file.
+        const string SourceFileUrl = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-form/f1040.pdf";
+        // PDF document password. Leave empty for unprotected documents.
+        const string Password = "";
+        // File name for generated output. Must be a String
+        const string FileName = "f1040-form-filled";
+
+        // Destination File Name
+        const string DestinationFile = "./result.pdf";
+
+        static void Main(string[] args)
+        {
+            // Create standard .NET web client instance
+            WebClient webClient = new WebClient();
+
+            // Set API Key
+            webClient.Headers.Add("x-api-key", API_KEY);
+
+            // Values to fill out pdf fields with built-in pdf form filler
+            var fields = new List<object> {
+                new { fieldName = "topmostSubform[0].Page1[0].FilingStatus[0].c1_01[1]", pages = "1", text = "True" },
+                new { fieldName = "topmostSubform[0].Page1[0].f1_02[0]", pages = "1", text = "John A." },
+                new { fieldName = "topmostSubform[0].Page1[0].f1_03[0]", pages = "1", text = "Doe" },
+                new { fieldName = "topmostSubform[0].Page1[0].YourSocial_ReadOrderControl[0].f1_04[0]", pages = "1", text = "123456789" },
+                new { fieldName = "topmostSubform[0].Page1[0].YourSocial_ReadOrderControl[0].f1_05[0]", pages = "1", text = "John  B." },
+                new { fieldName = "topmostSubform[0].Page1[0].YourSocial_ReadOrderControl[0].f1_06[0]", pages = "1", text = "Doe" },
+                new { fieldName = "topmostSubform[0].Page1[0].YourSocial_ReadOrderControl[0].f1_07[0]", pages = "1", text = "987654321" }
+            };
+
+            // If enabled, Runs processing asynchronously. Returns Use JobId that you may use with /job/check to check state of the processing (possible states: working, 
+            var async = true; // (!) Make asynchronous job
+
+            // Prepare requests params as JSON
+            // See documentation: https://apidocs.pdf.co
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("url", SourceFileUrl);
+            parameters.Add("name", FileName);
+            parameters.Add("password", Password);
+            parameters.Add("async", async);
+            parameters.Add("fields", fields);
+
+            // Convert dictionary of params to JSON
+            string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+            try
+            {
+                // URL of "PDF Edit" endpoint
+                string url = "https://api.pdf.co/v1/pdf/edit/add";
+
+                // Execute POST request with JSON payload
+                string response = webClient.UploadString(url, jsonPayload);
+
+                // Parse JSON response
+                JObject json = JObject.Parse(response);
+
+                if (json["error"].ToObject<bool>() == false)
+                {
+                    // Asynchronous job ID
+                    string jobId = json["jobId"].ToString();
+                    // URL of generated PDF file that will available after the job completion
+                    string resultFileUrl = json["url"].ToString();
+
+                    // Check the job status in a loop. 
+                    // If you don't want to pause the main thread you can rework the code 
+                    // to use a separate thread for the status checking and completion.
+                    do
+                    {
+                        string status = CheckJobStatus(jobId); // Possible statuses: "working", "failed", "aborted", "success".
+
+                        // Display timestamp and status (for demo purposes)
+                        Console.WriteLine(DateTime.Now.ToLongTimeString() + ": " + status);
+
+                        if (status == "success")
+                        {
+                            // Download PDF file
+                            webClient.DownloadFile(resultFileUrl, DestinationFile);
+
+                            Console.WriteLine("Generated PDF file saved as \"{0}\" file.", DestinationFile);
+                            break;
+                        }
+                        else if (status == "working")
+                        {
+                            // Pause for a few seconds
+                            Thread.Sleep(3000);
+                        }
+                        else
+                        {
+                            Console.WriteLine(status);
+                            break;
+                        }
+                    }
+                    while (true);
+                }
+                else
+                {
+                    Console.WriteLine(json["message"].ToString());
+                }
+            }
+            catch (WebException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                webClient.Dispose();
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key...");
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Check job status
+        /// </summary>
+        static string CheckJobStatus(string jobId)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                // Set API Key
+                webClient.Headers.Add("x-api-key", API_KEY);
+
+                string url = "https://api.pdf.co/v1/job/check?jobid=" + jobId;
+
+                string response = webClient.DownloadString(url);
+                JObject json = JObject.Parse(response);
+
+                return Convert.ToString(json["status"]);
+            }
+        }
+
+    }
+}

@@ -14,6 +14,7 @@
 \HTML To PDF API
 \Image To PDF API
 \Invoice Parser API
+\PDF Fill PDF Forms
 \PDF Information API
 \PDF Make Searchable API
 \PDF Merging API
@@ -428,6 +429,32 @@
 \Invoice Parser API\Python\Get Invoice Info From URL
 \Invoice Parser API\VB.NET\Get Invoice Info From Uploaded File
 \Invoice Parser API\VB.NET\Get Invoice Info From URL
+\PDF Fill PDF Forms\C#
+\PDF Fill PDF Forms\cURL
+\PDF Fill PDF Forms\Java
+\PDF Fill PDF Forms\JavaScript
+\PDF Fill PDF Forms\PHP
+\PDF Fill PDF Forms\PowerShell
+\PDF Fill PDF Forms\Python
+\PDF Fill PDF Forms\VB.NET
+\PDF Fill PDF Forms\C#\Fill PDF Forms
+\PDF Fill PDF Forms\C#\Fill PDF Forms Asynchronously
+\PDF Fill PDF Forms\C#\Fill PDF Forms Simplified
+\PDF Fill PDF Forms\C#\Fill PDF Forms Simplified Asynchronously
+\PDF Fill PDF Forms\cURL\Fill PDF Forms
+\PDF Fill PDF Forms\cURL\Fill PDF Forms Simplified
+\PDF Fill PDF Forms\Java\Fill PDF Forms
+\PDF Fill PDF Forms\Java\Fill PDF Forms Simplified
+\PDF Fill PDF Forms\JavaScript\Fill PDF Forms
+\PDF Fill PDF Forms\JavaScript\Fill PDF Forms Simplified
+\PDF Fill PDF Forms\PHP\Fill PDF Forms
+\PDF Fill PDF Forms\PHP\Fill PDF Forms Simplified
+\PDF Fill PDF Forms\PowerShell\Fill PDF Forms
+\PDF Fill PDF Forms\PowerShell\Fill PDF Forms Simplified
+\PDF Fill PDF Forms\Python\Fill PDF Forms
+\PDF Fill PDF Forms\Python\Fill PDF Forms Simplified
+\PDF Fill PDF Forms\VB.NET\Fill PDF Forms
+\PDF Fill PDF Forms\VB.NET\Fill PDF Forms Simplified
 \PDF Information API\C#
 \PDF Information API\cURL
 \PDF Information API\Java
