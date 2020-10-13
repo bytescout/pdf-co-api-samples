@@ -14,6 +14,7 @@
 \HTML To PDF API
 \Image To PDF API
 \Invoice Parser API
+\PDF Create Fillable PDF Forms
 \PDF Fill PDF Forms
 \PDF Information API
 \PDF Make Searchable API
@@ -429,6 +430,22 @@
 \Invoice Parser API\Python\Get Invoice Info From URL
 \Invoice Parser API\VB.NET\Get Invoice Info From Uploaded File
 \Invoice Parser API\VB.NET\Get Invoice Info From URL
+\PDF Create Fillable PDF Forms\C#
+\PDF Create Fillable PDF Forms\cURL
+\PDF Create Fillable PDF Forms\Java
+\PDF Create Fillable PDF Forms\JavaScript
+\PDF Create Fillable PDF Forms\PHP
+\PDF Create Fillable PDF Forms\PowerShell
+\PDF Create Fillable PDF Forms\Python
+\PDF Create Fillable PDF Forms\VB.NET
+\PDF Create Fillable PDF Forms\C#\Fillable PDF Forms
+\PDF Create Fillable PDF Forms\cURL\Fillable PDF Forms
+\PDF Create Fillable PDF Forms\Java\Fillable PDF Forms
+\PDF Create Fillable PDF Forms\JavaScript\Fillable PDF Forms
+\PDF Create Fillable PDF Forms\PHP\Fillable PDF Forms
+\PDF Create Fillable PDF Forms\PowerShell\Fillable PDF Forms
+\PDF Create Fillable PDF Forms\Python\Fillable PDF Forms
+\PDF Create Fillable PDF Forms\VB.NET\Fillable PDF Forms
 \PDF Fill PDF Forms\C#
 \PDF Fill PDF Forms\cURL
 \PDF Fill PDF Forms\Java
