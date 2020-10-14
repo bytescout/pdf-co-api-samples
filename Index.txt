@@ -20,7 +20,7 @@
 \PDF Make Searchable API
 \PDF Merging API
 \PDF Optimization API
-\PDF Security
+\PDF Password And Security
 \PDF Splitting API
 \PDF Text Search API
 \PDF To CSV API
@@ -604,8 +604,30 @@
 \PDF Optimization API\VB.NET\Optimize PDF From Uploaded File
 \PDF Optimization API\VB.NET\Optimize PDF From URL
 \PDF Optimization API\VB.NET\Optimize PDF From URL Asynchronously
-\PDF Security\C#
-\PDF Security\C#\Protect PDF Document
+\PDF Password And Security\C#
+\PDF Password And Security\cURL
+\PDF Password And Security\Java
+\PDF Password And Security\JavaScript
+\PDF Password And Security\PHP
+\PDF Password And Security\PowerShell
+\PDF Password And Security\Python
+\PDF Password And Security\VB.NET
+\PDF Password And Security\C#\Protect PDF Document
+\PDF Password And Security\C#\Remove PDF Document Protection
+\PDF Password And Security\cURL\Protect PDF Document
+\PDF Password And Security\cURL\Remove PDF Document Protection
+\PDF Password And Security\Java\Protect PDF Document
+\PDF Password And Security\Java\Remove PDF Document Protection
+\PDF Password And Security\JavaScript\Protect PDF Document
+\PDF Password And Security\JavaScript\Remove PDF Document Protection
+\PDF Password And Security\PHP\Protect PDF Document
+\PDF Password And Security\PHP\Remove PDF Document Protection
+\PDF Password And Security\PowerShell\Protect PDF Document
+\PDF Password And Security\PowerShell\Remove PDF Document Protection
+\PDF Password And Security\Python\Protect PDF Document
+\PDF Password And Security\Python\Remove PDF Document Protection
+\PDF Password And Security\VB.NET\Protect PDF Document
+\PDF Password And Security\VB.NET\Remove PDF Document Protection
 \PDF Splitting API\C#
 \PDF Splitting API\cURL
 \PDF Splitting API\Java
