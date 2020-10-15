@@ -7,6 +7,7 @@
 \Delete Text From PDF
 \DOC To PDF API
 \Document Parser API
+\Email Extractor
 \Excel To CSV API
 \Excel To HTML API
 \Excel To JSON API
@@ -313,6 +314,22 @@
 \Document Parser API\VB.NET\Parse Uploaded File Asynchronously
 \Document Parser API\VB.NET\Parse with OCR
 \Document Parser API\VB.NET\Parsing and reading data from Airline Tickets
+\Email Extractor\Extract Email Attachments
+\Email Extractor\Get Email Information
+\Email Extractor\Extract Email Attachments\C#
+\Email Extractor\Extract Email Attachments\cURL
+\Email Extractor\Extract Email Attachments\Java
+\Email Extractor\Extract Email Attachments\JavaScript
+\Email Extractor\Extract Email Attachments\PHP
+\Email Extractor\Extract Email Attachments\PowerShell
+\Email Extractor\Extract Email Attachments\Python
+\Email Extractor\Get Email Information\C#
+\Email Extractor\Get Email Information\cURL
+\Email Extractor\Get Email Information\Java
+\Email Extractor\Get Email Information\JavaScript
+\Email Extractor\Get Email Information\PHP
+\Email Extractor\Get Email Information\PowerShell
+\Email Extractor\Get Email Information\Python
 \Excel To CSV API\cURL
 \Excel To CSV API\JavaScript
 \Excel To CSV API\cURL\Excel To CSV
