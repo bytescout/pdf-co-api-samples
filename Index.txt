@@ -12,11 +12,18 @@
 \Excel To HTML API
 \Excel To JSON API
 \Excel To PDF API
+\File Calculate Hash
+\File Delete
+\File Upload
+\File Upload for Small Files (up to 50KB)
 \HTML To PDF API
 \Image To PDF API
 \Invoice Parser API
+\Manage Background Jobs
 \PDF Create Fillable PDF Forms
+\PDF Delete Pages
 \PDF Fill PDF Forms
+\PDF Forms Info Reader
 \PDF Information API
 \PDF Make Searchable API
 \PDF Merging API
@@ -350,6 +357,60 @@
 \Excel To PDF API\cURL\Excel To PDF
 \Excel To PDF API\JavaScript\Convert Excel to PDF in JQuery
 \Excel To PDF API\JavaScript\Convert Excel to PDF in JQuery - Async API
+\File Calculate Hash\C#
+\File Calculate Hash\cURL
+\File Calculate Hash\Java
+\File Calculate Hash\JavaScript
+\File Calculate Hash\PHP
+\File Calculate Hash\PowerShell
+\File Calculate Hash\Python
+\File Delete\C#
+\File Delete\cURL
+\File Delete\Java
+\File Delete\JavaScript
+\File Delete\PHP
+\File Delete\PowerShell
+\File Delete\Python
+\File Upload\Generate Secure URL for Upload
+\File Upload\Put Upload File
+\File Upload\Generate Secure URL for Upload\C#
+\File Upload\Generate Secure URL for Upload\cURL
+\File Upload\Generate Secure URL for Upload\Java
+\File Upload\Generate Secure URL for Upload\JavaScript
+\File Upload\Generate Secure URL for Upload\PHP
+\File Upload\Generate Secure URL for Upload\PowerShell
+\File Upload\Generate Secure URL for Upload\Python
+\File Upload\Put Upload File\C#
+\File Upload\Put Upload File\cURL
+\File Upload\Put Upload File\Java
+\File Upload\Put Upload File\JavaScript
+\File Upload\Put Upload File\PHP
+\File Upload\Put Upload File\PowerShell
+\File Upload\Put Upload File\Python
+\File Upload for Small Files (up to 50KB)\Upload Small File
+\File Upload for Small Files (up to 50KB)\Upload Small File from Base64
+\File Upload for Small Files (up to 50KB)\Upload Small File from Url
+\File Upload for Small Files (up to 50KB)\Upload Small File\C#
+\File Upload for Small Files (up to 50KB)\Upload Small File\cURL
+\File Upload for Small Files (up to 50KB)\Upload Small File\Java
+\File Upload for Small Files (up to 50KB)\Upload Small File\JavaScript
+\File Upload for Small Files (up to 50KB)\Upload Small File\PHP
+\File Upload for Small Files (up to 50KB)\Upload Small File\PowerShell
+\File Upload for Small Files (up to 50KB)\Upload Small File\Python
+\File Upload for Small Files (up to 50KB)\Upload Small File from Base64\C#
+\File Upload for Small Files (up to 50KB)\Upload Small File from Base64\cURL
+\File Upload for Small Files (up to 50KB)\Upload Small File from Base64\Java
+\File Upload for Small Files (up to 50KB)\Upload Small File from Base64\JavaScript
+\File Upload for Small Files (up to 50KB)\Upload Small File from Base64\PHP
+\File Upload for Small Files (up to 50KB)\Upload Small File from Base64\PowerShell
+\File Upload for Small Files (up to 50KB)\Upload Small File from Base64\Python
+\File Upload for Small Files (up to 50KB)\Upload Small File from Url\C#
+\File Upload for Small Files (up to 50KB)\Upload Small File from Url\cURL
+\File Upload for Small Files (up to 50KB)\Upload Small File from Url\Java
+\File Upload for Small Files (up to 50KB)\Upload Small File from Url\JavaScript
+\File Upload for Small Files (up to 50KB)\Upload Small File from Url\PHP
+\File Upload for Small Files (up to 50KB)\Upload Small File from Url\PowerShell
+\File Upload for Small Files (up to 50KB)\Upload Small File from Url\Python
 \HTML To PDF API\C#
 \HTML To PDF API\cURL
 \HTML To PDF API\Java
@@ -447,6 +508,13 @@
 \Invoice Parser API\Python\Get Invoice Info From URL
 \Invoice Parser API\VB.NET\Get Invoice Info From Uploaded File
 \Invoice Parser API\VB.NET\Get Invoice Info From URL
+\Manage Background Jobs\C#
+\Manage Background Jobs\cURL
+\Manage Background Jobs\Java
+\Manage Background Jobs\JavaScript
+\Manage Background Jobs\PHP
+\Manage Background Jobs\PowerShell
+\Manage Background Jobs\Python
 \PDF Create Fillable PDF Forms\C#
 \PDF Create Fillable PDF Forms\cURL
 \PDF Create Fillable PDF Forms\Java
@@ -463,6 +531,13 @@
 \PDF Create Fillable PDF Forms\PowerShell\Fillable PDF Forms
 \PDF Create Fillable PDF Forms\Python\Fillable PDF Forms
 \PDF Create Fillable PDF Forms\VB.NET\Fillable PDF Forms
+\PDF Delete Pages\C#
+\PDF Delete Pages\cURL
+\PDF Delete Pages\Java
+\PDF Delete Pages\JavaScript
+\PDF Delete Pages\PHP
+\PDF Delete Pages\PowerShell
+\PDF Delete Pages\Python
 \PDF Fill PDF Forms\C#
 \PDF Fill PDF Forms\cURL
 \PDF Fill PDF Forms\Java
@@ -489,6 +564,13 @@
 \PDF Fill PDF Forms\Python\Fill PDF Forms Simplified
 \PDF Fill PDF Forms\VB.NET\Fill PDF Forms
 \PDF Fill PDF Forms\VB.NET\Fill PDF Forms Simplified
+\PDF Forms Info Reader\C#
+\PDF Forms Info Reader\cURL
+\PDF Forms Info Reader\Java
+\PDF Forms Info Reader\JavaScript
+\PDF Forms Info Reader\PHP
+\PDF Forms Info Reader\PowerShell
+\PDF Forms Info Reader\Python
 \PDF Information API\C#
 \PDF Information API\cURL
 \PDF Information API\Java
