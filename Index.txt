@@ -92,19 +92,26 @@
 \Barcode Generator API\Python
 \Barcode Generator API\VB.NET
 \Barcode Generator API\C#\Generate Barcode
+\Barcode Generator API\C#\QR Code With Redundancy Setting
 \Barcode Generator API\cURL\Generate Barcode
 \Barcode Generator API\Delphi\Generate Barcode
 \Barcode Generator API\Java\Generate Barcode
+\Barcode Generator API\Java\QR Code With Redundancy Setting
 \Barcode Generator API\JavaScript\Generate Barcode
 \Barcode Generator API\JavaScript\Generate Barcode (JQuery)
 \Barcode Generator API\JavaScript\Generate Barcode (JQuery) - Async API
 \Barcode Generator API\JavaScript\Generate Barcode (Node.js)
 \Barcode Generator API\JavaScript\Generate Barcode (Node.js) - Async API
 \Barcode Generator API\JavaScript\Generate Barcode - Async API
+\Barcode Generator API\JavaScript\QR Code With Redundancy Setting
 \Barcode Generator API\PHP\Generate Barcode
+\Barcode Generator API\PHP\QR Code With Redundancy Setting
 \Barcode Generator API\PowerShell\Generate Barcode
+\Barcode Generator API\PowerShell\QR Code With Redundancy Setting
 \Barcode Generator API\Python\Generate Barcode
+\Barcode Generator API\Python\QR Code With Redundancy Setting
 \Barcode Generator API\VB.NET\Generate Barcode
+\Barcode Generator API\VB.NET\QR Code With Redundancy Setting
 \Barcode Reader API\C#
 \Barcode Reader API\cURL
 \Barcode Reader API\Java
