@@ -328,8 +328,21 @@
 \Document Parser API\VB.NET\Parse Uploaded File Asynchronously
 \Document Parser API\VB.NET\Parse with OCR
 \Document Parser API\VB.NET\Parsing and reading data from Airline Tickets
+\Email Extractor\Email to PDF
 \Email Extractor\Extract Email Attachments
 \Email Extractor\Get Email Information
+\Email Extractor\Email to PDF\C#
+\Email Extractor\Email to PDF\cURL
+\Email Extractor\Email to PDF\Java
+\Email Extractor\Email to PDF\JavaScript
+\Email Extractor\Email to PDF\PHP
+\Email Extractor\Email to PDF\PowerShell
+\Email Extractor\Email to PDF\Python
+\Email Extractor\Email to PDF\VB.NET
+\Email Extractor\Email to PDF\C#\Email to PDF From Uploaded File
+\Email Extractor\Email to PDF\C#\Email to PDF From URL
+\Email Extractor\Email to PDF\VB.NET\Email to PDF From Uploaded File
+\Email Extractor\Email to PDF\VB.NET\Email to PDF From URL
 \Email Extractor\Extract Email Attachments\C#
 \Email Extractor\Extract Email Attachments\cURL
 \Email Extractor\Extract Email Attachments\Java
