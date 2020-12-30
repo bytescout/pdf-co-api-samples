@@ -64,8 +64,8 @@ let reqOptions = {
         name: path.basename(DestinationFile),
         password: Password,
         file: fs.createReadStream(SourceFile),
-        searchString: 'The most conspicuous feature of',
-        replaceString: 'replaced text'
+        searchString: 'Your Company Name',
+        replaceString: 'XYZ LLC'
     }
 };
 

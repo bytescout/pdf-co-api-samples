@@ -51,7 +51,7 @@ public class Main
     final static String API_KEY = "***********************************";
 
     // Direct URL of source PDF file.
-    final static String SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
+    final static String SourceFileUrl = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf";
     // PDF document password. Leave empty for unprotected documents.
     final static String Password = "";
     // Destination PDF file name
@@ -78,7 +78,7 @@ public class Main
         }
 
         // Create JSON payload
-		String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"url\": \"%s\", \"searchString\": \"The most conspicuous feature of\", \"replaceString\": \"replaced text\"}",
+		String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"url\": \"%s\", \"searchString\": \"Your Company Name\", \"replaceString\": \"XYZ LLC\"}",
                 DestinationFile.getFileName(),
                 Password,
                 SourceFileUrl);

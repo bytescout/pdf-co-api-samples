@@ -17,7 +17,7 @@
 $apiKey = "***********************************";
 
 // Direct URL of source PDF file. Check another example if you need to upload a local file to the cloud.
-$sourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
+$sourceFileUrl = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf";
 // PDF document password. Leave empty for unprotected documents.
 $password = "";
 
@@ -29,8 +29,8 @@ $url = "https://api.pdf.co/v1/pdf/edit/replace-text";
 $parameters = array();
 $parameters["password"] = $password;
 $parameters["url"] = $sourceFileUrl;
-$parameters["searchString"] = "The most conspicuous feature of";
-$parameters["replaceString"] = "replaced text";
+$parameters["searchString"] = "Your Company Name";
+$parameters["replaceString"] = "XYZ LLC";
 $parameters["async"] = true;  // (!) Make asynchronous job
 
 // Create Json payload

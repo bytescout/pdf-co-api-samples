@@ -45,8 +45,8 @@ try {
                 "name" = $(Split-Path $DestinationFile -Leaf)
                 "password" = $Password
                 "url" = $uploadedFileUrl
-                "searchString" = "The most conspicuous feature of"
-                "replaceString" = "replaced text"
+                "searchString" = "Your Company Name"
+                "replaceString" = "XYZ LLC"
             } | ConvertTo-Json
             
             # Execute request

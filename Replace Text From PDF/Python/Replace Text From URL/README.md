@@ -44,7 +44,7 @@ API_KEY = "******************************************"
 BASE_URL = "https://api.pdf.co/v1"
 
 # Direct URL of source PDF file.
-SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
+SourceFileURL = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf"
 # PDF document password. Leave empty for unprotected documents.
 Password = ""
 # Destination PDF file name
@@ -63,8 +63,8 @@ def replaceStringFromPdf(uploadedFileUrl, destinationFile):
     parameters["name"] = os.path.basename(destinationFile)
     parameters["password"] = Password
     parameters["url"] = uploadedFileUrl
-    parameters["searchString"] = "The most conspicuous feature of"
-    parameters["replaceString"] = "replaced text"
+    parameters["searchString"] = "Your Company Name"
+    parameters["replaceString"] = "XYZ LLC"
 
     # Prepare URL for 'Replace Text from PDF' API request
     url = "{}/pdf/edit/replace-text".format(BASE_URL)

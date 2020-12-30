@@ -21,7 +21,7 @@ var fs = require("fs");
 const API_KEY = "***********************************";
 
 // Direct URL of source PDF file.
-const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
+const SourceFileUrl = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf";
 // PDF document password. Leave empty for unprotected documents.
 const Password = "";
 // Destination PDF file name
@@ -33,7 +33,7 @@ var queryPath = `/v1/pdf/edit/replace-text`;
 
 // JSON payload for api request
 var jsonPayload = JSON.stringify({
-    name: path.basename(DestinationFile), password: Password, url: SourceFileUrl, async: true, searchString: 'The most conspicuous feature of', replaceString: 'replaced text'
+    name: path.basename(DestinationFile), password: Password, url: SourceFileUrl, async: true, searchString: 'Your Company Name', replaceString: 'XYZ LLC'
 });
 
 var reqOptions = {

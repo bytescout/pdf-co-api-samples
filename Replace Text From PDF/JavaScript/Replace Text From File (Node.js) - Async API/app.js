@@ -43,8 +43,8 @@ let reqOptions = {
         password: Password,
         async: 'True',
         file: fs.createReadStream(SourceFile),
-        searchString: 'The most conspicuous feature of',
-        replaceString: 'replaced text'
+        searchString: 'Your Company Name',
+        replaceString: 'XYZ LLC'
     },
 };
 

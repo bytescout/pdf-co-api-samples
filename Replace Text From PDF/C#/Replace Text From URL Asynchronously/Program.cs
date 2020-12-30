@@ -30,7 +30,7 @@ namespace ByteScoutWebApiExample
 		const String API_KEY = "***********************************";
 		
 		// Direct URL of source PDF file.
-		const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
+		const string SourceFileUrl = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf";
 		// PDF document password. Leave empty for unprotected documents.
 		const string Password = "";
 		// Destination PDF file name
@@ -56,8 +56,8 @@ namespace ByteScoutWebApiExample
 			parameters.Add("password", Password);
 			parameters.Add("url", SourceFileUrl);
 			parameters.Add("async", Async);
-			parameters.Add("searchString", "The most conspicuous feature of");
-			parameters.Add("replaceString", "replaced text");
+			parameters.Add("searchString", "Your Company Name");
+			parameters.Add("replaceString", "XYZ LLC");
 
 			// Convert dictionary of params to JSON
 			string jsonPayload = JsonConvert.SerializeObject(parameters);

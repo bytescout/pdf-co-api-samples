@@ -41,7 +41,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 $API_KEY = "***********************************"
 
 # Direct URL of source PDF file.
-$SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
+$SourceFileURL = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf"
 # PDF document password. Leave empty for unprotected documents.
 $Password = ""
 # Destination PDF file name
@@ -60,8 +60,8 @@ $body = @{
     "password" = $Password
     "url" = $SourceFileURL
     "async" = $Async
-    "searchString" = "The most conspicuous feature of"
-    "replaceString" = "replaced text"
+    "searchString" = "Your Company Name"
+    "replaceString" = "XYZ LLC"
 } | ConvertTo-Json
 
 try {

@@ -203,7 +203,7 @@ Module Module1
 	Const API_KEY As String = "***********************************"
 
 	' Direct URL of source PDF file.
-	Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
+	Const SourceFileUrl As String = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf"
 	' PDF document password. Leave empty for unprotected documents.
 	Const Password As String = ""
 	' Destination PDF file name
@@ -233,8 +233,8 @@ Module Module1
 		parameters.Add("password", Password)
 		parameters.Add("url", SourceFileUrl)
 		parameters.Add("async", Async)
-		parameters.Add("searchString", "The most conspicuous feature of")
-		parameters.Add("replaceString", "replaced text")
+		parameters.Add("searchString", "Your Company Name")
+		parameters.Add("replaceString", "XYZ LLC")
 
         ' Convert dictionary of params to JSON
         Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)

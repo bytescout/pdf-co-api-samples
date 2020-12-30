@@ -204,8 +204,8 @@ namespace ByteScoutWebApiExample
 					parameters.Add("name", Path.GetFileName(DestinationFile));
 					parameters.Add("password", Password);
 					parameters.Add("url", uploadedFileUrl);
-					parameters.Add("searchString", "The most conspicuous feature of");
-					parameters.Add("replaceString", "replaced text");
+					parameters.Add("searchString", "Your Company Name");
+					parameters.Add("replaceString", "XYZ LLC");
 
 					// Convert dictionary of params to JSON
 					string jsonPayload = JsonConvert.SerializeObject(parameters);

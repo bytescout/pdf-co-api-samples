@@ -66,8 +66,8 @@ def replaceStringFromPdf(uploadedFileUrl, destinationFile):
     parameters["name"] = os.path.basename(destinationFile)
     parameters["password"] = Password
     parameters["url"] = uploadedFileUrl
-    parameters["searchString"] = "The most conspicuous feature of"
-    parameters["replaceString"] = "replaced text"
+    parameters["searchString"] = "Your Company Name"
+    parameters["replaceString"] = "XYZ LLC"
 
     # Prepare URL for 'Replace Text from PDF' API request
     url = "{}/pdf/edit/replace-text".format(BASE_URL)

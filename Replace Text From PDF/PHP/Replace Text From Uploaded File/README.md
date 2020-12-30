@@ -138,8 +138,8 @@ function replaceStringFromPdf($apiKey, $uploadedFileUrl)
     $parameters = array();
     $parameters["name"] = "result.pdf";
     $parameters["url"] = $uploadedFileUrl;
-    $parameters["searchString"] = "The most conspicuous feature of";
-    $parameters["replaceString"] = "replaced text";
+    $parameters["searchString"] = "Your Company Name";
+    $parameters["replaceString"] = "XYZ LLC";
 
     // Create Json payload
     $data = json_encode($parameters);

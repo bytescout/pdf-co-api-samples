@@ -110,7 +110,7 @@ function replaceStringFromPdf(apiKey, uploadedFileUrl, password, destinationFile
 
     // JSON payload for api request
     var jsonPayload = JSON.stringify({
-        name: path.basename(destinationFile), password: password, url: uploadedFileUrl, searchString: 'The most conspicuous feature of', replaceString: 'replaced text'
+        name: path.basename(destinationFile), password: password, url: uploadedFileUrl, searchString: 'Your Company Name', replaceString: 'XYZ LLC'
     });
 
     var reqOptions = {

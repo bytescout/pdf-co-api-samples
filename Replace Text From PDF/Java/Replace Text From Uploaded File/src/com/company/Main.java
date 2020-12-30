@@ -110,7 +110,7 @@ public class Main
         }
 
         // Create JSON payload
-		String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"url\": \"%s\", \"searchString\": \"The most conspicuous feature of\", \"replaceString\": \"replaced text\"}",
+		String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"url\": \"%s\", \"searchString\": \"Your Company Name\", \"replaceString\": \"XYZ LLC\"}",
                 destinationFile.getFileName(),
                 password,
                 uploadedFileUrl);
