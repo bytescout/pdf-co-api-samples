@@ -155,8 +155,8 @@ function convertPdfToHtml(apiKey, uploadedFileUrl, password, pages, plainHtml, c
             // Request error
             console.log("convertPdfToHtml(): " + e);
         });
-}
 
-// Write request data
-postRequest.write(jsonPayload);
-postRequest.end();
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
+}

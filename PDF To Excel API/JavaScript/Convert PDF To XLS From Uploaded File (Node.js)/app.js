@@ -151,8 +151,8 @@ function convertPdfToXls(apiKey, uploadedFileUrl, password, pages, destinationFi
             // Request error
             console.log("readBarcodes(): " + e);
         });
-}
 
-// Write request data
-postRequest.write(jsonPayload);
-postRequest.end();
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
+}

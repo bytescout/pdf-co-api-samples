@@ -141,8 +141,9 @@ function getPdfInfo(apiKey, uploadedFileUrl) {
             // Request error
             console.log("getPdfInfo(): " + e);
         });
+
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
 }
 
-// Write request data
-postRequest.write(jsonPayload);
-postRequest.end();

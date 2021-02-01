@@ -154,8 +154,8 @@ function convertPdfToPng(apiKey, uploadedFileUrl, password, pages) {
             // Request error
             console.log("readBarcodes(): " + e);
         });
-}
 
-// Write request data
-postRequest.write(jsonPayload);
-postRequest.end();
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
+}

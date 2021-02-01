@@ -151,8 +151,8 @@ function convertPdfToTiff(apiKey, uploadedFileUrl, password, pages, destinationF
             // Request error
             console.log("convertPdfToTiff(): " + e);
         });
-}
 
-// Write request data
-postRequest.write(jsonPayload);
-postRequest.end();
+    // Write request data
+    postRequest.write(jsonPayload);
+    postRequest.end();
+}
