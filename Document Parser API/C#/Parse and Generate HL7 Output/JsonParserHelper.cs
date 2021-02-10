@@ -29,21 +29,28 @@ namespace HL7CreationFromJson
             // Get Object data from input file
             JObject jsonObj = JObject.Parse(jsonData);
 
+            var dKeyVal = new Dictionary<string, string>();
+            foreach (JObject prop in jsonObj["objects"])
+            {
+                dKeyVal.Add(Convert.ToString(prop["name"]), Convert.ToString(prop["value"]));
+            }
+
+
             var oRet = new JsonHL7Fields();
 
-            oRet.LabName = Convert.ToString(jsonObj["fields"]["labName"]["value"]);
+            oRet.LabName = dKeyVal["LabName"];
 
-            oRet.PatientLastName = Convert.ToString(jsonObj["fields"]["patientLastName"]["value"]);
-            oRet.PatientFirstName = Convert.ToString(jsonObj["fields"]["patientFirstName"]["value"]);
-            oRet.PatientSSN = Convert.ToString(jsonObj["fields"]["patientSSN"]["value"]);
-            oRet.PatientDOB = Convert.ToString(jsonObj["fields"]["patientDOB"]["value"]);
-            oRet.PatientPhoneHome = Convert.ToString(jsonObj["fields"]["patientHomePhone"]["value"]);
-            oRet.PatientPhoneWork = Convert.ToString(jsonObj["fields"]["patientWorkPhone"]["value"]);
-            oRet.PatientAddress = Convert.ToString(jsonObj["fields"]["patientAddress"]["value"]);
-            oRet.PatientChartNo = Convert.ToString(jsonObj["fields"]["patientChartNo"]["value"]);
+            oRet.PatientLastName = dKeyVal["PatientLastName"];
+            oRet.PatientFirstName = dKeyVal["PatientFirstName"];
+            oRet.PatientSSN = dKeyVal["PatientSSN"];
+            oRet.PatientDOB = dKeyVal["PatientDOB"];
+            oRet.PatientPhoneHome = dKeyVal["PatientHomePhone"];
+            oRet.PatientPhoneWork = dKeyVal["PatientWorkPhone"];
+            oRet.PatientAddress = dKeyVal["PatientAddress"];
+            oRet.PatientChartNo = dKeyVal["PatientChartNo"];
 
-            string patGenderMaleSelectedVal = Convert.ToString(jsonObj["fields"]["patientGenderMale"]["value"]);
-            string patGenderFemaleSelectedVal = Convert.ToString(jsonObj["fields"]["patientGenderFemale"]["value"]);
+            string patGenderMaleSelectedVal = dKeyVal["PatientGenderMale"];
+            string patGenderFemaleSelectedVal = dKeyVal["PatientGenderFemale"];
 
             if (!string.IsNullOrEmpty(patGenderMaleSelectedVal))
             {
@@ -54,20 +61,20 @@ namespace HL7CreationFromJson
                 oRet.PatientGender = "F";
             }
 
-            oRet.PhysicianName = Convert.ToString(jsonObj["fields"]["physicianName"]["value"]);
-            oRet.PhysicianAccountNo = Convert.ToString(jsonObj["fields"]["physicianAccountName"]["value"]);
-            oRet.PhysicianNpi = Convert.ToString(jsonObj["fields"]["physicianNPI"]["value"]);
+            oRet.PhysicianName = dKeyVal["PhysicianName"];
+            oRet.PhysicianAccountNo = dKeyVal["PhysicianAccountName"];
+            oRet.PhysicianNpi = dKeyVal["PhysicianNPI"];
 
-            oRet.InsuranceName = Convert.ToString(jsonObj["fields"]["insuranceName"]["value"]);
-            oRet.InsurancePolicy = Convert.ToString(jsonObj["fields"]["insurancePolicy"]["value"]);
-            oRet.InsuranceGroup = Convert.ToString(jsonObj["fields"]["insuranceGroup"]["value"]);
-            oRet.InsuredName = Convert.ToString(jsonObj["fields"]["insuredName"]["value"]);
-            oRet.InsuredSSN = Convert.ToString(jsonObj["fields"]["insuredSSN"]["value"]);
-            oRet.InsuredDob = Convert.ToString(jsonObj["fields"]["insuredDOB"]["value"]);
+            oRet.InsuranceName = dKeyVal["InsuranceName"];
+            oRet.InsurancePolicy = dKeyVal["InsurancePolicy"];
+            oRet.InsuranceGroup = dKeyVal["InsuranceGroup"];
+            oRet.InsuredName = dKeyVal["InsuredName"];
+            oRet.InsuredSSN = dKeyVal["InsuredSSN"];
+            oRet.InsuredDob = dKeyVal["InsuredDOB"];
 
-            string relToPatIsSelf = Convert.ToString(jsonObj["fields"]["relationToPatientIsSelf"]["value"]);
-            string relToPatIsSpouse = Convert.ToString(jsonObj["fields"]["relationToPatientIsSpouse"]["value"]);
-            string relToPatIsDependent = Convert.ToString(jsonObj["fields"]["relationToPatientIsDependent"]["value"]);
+            string relToPatIsSelf = dKeyVal["RelationToPatientIsSelf"];
+            string relToPatIsSpouse = dKeyVal["RelationToPatientIsSpouse"];
+            string relToPatIsDependent = dKeyVal["RelationToPatientIsDependent"];
 
             if (!string.IsNullOrEmpty(relToPatIsSelf))
             {
@@ -83,10 +90,10 @@ namespace HL7CreationFromJson
             }
 
             // Add Collection Date/Time
-            string colDate = Convert.ToString(jsonObj["fields"]["collectionDate"]["value"]);
-            string colTime = Convert.ToString(jsonObj["fields"]["collectionTime"]["value"]);
-            string colTimeIsAm = Convert.ToString(jsonObj["fields"]["collectionTimeIsAM"]["value"]);
-            string colTimeIsPm = Convert.ToString(jsonObj["fields"]["collectionTimeIsPM"]["value"]);
+            string colDate = dKeyVal["CollectionDate"];
+            string colTime = dKeyVal["CollectionTime"];
+            string colTimeIsAm = dKeyVal["CollectionTimeIsAM"];
+            string colTimeIsPm = dKeyVal["CollectionTimeIsPM"];
 
             string colTimeAmPm = "";
             if (!string.IsNullOrEmpty(colTimeIsAm))
@@ -102,7 +109,7 @@ namespace HL7CreationFromJson
 
 
             // Add ICD Codes
-            string IcdCodes = Convert.ToString(jsonObj["fields"]["icD10DxCodes"]["value"]);
+            string IcdCodes = dKeyVal["ICD10DxCodes"];
             if (!string.IsNullOrEmpty(IcdCodes))
             {
                 var arrIcdCodes = IcdCodes.Split(',');
@@ -114,8 +121,8 @@ namespace HL7CreationFromJson
             }
 
             // Add Question/Answers
-            string Ques_ClinicalHistoryIsRoutinePap = string.IsNullOrEmpty(Convert.ToString(jsonObj["fields"]["clinicalHistoryIsRoutinePap"]["value"])) ? "No" : "Yes";
-            string Ques_ClinicalHistoryIsAbnormalBleeding = string.IsNullOrEmpty(Convert.ToString(jsonObj["fields"]["clinicalHistoryIsAbnormalBleeding"]["value"])) ? "No" : "Yes";
+            string Ques_ClinicalHistoryIsRoutinePap = string.IsNullOrEmpty(dKeyVal["ClinicalHistoryIsRoutinePap"]) ? "No" : "Yes";
+            string Ques_ClinicalHistoryIsAbnormalBleeding = string.IsNullOrEmpty(dKeyVal["ClinicalHistoryIsAbnormalBleeding"]) ? "No" : "Yes";
 
             oRet.QuestionAnswer.Add(new KeyValuePair<string, string>("Is Routine PAP?", Ques_ClinicalHistoryIsRoutinePap));
             oRet.QuestionAnswer.Add(new KeyValuePair<string, string>("Is Abnormal Bleeding?", Ques_ClinicalHistoryIsAbnormalBleeding));
