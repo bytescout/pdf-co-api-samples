@@ -869,6 +869,7 @@
 \PDF To CSV API\PowerShell\Advanced Conversion Options
 \PDF To CSV API\PowerShell\Advanced Conversion Options With Rotated Input
 \PDF To CSV API\PowerShell\Convert PDF To CSV From Uploaded File
+\PDF To CSV API\PowerShell\Convert PDF To CSV From Uploaded File Asynchronously
 \PDF To CSV API\PowerShell\Convert PDF To CSV From URL
 \PDF To CSV API\PowerShell\Convert PDF To CSV From URL Asynchronously
 \PDF To CSV API\Python\Advanced Conversation Options
