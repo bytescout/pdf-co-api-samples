@@ -65,7 +65,7 @@ var reqOptions = {
     method: "POST",
     path: queryPath,
     headers: {
-        "x-api-key": apiKey,
+        "x-api-key": API_KEY,
         "Content-Type": "application/json",
         "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
