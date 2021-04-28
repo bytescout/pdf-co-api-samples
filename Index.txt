@@ -67,9 +67,11 @@
 \Add Text And Images To PDF\JavaScript\Add Image by finding target coordinates (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Image to Existing PDF (jQuery)
 \Add Text And Images To PDF\JavaScript\Add Image to Existing PDF (Node.js)
+\Add Text And Images To PDF\JavaScript\Add Image to Existing PDF Base64 (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Text by finding target coordinates (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Text to Existing PDF (jQuery)
 \Add Text And Images To PDF\JavaScript\Add Text to Existing PDF (Node.js)
+\Add Text And Images To PDF\JavaScript\Add Text to Existing PDF Base64 (Node.js)
 \Add Text And Images To PDF\PowerShell\Add Image by finding target coordinates
 \Add Text And Images To PDF\PowerShell\Add Images to Existing PDF
 \Add Text And Images To PDF\PowerShell\Add Text by finding target coordinates
@@ -252,6 +254,7 @@
 \DOC To PDF API\Delphi\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From URL
+\DOC To PDF API\JavaScript\Convert DOC To PDF From Base64 (Node.js)
 \DOC To PDF API\JavaScript\Convert DOC To PDF From File (Node.js)
 \DOC To PDF API\JavaScript\Convert DOC To PDF From File (Node.js) - Async API
 \DOC To PDF API\JavaScript\Convert DOC To PDF From Uploaded File (Node.js)

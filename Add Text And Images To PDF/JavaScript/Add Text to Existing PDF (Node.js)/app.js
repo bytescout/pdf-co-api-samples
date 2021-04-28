@@ -61,9 +61,12 @@ var jsonPayload = JSON.stringify({
 
 var reqOptions = {
     host: "api.pdf.co",
+    method: "POST",
     path: encodeURI(queryPath),
     headers: {
-        "x-api-key": API_KEY
+        "x-api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(jsonPayload, 'utf8')
     }
 };
 
