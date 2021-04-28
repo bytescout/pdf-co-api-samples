@@ -42,7 +42,6 @@
 \Render Url As Png
 \Replace Text From PDF
 \Replace Text With Image From PDF
-\Zapier
 \Add Text And Images To PDF\C#
 \Add Text And Images To PDF\cURL
 \Add Text And Images To PDF\Delphi
@@ -51,6 +50,7 @@
 \Add Text And Images To PDF\PowerShell
 \Add Text And Images To PDF\Python
 \Add Text And Images To PDF\VB.NET
+\Add Text And Images To PDF\Zapier
 \Add Text And Images To PDF\C#\Add Image by finding target coordinates
 \Add Text And Images To PDF\C#\Add Images to Existing PDF
 \Add Text And Images To PDF\C#\Add Text by finding target coordinates
@@ -82,6 +82,8 @@
 \Add Text And Images To PDF\VB.NET\Add Images to Existing PDF
 \Add Text And Images To PDF\VB.NET\Add Text by finding target coordinates
 \Add Text And Images To PDF\VB.NET\Add Text to Existing PDF
+\Add Text And Images To PDF\Zapier\PDF.co to Dropbox
+\Add Text And Images To PDF\Zapier\PDF.co to Google Drive
 \Barcode Generator API\C#
 \Barcode Generator API\cURL
 \Barcode Generator API\Delphi
@@ -91,6 +93,7 @@
 \Barcode Generator API\PowerShell
 \Barcode Generator API\Python
 \Barcode Generator API\VB.NET
+\Barcode Generator API\Zapier
 \Barcode Generator API\C#\Generate Barcode
 \Barcode Generator API\C#\QR Code With Redundancy Setting
 \Barcode Generator API\cURL\Generate Barcode
@@ -112,6 +115,7 @@
 \Barcode Generator API\Python\QR Code With Redundancy Setting
 \Barcode Generator API\VB.NET\Generate Barcode
 \Barcode Generator API\VB.NET\QR Code With Redundancy Setting
+\Barcode Generator API\Zapier\Generate Barcode and Save to Dropbox
 \Barcode Reader API\C#
 \Barcode Reader API\cURL
 \Barcode Reader API\Java
@@ -388,9 +392,11 @@
 \Excel To JSON API\JavaScript\Convert Excel to JSON in jQuery - Async API
 \Excel To PDF API\cURL
 \Excel To PDF API\JavaScript
+\Excel To PDF API\Zapier
 \Excel To PDF API\cURL\Excel To PDF
 \Excel To PDF API\JavaScript\Convert Excel to PDF in JQuery
 \Excel To PDF API\JavaScript\Convert Excel to PDF in JQuery - Async API
+\Excel To PDF API\Zapier\Google Sheets to PDF export type
 \File Calculate Hash\C#
 \File Calculate Hash\cURL
 \File Calculate Hash\Java
@@ -453,6 +459,7 @@
 \HTML To PDF API\PowerShell
 \HTML To PDF API\Python
 \HTML To PDF API\VB.NET
+\HTML To PDF API\Zapier
 \HTML To PDF API\C#\Convert Web Page To PDF From Link
 \HTML To PDF API\C#\Convert Web Page To PDF From Link Asynchronously
 \HTML To PDF API\C#\Generate PDF From HTML File
@@ -490,6 +497,8 @@
 \HTML To PDF API\VB.NET\Generate PDF From HTML File
 \HTML To PDF API\VB.NET\Generate PDF From Large HTML File
 \HTML To PDF API\VB.NET\Generate PDF Invoice From HTML Template
+\HTML To PDF API\Zapier\Google Forms to PDF
+\HTML To PDF API\Zapier\Pipedrive CRM to PDF
 \Image To PDF API\C#
 \Image To PDF API\cURL
 \Image To PDF API\Java
@@ -498,6 +507,7 @@
 \Image To PDF API\PowerShell
 \Image To PDF API\Python
 \Image To PDF API\VB.NET
+\Image To PDF API\Zapier
 \Image To PDF API\C#\Convert Images To PDF From Uploaded Files
 \Image To PDF API\C#\Convert Images To PDF From URLs
 \Image To PDF API\C#\Convert Images To PDF From URLs Asynchronously
@@ -518,6 +528,7 @@
 \Image To PDF API\VB.NET\Convert Images To PDF From Uploaded Files
 \Image To PDF API\VB.NET\Convert Images To PDF From URLs
 \Image To PDF API\VB.NET\Convert Images To PDF From URLs Asynchronously
+\Image To PDF API\Zapier\Multiple Images to PDF
 \Invoice Parser API\C#
 \Invoice Parser API\cURL
 \Invoice Parser API\Java
@@ -817,6 +828,7 @@
 \PDF Text Search API\PowerShell
 \PDF Text Search API\Python
 \PDF Text Search API\VB.NET
+\PDF Text Search API\Zapier
 \PDF Text Search API\C#\Async file upload and async Search Text
 \PDF Text Search API\C#\PDF Text Search from Uploaded File
 \PDF Text Search API\C#\PDF Text Search from Uploaded File Asynchronously
@@ -844,6 +856,7 @@
 \PDF Text Search API\VB.NET\PDF Text Search from Uploaded File Asynchronously
 \PDF Text Search API\VB.NET\PDF Text Search from URL
 \PDF Text Search API\VB.NET\PDF Text Search from URL Asynchronously
+\PDF Text Search API\Zapier\Search in PDF
 \PDF To CSV API\C#
 \PDF To CSV API\cURL
 \PDF To CSV API\Java
@@ -852,6 +865,7 @@
 \PDF To CSV API\PowerShell
 \PDF To CSV API\Python
 \PDF To CSV API\VB.NET
+\PDF To CSV API\Zapier
 \PDF To CSV API\C#\Advanced Conversion Options
 \PDF To CSV API\C#\Advanced Conversion Options With Rotated Input
 \PDF To CSV API\C#\Async file upload and async PDF to CSV
@@ -897,6 +911,7 @@
 \PDF To CSV API\VB.NET\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\VB.NET\Convert PDF To CSV From URL
 \PDF To CSV API\VB.NET\Convert PDF To CSV From URL Asynchronously
+\PDF To CSV API\Zapier\Gmail PDF Attachments to CSV
 \PDF To Excel API\C#
 \PDF To Excel API\cURL
 \PDF To Excel API\Java
@@ -1339,12 +1354,3 @@
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL Asynchronously
-\Zapier\Generate Barcode and Save to Dropbox
-\Zapier\Gmail PDF Attachments to CSV
-\Zapier\Google Forms to PDF
-\Zapier\Google Sheets to PDF export type
-\Zapier\Multiple Images to PDF
-\Zapier\PDF.co to Dropbox
-\Zapier\PDF.co to Google Drive
-\Zapier\Pipedrive CRM to PDF
-\Zapier\Search in PDF
