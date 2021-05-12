@@ -799,14 +799,25 @@
 \PDF Splitting API\Python
 \PDF Splitting API\VB.NET
 \PDF Splitting API\C#\Async file upload and async Split PDF
+\PDF Splitting API\C#\Async file upload and async Split PDF By Text
+\PDF Splitting API\C#\Split PDF By Text From Uploaded File
+\PDF Splitting API\C#\Split PDF By Text From URL
+\PDF Splitting API\C#\Split PDF By Text From URL Asynchronously
 \PDF Splitting API\C#\Split PDF From Uploaded File
 \PDF Splitting API\C#\Split PDF From URL
 \PDF Splitting API\C#\Split PDF From URL Asynchronously
 \PDF Splitting API\cURL\PDF Split
-\PDF Splitting API\cURL\Split PDF from File
-\PDF Splitting API\cURL\Split PDF From URL
+\PDF Splitting API\cURL\PDF Split By Text
+\PDF Splitting API\Java\Split PDF By Text From Uploaded File
+\PDF Splitting API\Java\Split PDF By Text From URL
 \PDF Splitting API\Java\Split PDF From Uploaded File
 \PDF Splitting API\Java\Split PDF From URL
+\PDF Splitting API\JavaScript\Split PDF By Text From File (Node.js)
+\PDF Splitting API\JavaScript\Split PDF By Text From File (Node.js) - Async API
+\PDF Splitting API\JavaScript\Split PDF By Text From Uploaded File (Node.js)
+\PDF Splitting API\JavaScript\Split PDF By Text From Uploaded File (Node.js) - Async API
+\PDF Splitting API\JavaScript\Split PDF By Text From URL (Node.js)
+\PDF Splitting API\JavaScript\Split PDF By Text From URL (Node.js) - Async API
 \PDF Splitting API\JavaScript\Split PDF From File (Node.js)
 \PDF Splitting API\JavaScript\Split PDF From File (Node.js) - Async API
 \PDF Splitting API\JavaScript\Split PDF From Uploaded File (Node.js)
@@ -814,13 +825,24 @@
 \PDF Splitting API\JavaScript\Split PDF From URL (Node.js)
 \PDF Splitting API\JavaScript\Split PDF From URL (Node.js) - Async API
 \PDF Splitting API\PHP\Split PDF Asynchronously
+\PDF Splitting API\PHP\Split PDF By Text Asynchronously
+\PDF Splitting API\PHP\Split PDF By Text From Uploaded File
 \PDF Splitting API\PHP\Split PDF From Uploaded File
+\PDF Splitting API\PowerShell\Split PDF By Text From Uploaded File
+\PDF Splitting API\PowerShell\Split PDF By Text From URL
+\PDF Splitting API\PowerShell\Split PDF By Text From URL Asynchronously
 \PDF Splitting API\PowerShell\Split PDF From Uploaded File
 \PDF Splitting API\PowerShell\Split PDF From URL
 \PDF Splitting API\PowerShell\Split PDF From URL Asynchronously
+\PDF Splitting API\Python\Split PDF By Text From Uploaded File
+\PDF Splitting API\Python\Split PDF By Text From Uploaded File Asynchronously
 \PDF Splitting API\Python\Split PDF From Uploaded File
 \PDF Splitting API\Python\Split PDF From Uploaded File Asynchronously
 \PDF Splitting API\VB.NET\Async file upload and async Split PDF
+\PDF Splitting API\VB.NET\Async file upload and async Split PDF By Text
+\PDF Splitting API\VB.NET\Split PDF By Text From Uploaded File
+\PDF Splitting API\VB.NET\Split PDF By Text From URL
+\PDF Splitting API\VB.NET\Split PDF By Text From URL Asynchronously
 \PDF Splitting API\VB.NET\Split PDF From Uploaded File
 \PDF Splitting API\VB.NET\Split PDF From URL
 \PDF Splitting API\VB.NET\Split PDF From URL Asynchronously

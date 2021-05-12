@@ -1,4 +1,4 @@
-## How to split PDF from URL for PDF splitting API in cURL using PDF.co Web API PDF.co Web API: the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
+## How to PDF split by text for PDF splitting API in cURL with PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -24,3 +24,20 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ## VIDEO REVIEW
 
 [https://www.youtube.com/watch?v=NEwNs2b9YN8](https://www.youtube.com/watch?v=NEwNs2b9YN8)
+
+
+
+
+<!-- code block begin -->
+
+##### **Split-PDF-from-File.cmd:**
+    
+```
+curl --location --request POST 'https://api.pdf.co/v1/pdf/split2' \
+--header 'x-api-key: {{x-api-key}}' \
+--form 'url=https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-split/multiple-invoices.pdf' \
+--form 'name=result.pdf' \
+--form 'searchString=invoice number'
+```
+
+<!-- code block end -->

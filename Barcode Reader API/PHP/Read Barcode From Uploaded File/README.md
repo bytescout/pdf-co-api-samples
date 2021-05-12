@@ -1,12 +1,4 @@
-## How to read barcode from uploaded file for barcode reader API in PHP with PDF.co Web API
-
-### How to read barcode from uploaded file in PHP with easy ByteScout code samples to make barcode reader API. Step-by-step tutorial
-
-ByteScout tutorials explain the code material for beginners and advanced programmers who are using PHP. PDF.co Web API helps with barcode reader API in PHP. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-Fast application programming interfaces of PDF.co Web API for PHP plus the instruction and the code below will help to learn how to read barcode from uploaded file. Sample code in PHP is all you need. Copy-paste it to your the code editor, then add a reference to PDF.co Web API and you are ready to try it! Further enhancement of the code will make it more vigorous.
-
-Our website provides free trial version of PDF.co Web API that includes source code samples to help with your PHP project.
+## How to read barcode from uploaded file for barcode reader API in PHP with PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -51,6 +43,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <?php 
 
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

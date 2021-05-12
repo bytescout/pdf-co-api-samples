@@ -1,4 +1,4 @@
-## How to replace text from PDF in PHP with PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
+## How to replace text from PDF in PHP and PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -42,6 +42,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

@@ -1,4 +1,4 @@
-## delete text from PDF in PHP using PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
+## delete text from PDF in PHP and PDF.co Web API PDF.co Web API: the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -42,6 +42,8 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

@@ -1,12 +1,4 @@
-## How to convert PDF to CSV from uploaded file for PDF to CSV API in PHP and PDF.co Web API
-
-### How to convert PDF to CSV from uploaded file for PDF to CSV API in PHP: Step By Step Tutorial
-
-Writing of the code to convert PDF to CSV from uploaded file in PHP can be done by developers of any level using PDF.co Web API. PDF.co Web API helps with PDF to CSV API in PHP. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-You will save a lot of time on writing and testing code as you may just take the code below and use it in your application. Sample code in PHP is all you need. Copy-paste it to your the code editor, then add a reference to PDF.co Web API and you are ready to try it! Tutorials are available along with installed PDF.co Web API if you'd like to dive deeper into the topic and the details of the API.
-
-ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are included.
+## How to convert PDF to CSV from uploaded file for PDF to CSV API in PHP with PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -50,6 +42,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

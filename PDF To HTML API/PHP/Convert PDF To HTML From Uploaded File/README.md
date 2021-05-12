@@ -1,12 +1,4 @@
-## How to convert PDF to HTML from uploaded file for PDF to HTML API in PHP using PDF.co Web API
-
-### How to convert PDF to HTML from uploaded file for PDF to HTML API in PHP: Step By Step Tutorial
-
-These source code samples are listed and grouped by their programming language and functions they use. PDF.co Web API was made to help with PDF to HTML API in PHP. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-The SDK samples like this one below explain how to quickly make your application do PDF to HTML API in PHP with the help of PDF.co Web API. Open your PHP project and simply copy & paste the code and then run your app! Writing PHP application typically includes multiple stages of the software development so even if the functionality works please test it with your data and the production environment.
-
-PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your PHP application included into trial version.
+## How to convert PDF to HTML from uploaded file for PDF to HTML API in PHP and PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -50,6 +42,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

@@ -1,4 +1,4 @@
-## How to remove PDF document protection for PDF password and security in PHP and PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
+## How to remove PDF document protection for PDF password and security in PHP using PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -42,6 +42,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

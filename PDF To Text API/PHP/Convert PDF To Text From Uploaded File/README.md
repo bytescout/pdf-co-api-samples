@@ -1,12 +1,4 @@
-## How to convert PDF to text from uploaded file for PDF to text API in PHP using PDF.co Web API
-
-### How to convert PDF to text from uploaded file for PDF to text API in PHP: How To Tutorial
-
-Writing of the code to convert PDF to text from uploaded file in PHP can be done by developers of any level using PDF.co Web API. PDF.co Web API was made to help with PDF to text API in PHP. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-PHP code samples for PHP developers help to speed up the application's code writing when using PDF.co Web API. Follow the instruction and copy - paste code for PHP into your project's code editor. Enjoy writing a code with ready-to-use sample PHP codes to add PDF to text API functions using PDF.co Web API in PHP.
-
-ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are included.
+## How to convert PDF to text from uploaded file for PDF to text API in PHP and PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -50,6 +42,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

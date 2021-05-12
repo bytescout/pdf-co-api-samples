@@ -1,12 +1,4 @@
-## How to convert DOC to PDF from uploaded file for DOC to PDF API in PHP using PDF.co Web API
-
-### Step By Step Tutorial: how to convert DOC to PDF from uploaded file for DOC to PDF API in PHP
-
-The documentation is designed to help you to implement the features on your side. PDF.co Web API was made to help with DOC to PDF API in PHP. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-PHP code samples for PHP developers help to speed up the application's code writing when using PDF.co Web API. This PHP sample code should be copied and pasted into your project. After doing this just compile your project and click Run. Enjoy writing a code with ready-to-use sample PHP codes to add DOC to PDF API functions using PDF.co Web API in PHP.
-
-ByteScout free trial version is available for FREE download from our website. Programming tutorials along with source code samples are included.
+## How to convert DOC to PDF from uploaded file for DOC to PDF API in PHP using PDF.co Web API PDF.co Web API: the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -50,6 +42,8 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

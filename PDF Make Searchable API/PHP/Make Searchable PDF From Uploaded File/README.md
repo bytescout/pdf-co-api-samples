@@ -1,12 +1,4 @@
-## How to PDF make searchable API in PHP with PDF.co Web API
-
-### The tutorial shows how to PDF make searchable API in PHP
-
-Sample source code below will show you how to cope with a difficult task like PDF make searchable API in PHP. What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf. It can help you to PDF make searchable API in your PHP application.
-
-Fast application programming interfaces of PDF.co Web API for PHP plus the instruction and the code below will help you quickly learn how to PDF make searchable API. In order to implement the functionality, you should copy and paste this code for PHP below into your code editor with your app, compile and run your application. This basic programming language sample code for PHP will do the whole work for you to PDF make searchable API.
-
-Free trial version of PDF.co Web API is available on our website. Documentation and source code samples are included.
+## How to PDF make searchable API in PHP with PDF.co Web API PDF.co Web API: the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -50,6 +42,8 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api

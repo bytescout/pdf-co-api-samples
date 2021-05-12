@@ -1,12 +1,4 @@
-## How to optimize PDF from uploaded file for PDF optimization API in PHP using PDF.co Web API
-
-### See how to optimize PDF from uploaded file to have PDF optimization API in PHP
-
-Source code documentation samples provide quick and easy way to add a required functionality into your application. PDF optimization API in PHP can be implemented with PDF.co Web API. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-Fast application programming interfaces of PDF.co Web API for PHP plus the instruction and the code below will help to learn how to optimize PDF from uploaded file. Sample code in PHP is all you need. Copy-paste it to your the code editor, then add a reference to PDF.co Web API and you are ready to try it! Enjoy writing a code with ready-to-use sample PHP codes to implement PDF optimization API using PDF.co Web API.
-
-PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your PHP application included into trial version.
+## How to optimize PDF from uploaded file for PDF optimization API in PHP and PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -50,6 +42,8 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <body>
 
 <?php 
+
+// Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api
