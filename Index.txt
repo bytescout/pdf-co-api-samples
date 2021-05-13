@@ -49,6 +49,7 @@
 \Add Text And Images To PDF\JavaScript
 \Add Text And Images To PDF\PowerShell
 \Add Text And Images To PDF\Python
+\Add Text And Images To PDF\Salesforce
 \Add Text And Images To PDF\VB.NET
 \Add Text And Images To PDF\Zapier
 \Add Text And Images To PDF\C#\Add Image by finding target coordinates
@@ -80,6 +81,8 @@
 \Add Text And Images To PDF\Python\Add Images to Existing PDF
 \Add Text And Images To PDF\Python\Add Text by finding target coordinates
 \Add Text And Images To PDF\Python\Add Text to Existing PDF
+\Add Text And Images To PDF\Salesforce\Add Image To PDF
+\Add Text And Images To PDF\Salesforce\Add Text To PDF
 \Add Text And Images To PDF\VB.NET\Add Image by finding target coordinates
 \Add Text And Images To PDF\VB.NET\Add Images to Existing PDF
 \Add Text And Images To PDF\VB.NET\Add Text by finding target coordinates
@@ -244,6 +247,7 @@
 \DOC To PDF API\PHP
 \DOC To PDF API\PowerShell
 \DOC To PDF API\Python
+\DOC To PDF API\Salesforce
 \DOC To PDF API\VB.NET
 \DOC To PDF API\C#\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\C#\Convert DOC To PDF From URL
@@ -269,6 +273,7 @@
 \DOC To PDF API\Python\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Python\Convert DOC To PDF From URL
 \DOC To PDF API\Python\Convert DOC To PDF From URL Asynchronously
+\DOC To PDF API\Salesforce\Convert Document To PDF
 \DOC To PDF API\VB.NET\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL Asynchronously
@@ -279,6 +284,7 @@
 \Document Parser API\PHP
 \Document Parser API\Powershell
 \Document Parser API\Python
+\Document Parser API\Salesforce
 \Document Parser API\VB.NET
 \Document Parser API\C#\Blood Test Results to JSON
 \Document Parser API\C#\Census table from life and annuity quote request pdf
@@ -324,6 +330,7 @@
 \Document Parser API\Powershell\Parse From Url
 \Document Parser API\Python\Parse From Uploaded File
 \Document Parser API\Python\Parse From Url
+\Document Parser API\Salesforce\Document Parser Demo
 \Document Parser API\VB.NET\Blood Test Results to JSON
 \Document Parser API\VB.NET\Census table from life and annuity quote request pdf
 \Document Parser API\VB.NET\Create Custom Template
@@ -461,6 +468,7 @@
 \HTML To PDF API\PHP
 \HTML To PDF API\PowerShell
 \HTML To PDF API\Python
+\HTML To PDF API\Salesforce
 \HTML To PDF API\VB.NET
 \HTML To PDF API\Zapier
 \HTML To PDF API\C#\Convert Web Page To PDF From Link
@@ -495,6 +503,7 @@
 \HTML To PDF API\Python\Generate PDF From HTML File
 \HTML To PDF API\Python\Generate PDF From Large HTML File
 \HTML To PDF API\Python\Generate PDF Invoice From HTML Template
+\HTML To PDF API\Salesforce\Convert HTML to PDF
 \HTML To PDF API\VB.NET\Convert Web Page To PDF From URL
 \HTML To PDF API\VB.NET\Convert Web Page To PDF From URL Asynchronously
 \HTML To PDF API\VB.NET\Generate PDF From HTML File
@@ -593,6 +602,7 @@
 \PDF Fill PDF Forms\PHP
 \PDF Fill PDF Forms\PowerShell
 \PDF Fill PDF Forms\Python
+\PDF Fill PDF Forms\Salesforce
 \PDF Fill PDF Forms\VB.NET
 \PDF Fill PDF Forms\C#\Fill PDF Forms
 \PDF Fill PDF Forms\C#\Fill PDF Forms Asynchronously
@@ -610,6 +620,7 @@
 \PDF Fill PDF Forms\PowerShell\Fill PDF Forms Simplified
 \PDF Fill PDF Forms\Python\Fill PDF Forms
 \PDF Fill PDF Forms\Python\Fill PDF Forms Simplified
+\PDF Fill PDF Forms\Salesforce\Fill PDF Form
 \PDF Fill PDF Forms\VB.NET\Fill PDF Forms
 \PDF Fill PDF Forms\VB.NET\Fill PDF Forms Simplified
 \PDF Forms Info Reader\C#
