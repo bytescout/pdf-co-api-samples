@@ -285,6 +285,7 @@
 \Document Parser API\Powershell
 \Document Parser API\Python
 \Document Parser API\Salesforce
+\Document Parser API\Sample Templates
 \Document Parser API\VB.NET
 \Document Parser API\C#\Blood Test Results to JSON
 \Document Parser API\C#\Census table from life and annuity quote request pdf
