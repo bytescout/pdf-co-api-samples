@@ -1,0 +1,129 @@
+{
+  "templateName": "Sample Template",
+  "templateVersion": "4",
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": []
+  },
+  "documentStart": "Order #:",
+  "objects": [
+    {
+      "name": "SearchBasedTable1",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "expression": "({{LineStart}})(?=Order #:)",
+          "regex": true
+        },
+        "end": {
+          "expression": "Total Order Amount",
+          "regex": true
+        },
+        "introduction": {
+          "expression": "{{ToggleSingleLineMode}}Order #:{{Spaces}}(?<OrderNo>{{Digits}}){{Anything}}Site:{{Spaces}}(?<Site>{{SentenceWithSingleSpaces}}){{Anything}}Date:{{Spaces}}(?<Date>{{SmartDate}})",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<Quantity>{{Digits}}){{Spaces}}(?<ItemNo>{{Digits}}){{Spaces}}(?<ItemName>{{SentenceWithSingleSpaces}}){{Spaces}}(?<Price>{{Number}}){{Spaces}}(?<LineTotal>{{Number}}){{LineEnd}}",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "Date",
+            "dataType": "date",
+            "dateFormat": "auto-YMD"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "integer"
+          },
+          {
+            "name": "Price",
+            "dataType": "decimal"
+          },
+          {
+            "name": "LineTotal",
+            "dataType": "decimal"
+          }
+        ]
+      },
+      "id": 0
+    },
+    {
+      "id": 1,
+      "objectType": "field",
+      "name": "Total",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Total{{Anything}}(?<value>{{Number}})",
+        "dataType": "decimal",
+        "regex": true
+      }
+    }
+  ],
+  "culture": "en-US",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  },
+  "oldObjects": [
+    {
+      "name": "SearchBasedTable1",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "expression": "({{LineStart}})(?=Order #:)",
+          "regex": true
+        },
+        "end": {
+          "expression": "Total Order Amount",
+          "regex": true
+        },
+        "introduction": {
+          "expression": "{{ToggleSingleLineMode}}Order #:{{Spaces}}(?<OrderNo>{{Digits}}){{Anything}}Site:{{Spaces}}(?<Site>{{SentenceWithSingleSpaces}}){{Anything}}Date:{{Spaces}}(?<Date>{{SmartDate}})",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<Quantity>{{Digits}}){{Spaces}}(?<ItemNo>{{Digits}}){{Spaces}}(?<ItemName>{{SentenceWithSingleSpaces}}){{Spaces}}(?<Price>{{Number}}){{Spaces}}(?<LineTotal>{{Number}}){{LineEnd}}",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "Date",
+            "dataType": "date",
+            "dateFormat": "auto-YMD"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "integer"
+          },
+          {
+            "name": "Price",
+            "dataType": "decimal"
+          },
+          {
+            "name": "LineTotal",
+            "dataType": "decimal"
+          }
+        ]
+      },
+      "id": 0
+    },
+    {
+      "id": 1,
+      "objectType": "field",
+      "name": "Total",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Total{{Anything}}}(?<value>{{Number}})",
+        "dataType": "decimal",
+        "regex": true
+      }
+    }
+  ],
+  "description": ""
+}

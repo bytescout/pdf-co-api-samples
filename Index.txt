@@ -332,6 +332,7 @@
 \Document Parser API\Python\Parse From Uploaded File
 \Document Parser API\Python\Parse From Url
 \Document Parser API\Salesforce\Document Parser Demo
+\Document Parser API\Sample Templates\Order form with line items and total
 \Document Parser API\VB.NET\Blood Test Results to JSON
 \Document Parser API\VB.NET\Census table from life and annuity quote request pdf
 \Document Parser API\VB.NET\Create Custom Template
