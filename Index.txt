@@ -786,6 +786,7 @@
 \PDF Password And Security\PHP
 \PDF Password And Security\PowerShell
 \PDF Password And Security\Python
+\PDF Password And Security\Salesforce
 \PDF Password And Security\VB.NET
 \PDF Password And Security\C#\Protect PDF Document
 \PDF Password And Security\C#\Remove PDF Document Protection
@@ -801,6 +802,10 @@
 \PDF Password And Security\PowerShell\Remove PDF Document Protection
 \PDF Password And Security\Python\Protect PDF Document
 \PDF Password And Security\Python\Remove PDF Document Protection
+\PDF Password And Security\Salesforce\Protect PDF Document
+\PDF Password And Security\Salesforce\Protect PDF Document From Uploaded File
+\PDF Password And Security\Salesforce\Remove PDF Document Protection
+\PDF Password And Security\Salesforce\Remove PDF Document Protection From Uploaded File
 \PDF Password And Security\VB.NET\Protect PDF Document
 \PDF Password And Security\VB.NET\Remove PDF Document Protection
 \PDF Splitting API\C#
