@@ -1,6 +1,6 @@
 public class ProtectPDFDocument {
     
-    String API_KEY = '"*****************************************';
+    String API_KEY = '***************************';
 
     String fileName = 'sample'; // File name "sample.pdf" which is available in Files.
     string DestinationFile =  'result.pdf'; //This is the Desitantion File Name.
