@@ -16,6 +16,7 @@
 \File Delete
 \File Upload
 \File Upload for Small Files (up to 50KB)
+\Generic API Call
 \HTML To PDF API
 \Image To PDF API
 \Invoice Parser API
@@ -332,6 +333,7 @@
 \Document Parser API\Python\Parse From Uploaded File
 \Document Parser API\Python\Parse From Url
 \Document Parser API\Salesforce\Document Parser Demo
+\Document Parser API\Salesforce\Parse Document and Get CSV Output
 \Document Parser API\Sample Templates\Order form with line items and total
 \Document Parser API\VB.NET\Blood Test Results to JSON
 \Document Parser API\VB.NET\Census table from life and annuity quote request pdf
@@ -463,6 +465,8 @@
 \File Upload for Small Files (up to 50KB)\Upload Small File from Url\PHP
 \File Upload for Small Files (up to 50KB)\Upload Small File from Url\PowerShell
 \File Upload for Small Files (up to 50KB)\Upload Small File from Url\Python
+\Generic API Call\Salesforce
+\Generic API Call\Salesforce\GenericAPICall
 \HTML To PDF API\C#
 \HTML To PDF API\cURL
 \HTML To PDF API\Java
