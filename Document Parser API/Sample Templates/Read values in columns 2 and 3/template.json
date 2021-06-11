@@ -1,0 +1,63 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1623417961402,
+      "objectType": "field",
+      "name": "item2Qty",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "ITEM 2{{Spaces}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1623418036912,
+      "objectType": "field",
+      "name": "item2Amount",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "ITEM 2{{Spaces}}{{Number}}{{Spaces}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1623417961402,
+      "objectType": "field",
+      "name": "item2Qty",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "ITEM 2{{Spaces}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1623418036912,
+      "objectType": "field",
+      "name": "item2Amount",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "ITEM 2{{Spaces}}{{Number}}){{Spaces}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
