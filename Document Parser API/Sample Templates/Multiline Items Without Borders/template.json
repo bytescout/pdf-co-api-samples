@@ -1,0 +1,67 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1623650272401,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "SearchBasedTable1",
+      "tableProperties": {
+				"start": {
+					"expression": "Product Code{{Spaces}}Item Name",
+					"regex": true
+				},
+				"end": {
+					"expression": "Total",
+					"regex": true
+				},
+				"row": {
+					"expression": "{{LineStart}}{{Spaces}}(?<code>{{UppercaseLettersOrDigits}}){{Spaces}}(?<item>{{SentenceWithSingleSpaces}}){{Spaces}}(?<options>{{SentenceWithSingleSpaces}}){{Spaces}}(?<qty>{{Number}}){{Spaces}}{{Dollar}}(?<price>{{Number}}){{Spaces}}{{Dollar}}(?<subtotal>{{Number}})",
+                    "subExpression1": "{{LineStart}}{{Spaces}}(?<item>{{SentenceWithSingleSpaces}}){{Spaces}}(?<options>{{SentenceWithSingleSpaces}}{{LineEnd}})",
+                    "subExpression2": "{{LineStart}}{{Spaces}}(?<options>{{SentenceWithSingleSpaces}}{{LineEnd}})",
+					"regex": true
+				},
+				"columns": [
+					{
+						"name": "code",
+						"dataType": "string"
+					},
+					{
+						"name": "item",
+						"dataType": "string"
+					},
+					{
+						"name": "options",
+						"dataType": "string"
+					},
+					{
+						"name": "qty",
+						"dataType": "integer"
+					},
+					{
+						"name": "price",
+						"dataType": "decimal"
+					},
+					{
+						"name": "subtotal",
+						"dataType": "decimal"
+					}
+				],
+				"multipage": true
+      }
+    }
+  ],
+  "oldObjects": [],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
