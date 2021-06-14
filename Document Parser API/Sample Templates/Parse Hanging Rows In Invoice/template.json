@@ -1,0 +1,46 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 10,
+      "objectType": "table",
+      "name": "lineItems",
+      "tableProperties": {
+        "start": {
+          "y": 89,
+          "pageIndex": 0,
+          "expression": null
+        },
+        "end": {
+          "y": 350,
+          "pageIndex": 0,
+          "expression": null
+        },
+        "columns": [
+          {
+            "name": "Description",
+            "x": 0
+          },
+          {
+            "name": "Qty",
+            "x": 432
+          },
+          {
+            "name": "Amount",
+            "x": 510
+          }
+        ],
+        "multipage": true,
+        "rowMergingRule": "hangingRows"
+      }
+    }
+  ],
+  "templateName": "Godden v1",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng"
+  },
+  "oldObjects": []
+}

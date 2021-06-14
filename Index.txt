@@ -336,6 +336,7 @@
 \Document Parser API\Salesforce\Parse Document and Get CSV Output
 \Document Parser API\Sample Templates\Multiline Items Without Borders
 \Document Parser API\Sample Templates\Order form with line items and total
+\Document Parser API\Sample Templates\Parse Hanging Rows In Invoice
 \Document Parser API\Sample Templates\Read values in columns 2 and 3
 \Document Parser API\VB.NET\Blood Test Results to JSON
 \Document Parser API\VB.NET\Census table from life and annuity quote request pdf
