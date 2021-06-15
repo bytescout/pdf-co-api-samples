@@ -1,0 +1,131 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 0,
+      "objectType": "field",
+      "name": "Invoice No",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice{{Spaces}}{{Number}}",
+        "dataType": "integer",
+        "regex": true
+      }
+    },
+    {
+      "id": 1,
+      "objectType": "field",
+      "name": "Invoice Date",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "DATE{{Anything}}(?<value>{{SmartDate}})",
+        "dataType": "date",
+        "regex": true,
+        "dateFormat": "auto-ymd"
+      }
+    },
+    {
+      "id": 2,
+      "objectType": "field",
+      "name": "Sub Total",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "SUB TOTAL:{{Spaces}}(?<value>{{Money}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 3,
+      "objectType": "field",
+      "name": "Tax",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "VAT{{Anything}}(?<value>{{Money}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 4,
+      "objectType": "field",
+      "name": "Total",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "{{LineStart}}{{Spaces}}TOTAL:{{Spaces}}(?<value>{{Money}})",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 0,
+      "objectType": "field",
+      "name": "Invoice No",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice{{Spaces}}{{Number}}",
+        "dataType": "integer",
+        "regex": true
+      }
+    },
+    {
+      "id": 1,
+      "objectType": "field",
+      "name": "Invoice Date",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "DATE{{Anything}}(?<value>{{SmartDate}})",
+        "dataType": "date",
+        "regex": true,
+        "dateFormat": "auto-ymd"
+      }
+    },
+    {
+      "id": 2,
+      "objectType": "field",
+      "name": "Sub Total",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "SUB TOTAL:{{Spaces}}(?<value>{{Money}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 3,
+      "objectType": "field",
+      "name": "Tax",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "VAT{{S}}(?<value>{{Money}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 4,
+      "objectType": "field",
+      "name": "Total",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "{{LineStart}}{{Spaces}}TOTAL:{{Spaces}}(?<value>{{Money}})",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
