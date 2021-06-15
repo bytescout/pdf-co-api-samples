@@ -334,6 +334,7 @@
 \Document Parser API\Python\Parse From Url
 \Document Parser API\Salesforce\Document Parser Demo
 \Document Parser API\Salesforce\Parse Document and Get CSV Output
+\Document Parser API\Sample Templates\Invoice table with some empty columns
 \Document Parser API\Sample Templates\Multiline Items Without Borders
 \Document Parser API\Sample Templates\Order form with line items and total
 \Document Parser API\Sample Templates\Parse Hanging Rows In Invoice

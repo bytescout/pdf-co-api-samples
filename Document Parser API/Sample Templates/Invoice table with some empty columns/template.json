@@ -1,0 +1,139 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1623766052684,
+      "objectType": "field",
+      "name": "dueDate",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Payment Due (?<value>{{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1623766131761,
+      "objectType": "field",
+      "name": "customerNumber",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Customer Number (?<value>{{LettersOrDigits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1623766183612,
+      "objectType": "field",
+      "name": "customerName",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Customer Name (?<value>{{SentenceWithSingleSpaces}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1623766253996,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "SearchBasedTable1",
+      "tableProperties": {
+        "start": {
+          "expression": "CODE{{Spaces}}DESCRIPTION",
+          "regex": true
+        },
+        "end": {
+          "expression": "NOTHING FOLLOWS",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "code",
+            "dataType": "integer"
+          },
+          {
+            "name": "description",
+            "dataType": "string"
+          },
+          {
+            "name": "qty",
+            "dataType": "integer"
+          },
+          {
+            "name": "price",
+            "dataType": "decimal"
+          },
+          {
+            "name": "unit",
+            "dataType": "string"
+          },
+          {
+            "name": "discount",
+            "dataType": "decimal"
+          },
+          {
+            "name": "extPrice",
+            "dataType": "decimal"
+          }
+        ],
+        "multipage": true
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1623766052684,
+      "objectType": "field",
+      "name": "dueDate",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Payment Due (?<value>{{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1623766131761,
+      "objectType": "field",
+      "name": "customerNumber",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Customer Number (?<value>{{LettersOrDigits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1623766183612,
+      "objectType": "field",
+      "name": "customerName",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Customer Name (?<value>{{SentenceWithSingleSpaces}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1623766253996,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "SearchBasedTable1",
+      "tableProperties": ""
+    }
+  ],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
