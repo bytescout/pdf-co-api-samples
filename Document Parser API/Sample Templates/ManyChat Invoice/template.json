@@ -1,0 +1,177 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1624001461836,
+      "objectType": "field",
+      "name": "invoiceID",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          298.24225352112677,
+          269.7453754080522,
+          81.88732394366197,
+          18.097932535364524
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624001488427,
+      "objectType": "field",
+      "name": "invoiceDate",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          454.25915492957745,
+          267.1599564744287,
+          88.78309859154929,
+          21.545157780195865
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624001506442,
+      "objectType": "field",
+      "name": "page",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          68.09577464788732,
+          386.95103373231774,
+          162.91267605633803,
+          21.545157780195865
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624001541557,
+      "objectType": "table",
+      "name": "table",
+      "tableProperties": {
+        "start": {
+          "y": 440.3830250272035,
+          "pageIndex": 0,
+          "expression": null
+        },
+        "end": {
+          "y": 490.3677910772579,
+          "pageIndex": 0,
+          "expression": null
+        },
+        "left": 67.2338028169014,
+        "right": 543.9042253521127
+      }
+    },
+    {
+      "id": 1624001570860,
+      "objectType": "field",
+      "name": "total",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          515.4591549295775,
+          576.5484221980413,
+          31.030985915492955,
+          31.025027203482043
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1624001461836,
+      "objectType": "field",
+      "name": "invoiceID",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          298.24225352112677,
+          269.7453754080522,
+          81.88732394366197,
+          18.097932535364524
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624001488427,
+      "objectType": "field",
+      "name": "invoiceDate",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          454.25915492957745,
+          267.1599564744287,
+          88.78309859154929,
+          21.545157780195865
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624001506442,
+      "objectType": "field",
+      "name": "page",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          68.09577464788732,
+          386.95103373231774,
+          162.91267605633803,
+          21.545157780195865
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624001541557,
+      "objectType": "table",
+      "name": "table",
+      "tableProperties": {
+        "start": {
+          "y": 440.3830250272035,
+          "pageIndex": 0,
+          "expression": null
+        },
+        "end": {
+          "y": 491.2295973884657,
+          "pageIndex": 0,
+          "expression": null
+        },
+        "left": 67.2338028169014,
+        "right": 543.9042253521127
+      }
+    },
+    {
+      "id": 1624001570860,
+      "objectType": "field",
+      "name": "total",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          515.4591549295775,
+          576.5484221980413,
+          31.030985915492955,
+          31.025027203482043
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
