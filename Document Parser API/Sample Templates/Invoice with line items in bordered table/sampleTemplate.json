@@ -1,0 +1,125 @@
+﻿{
+  "templateName": "Untitled template",
+  "templateVersion": "4",
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": []
+  },
+  "objects": [
+    {
+      "name": "SearchBasedTable1",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "expression": "({{LineStart}})(?={{Spaces}}WH)",
+          "regex": true
+        },
+        "end": {
+          "expression": "{{EndOfPage}}",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<WarehouseLoc>{{Letter}}){{Spaces}}(?<ItemNo>{{Number}}){{Spaces}}(?<Brand>{{SentenceWithSingleSpaces}}){{Spaces}}(?<Description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<PackSize>{{LettersOrDigitsOrSymbols}}){{Spaces}}(?<Per>{{Letters}}){{Spaces}}(?<Quantity>{{Number}}){{Spaces}}(?<UnitPrice>{{Number}}){{Spaces}}(?<NetValue>{{Number}}){{Spaces}}(?<GSTAmount>{{Number}}){{Spaces}}(?<TotalAmount>{{Number}})",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "WH LOC",
+            "dataType": "string"
+          },
+          {
+            "name": "Item Number",
+            "dataType": "integer"
+          },
+          {
+            "name": "Brand",
+            "dataType": "string"
+          },
+          {
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "name": "Pack Size",
+            "dataType": "string"
+          },
+          {
+            "name": "Per",
+            "dataType": "string"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "integer"
+          },
+          {
+            "name": "Unit Price",
+            "dataType": "decimal or currency"
+          },
+          {
+            "name": "Net Value",
+            "dataType": "decimal or currency"
+          },
+          {
+            "name": "GST Amount",
+            "dataType": "decimal or currency"
+          },
+          {
+            "name": "Total Amount",
+            "dataType": "decimal or currency"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Invoice #",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice #:{{Spaces}}{{Number}}",
+        "regex": true,
+        "dataType": "integer"
+      }
+    },
+    {
+      "name": "Date",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Date:{{Spaces}}{{SmartDate}}",
+        "regex": true,
+        "dataType": "date",
+        "dateFormat": "auto-dmy"
+      }
+    },
+    {
+      "name": "Order #",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Order:{{Spaces}}{{Number}}",
+        "regex": true,
+        "dataType": "integer"
+      }
+    },
+    {
+      "name": "Total Net",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Total Net:{{Spaces}}{{Number}}",
+        "regex": true,
+        "dataType": "decimal"
+      }
+    },
+    {
+      "name": "Total Invoice",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Total Invoice:{{Spaces}}{{Number}}",
+        "regex": true,
+        "dataType": "decimal"
+      }
+    }
+  ]
+}
