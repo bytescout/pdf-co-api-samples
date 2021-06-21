@@ -1,0 +1,213 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1624284099630,
+      "objectType": "field",
+      "name": "clientName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          98.73399014778325,
+          197.4348239771646,
+          82.15270935960591,
+          15.824928639391056
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624284130441,
+      "objectType": "field",
+      "name": "invDate",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          42.960591133004925,
+          318.00570884871547,
+          58.78817733990147,
+          19.59276879162702
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624284157060,
+      "objectType": "field",
+      "name": "invNo",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          120.5911330049261,
+          322.52711703139863,
+          55.77339901477832,
+          12.810656517602283
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624284183486,
+      "objectType": "field",
+      "name": "invTotal",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          539.6453201970443,
+          510.91912464319694,
+          38.43842364532019,
+          21.09990485252141
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624284278886,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "lineItem",
+      "tableProperties": {
+        "start": {
+          "expression": "PRICE{{Spaces}}TOTAL",
+          "regex": true
+        },
+        "end": {
+          "expression": "INVOICE TOTAL{{Spaces}}{{Money}}",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "ItemNo"
+          },
+          {
+            "name": "Qty",
+            "dataType": "decimal"
+          },
+          {
+            "name": "Unit"
+          },
+          {
+            "name": "Description"
+          },
+          {
+            "name": "Price",
+            "dataType": "decimal"
+          },
+          {
+            "name": "Total",
+            "dataType": "decimal"
+          }
+        ],
+        "multipage": true
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1624284099630,
+      "objectType": "field",
+      "name": "clientName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          98.73399014778325,
+          197.4348239771646,
+          82.15270935960591,
+          15.824928639391056
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624284130441,
+      "objectType": "field",
+      "name": "invDate",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          42.960591133004925,
+          318.00570884871547,
+          58.78817733990147,
+          19.59276879162702
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624284157060,
+      "objectType": "field",
+      "name": "invNo",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          120.5911330049261,
+          322.52711703139863,
+          55.77339901477832,
+          12.810656517602283
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624284183486,
+      "objectType": "field",
+      "name": "invTotal",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          539.6453201970443,
+          510.91912464319694,
+          38.43842364532019,
+          21.09990485252141
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1624284278886,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "lineIte",
+      "tableProperties": {
+        "start": {
+          "expression": "{{AnySymbol}}",
+          "regex": true
+        },
+        "end": {
+          "expression": "{{EndOfPage}}",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<Column1>{{SentenceWithSingleSpaces}}){{Spaces}}(?<Column2>{{SentenceWithSingleSpaces}})(?<Column3>{{Anything}}){{LineEnd2}}",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string"
+          },
+          {
+            "name": "Column2",
+            "dataType": "string"
+          },
+          {
+            "name": "Column3",
+            "dataType": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
