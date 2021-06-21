@@ -335,6 +335,7 @@
 \Document Parser API\Salesforce\Document Parser Demo
 \Document Parser API\Salesforce\Parse Document and Get CSV Output
 \Document Parser API\Sample Templates\Invoice table with some empty columns
+\Document Parser API\Sample Templates\Invoice with few line items in EUR
 \Document Parser API\Sample Templates\ManyChat Invoice
 \Document Parser API\Sample Templates\Multiline Items Without Borders
 \Document Parser API\Sample Templates\Order form with line items and total

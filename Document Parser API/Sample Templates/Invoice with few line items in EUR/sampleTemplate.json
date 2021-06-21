@@ -1,0 +1,65 @@
+﻿{
+  "templateName": "Test Template",
+  "templateVersion": "4",
+  "templatePriority": 0,
+  "culture": "de-DE",
+  "detectionRules": {
+    "keywords": []
+  },
+  "objects": [
+    {
+      "name": "Date",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Datum:{{Spaces}}({{SmartDate}})",
+        "regex": true,
+        "dataType": "date",
+        "dateFormat": "auto-dmy"
+      }
+    },
+    {
+      "name": "Invoice No",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Rechnungsnummer:{{Spaces}}({{LettersOrDigitsOrSymbols}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Total",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Gesamt{{Anything}}({{Money}})",
+        "regex": true,
+        "dataType": "decimal"
+      }
+    },
+    {
+      "name": "VAT",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Umsatzsteuer{{Anything}}({{Money}})",
+        "regex": true,
+        "dataType": "decimal"
+      }
+    },
+    {
+      "name": "Amount Net",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Netto-Gesamtbetrag{{Spaces}}({{Money}})",
+        "regex": true,
+        "dataType": "decimal"
+      }
+    }
+  ],
+  "options": {
+    "ocrLanguage": "deu",
+    "ocrMode": "auto"
+  }
+}
