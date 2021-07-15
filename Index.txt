@@ -21,6 +21,7 @@
 \Image To PDF API
 \Invoice Parser API
 \Manage Background Jobs
+\PDF Classifier
 \PDF Create Fillable PDF Forms
 \PDF Delete Pages
 \PDF Fill PDF Forms
@@ -587,6 +588,20 @@
 \Manage Background Jobs\PHP
 \Manage Background Jobs\PowerShell
 \Manage Background Jobs\Python
+\PDF Classifier\C#
+\PDF Classifier\cURL
+\PDF Classifier\Java
+\PDF Classifier\JavaScript
+\PDF Classifier\PHP
+\PDF Classifier\PowerShell
+\PDF Classifier\C#\Classify PDF From URL
+\PDF Classifier\cURL\Classify PDF From URL
+\PDF Classifier\Java\Classify PDF From URL
+\PDF Classifier\JavaScript\Classify PDF From URL (jQuery)
+\PDF Classifier\JavaScript\Classify PDF From URL (nodeJs)
+\PDF Classifier\PHP\Classify PDF From URL
+\PDF Classifier\PowerShell\Classify Uploaded PDF Asynchronously
+\PDF Classifier\PowerShell\Classify Uploaded PDF From URL
 \PDF Create Fillable PDF Forms\C#
 \PDF Create Fillable PDF Forms\cURL
 \PDF Create Fillable PDF Forms\Java
