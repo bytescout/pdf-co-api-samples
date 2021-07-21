@@ -108,6 +108,7 @@ function replaceImageFromPdf(apiKey, uploadedFileUrl, password, destinationFile)
     // Prepare request to `Replace Text With Image from PDF` API endpoint
     var queryPath = `/v1/pdf/edit/replace-text-with-image`;
     // JSON payload for api request
+    // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
     var jsonPayload = JSON.stringify({
         name: path.basename(destinationFile), password: password, url: uploadedFileUrl, searchString: '/creativecommons.org/licenses/by-sa/3.0/', replaceImage: 'https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png'
     });

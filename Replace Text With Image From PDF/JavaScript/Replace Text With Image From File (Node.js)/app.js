@@ -35,6 +35,8 @@ const DestinationFile = "./result.pdf";
 
 // Prepare URL for `Replace Text With Image from PDF` API endpoint
 var query = `https://api.pdf.co/v1/pdf/edit/replace-text-with-image`;
+
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 let reqOptions = {
     uri: query,
     headers: { "x-api-key": API_KEY },

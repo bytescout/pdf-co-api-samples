@@ -18,6 +18,7 @@ public class main {
 				OkHttpClient client = new OkHttpClient().newBuilder()
 						.build();
 				MediaType mediaType = MediaType.parse("text/plain");
+			    // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 				RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
 						.addFormDataPart("url", "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-form/f1040.pdf")
 						.build();

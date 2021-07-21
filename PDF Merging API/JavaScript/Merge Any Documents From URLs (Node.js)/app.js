@@ -21,6 +21,7 @@ var fs = require("fs");
 const API_KEY = "***********************************";
 
 // Direct URLs of files to merge. Supports documents, spreadsheets, images as sources.
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 const SourceFiles = [
     "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample1.pdf",
     "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/doc-to-pdf/sample.docx"

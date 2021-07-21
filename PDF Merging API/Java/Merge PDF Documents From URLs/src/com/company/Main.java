@@ -29,6 +29,7 @@ public class Main
     final static String API_KEY = "***********************************";
 
     // Direct URLs of PDF files to merge
+    // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 	final static String[] SourceFiles = {
             "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample1.pdf",
             "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-merge/sample2.pdf" };

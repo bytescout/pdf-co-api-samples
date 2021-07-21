@@ -31,8 +31,8 @@ namespace ByteScoutWebApiExample
 		// Get your own by registering at https://app.pdf.co/documentation/api
 		const String API_KEY = "***********************************";
 		
-
 		// Direct URL of source CSV file.
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
 		const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/csv-to-pdf/sample.csv";
 		
         // Destination PDF file name

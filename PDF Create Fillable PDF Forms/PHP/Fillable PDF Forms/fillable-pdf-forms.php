@@ -19,6 +19,7 @@ $url = "https://api.pdf.co/v1/pdf/edit/add";
 $parameters = array();
 
 // Direct URL of source PDF file.
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 $parameters["url"] = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
 
 // Name of resulting file

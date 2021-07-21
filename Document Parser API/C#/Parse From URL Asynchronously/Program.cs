@@ -31,6 +31,7 @@ namespace ByteScoutWebApiExample
         const string API_KEY = "***********************************";
 
         // Source PDF file
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
         const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/document-parser/MultiPageTable.pdf";
 
         // Destination TXT file name

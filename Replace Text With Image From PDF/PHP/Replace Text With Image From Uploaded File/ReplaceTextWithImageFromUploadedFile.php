@@ -105,6 +105,8 @@ function replaceImageFromPdf($apiKey, $uploadedFileUrl)
     $parameters["name"] = "result.pdf";
     $parameters["url"] = $uploadedFileUrl;
     $parameters["searchString"] = "/creativecommons.org/licenses/by-sa/3.0/";
+
+    // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
     $parameters["replaceImage"] = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png";
 
     // Create Json payload

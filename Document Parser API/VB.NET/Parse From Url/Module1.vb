@@ -22,7 +22,8 @@ Module Module1
     ' Get your own by registering at https://app.pdf.co/documentation/api
     Const API_KEY As String = "***********************************"
 
-    ' Source PDF file Urll
+    ' Source PDF file Url
+    ' You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/   
     Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/document-parser/MultiPageTable.pdf"
 
     ' Destination TXT file name

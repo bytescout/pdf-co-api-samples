@@ -22,6 +22,7 @@ Module Module1
 	Const API_KEY As String = "***********************************"
 
 	' Direct URL of source PDF file.
+    ' You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/   
 	Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf"
 	' PDF document password. Leave empty for unprotected documents.
 	const Password As string = ""

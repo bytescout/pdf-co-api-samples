@@ -9,6 +9,7 @@ API_KEY = "*************************************"
 BASE_URL = "https://api.pdf.co/v1"
 
 # Source PDF file url
+# You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/document-parser/MultiPageTable.pdf"
 
 # Destination JSON file name

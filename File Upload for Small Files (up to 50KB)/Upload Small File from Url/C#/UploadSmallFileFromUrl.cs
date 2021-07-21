@@ -22,6 +22,8 @@ namespace HelloWorldApplication {
 						request.AddHeader("x-api-key", "{{x-api-key}}");
 						request.AlwaysMultipartFormData = true;
 						request.AddParameter("name", "sample.pdf");
+
+						// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/						
 						request.AddParameter("url", "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf");
 						IRestResponse response = client.Execute(request);
 						Console.WriteLine(response.Content);

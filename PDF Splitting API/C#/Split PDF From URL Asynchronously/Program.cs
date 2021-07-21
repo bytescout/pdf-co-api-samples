@@ -31,6 +31,7 @@ namespace ByteScoutWebApiExample
 		const String API_KEY = "***********************************";
 
 		// Source PDF file to split
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
 		const string SourceFileUrl = @"https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
 		// Comma-separated list of page numbers (or ranges) to process. Example: '1,3-5,7-'.
 		const string Pages = "1-2,3-";

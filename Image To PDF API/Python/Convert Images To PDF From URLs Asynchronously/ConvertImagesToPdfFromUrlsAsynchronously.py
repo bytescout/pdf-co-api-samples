@@ -14,6 +14,7 @@ API_KEY = "******************************************"
 BASE_URL = "https://api.pdf.co/v1"
 
 # Direct URLs of image files to convert to PDF document
+# You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 SourceFiles = [
     "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png",
     "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image2.jpg"

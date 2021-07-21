@@ -2,6 +2,7 @@
 
 $curl = curl_init();
 
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 curl_setopt_array($curl, array(
 		CURLOPT_URL => 'https://api.pdf.co/v1/pdf/convert/from/email',
 		CURLOPT_RETURNTRANSFER => true,

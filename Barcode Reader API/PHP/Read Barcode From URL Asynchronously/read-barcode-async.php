@@ -17,6 +17,7 @@
 $apiKey = "***************************************";
 
 // Direct URL of source file (image or PDF) to search barcodes in. Check another example if you need to upload a local file to the cloud.
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 $sourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf";
 // Comma-separated list of barcode types to search. 
 // See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/read_from_url.html

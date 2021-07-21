@@ -22,6 +22,7 @@ Module Module1
     Const API_KEY As String = "***********************************"
 
     ' Direct URL of source file to search barcodes in.
+    ' You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/   
     Const SourceFileURL As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf"
     ' Comma-separated list of barcode types to search. 
     ' See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/read_from_url.html

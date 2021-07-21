@@ -22,6 +22,7 @@ Module Module1
 	Const API_KEY As String = "***********************************"
 
 	' Source PDF file to split
+    ' You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/   
 	Const SourceFileUrl As String = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-split/multiple-invoices.pdf"
 	
 	Sub Main()

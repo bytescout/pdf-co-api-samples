@@ -14,6 +14,7 @@ API_KEY = "******************************************"
 BASE_URL = "https://api.pdf.co/v1"
 
 # Direct URL of source CSV file.
+# You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/csv-to-pdf/sample.csv"
 # Destination PDF file name
 DestinationFile = ".\\result.pdf"

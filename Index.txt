@@ -445,12 +445,19 @@
 \File Upload\Generate Secure URL for Upload\PowerShell
 \File Upload\Generate Secure URL for Upload\Python
 \File Upload\Put Upload File\C#
-\File Upload\Put Upload File\cURL
 \File Upload\Put Upload File\Java
 \File Upload\Put Upload File\JavaScript
 \File Upload\Put Upload File\PHP
 \File Upload\Put Upload File\PowerShell
 \File Upload\Put Upload File\Python
+\File Upload\Put Upload File\VB.NET
+\File Upload\Put Upload File\C#\Get Uploaded File URL
+\File Upload\Put Upload File\Java\Get Uploaded File URL
+\File Upload\Put Upload File\JavaScript\Get Uploaded File URL
+\File Upload\Put Upload File\PHP\Get Uploaded File URL
+\File Upload\Put Upload File\PowerShell\Get Uploaded File URL
+\File Upload\Put Upload File\Python\Get Uploaded File URL
+\File Upload\Put Upload File\VB.NET\Get Uploaded File URL
 \File Upload for Small Files (up to 50KB)\Upload Small File
 \File Upload for Small Files (up to 50KB)\Upload Small File from Base64
 \File Upload for Small Files (up to 50KB)\Upload Small File from Url

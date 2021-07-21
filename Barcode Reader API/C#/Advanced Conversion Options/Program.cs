@@ -27,6 +27,7 @@ namespace ByteScoutWebApiExample
         const String API_KEY = "***********************************";
         
         // Direct URL of source file (image or PDF) to search barcodes in.
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
         const string SourceFileURL = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf";
 
         // Comma-separated list of barcode types to decode. 
