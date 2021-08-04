@@ -47,6 +47,7 @@
 \Add Text And Images To PDF\C#
 \Add Text And Images To PDF\cURL
 \Add Text And Images To PDF\Delphi
+\Add Text And Images To PDF\GoogleAppScript
 \Add Text And Images To PDF\Java
 \Add Text And Images To PDF\JavaScript
 \Add Text And Images To PDF\PowerShell
@@ -63,6 +64,8 @@
 \Add Text And Images To PDF\cURL\PDF Add Text, Images, Text Fields, Checkboxes
 \Add Text And Images To PDF\cURL\PDF Add Text, Images, Text Fields, Checkboxes - Simplified
 \Add Text And Images To PDF\Delphi\Add Text And Images To PDF
+\Add Text And Images To PDF\GoogleAppScript\Add Image to PDF
+\Add Text And Images To PDF\GoogleAppScript\Add Text to PDF
 \Add Text And Images To PDF\Java\Add Image by finding target coordinates
 \Add Text And Images To PDF\Java\Add Images to Existing PDF
 \Add Text And Images To PDF\Java\Add Text by finding target coordinates
@@ -735,6 +738,7 @@
 \PDF Merging API\C#
 \PDF Merging API\cURL
 \PDF Merging API\Delphi
+\PDF Merging API\GoogleAppScript
 \PDF Merging API\Java
 \PDF Merging API\JavaScript
 \PDF Merging API\PHP
@@ -751,6 +755,7 @@
 \PDF Merging API\cURL\PDF Merger
 \PDF Merging API\Delphi\Merge Any Documents From URLs
 \PDF Merging API\Delphi\Merge PDF Documents From URLs
+\PDF Merging API\GoogleAppScript\Merge PDF Urls
 \PDF Merging API\Java\Merge Any Documents From URLs
 \PDF Merging API\Java\Merge PDF Documents From Uploaded Files
 \PDF Merging API\Java\Merge PDF Documents From URLs
