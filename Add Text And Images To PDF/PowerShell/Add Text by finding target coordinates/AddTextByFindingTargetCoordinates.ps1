@@ -45,7 +45,6 @@ try {
         $DestinationFile = "./result.pdf"
 
         # Text annotation params
-        $Type = "annotation";
         $X = $itemFindText.left;
         $Y = $itemFindText.top + 25;
         $Text = "Some notes will go here... Some notes will go here.... Some notes will go here.....";
@@ -63,16 +62,19 @@ try {
         # See documentation: https://apidocs.pdf.co
         $body = @{
             "name" = $resultFileName
-            "password" = $Password
-            "pages" = $Pages
             "url" = $SourceFileUrl
-            "type" = $Type
-            "x" = $X
-            "y" = $Y
-            "text" = $Text
-            "fontname" = $FontName
-            "size" = $FontSize
-            "color" = $Color
+            "password" = $Password
+            "annotations" = @(
+                @{
+                    "pages" = $Pages
+                    "x" = $X
+                    "y" = $Y
+                    "text" = $Text
+                    "fontname" = $FontName
+                    "size" = $FontSize
+                    "color" = $Color
+                }
+            )
         } | ConvertTo-Json
         
         try {

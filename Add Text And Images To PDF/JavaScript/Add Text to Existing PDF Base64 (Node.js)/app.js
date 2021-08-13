@@ -36,7 +36,6 @@ const Password = "";
 const DestinationFile = "./result.pdf";
 
 // Text annotation params
-const Type = "annotation";
 const X = 400;
 const Y = 600;
 const Text = "APPROVED";
@@ -57,7 +56,7 @@ uploadBase64ToPDFco(SourceFileBase64, 'sample.pdf')
         console.log(e);
     });;
 
-    
+
 function addTextAnnotationToPDF(sourceFileUrl, destinationFile) {
     // * Add Text *
     // Prepare request to `PDF Edit` API endpoint
@@ -66,16 +65,16 @@ function addTextAnnotationToPDF(sourceFileUrl, destinationFile) {
     // JSON payload for api request
     var jsonPayload = JSON.stringify({
         name: path.basename(destinationFile),
-        password: Password,
-        pages: Pages,
         url: sourceFileUrl,
-        type: Type,
-        x: X,
-        y: Y,
-        text: Text,
-        fontname: FontName,
-        size: FontSize,
-        color: Color
+        password: Password,
+        annotations: [{
+            x: X,
+            y: Y,
+            text: Text,
+            fontname: FontName,
+            size: FontSize,
+            color: Color
+        }]
     });
 
     var reqOptions = {

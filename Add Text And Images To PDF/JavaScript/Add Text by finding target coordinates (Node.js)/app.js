@@ -17,7 +17,7 @@ var fs = require("fs");
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co/documentation/api
-const API_KEY = "***********************************";
+const API_KEY = "*****************************";
 
 // Direct URL of source PDF file.
 // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
@@ -27,7 +27,7 @@ const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/c
 const SearchString = 'Notes';
 
 // Prepare URL for PDF text search API call.
-// See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
+// See documentation: https://apidocs.pdf.co/07-pdf-search-text
 var queryFindText = `/v1/pdf/find`;
 
 // JSON payload for find text
@@ -44,11 +44,17 @@ let reqOptionsFindText = {
     }
 };
 
+let chunks = [];
+
 // Send request
 var postRequest_FindText = https.request(reqOptionsFindText, (response_findText) => {
-    response_findText.on("data", (d_findText) => {
+    response_findText.on("data", (data) => {
+        chunks.push(data);
+    }).on("end", function () {
+        let d_findText = Buffer.concat(chunks);
+
         // Parse JSON response
-        let dataFindText = JSON.parse(bodyFindText);
+        let dataFindText = JSON.parse(d_findText);
         if (dataFindText.body.length > 0) {
             var element = dataFindText.body[0];
             console.log("Found text " + element["text"] + " at coordinates " + element["left"] + ", " + element["top"]);
@@ -63,7 +69,6 @@ var postRequest_FindText = https.request(reqOptionsFindText, (response_findText)
             const DestinationFile = "./result.pdf";
 
             // Text annotation params
-            const Type = "annotation";
             const X = +element["left"];
             const Y = +element["top"] + 25;
             const Text = "Some notes will go here... Some notes will go here.... Some notes will go here.....";
@@ -79,19 +84,21 @@ var postRequest_FindText = https.request(reqOptionsFindText, (response_findText)
             var jsonPayload = JSON.stringify({
                 name: path.basename(DestinationFile),
                 password: Password,
-                pages: Pages,
                 url: SourceFileUrl,
-                type: Type,
-                x: X,
-                y: Y,
-                text: Text,
-                fontname: FontName,
-                size: FontSize,
-                color: Color
+                annotations: [{
+                    text: Text,
+                    x: X,
+                    y: Y,
+                    pages: Pages,
+                    fontname: FontName,
+                    size: FontSize,
+                    color: Color
+                }]
             });
 
             var reqOptions = {
                 host: "api.pdf.co",
+                method: "POST",
                 path: queryPath,
                 headers: {
                     "x-api-key": API_KEY,

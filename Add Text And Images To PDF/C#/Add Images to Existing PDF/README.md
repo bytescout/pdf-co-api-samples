@@ -1,12 +1,4 @@
-## How to add text and images to PDF in C# using PDF.co Web API
-
-### Write code in C# to add text and images to PDF with this step-by-step tutorial
-
-The coding tutorials are designed to help you test the features without need to write your own code. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf. It can add text and images to PDF in C#.
-
-Fast application programming interfaces of PDF.co Web API for C# plus the instruction and the code below will help you quickly learn how to add text and images to PDF. Follow the instructions from the scratch to work and copy the C# code. Enjoy writing a code with ready-to-use sample codes in C#.
-
-Download free trial version of PDF.co Web API from our website with this and other source code samples for C#.
+## How to add text and images to PDF in C# with PDF.co Web API What is PDF.co Web API? It is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -143,22 +135,21 @@ EndGlobal
 ##### **Program.cs:**
     
 ```
+using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
 {
-	class Program
+    class Program
 	{
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
 		const String API_KEY = "*****************************************";
 		
         // Direct URL of source PDF file.
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
         const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
 		// Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 		const string Pages = "";
@@ -169,7 +160,6 @@ namespace ByteScoutWebApiExample
 		const string DestinationFile = @".\result.pdf";
 
         // Image params
-        private const string Type1 = "image";
         private const int X1 = 400;
         private const int Y1 = 20;
         private const int Width1 = 119;
@@ -185,24 +175,25 @@ namespace ByteScoutWebApiExample
 			webClient.Headers.Add("x-api-key", API_KEY);
 
             // * Add image *
-			
-            // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("name", Path.GetFileName(DestinationFile));
-            parameters.Add("password", Password);
-            parameters.Add("pages", Pages);
-            parameters.Add("url", SourceFileUrl);
-            parameters.Add("type", Type1);
-            parameters.Add("x", X1.ToString());
-            parameters.Add("y", Y1.ToString());
-            parameters.Add("width", Width1.ToString());
-            parameters.Add("height", Height1.ToString());
-            parameters.Add("urlimage", ImageUrl);
-            // Convert dictionary of params to JSON
-            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
-			try
+            // JSON Payload
+			string jsonPayload = $@"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""images"": [
+        {{
+            ""url"": ""{ImageUrl}"",
+            ""x"": {X1},
+            ""y"": {Y1},
+            ""width"": {Width1},
+            ""height"": {Height1},
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}";
+
+            try
 			{
                 // URL of "PDF Edit" endpoint
                 string url = "https://api.pdf.co/v1/pdf/edit/add";

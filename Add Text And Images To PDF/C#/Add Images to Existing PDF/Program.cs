@@ -11,16 +11,14 @@
 //*******************************************************************************************//
 
 
+using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
 {
-	class Program
+    class Program
 	{
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
@@ -38,7 +36,6 @@ namespace ByteScoutWebApiExample
 		const string DestinationFile = @".\result.pdf";
 
         // Image params
-        private const string Type1 = "image";
         private const int X1 = 400;
         private const int Y1 = 20;
         private const int Width1 = 119;
@@ -54,24 +51,25 @@ namespace ByteScoutWebApiExample
 			webClient.Headers.Add("x-api-key", API_KEY);
 
             // * Add image *
-			
-            // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("name", Path.GetFileName(DestinationFile));
-            parameters.Add("password", Password);
-            parameters.Add("pages", Pages);
-            parameters.Add("url", SourceFileUrl);
-            parameters.Add("type", Type1);
-            parameters.Add("x", X1.ToString());
-            parameters.Add("y", Y1.ToString());
-            parameters.Add("width", Width1.ToString());
-            parameters.Add("height", Height1.ToString());
-            parameters.Add("urlimage", ImageUrl);
-            // Convert dictionary of params to JSON
-            string jsonPayload = JsonConvert.SerializeObject(parameters);
 
-			try
+            // JSON Payload
+			string jsonPayload = $@"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""images"": [
+        {{
+            ""url"": ""{ImageUrl}"",
+            ""x"": {X1},
+            ""y"": {Y1},
+            ""width"": {Width1},
+            ""height"": {Height1},
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}";
+
+            try
 			{
                 // URL of "PDF Edit" endpoint
                 string url = "https://api.pdf.co/v1/pdf/edit/add";

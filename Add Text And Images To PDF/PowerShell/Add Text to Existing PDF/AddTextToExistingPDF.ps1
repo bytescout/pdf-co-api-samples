@@ -1,6 +1,6 @@
 # The authentication key (API Key).
 # Get your own by registering at https://app.pdf.co/documentation/api
-$API_KEY = "***********************************"
+$API_KEY = "******************************"
 
 # Direct URL of source PDF file.
 $SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf"
@@ -15,7 +15,6 @@ $Password = ""
 $DestinationFile = "./result.pdf"
 
 # Text annotation params
-$Type = "annotation";
 $X = 400;
 $Y = 600;
 $Text = "APPROVED";
@@ -33,16 +32,19 @@ $query = "https://api.pdf.co/v1/pdf/edit/add"
 # See documentation: https://apidocs.pdf.co
 $body = @{
     "name" = $resultFileName
-    "password" = $Password
-    "pages" = $Pages
     "url" = $SourceFileUrl
-    "type" = $Type
-    "x" = $X
-    "y" = $Y
-    "text" = $Text
-    "fontname" = $FontName
-    "size" = $FontSize
-    "color" = $Color
+    "password" = $Password
+    "annotations" = @(
+        @{
+            "pages" = $Pages
+            "x" = $X
+            "y" = $Y
+            "text" = $Text
+            "fontname" = $FontName
+            "size" = $FontSize
+            "color" = $Color
+        }
+    )
 } | ConvertTo-Json
 
 try {

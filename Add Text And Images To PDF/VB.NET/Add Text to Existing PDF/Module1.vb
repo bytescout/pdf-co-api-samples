@@ -12,7 +12,6 @@
 
 Imports System.IO
 Imports System.Net
-Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -35,9 +34,8 @@ Module Module1
     Const DestinationFile As String = ".\result.pdf"
 
     ' Text annotation params
-    Private Const Type2 As String = "annotation"
-    Private Const X2 As Int32 = 400
-    Private Const Y2 As Int32 = 600
+    Private Const X As Int32 = 400
+    Private Const Y As Int32 = 600
     Private Const Text As String = "APPROVED"
     Private Const FontName As String = "Times New Roman"
     Private Const FontSize As Decimal = 24
@@ -59,22 +57,23 @@ Module Module1
 		Dim url As String = "https://api.pdf.co/v1/pdf/edit/add"
 
         ' Prepare requests params as JSON
-        ' See documentation: https : //apidocs.pdf.co
-        Dim parameters As New Dictionary(Of String, Object)
-		parameters.Add("name", Path.GetFileName(DestinationFile))
-		parameters.Add("password", Password)
-		parameters.Add("pages", Pages)
-		parameters.Add("url", SourceFileUrl)
-		parameters.Add("type", Type2)
-		parameters.Add("x", X2)
-		parameters.Add("y", Y2)
-		parameters.Add("text", Text)
-		parameters.Add("fontname", FontName)
-		parameters.Add("size", FontSize)
-		parameters.Add("color", Color)
-
-        ' Convert dictionary of params to JSON
-        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+        ' See documentation: https://apidocs.pdf.co/04-pdf-add-text-signatures-and-images-to-pdf
+        Dim jsonPayload As String = $"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""annotations"": [
+        {{
+            ""text"": ""{Text}"",
+            ""x"": {X},
+            ""y"": {Y},
+            ""fontname"": ""{FontName}"",
+            ""size"": ""{FontSize}"",
+            ""color"": ""{Color}"",
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}"
 
         Try
             ' Execute POST request with JSON payload

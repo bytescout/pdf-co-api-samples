@@ -12,7 +12,6 @@
 
 Imports System.IO
 Imports System.Net
-Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -35,7 +34,6 @@ Module Module1
     Const DestinationFile As String = ".\result.pdf"
 
     ' Image params
-    Private Const Type1 As String = "image"
     Private Const X1 As Int32 = 400
     Private Const Y1 As Int32 = 20
     Private Const Width1 As Int32 = 119
@@ -58,21 +56,22 @@ Module Module1
 		Dim url As String = "https://api.pdf.co/v1/pdf/edit/add"
 
         ' Prepare requests params as JSON
-        ' See documentation: https : //apidocs.pdf.co
-        Dim parameters As New Dictionary(Of String, Object)
-		parameters.Add("name", Path.GetFileName(DestinationFile))
-		parameters.Add("password", Password)
-		parameters.Add("pages", Pages)
-		parameters.Add("url", SourceFileUrl)
-		parameters.Add("type", Type1)
-		parameters.Add("x", X1)
-		parameters.Add("y", Y1)
-		parameters.Add("width", Width1)
-		parameters.Add("height", Height1)
-		parameters.Add("urlimage", ImageUrl)
-
-        ' Convert dictionary of params to JSON
-        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+        ' See documentation: https://apidocs.pdf.co/04-pdf-add-text-signatures-and-images-to-pdf
+        Dim jsonPayload As String = $"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""images"": [
+        {{
+            ""url"": ""{ImageUrl}"",
+            ""x"": {X1},
+            ""y"": {Y1},
+            ""width"": {Width1},
+            ""height"": {Height1},
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}"
 
         Try
             ' Execute POST request with JSON payload

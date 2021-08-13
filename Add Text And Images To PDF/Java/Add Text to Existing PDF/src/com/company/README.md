@@ -1,4 +1,4 @@
-## How to add text and images to PDF for src in Java and PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
+## How to add text and images to PDF for src in Java using PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -51,6 +51,7 @@ public class Main
     final static String API_KEY = "***********************************";
 
     // Direct URL of source PDF file.
+    // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
     final static String SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
     // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 	final static String Pages = "";
@@ -90,15 +91,27 @@ public class Main
         }
 
         // Create JSON payload
-        String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"type\": \"%s\", \"x\": \"%s\", \"y\": \"%s\", \"text\": \"%s\", \"fontname\": \"%s\", \"size\": \"%s\", \"color\": \"%s\"}",
+        String jsonPayload = String.format("{
+            \"name\": \"%s\", 
+            \"url\": \"%s\", 
+            \"password\": \"%s\", 
+            annotations:[{
+                \"pages\": \"%s\", 
+                \"text\": \"%s\", 
+                \"x\": \"%s\", 
+                \"y\": \"%s\", 
+                \"fontname\": \"%s\", 
+                \"size\": \"%s\", 
+                \"color\": \"%s\"
+            }]
+        }",
             ResultFile.getFileName(),
+            SourceFileUrl,
             Password,
             Pages,
-            SourceFileUrl,
-            Type2,
+            Text,
             X2,
             Y2,
-            Text,
             FontName,
             FontSize,
             Color);

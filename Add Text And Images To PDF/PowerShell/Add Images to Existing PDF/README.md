@@ -1,12 +1,4 @@
-## How to add text and images to PDF in PowerShell and PDF.co Web API
-
-### How to add text and images to PDF in PowerShell
-
-We made thousands of pre-made source code pieces for easy implementation in your own programming projects. PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf. It can add text and images to PDF in PowerShell.
-
-Fast application programming interfaces of PDF.co Web API for PowerShell plus the instruction and the code below will help you quickly learn how to add text and images to PDF. In your PowerShell project or application you may simply copy & paste the code and then run your app! Use of PDF.co Web API in PowerShell is also explained in the documentation included along with the product.
-
-ByteScout free trial version is available for download from our website. It includes all these programming tutorials along with source code samples.
+## How to add text and images to PDF in PowerShell with PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -58,7 +50,6 @@ $Password = ""
 $DestinationFile = "./result.pdf"
 
 # Image params
-$Type = "image"
 $X = 400
 $Y = 20
 $Width = 119
@@ -75,15 +66,18 @@ $query = "https://api.pdf.co/v1/pdf/edit/add"
 # See documentation: https://apidocs.pdf.co
 $body = @{
     "name" = $resultFileName
-    "password" = $Password
-    "pages" = $Pages
     "url" = $SourceFileUrl
-    "type" = $Type
-    "x" = $X
-    "y" = $Y
-    "width" = $Width
-    "height" = $Height
-    "urlimage" = $ImageUrl
+    "password" = $Password
+    "images" = @(
+        @{
+            "url" = $ImageUrl
+            "pages" = $Pages
+            "x" = $X
+            "y" = $Y
+            "width" = $Width
+            "height" = $Height
+        }
+    )
 } | ConvertTo-Json
 
 try {

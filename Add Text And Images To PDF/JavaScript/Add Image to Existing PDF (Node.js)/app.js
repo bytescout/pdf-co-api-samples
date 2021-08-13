@@ -33,7 +33,6 @@ const Password = "";
 const DestinationFile = "./result.pdf";
 
 // Image params
-const Type = "image";
 const X = 400;
 const Y = 20;
 const Width = 119;
@@ -48,14 +47,17 @@ var queryPath = `/v1/pdf/edit/add`;
 var jsonPayload = JSON.stringify({
     name: path.basename(DestinationFile),
     password: Password,
-    pages: Pages,
     url: SourceFileUrl,
-    type: Type,
-    x: X,
-    y: Y,
-    width: Width,
-    height: Height,
-    urlimage: ImageUrl
+    images: [
+        {
+            url: ImageUrl,
+            x: X,
+            y: Y,
+            width: Width,
+            height: Height,
+            pages: Pages,
+        }
+    ]
 });
 
 var reqOptions = {

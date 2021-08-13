@@ -11,14 +11,12 @@
 //*******************************************************************************************//
 
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Net;
-using System.Runtime.ConstrainedExecution;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
 
 namespace ByteScoutWebApiExample
 {
@@ -26,7 +24,7 @@ namespace ByteScoutWebApiExample
     {
         // The authentication key (API Key).
         // Get your own by registering at https://app.pdf.co/documentation/api
-        const String API_KEY = "*****************************************";
+        const String API_KEY = "**************************";
 
         // Direct URL of source PDF file.
         // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
@@ -59,22 +57,23 @@ namespace ByteScoutWebApiExample
             var height1 = 32;
 
             // * Add image *
-            
+
             // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("name", Path.GetFileName(DestinationFile));
-            parameters.Add("password", Password);
-            parameters.Add("pages", Pages);
-            parameters.Add("url", SourceFileUrl);
-            parameters.Add("type", Type1);
-            parameters.Add("x", x1.ToString());
-            parameters.Add("y", y1.ToString());
-            parameters.Add("width", width1.ToString());
-            parameters.Add("height", height1.ToString());
-            parameters.Add("urlimage", ImageUrl);
-            // Convert dictionary of params to JSON
-            string jsonPayload = JsonConvert.SerializeObject(parameters);
+             string jsonPayload = $@"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""images"": [
+        {{
+            ""url"": ""{ImageUrl}"",
+            ""x"": {x1},
+            ""y"": {y1},
+            ""width"": {width1},
+            ""height"": {height1},
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}";
 
             try
             {
@@ -183,5 +182,4 @@ namespace ByteScoutWebApiExample
         public int Width { get; set; }
         public int Height { get; set; }
     }
-
 }

@@ -58,7 +58,6 @@ public class Main
         int X = oCoordinates.x;
         int Y = oCoordinates.y + 25;
 
-
         // * Add text annotations *
         // Prepare URL for `PDF Edit` API call
         String query = "https://api.pdf.co/v1/pdf/edit/add";
@@ -75,18 +74,31 @@ public class Main
         }
 
         // Create JSON payload
-        String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"type\": \"%s\", \"x\": \"%s\", \"y\": \"%s\", \"text\": \"%s\", \"fontname\": \"%s\", \"size\": \"%s\", \"color\": \"%s\"}",
-        ResultFile.getFileName(),
-                Password,
-                Pages,
-                SourceFileUrl,
-                Type,
-                X,
-                Y,
-                Text,
-                FontName,
-                FontSize,
-                Color);
+        String jsonPayload = String.format("{
+            \"name\": \"%s\", 
+            \"url\": \"%s\", 
+            \"password\": \"%s\", 
+            annotations:[{
+                \"text\": \"%s\", 
+                \"pages\": \"%s\", 
+                \"x\": \"%s\", 
+                \"y\": \"%s\", 
+                \"fontname\": \"%s\", 
+                \"size\": \"%s\", 
+                \"color\": \"%s\"
+            }]
+        }",
+            ResultFile.getFileName(),
+            SourceFileUrl,
+            Password,
+            Text,
+            Pages,
+            X,
+            Y,
+            FontName,
+            FontSize,
+            Color
+        );
 
         // Prepare request body
         RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);

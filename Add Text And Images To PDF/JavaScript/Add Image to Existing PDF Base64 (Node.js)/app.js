@@ -65,18 +65,21 @@ function addImageToPdf(sourceFileUrl, destinationFile) {
     var queryPath = `/v1/pdf/edit/add`;
 
     // JSON payload for api request
-    var jsonPayload = JSON.stringify({
-        name: path.basename(destinationFile),
-        password: Password,
-        pages: Pages,
-        url: sourceFileUrl,
-        type: Type,
-        x: X,
-        y: Y,
-        width: Width,
-        height: Height,
-        urlimage: ImageUrl
-    });
+    var jsonPayload = JSON.stringify(
+        {
+            name: path.basename(destinationFile),
+            password: Password,
+            url: sourceFileUrl,
+            images: [
+                {
+                    url: ImageUrl,
+                    x: X,
+                    y: Y,
+                    width: Width,
+                    height: Height,
+                    pages: Pages
+                }]
+        });
 
     var reqOptions = {
         host: "api.pdf.co",

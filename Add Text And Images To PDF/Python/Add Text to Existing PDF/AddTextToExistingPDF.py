@@ -35,28 +35,31 @@ def main(args = None):
     addTextToExistingPDF(DestinationFile)
 
 def addTextToExistingPDF(destinationFile):
+    import json
     """Add Text using PDF.co Web API"""
 
     # Prepare requests params as JSON
     # See documentation: https://apidocs.pdf.co
-    parameters = {}
-    parameters["name"] = os.path.basename(destinationFile)
-    parameters["password"] = Password
-    parameters["pages"] = Pages
-    parameters["url"] = SourceFileUrl
-    parameters["type"] = Type
-    parameters["x"] = X
-    parameters["y"] = Y
-    parameters["text"] = Text
-    parameters["fontname"] = FontName
-    parameters["size"] = FontSize
-    parameters["color"] = Color
+    payload = json.dumps({
+        "name": os.path.basename(destinationFile),
+        "password": Password,
+        "url": SourceFileUrl,
+        "annotations": [{
+            "text": Text,
+            "x": X,
+            "y": Y,
+            "fontname": FontName,
+            "size": FontSize,
+            "color": Color,
+            "pages": Pages
+        }]
+    })
 
     # Prepare URL for 'PDF Edit' API request
     url = "{}/pdf/edit/add".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
+    response = requests.post(url, data=payload, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

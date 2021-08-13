@@ -40,7 +40,6 @@ public class Main
 	final static Path ResultFile = Paths.get(".\\result.pdf");
 
     // Image params
-    private final static String Type1 = "image";
     private final static int Width1 = 119;
     private final static int Height1 = 32;
     private final static String ImageUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/logo.png";
@@ -72,17 +71,29 @@ public class Main
         }
 
         // Create JSON payload
-        String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"type\": \"%s\", \"x\": \"%s\", \"y\": \"%s\", \"width\": \"%s\", \"height\": \"%s\", \"urlimage\": \"%s\" }",
+        String jsonPayload = String.format("{
+            \"name\": \"%s\", 
+            \"url\": \"%s\", 
+            \"password\": \"%s\", 
+            images: [{
+                \"url\": \"%s\" 
+                \"pages\": \"%s\", 
+                \"x\": \"%s\", 
+                \"y\": \"%s\", 
+                \"width\": \"%s\", 
+                \"height\": \"%s\" 
+            }]
+        }",
         ResultFile.getFileName(),
-        Password,
-        Pages,
         SourceFileUrl,
-        Type1,
+        Password,
+        ImageUrl,
+        Pages,
         X1,
         Y1,
         Width1,
         Height1,
-        ImageUrl);
+        );
 
         // Prepare request body
         RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);

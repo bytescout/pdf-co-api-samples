@@ -1,12 +1,4 @@
-## How to add text and images to PDF in VB.NET with PDF.co Web API
-
-### How to code in VB.NET to add text and images to PDF with this step-by-step tutorial
-
-With this source code sample you may quickly learn how to add text and images to PDF in VB.NET. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf and you can use it to add text and images to PDF with VB.NET.
-
-You will save a lot of time on writing and testing code as you may just take the VB.NET code from PDF.co Web API for add text and images to PDF below and use it in your application. Just copy and paste the code into your VB.NET application’s code and follow the instruction. Enjoy writing a code with ready-to-use sample VB.NET codes.
-
-Our website provides trial version of PDF.co Web API for free. It also includes documentation and source code samples.
+## How to add text and images to PDF in VB.NET and PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -174,6 +166,7 @@ Module Module1
     Const API_KEY As String = "***********************************"
 
     ' Direct URL of source PDF file.
+    ' You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/   
     Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf"
 
     ' Comma-separated list of page indices (Or ranges) to process. Leave empty for all pages. Example '0,2-5,7-'.
@@ -215,22 +208,23 @@ Module Module1
 		Dim url As String = "https://api.pdf.co/v1/pdf/edit/add"
 
         ' Prepare requests params as JSON
-        ' See documentation: https : //apidocs.pdf.co
-        Dim parameters As New Dictionary(Of String, Object)
-		parameters.Add("name", Path.GetFileName(DestinationFile))
-		parameters.Add("password", Password)
-		parameters.Add("pages", Pages)
-		parameters.Add("url", SourceFileUrl)
-		parameters.Add("type", Type)
-		parameters.Add("x", X)
-		parameters.Add("y", Y)
-		parameters.Add("text", Text)
-		parameters.Add("fontname", FontName)
-		parameters.Add("size", FontSize)
-		parameters.Add("color", Color)
-
-        ' Convert dictionary of params to JSON
-        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+        ' See documentation: https://apidocs.pdf.co/04-pdf-add-text-signatures-and-images-to-pdf
+        Dim jsonPayload As String = $"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""annotations"": [
+        {{
+            ""text"": ""{Text}"",
+            ""x"": {X},
+            ""y"": {Y},
+            ""fontname"": ""{FontName}"",
+            ""size"": ""{FontSize}"",
+            ""color"": ""{Color}"",
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}"
 
         Try
             ' Execute POST request with JSON payload
@@ -282,8 +276,8 @@ Module Module1
         webClient.Headers.Add("Content-Type", "application/json")
 
         ' Prepare URL for PDF text search API call.
-        ' See documentation: https : //app.pdf.co/documentation/api/1.0/pdf/find.html
-		Dim url As String = "https://api.pdf.co/v1/pdf/find"
+        ' See documentation: https://apidocs.pdf.co/07-pdf-search-text
+        Dim url As String = "https://api.pdf.co/v1/pdf/find"
 
         ' Prepare requests params as JSON
         ' See documentation: https : //apidocs.pdf.co

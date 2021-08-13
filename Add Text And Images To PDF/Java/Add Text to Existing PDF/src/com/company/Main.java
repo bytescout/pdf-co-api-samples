@@ -69,15 +69,27 @@ public class Main
         }
 
         // Create JSON payload
-        String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"type\": \"%s\", \"x\": \"%s\", \"y\": \"%s\", \"text\": \"%s\", \"fontname\": \"%s\", \"size\": \"%s\", \"color\": \"%s\"}",
+        String jsonPayload = String.format("{
+            \"name\": \"%s\", 
+            \"url\": \"%s\", 
+            \"password\": \"%s\", 
+            annotations:[{
+                \"pages\": \"%s\", 
+                \"text\": \"%s\", 
+                \"x\": \"%s\", 
+                \"y\": \"%s\", 
+                \"fontname\": \"%s\", 
+                \"size\": \"%s\", 
+                \"color\": \"%s\"
+            }]
+        }",
             ResultFile.getFileName(),
+            SourceFileUrl,
             Password,
             Pages,
-            SourceFileUrl,
-            Type2,
+            Text,
             X2,
             Y2,
-            Text,
             FontName,
             FontSize,
             Color);

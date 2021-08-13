@@ -63,14 +63,15 @@ $(document).on("click", "#submit", function () {
                         // Input Data
                         var data = {
                             name: 'result.pdf',
-                            type: annotation,
-                            x: destinationXCoordinate,
-                            y: destinationYCoordinate,
-                            text: inputText,
-                            fontname: fontName,
-                            size: fontSize,
-                            color: fontColor,
-                            url: presignedUrl
+                            url: presignedUrl,
+                            annotations: [{
+                                x: destinationXCoordinate,
+                                y: destinationYCoordinate,
+                                text: inputText,
+                                fontname: fontName,
+                                size: fontSize,
+                                color: fontColor
+                            }]
                         };
 
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');

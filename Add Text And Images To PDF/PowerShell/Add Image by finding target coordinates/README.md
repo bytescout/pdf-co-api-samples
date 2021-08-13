@@ -1,12 +1,4 @@
-## How to add text and images to PDF in PowerShell and PDF.co Web API
-
-### This code in PowerShell shows how to add text and images to PDF with this how to tutorial
-
-Sample source code below will show you how to cope with a difficult task like add text and images to PDF in PowerShell. What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf. It can help you to add text and images to PDF in your PowerShell application.
-
-PowerShell code samples for PowerShell developers help to speed up coding of your application when using PDF.co Web API. In your PowerShell project or application you may simply copy & paste the code and then run your app! Implementing PowerShell application typically includes multiple stages of the software development so even if the functionality works please test it with your data and the production environment.
-
-Trial version of PDF.co Web API is available for free. Source code samples are included to help you with your PowerShell app.
+## How to add text and images to PDF in PowerShell using PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -86,7 +78,6 @@ try {
         $DestinationFile = "./result.pdf"
 
         # Image params
-        $Type = "image"
         $X = 450
         $Y = $itemFindText.top
         $Width = 119
@@ -103,15 +94,18 @@ try {
         # See documentation: https://apidocs.pdf.co
         $body = @{
             "name" = $resultFileName
-            "password" = $Password
-            "pages" = $Pages
             "url" = $SourceFileUrl
-            "type" = $Type
-            "x" = $X
-            "y" = $Y
-            "width" = $Width
-            "height" = $Height
-            "urlimage" = $ImageUrl
+            "password" = $Password
+            "images" = @(
+                @{
+                    "url" = $ImageUrl
+                    "pages" = $Pages
+                    "x" = $X
+                    "y" = $Y
+                    "width" = $Width
+                    "height" = $Height
+                }
+            )
         } | ConvertTo-Json
         
         try {

@@ -1,12 +1,4 @@
-## How to add text and images to PDF in PowerShell and PDF.co Web API
-
-### How to code in PowerShell to add text and images to PDF with this step-by-step tutorial
-
-Learn how to add text and images to PDF in PowerShell with this source code sample. PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf. It can add text and images to PDF in PowerShell.
-
-This code snippet below for PDF.co Web API works best when you need to quickly add text and images to PDF in your PowerShell application. Just copy and paste the code into your PowerShell application’s code and follow the instruction. This basic programming language sample code for PowerShell will do the whole work for you to add text and images to PDF.
-
-You can download free trial version of PDF.co Web API from our website to see and try many others source code samples for PowerShell.
+## How to add text and images to PDF in PowerShell using PDF.co Web API PDF.co Web API: the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -43,7 +35,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ```
 # The authentication key (API Key).
 # Get your own by registering at https://app.pdf.co/documentation/api
-$API_KEY = "***********************************"
+$API_KEY = "******************************"
 
 # Direct URL of source PDF file.
 $SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf"
@@ -58,7 +50,6 @@ $Password = ""
 $DestinationFile = "./result.pdf"
 
 # Text annotation params
-$Type = "annotation";
 $X = 400;
 $Y = 600;
 $Text = "APPROVED";
@@ -76,16 +67,19 @@ $query = "https://api.pdf.co/v1/pdf/edit/add"
 # See documentation: https://apidocs.pdf.co
 $body = @{
     "name" = $resultFileName
-    "password" = $Password
-    "pages" = $Pages
     "url" = $SourceFileUrl
-    "type" = $Type
-    "x" = $X
-    "y" = $Y
-    "text" = $Text
-    "fontname" = $FontName
-    "size" = $FontSize
-    "color" = $Color
+    "password" = $Password
+    "annotations" = @(
+        @{
+            "pages" = $Pages
+            "x" = $X
+            "y" = $Y
+            "text" = $Text
+            "fontname" = $FontName
+            "size" = $FontSize
+            "color" = $Color
+        }
+    )
 } | ConvertTo-Json
 
 try {

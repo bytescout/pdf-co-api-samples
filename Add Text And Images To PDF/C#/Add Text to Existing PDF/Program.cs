@@ -11,17 +11,15 @@
 //*******************************************************************************************//
 
 
+using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
 {
-	class Program
+    class Program
 	{
 		// The authentication key (API Key).
 		// Get your own by registering at https://app.pdf.co/documentation/api
@@ -56,24 +54,26 @@ namespace ByteScoutWebApiExample
 			// Set API Key
 			webClient.Headers.Add("x-api-key", API_KEY);
 
-            // * Add text annotation *
-			
-            // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("name", Path.GetFileName(DestinationFile));
-            parameters.Add("password", Password);
-            parameters.Add("pages", Pages);
-            parameters.Add("url", SourceFileUrl);
-            parameters.Add("type", Type);
-            parameters.Add("x", X.ToString());
-            parameters.Add("y", Y.ToString());
-            parameters.Add("text", Text);
-            parameters.Add("fontname", FontName);
-            parameters.Add("size", FontSize.ToString(CultureInfo.InvariantCulture));
-            parameters.Add("color", FontColor);
-            // Convert dictionary of params to JSON
-            string jsonPayload = JsonConvert.SerializeObject(parameters);
+			// * Add text annotation *
+
+			// Prepare requests params as JSON
+			// See documentation: https://apidocs.pdf.co/04-pdf-add-text-signatures-and-images-to-pdf
+            string jsonPayload = $@"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""annotations"": [
+        {{
+            ""x"": {X},
+            ""y"": {Y},
+            ""text"": ""{Text}"",
+            ""fontname"": ""{FontName}"",
+            ""size"": ""{FontSize.ToString(CultureInfo.InvariantCulture)}"",
+            ""color"": ""{FontColor}"",
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}"; ;
 
 			try
 			{

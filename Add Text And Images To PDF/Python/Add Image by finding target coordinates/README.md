@@ -1,12 +1,4 @@
-## How to add text and images to PDF in Python using PDF.co Web API
-
-### Learning is essential in computer world and the tutorial below will demonstrate how to add text and images to PDF in Python
-
-On this page you will learn from code samples for programming in Python.Writing of the code to add text and images to PDF in Python can be executed by programmers of any level using PDF.co Web API. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf. It can be applied to add text and images to PDF using Python.
-
-The SDK samples given below describe how to quickly make your application do add text and images to PDF in Python with the help of PDF.co Web API. Follow the instructions from scratch to work and copy the Python code. Check Python sample code samples to see if they respond to your needs and requirements for the project.
-
-Trial version of PDF.co Web API is available for free. Source code samples are included to help you with your Python app.
+## How to add text and images to PDF in Python with PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -52,6 +44,7 @@ API_KEY = "**************************************"
 BASE_URL = "https://api.pdf.co/v1"
 
 # Direct URL of source PDF file.
+# You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf"
 
 # Search string.
@@ -115,30 +108,32 @@ def findTextWithinPDF(sourceFile, searchText):
 
     return retVal
 
-
-
 def addImageToPDF(destinationFile, top, left):
+    import json
     """Add image using PDF.co Web API"""
 
     # Prepare requests params as JSON
     # See documentation: https://apidocs.pdf.co
-    parameters = {}
-    parameters["name"] = os.path.basename(destinationFile)
-    parameters["password"] = Password
-    parameters["pages"] = Pages
-    parameters["url"] = SourceFileUrl
-    parameters["type"] = Type
-    parameters["x"] = top + 300
-    parameters["y"] = left
-    parameters["width"] = Width
-    parameters["height"] = Height
-    parameters["urlimage"] = ImageUrl
 
+    payload = json.dumps({
+        "name": os.path.basename(destinationFile),
+        "password": Password,
+        "url": SourceFileUrl,
+        "images": [{
+            "url": ImageUrl,
+            "x": top + 300,
+            "y": left,
+            "width": Width,
+            "height": Height,
+            "pages": Pages
+        }]
+    })
+ 
     # Prepare URL for 'PDF Edit' API request
     url = "{}/pdf/edit/add".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.post(url, data=parameters, headers={"x-api-key": API_KEY})
+    response = requests.post(url, data=payload, headers={"x-api-key": API_KEY})
 
     if (response.status_code == 200):
 

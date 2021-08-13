@@ -64,22 +64,23 @@ Module Module1
 		Dim url As String = "https://api.pdf.co/v1/pdf/edit/add"
 
         ' Prepare requests params as JSON
-        ' See documentation: https : //apidocs.pdf.co
-        Dim parameters As New Dictionary(Of String, Object)
-		parameters.Add("name", Path.GetFileName(DestinationFile))
-		parameters.Add("password", Password)
-		parameters.Add("pages", Pages)
-		parameters.Add("url", SourceFileUrl)
-		parameters.Add("type", Type)
-		parameters.Add("x", X)
-		parameters.Add("y", Y)
-		parameters.Add("text", Text)
-		parameters.Add("fontname", FontName)
-		parameters.Add("size", FontSize)
-		parameters.Add("color", Color)
-
-        ' Convert dictionary of params to JSON
-        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+        ' See documentation: https://apidocs.pdf.co/04-pdf-add-text-signatures-and-images-to-pdf
+        Dim jsonPayload As String = $"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""annotations"": [
+        {{
+            ""text"": ""{Text}"",
+            ""x"": {X},
+            ""y"": {Y},
+            ""fontname"": ""{FontName}"",
+            ""size"": ""{FontSize}"",
+            ""color"": ""{Color}"",
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}"
 
         Try
             ' Execute POST request with JSON payload
@@ -131,8 +132,8 @@ Module Module1
         webClient.Headers.Add("Content-Type", "application/json")
 
         ' Prepare URL for PDF text search API call.
-        ' See documentation: https : //app.pdf.co/documentation/api/1.0/pdf/find.html
-		Dim url As String = "https://api.pdf.co/v1/pdf/find"
+        ' See documentation: https://apidocs.pdf.co/07-pdf-search-text
+        Dim url As String = "https://api.pdf.co/v1/pdf/find"
 
         ' Prepare requests params as JSON
         ' See documentation: https : //apidocs.pdf.co

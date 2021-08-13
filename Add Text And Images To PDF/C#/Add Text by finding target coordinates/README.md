@@ -1,12 +1,4 @@
-## How to add text and images to PDF in C# using PDF.co Web API
-
-### The tutorial below will demonstrate how to add text and images to PDF in C#
-
-Learn how to add text and images to PDF in C# with this source code sample. Want to add text and images to PDF in your C# app? PDF.co Web API is designed for it. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
-
-This code snippet below for PDF.co Web API works best when you need to quickly add text and images to PDF in your C# application. Just copy and paste the code into your C# application’s code and follow the instruction. Use of PDF.co Web API in C# is also explained in the documentation included along with the product.
-
-Download free trial version of PDF.co Web API from our website with this and other source code samples for C#.
+## How to add text and images to PDF in C# with PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -160,6 +152,7 @@ namespace ByteScoutWebApiExample
         const String API_KEY = "*****************************************";
 
         // Direct URL of source PDF file.
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
         const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
         // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
         const string Pages = "";
@@ -170,7 +163,6 @@ namespace ByteScoutWebApiExample
         const string DestinationFile = @".\result.pdf";
 
         // Annotation params
-        const string Type = "annotation";
         const string Text = "Some notes will go here... Some notes will go here.... Some notes will go here.....";
         const string FontName = "Times New Roman";
         const float FontSize = 12;
@@ -191,23 +183,24 @@ namespace ByteScoutWebApiExample
             var X = coordinates.X;
             var Y = coordinates.Y + 25;
 
-
+            // See documentation: https://apidocs.pdf.co/04-pdf-add-text-signatures-and-images-to-pdf
             // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("name", Path.GetFileName(DestinationFile));
-            parameters.Add("password", Password);
-            parameters.Add("pages", Pages);
-            parameters.Add("url", SourceFileUrl);
-            parameters.Add("type", Type);
-            parameters.Add("x", X.ToString());
-            parameters.Add("y", Y.ToString());
-            parameters.Add("text", Text);
-            parameters.Add("fontname", FontName);
-            parameters.Add("size", FontSize.ToString(CultureInfo.InvariantCulture));
-            parameters.Add("color", FontColor);
-            // Convert dictionary of params to JSON
-            string jsonPayload = JsonConvert.SerializeObject(parameters);
+            string jsonPayload = $@"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""annotations"": [
+        {{
+            ""x"": {X},
+            ""y"": {Y},
+            ""text"": ""{Text}"",
+            ""fontname"": ""{FontName}"",
+            ""size"": ""{FontSize.ToString(CultureInfo.InvariantCulture)}"",
+            ""color"": ""{FontColor}"",
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}";
 
             try
             {
@@ -263,7 +256,7 @@ namespace ByteScoutWebApiExample
             webClient.Headers.Add("x-api-key", apiKey);
 
             // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#pdf-search-text
+            // See documentation: https://apidocs.pdf.co/07-pdf-search-text
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("url", sourceFileUrl);
             parameters.Add("searchString", searchString);

@@ -1,12 +1,4 @@
-## How to add text and images to PDF in VB.NET and PDF.co Web API
-
-### Tutorial on how to add text and images to PDF in VB.NET
-
-The coding tutorials are designed to help you test the features without need to write your own code. PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf. It can add text and images to PDF in VB.NET.
-
-The SDK samples like this one below explain how to quickly make your application do add text and images to PDF in VB.NET with the help of PDF.co Web API. Just copy and paste the code into your VB.NET application’s code and follow the instruction. Code testing will allow the function to be tested and work properly with your data.
-
-Trial version of PDF.co Web API can be downloaded for free from our website. It also includes source code samples for VB.NET and other programming languages.
+## How to add text and images to PDF in VB.NET using PDF.co Web API What is PDF.co Web API? It is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -164,7 +156,6 @@ EndGlobal
 ```
 Imports System.IO
 Imports System.Net
-Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
 Module Module1
@@ -174,6 +165,7 @@ Module Module1
     Const API_KEY As String = "***********************************"
 
     ' Direct URL of source PDF file.
+    ' You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/   
     Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf"
 
     ' Comma-separated list of page indices (Or ranges) to process. Leave empty for all pages. Example '0,2-5,7-'.
@@ -186,9 +178,8 @@ Module Module1
     Const DestinationFile As String = ".\result.pdf"
 
     ' Text annotation params
-    Private Const Type2 As String = "annotation"
-    Private Const X2 As Int32 = 400
-    Private Const Y2 As Int32 = 600
+    Private Const X As Int32 = 400
+    Private Const Y As Int32 = 600
     Private Const Text As String = "APPROVED"
     Private Const FontName As String = "Times New Roman"
     Private Const FontSize As Decimal = 24
@@ -210,22 +201,23 @@ Module Module1
 		Dim url As String = "https://api.pdf.co/v1/pdf/edit/add"
 
         ' Prepare requests params as JSON
-        ' See documentation: https : //apidocs.pdf.co
-        Dim parameters As New Dictionary(Of String, Object)
-		parameters.Add("name", Path.GetFileName(DestinationFile))
-		parameters.Add("password", Password)
-		parameters.Add("pages", Pages)
-		parameters.Add("url", SourceFileUrl)
-		parameters.Add("type", Type2)
-		parameters.Add("x", X2)
-		parameters.Add("y", Y2)
-		parameters.Add("text", Text)
-		parameters.Add("fontname", FontName)
-		parameters.Add("size", FontSize)
-		parameters.Add("color", Color)
-
-        ' Convert dictionary of params to JSON
-        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+        ' See documentation: https://apidocs.pdf.co/04-pdf-add-text-signatures-and-images-to-pdf
+        Dim jsonPayload As String = $"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""annotations"": [
+        {{
+            ""text"": ""{Text}"",
+            ""x"": {X},
+            ""y"": {Y},
+            ""fontname"": ""{FontName}"",
+            ""size"": ""{FontSize}"",
+            ""color"": ""{Color}"",
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}"
 
         Try
             ' Execute POST request with JSON payload

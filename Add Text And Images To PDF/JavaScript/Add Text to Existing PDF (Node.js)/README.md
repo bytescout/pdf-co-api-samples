@@ -1,4 +1,4 @@
-## How to add text and images to PDF in JavaScript using PDF.co Web API PDF.co Web API: the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
+## How to add text and images to PDF in JavaScript using PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -42,6 +42,7 @@ var fs = require("fs");
 const API_KEY = "***********************************";
 
 // Direct URL of source PDF file.
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 const SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
 
 // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
@@ -69,16 +70,19 @@ var queryPath = `/v1/pdf/edit/add`;
 // JSON payload for api request
 var jsonPayload = JSON.stringify({
     name: path.basename(DestinationFile),
-    password: Password,
-    pages: Pages,
     url: SourceFileUrl,
-    type: Type,
-    x: X,
-    y: Y,
-    text: Text,
-    fontname: FontName,
-    size: FontSize,
-    color: Color
+    password: Password,
+    annotations:[
+        {
+            pages: Pages,
+            x: X,
+            y: Y,
+            text: Text,
+            fontname: FontName,
+            size: FontSize,
+            color: Color
+        }
+    ]
 });
 
 var reqOptions = {

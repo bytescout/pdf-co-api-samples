@@ -1,12 +1,4 @@
-## How to add text and images to PDF in Python using PDF.co Web API
-
-### Continuous learning is a crucial part of computer science and this tutorial shows how to add text and images to PDF in Python
-
-Add text and images to PDF is simple to apply in Python if you use these source codes below. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf and you can use it to add text and images to PDF with Python.
-
-The following code snippet for PDF.co Web API works best when you need to quickly add text and images to PDF in your Python application. Follow the instructions from scratch to work and copy the Python code. If you want to use these Python sample examples in one or many applications then they can be used easily.
-
-The trial version of PDF.co Web API can be downloaded for free from our website. It also includes source code samples for Python and other programming languages.
+## How to add text and images to PDF in Python with PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -52,6 +44,7 @@ API_KEY = "******************************************"
 BASE_URL = "https://api.pdf.co/v1"
 
 # Direct URL of source PDF file.
+# You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf"
 
 #Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
@@ -77,28 +70,31 @@ def main(args = None):
     addTextToExistingPDF(DestinationFile)
 
 def addTextToExistingPDF(destinationFile):
+    import json
     """Add Text using PDF.co Web API"""
 
     # Prepare requests params as JSON
     # See documentation: https://apidocs.pdf.co
-    parameters = {}
-    parameters["name"] = os.path.basename(destinationFile)
-    parameters["password"] = Password
-    parameters["pages"] = Pages
-    parameters["url"] = SourceFileUrl
-    parameters["type"] = Type
-    parameters["x"] = X
-    parameters["y"] = Y
-    parameters["text"] = Text
-    parameters["fontname"] = FontName
-    parameters["size"] = FontSize
-    parameters["color"] = Color
+    payload = json.dumps({
+        "name": os.path.basename(destinationFile),
+        "password": Password,
+        "url": SourceFileUrl,
+        "annotations": [{
+            "text": Text,
+            "x": X,
+            "y": Y,
+            "fontname": FontName,
+            "size": FontSize,
+            "color": Color,
+            "pages": Pages
+        }]
+    })
 
     # Prepare URL for 'PDF Edit' API request
     url = "{}/pdf/edit/add".format(BASE_URL)
 
     # Execute request and get response as JSON
-    response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
+    response = requests.post(url, data=payload, headers={ "x-api-key": API_KEY })
     if (response.status_code == 200):
         json = response.json()
 

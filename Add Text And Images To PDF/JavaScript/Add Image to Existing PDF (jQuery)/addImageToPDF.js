@@ -61,13 +61,16 @@ $(document).on("click", "#submit", function () {
                         // Input data
                         var data = {
                             name: 'result.pdf',
-                            type: image,
-                            x: destinationXCoordinate,
-                            y: destinationYCoordinate,
-                            width: destinationWidth,
-                            height: destinationHeight,
-                            urlimage: signatureImageUrl,
-                            url: presignedUrl
+                            url: presignedUrl,
+                            images: [
+                                {
+                                    url: signatureImageUrl,
+                                    x: destinationXCoordinate,
+                                    y: destinationYCoordinate,
+                                    width: destinationWidth,
+                                    height: destinationHeight
+                                }
+                            ]
                         };
 
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');

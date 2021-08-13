@@ -15,7 +15,6 @@ $Password = ""
 $DestinationFile = "./result.pdf"
 
 # Image params
-$Type = "image"
 $X = 400
 $Y = 20
 $Width = 119
@@ -32,15 +31,18 @@ $query = "https://api.pdf.co/v1/pdf/edit/add"
 # See documentation: https://apidocs.pdf.co
 $body = @{
     "name" = $resultFileName
-    "password" = $Password
-    "pages" = $Pages
     "url" = $SourceFileUrl
-    "type" = $Type
-    "x" = $X
-    "y" = $Y
-    "width" = $Width
-    "height" = $Height
-    "urlimage" = $ImageUrl
+    "password" = $Password
+    "images" = @(
+        @{
+            "url" = $ImageUrl
+            "pages" = $Pages
+            "x" = $X
+            "y" = $Y
+            "width" = $Width
+            "height" = $Height
+        }
+    )
 } | ConvertTo-Json
 
 try {

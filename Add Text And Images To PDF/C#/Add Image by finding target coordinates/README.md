@@ -1,12 +1,4 @@
-## How to add text and images to PDF in C# and PDF.co Web API
-
-### The tutorial shows how to add text and images to PDF in C#
-
-Sample source code below will show you how to cope with a difficult task like add text and images to PDF in C#. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf. It can add text and images to PDF in C#.
-
-This code snippet below for PDF.co Web API works best when you need to quickly add text and images to PDF in your C# application. Follow the instructions from the scratch to work and copy the C# code. You can use these C# sample examples in one or many applications.
-
-Free trial version of PDF.co Web API is available on our website. Documentation and source code samples are included.
+## How to add text and images to PDF in C# and PDF.co Web API What is PDF.co Web API? It is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -53,6 +45,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     <AssemblyName>AddImageByFindingTargetCoordinates</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,6 +56,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -72,11 +66,15 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -88,6 +86,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -143,14 +142,12 @@ EndGlobal
 ##### **Program.cs:**
     
 ```
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO;
-using System.Net;
-using System.Runtime.ConstrainedExecution;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
 
 namespace ByteScoutWebApiExample
 {
@@ -158,9 +155,10 @@ namespace ByteScoutWebApiExample
     {
         // The authentication key (API Key).
         // Get your own by registering at https://app.pdf.co/documentation/api
-        const String API_KEY = "*****************************************";
+        const String API_KEY = "**************************";
 
         // Direct URL of source PDF file.
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
         const string SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
         // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
         const string Pages = "";
@@ -190,22 +188,23 @@ namespace ByteScoutWebApiExample
             var height1 = 32;
 
             // * Add image *
-            
+
             // Prepare requests params as JSON
-            // See documentation: https://apidocs.pdf.co/?#pdf-add-text-and-images-to-pdf
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("name", Path.GetFileName(DestinationFile));
-            parameters.Add("password", Password);
-            parameters.Add("pages", Pages);
-            parameters.Add("url", SourceFileUrl);
-            parameters.Add("type", Type1);
-            parameters.Add("x", x1.ToString());
-            parameters.Add("y", y1.ToString());
-            parameters.Add("width", width1.ToString());
-            parameters.Add("height", height1.ToString());
-            parameters.Add("urlimage", ImageUrl);
-            // Convert dictionary of params to JSON
-            string jsonPayload = JsonConvert.SerializeObject(parameters);
+             string jsonPayload = $@"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""images"": [
+        {{
+            ""url"": ""{ImageUrl}"",
+            ""x"": {x1},
+            ""y"": {y1},
+            ""width"": {width1},
+            ""height"": {height1},
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}";
 
             try
             {
@@ -314,8 +313,20 @@ namespace ByteScoutWebApiExample
         public int Width { get; set; }
         public int Height { get; set; }
     }
-
 }
+```
+
+<!-- code block end -->    
+
+<!-- code block begin -->
+
+##### **app.config:**
+    
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/></startup></configuration>
+
 ```
 
 <!-- code block end -->    
@@ -328,6 +339,7 @@ namespace ByteScoutWebApiExample
 <?xml version="1.0" encoding="utf-8"?>
 <packages>
   <package id="Newtonsoft.Json" version="10.0.3" targetFramework="net40" />
+  <package id="RestSharp" version="104.1" targetFramework="net40" />
 </packages>
 ```
 

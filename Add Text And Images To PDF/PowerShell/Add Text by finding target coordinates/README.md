@@ -1,12 +1,4 @@
-## How to add text and images to PDF in PowerShell using PDF.co Web API
-
-### How to code in PowerShell to add text and images to PDF with this step-by-step tutorial
-
-The sample source code below will teach you how to add text and images to PDF in PowerShell. PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf. It can be used to add text and images to PDF using PowerShell.
-
-The SDK samples like this one below explain how to quickly make your application do add text and images to PDF in PowerShell with the help of PDF.co Web API. Follow the instructions from the scratch to work and copy the PowerShell code. Implementing PowerShell application typically includes multiple stages of the software development so even if the functionality works please test it with your data and the production environment.
-
-Free trial version of PDF.co Web API is available for download from our website. Get it to try other source code samples for PowerShell.
+## How to add text and images to PDF in PowerShell using PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -88,7 +80,6 @@ try {
         $DestinationFile = "./result.pdf"
 
         # Text annotation params
-        $Type = "annotation";
         $X = $itemFindText.left;
         $Y = $itemFindText.top + 25;
         $Text = "Some notes will go here... Some notes will go here.... Some notes will go here.....";
@@ -106,16 +97,19 @@ try {
         # See documentation: https://apidocs.pdf.co
         $body = @{
             "name" = $resultFileName
-            "password" = $Password
-            "pages" = $Pages
             "url" = $SourceFileUrl
-            "type" = $Type
-            "x" = $X
-            "y" = $Y
-            "text" = $Text
-            "fontname" = $FontName
-            "size" = $FontSize
-            "color" = $Color
+            "password" = $Password
+            "annotations" = @(
+                @{
+                    "pages" = $Pages
+                    "x" = $X
+                    "y" = $Y
+                    "text" = $Text
+                    "fontname" = $FontName
+                    "size" = $FontSize
+                    "color" = $Color
+                }
+            )
         } | ConvertTo-Json
         
         try {

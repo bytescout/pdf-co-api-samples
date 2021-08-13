@@ -1,4 +1,4 @@
-## How to add text and images to PDF for src in Java with PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
+## How to add text and images to PDF for src in Java with PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -51,6 +51,7 @@ public class Main
     final static String API_KEY = "******************************";
 
     // Direct URL of source PDF file.
+    // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
     final static String SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf";
     // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 	final static String Pages = "";
@@ -61,7 +62,6 @@ public class Main
 	final static Path ResultFile = Paths.get(".\\result.pdf");
 
     // Image params
-    private final static String Type1 = "image";
     private final static int Width1 = 119;
     private final static int Height1 = 32;
     private final static String ImageUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/logo.png";
@@ -93,17 +93,29 @@ public class Main
         }
 
         // Create JSON payload
-        String jsonPayload = String.format("{\"name\": \"%s\", \"password\": \"%s\", \"pages\": \"%s\", \"url\": \"%s\", \"type\": \"%s\", \"x\": \"%s\", \"y\": \"%s\", \"width\": \"%s\", \"height\": \"%s\", \"urlimage\": \"%s\" }",
+        String jsonPayload = String.format("{
+            \"name\": \"%s\", 
+            \"url\": \"%s\", 
+            \"password\": \"%s\", 
+            images: [{
+                \"url\": \"%s\" 
+                \"pages\": \"%s\", 
+                \"x\": \"%s\", 
+                \"y\": \"%s\", 
+                \"width\": \"%s\", 
+                \"height\": \"%s\" 
+            }]
+        }",
         ResultFile.getFileName(),
-        Password,
-        Pages,
         SourceFileUrl,
-        Type1,
+        Password,
+        ImageUrl,
+        Pages,
         X1,
         Y1,
         Width1,
         Height1,
-        ImageUrl);
+        );
 
         // Prepare request body
         RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonPayload);

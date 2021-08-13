@@ -1,12 +1,4 @@
-## How to add text and images to PDF in VB.NET and PDF.co Web API
-
-### The tutorial below will demonstrate how to add text and images to PDF in VB.NET
-
-Source code documentation samples provide quick and easy way to add a required functionality into your application. Want to add text and images to PDF in your VB.NET app? PDF.co Web API is designed for it. PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
-
-The SDK samples like this one below explain how to quickly make your application do add text and images to PDF in VB.NET with the help of PDF.co Web API. In your VB.NET project or application you may simply copy & paste the code and then run your app! Further enhancement of the code will make it more vigorous.
-
-Trial version of PDF.co Web API can be downloaded for free from our website. It also includes source code samples for VB.NET and other programming languages.
+## How to add text and images to PDF in VB.NET using PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -174,6 +166,7 @@ Module Module1
     Const API_KEY As String = "***********************************"
 
     ' Direct URL of source PDF file.
+    ' You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/   
     Const SourceFileUrl As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf"
 
     ' Comma-separated list of page indices (Or ranges) to process. Leave empty for all pages. Example '0,2-5,7-'.
@@ -210,24 +203,25 @@ Module Module1
 
         ' * Add image *
         ' Prepare URL for `PDF Edit` API call
-		Dim url As String = "https://api.pdf.co/v1/pdf/edit/add"
+        Dim url As String = "https://api.pdf.co/v1/pdf/edit/add"
 
         ' Prepare requests params as JSON
-        ' See documentation: https : //apidocs.pdf.co
-        Dim parameters As New Dictionary(Of String, Object)
-		parameters.Add("name", Path.GetFileName(DestinationFile))
-		parameters.Add("password", Password)
-		parameters.Add("pages", Pages)
-		parameters.Add("url", SourceFileUrl)
-		parameters.Add("type", Type1)
-		parameters.Add("x", X1)
-		parameters.Add("y", Y1)
-		parameters.Add("width", Width1)
-		parameters.Add("height", Height1)
-		parameters.Add("urlimage", ImageUrl)
-
-        ' Convert dictionary of params to JSON
-        Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)
+        ' See documentation: https://apidocs.pdf.co/04-pdf-add-text-signatures-and-images-to-pdf
+        Dim jsonPayload As String = $"{{
+    ""name"": ""{Path.GetFileName(DestinationFile)}"",
+    ""url"": ""{SourceFileUrl}"",
+    ""password"": ""{Password}"",
+    ""images"": [
+        {{
+            ""url"": ""{ImageUrl}"",
+            ""x"": {X1},
+            ""y"": {Y1},
+            ""width"": {Width1},
+            ""height"": {Height1},
+            ""pages"": ""{Pages}""
+        }}
+    ]
+}}"
 
         Try
             ' Execute POST request with JSON payload
@@ -279,14 +273,14 @@ Module Module1
         webClient.Headers.Add("Content-Type", "application/json")
 
         ' Prepare URL for PDF text search API call.
-        ' See documentation: https : //app.pdf.co/documentation/api/1.0/pdf/find.html
-		Dim url As String = "https://api.pdf.co/v1/pdf/find"
+        ' See documentation: https://apidocs.pdf.co/07-pdf-search-text
+        Dim url As String = "https://api.pdf.co/v1/pdf/find"
 
         ' Prepare requests params as JSON
         ' See documentation: https : //apidocs.pdf.co
         Dim parameters As New Dictionary(Of String, Object)
-		parameters.Add("url", SourceFileUrl)
-		parameters.Add("searchString", SearchString)
+        parameters.Add("url", SourceFileUrl)
+        parameters.Add("searchString", SearchString)
 
         ' Convert dictionary of params to JSON
         Dim jsonPayload As String = JsonConvert.SerializeObject(parameters)

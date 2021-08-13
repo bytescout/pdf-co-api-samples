@@ -1,12 +1,4 @@
-## How to add text and images to PDF in JavaScript and PDF.co Web API
-
-### This code in JavaScript shows how to add text and images to PDF with this how to tutorial
-
-ByteScout tutorials are designed to explain the code for both JavaScript beginners and advanced programmers. PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf and you can use it to add text and images to PDF with JavaScript.
-
-JavaScript code samples for JavaScript developers help to speed up coding of your application when using PDF.co Web API. Follow the instructions from the scratch to work and copy the JavaScript code. Detailed tutorials and documentation are available along with installed PDF.co Web API if you'd like to dive deeper into the topic and the details of the API.
-
-Trial version of PDF.co Web API can be downloaded for free from our website. It also includes source code samples for JavaScript and other programming languages.
+## How to add text and images to PDF in JavaScript and PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -91,13 +83,16 @@ $(document).on("click", "#submit", function () {
                         // Input data
                         var data = {
                             name: 'result.pdf',
-                            type: image,
-                            x: destinationXCoordinate,
-                            y: destinationYCoordinate,
-                            width: destinationWidth,
-                            height: destinationHeight,
-                            urlimage: signatureImageUrl,
-                            url: presignedUrl
+                            url: presignedUrl,
+                            images: [
+                                {
+                                    url: signatureImageUrl,
+                                    x: destinationXCoordinate,
+                                    y: destinationYCoordinate,
+                                    width: destinationWidth,
+                                    height: destinationHeight
+                                }
+                            ]
                         };
 
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');

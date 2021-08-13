@@ -48,16 +48,19 @@ var queryPath = `/v1/pdf/edit/add`;
 // JSON payload for api request
 var jsonPayload = JSON.stringify({
     name: path.basename(DestinationFile),
-    password: Password,
-    pages: Pages,
     url: SourceFileUrl,
-    type: Type,
-    x: X,
-    y: Y,
-    text: Text,
-    fontname: FontName,
-    size: FontSize,
-    color: Color
+    password: Password,
+    annotations:[
+        {
+            pages: Pages,
+            x: X,
+            y: Y,
+            text: Text,
+            fontname: FontName,
+            size: FontSize,
+            color: Color
+        }
+    ]
 });
 
 var reqOptions = {
