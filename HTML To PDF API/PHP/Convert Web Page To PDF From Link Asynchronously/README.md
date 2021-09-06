@@ -60,7 +60,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 $apiKey = "***********************************";
 
 // URL of web page to convert to PDF document.
-$sourceUrl = "http://www.usa.gov";
+$sourceUrl = "http://en.wikipedia.org/wiki/Main_Page";
 
 
 // Prepare URL for `Web Page to PDF` API call

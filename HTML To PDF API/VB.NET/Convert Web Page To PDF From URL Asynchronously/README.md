@@ -211,7 +211,7 @@ Module Module1
 	Const API_KEY As String = "***********************************"
 
 	' URL of web page to convert to PDF document.
-	Const SourceUrl As String = "http://www.usa.gov"
+	Const SourceUrl As String = "http://en.wikipedia.org/wiki/Main_Page"
 	' Destination PDF file name
 	Const DestinationFile As String = ".\result.pdf"
 	' (!) Make asynchronous job

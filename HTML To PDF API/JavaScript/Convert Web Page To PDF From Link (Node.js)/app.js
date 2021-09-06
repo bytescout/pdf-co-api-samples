@@ -22,7 +22,7 @@ const API_KEY = "***********************************";
 
 
 // URL of web page to convert to PDF document.
-const SourceUrl = "http://www.usa.gov";
+const SourceUrl = "http://en.wikipedia.org/wiki/Main_Page";
 // Destination PDF file name
 const DestinationFile = "./result.pdf";
 
