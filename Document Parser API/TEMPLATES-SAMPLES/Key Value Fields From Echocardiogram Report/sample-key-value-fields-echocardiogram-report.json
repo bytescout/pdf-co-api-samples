@@ -1,0 +1,41 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1631613272183,
+      "objectType": "field",
+      "name": "KeyValueFields",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "(?<key>{{SentenceWithSingleSpaces}}): (?<value>{{SentenceWithSingleSpaces}})",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1631613272183,
+      "objectType": "field",
+      "name": "KeyValueField",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "(?<key>{{SentenceWithSingleSpaces}}): (?<value>{{SentenceWithSingleSpaces}})",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}

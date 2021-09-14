@@ -291,7 +291,7 @@
 \Document Parser API\Powershell
 \Document Parser API\Python
 \Document Parser API\Salesforce
-\Document Parser API\Sample Templates
+\Document Parser API\TEMPLATES-SAMPLES
 \Document Parser API\VB.NET
 \Document Parser API\C#\Blood Test Results to JSON
 \Document Parser API\C#\Census table from life and annuity quote request pdf
@@ -339,16 +339,17 @@
 \Document Parser API\Python\Parse From Url
 \Document Parser API\Salesforce\Document Parser Demo
 \Document Parser API\Salesforce\Parse Document and Get CSV Output
-\Document Parser API\Sample Templates\Invoice table with some empty columns
-\Document Parser API\Sample Templates\Invoice with few line items in EUR
-\Document Parser API\Sample Templates\Invoice with line items in bordered table
-\Document Parser API\Sample Templates\ManyChat Invoice
-\Document Parser API\Sample Templates\Multiline Items Without Borders
-\Document Parser API\Sample Templates\Order form with line items and total
-\Document Parser API\Sample Templates\Parse Hanging Rows In Invoice
-\Document Parser API\Sample Templates\Read values in columns 2 and 3
-\Document Parser API\Sample Templates\Tax Invoice with Line Items
-\Document Parser API\Sample Templates\Total and Vat tax
+\Document Parser API\TEMPLATES-SAMPLES\Invoice table with some empty columns
+\Document Parser API\TEMPLATES-SAMPLES\Invoice with few line items in EUR
+\Document Parser API\TEMPLATES-SAMPLES\Invoice with line items in bordered table
+\Document Parser API\TEMPLATES-SAMPLES\Key Value Fields From Echocardiogram Report
+\Document Parser API\TEMPLATES-SAMPLES\ManyChat Invoice
+\Document Parser API\TEMPLATES-SAMPLES\Multiline Items Without Borders
+\Document Parser API\TEMPLATES-SAMPLES\Order form with line items and total
+\Document Parser API\TEMPLATES-SAMPLES\Parse Hanging Rows In Invoice
+\Document Parser API\TEMPLATES-SAMPLES\Read values in columns 2 and 3
+\Document Parser API\TEMPLATES-SAMPLES\Tax Invoice with Line Items
+\Document Parser API\TEMPLATES-SAMPLES\Total and Vat tax
 \Document Parser API\VB.NET\Blood Test Results to JSON
 \Document Parser API\VB.NET\Census table from life and annuity quote request pdf
 \Document Parser API\VB.NET\Create Custom Template
