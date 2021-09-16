@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="039ed698-292e-4ed1-b2ac-162408a7b303" solutionId="039ed698-292e-4ed1-b2ac-162408a7b303" resetWebServer="false" sharePointProductVersion="15.0" name="AddTextAndImagesToPDFWebPart" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="Newtonsoft.Json.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\Newtonsoft.Json.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="373f5e35-b116-4cfd-88a5-2db649ff7470" />
+  </features>
+</package>

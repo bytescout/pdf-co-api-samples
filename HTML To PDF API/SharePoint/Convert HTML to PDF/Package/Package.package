@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0efe65ed-72a9-4c53-9057-69995bea7916" solutionId="0efe65ed-72a9-4c53-9057-69995bea7916" resetWebServer="false" sharePointProductVersion="15.0" name="ConvertWebPageToPDFLinkWebPart" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="Newtonsoft.Json.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\Newtonsoft.Json.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="67ae6a69-616b-4fa7-972c-d0b9f0005a1b" />
+  </features>
+</package>

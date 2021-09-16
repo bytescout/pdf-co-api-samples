@@ -54,6 +54,7 @@
 \Add Text And Images To PDF\PowerShell
 \Add Text And Images To PDF\Python
 \Add Text And Images To PDF\Salesforce
+\Add Text And Images To PDF\SharePoint
 \Add Text And Images To PDF\VB.NET
 \Add Text And Images To PDF\Zapier
 \Add Text And Images To PDF\C#\Add Image by finding target coordinates
@@ -89,6 +90,11 @@
 \Add Text And Images To PDF\Python\Add Text to Existing PDF
 \Add Text And Images To PDF\Salesforce\Add Image To PDF
 \Add Text And Images To PDF\Salesforce\Add Text To PDF
+\Add Text And Images To PDF\SharePoint\Add Text and Images to PDF
+\Add Text And Images To PDF\SharePoint\Add Text and Images to PDF\Features
+\Add Text And Images To PDF\SharePoint\Add Text and Images to PDF\Package
+\Add Text And Images To PDF\SharePoint\Add Text and Images to PDF\VisualWebPart1
+\Add Text And Images To PDF\SharePoint\Add Text and Images to PDF\Features\Feature1
 \Add Text And Images To PDF\VB.NET\Add Image by finding target coordinates
 \Add Text And Images To PDF\VB.NET\Add Images to Existing PDF
 \Add Text And Images To PDF\VB.NET\Add Text by finding target coordinates
@@ -291,6 +297,7 @@
 \Document Parser API\Powershell
 \Document Parser API\Python
 \Document Parser API\Salesforce
+\Document Parser API\SharePoint
 \Document Parser API\TEMPLATES-SAMPLES
 \Document Parser API\VB.NET
 \Document Parser API\C#\Blood Test Results to JSON
@@ -339,6 +346,12 @@
 \Document Parser API\Python\Parse From Url
 \Document Parser API\Salesforce\Document Parser Demo
 \Document Parser API\Salesforce\Parse Document and Get CSV Output
+\Document Parser API\SharePoint\Parse Invoice Information
+\Document Parser API\SharePoint\Parse Invoice Information\Features
+\Document Parser API\SharePoint\Parse Invoice Information\Package
+\Document Parser API\SharePoint\Parse Invoice Information\Sample
+\Document Parser API\SharePoint\Parse Invoice Information\VisualWebPart1
+\Document Parser API\SharePoint\Parse Invoice Information\Features\Feature1
 \Document Parser API\TEMPLATES-SAMPLES\Invoice table with some empty columns
 \Document Parser API\TEMPLATES-SAMPLES\Invoice with few line items in EUR
 \Document Parser API\TEMPLATES-SAMPLES\Invoice with line items in bordered table
@@ -497,6 +510,7 @@
 \HTML To PDF API\PowerShell
 \HTML To PDF API\Python
 \HTML To PDF API\Salesforce
+\HTML To PDF API\SharePoint
 \HTML To PDF API\VB.NET
 \HTML To PDF API\Zapier
 \HTML To PDF API\C#\Convert Web Page To PDF From Link
@@ -532,6 +546,11 @@
 \HTML To PDF API\Python\Generate PDF From Large HTML File
 \HTML To PDF API\Python\Generate PDF Invoice From HTML Template
 \HTML To PDF API\Salesforce\Convert HTML to PDF
+\HTML To PDF API\SharePoint\Convert HTML to PDF
+\HTML To PDF API\SharePoint\Convert HTML to PDF\Features
+\HTML To PDF API\SharePoint\Convert HTML to PDF\Package
+\HTML To PDF API\SharePoint\Convert HTML to PDF\VisualWebPart1
+\HTML To PDF API\SharePoint\Convert HTML to PDF\Features\Feature1
 \HTML To PDF API\VB.NET\Convert Web Page To PDF From URL
 \HTML To PDF API\VB.NET\Convert Web Page To PDF From URL Asynchronously
 \HTML To PDF API\VB.NET\Generate PDF From HTML File
@@ -950,6 +969,7 @@
 \PDF To CSV API\PHP
 \PDF To CSV API\PowerShell
 \PDF To CSV API\Python
+\PDF To CSV API\SharePoint
 \PDF To CSV API\VB.NET
 \PDF To CSV API\Zapier
 \PDF To CSV API\C#\Advanced Conversion Options
@@ -991,6 +1011,11 @@
 \PDF To CSV API\Python\Advanced Conversion Options With Rotated Input
 \PDF To CSV API\Python\Convert PDF To CSV From Uploaded File
 \PDF To CSV API\Python\Convert PDF To CSV From Uploaded File Asynchronously
+\PDF To CSV API\SharePoint\Convert PDF To CSV
+\PDF To CSV API\SharePoint\Convert PDF To CSV\Features
+\PDF To CSV API\SharePoint\Convert PDF To CSV\Package
+\PDF To CSV API\SharePoint\Convert PDF To CSV\VisualWebPart1
+\PDF To CSV API\SharePoint\Convert PDF To CSV\Features\Feature1
 \PDF To CSV API\VB.NET\Advanced Conversion Options
 \PDF To CSV API\VB.NET\Advanced Conversion Options With Rotated Input
 \PDF To CSV API\VB.NET\Async file upload and async PDF to CSV

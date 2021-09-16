@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="5ba4bd96-ca49-4503-a3ae-ed647c2c6ba2" solutionId="5ba4bd96-ca49-4503-a3ae-ed647c2c6ba2" resetWebServer="false" sharePointProductVersion="15.0" name="PDFcoWebPart" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="Newtonsoft.Json.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\Newtonsoft.Json.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="d9253a12-6a0e-4fe9-93d2-099553ec4d3b" />
+  </features>
+</package>

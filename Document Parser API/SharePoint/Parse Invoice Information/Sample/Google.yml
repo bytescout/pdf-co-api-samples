@@ -1,0 +1,91 @@
+﻿templateName: Google Invoice
+templateVersion: 4
+templatePriority: 0
+detectionRules:
+  keywords:
+  - Google
+  - 77-0493581
+  - Invoice
+objects:
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    expression: Invoice number:{{Spaces}}({{Digits}})
+    regex: true
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    expression: Issue date:{{Spaces}}({{SmartDate}})
+    regex: true
+    dataType: date
+    dateFormat: MMM d, yyyy
+- name: total
+  objectType: field
+  fieldProperties:
+    expression: Amount due in USD:{{Spaces}}{{Number}}
+    regex: true
+    dataType: decimal
+- name: subTotal
+  objectType: field
+  fieldProperties:
+    expression: Subtotal in USD:{{Spaces}}{{Number}}
+    regex: true
+    dataType: decimal
+- name: taxRate
+  objectType: field
+  fieldProperties:
+    expression: State sales tax {{OpeningParenthesis}}{{Digits}}{{Percent}}{{ClosingParenthesis}}
+    regex: true
+    dataType: integer
+- name: tax
+  objectType: field
+  fieldProperties:
+    expression: State sales tax{{Anything}}{{Number}}{{LineEnd}}
+    regex: true
+    dataType: decimal
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
+    expression: Google LLC
+    regex: true
+- name: billTo
+  objectType: field
+  fieldProperties:
+    fieldType: rectangle
+    regex: true
+    rectangle:
+    - 0
+    - 152
+    - 280
+    - 72
+    pageIndex: 0
+- name: billingId
+  objectType: field
+  fieldProperties:
+    expression: Billing ID:{{Spaces}}({{DigitsOrSymbols}})
+    regex: true
+- name: currency
+  objectType: field
+  fieldProperties:
+    fieldType: static
+    expression: USD
+    regex: true
+- name: table1
+  objectType: table
+  tableProperties:
+    start:
+      expression: Description{{Spaces}}Interval{{Spaces}}Quantity{{Spaces}}Amount
+      regex: true
+    end:
+      expression: Subtotal in USD
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<interval>{{3Letters}}{{Space}}{{Digits}}{{Space}}{{Minus}}{{Space}}{{3Letters}}{{Space}}{{Digits}}){{Spaces}}(?<quantity>{{Digits}}){{Spaces}}(?<amount>{{Number}})'
+      regex: true
+    columns:
+    - name: quantity
+      dataType: integer
+    - name: amount
+      dataType: decimal
+

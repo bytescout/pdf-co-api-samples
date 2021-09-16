@@ -1,0 +1,60 @@
+﻿templateName: DigitalOcean Invoice
+templateVersion: 4
+templatePriority: 0
+detectionRules:
+  keywords:
+  - DigitalOcean
+  - 101 Avenue of the Americas
+  - Invoice Number
+objects:
+- name: companyName
+  objectType: field
+  fieldProperties:
+    fieldType: static
+    expression: DigitalOcean
+    regex: true
+- name: invoiceId
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: 'Invoice Number: ({{Digits}})'
+    regex: true
+- name: dateIssued
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: 'Date Issued: ({{SmartDate}})'
+    regex: true
+    dataType: date
+    dateFormat: auto-mdy
+- name: total
+  objectType: field
+  fieldProperties:
+    fieldType: macros
+    expression: 'Total: {{Dollar}}({{Number}})'
+    regex: true
+    dataType: decimal
+- name: currency
+  objectType: field
+  fieldProperties:
+    fieldType: static
+    expression: USD
+    regex: true
+- name: table1
+  objectType: table
+  tableProperties:
+    start:
+      expression: Description{{Spaces}}Hours
+      regex: true
+    end:
+      expression: 'Total:'
+      regex: true
+    row:
+      expression: '{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<hours>{{Digits}}){{Spaces}}(?<start>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}(?<end>{{2Digits}}{{Minus}}{{2Digits}}{{Space}}{{2Digits}}{{Colon}}{{2Digits}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}})'
+      regex: true
+    columns:
+    - name: hours
+      dataType: integer
+    - name: unitPrice
+      dataType: decimal
+
