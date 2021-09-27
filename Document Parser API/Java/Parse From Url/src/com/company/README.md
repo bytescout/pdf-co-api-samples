@@ -62,7 +62,7 @@ public class Main {
         // Destination JSON file name
         final Path DestinationFile = Paths.get(".\\result.json");
 
-        // Template text. Use Document Parser SDK (https://bytescout.com/products/developer/documentparsersdk/index.html)
+        // Template text. Use Document Parser (https://pdf.co/document-parser, https://app.pdf.co/document-parser)
         // to create templates.
         // Read template from file:
         String templateText = new String(Files.readAllBytes(Paths.get(".\\MultiPageTable-template1.yml")), StandardCharsets.UTF_8);

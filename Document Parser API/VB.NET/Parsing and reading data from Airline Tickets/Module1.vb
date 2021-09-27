@@ -37,7 +37,7 @@ Module Module1
 
     Sub Main()
 
-        ' Template text. Use Document Parser SDK (https//bytescout.com/products/developer/documentparsersdk/index.html)
+        ' Template text. Use Document Parser (https://pdf.co/document-parser, https://app.pdf.co/document-parser)
         ' to create templates.
         ' Read template from file
         Dim templateText As String = File.ReadAllText("SampleTicket.yml")
