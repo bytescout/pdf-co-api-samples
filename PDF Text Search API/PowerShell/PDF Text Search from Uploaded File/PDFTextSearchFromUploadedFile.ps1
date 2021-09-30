@@ -1,5 +1,5 @@
 # The authentication key (API Key).
-# Get your own by registering at https://app.pdf.co/documentation/api
+# Get your own by registering at https://app.pdf.co
 $API_KEY = "***********************************"
 
 # Source file name
@@ -44,7 +44,7 @@ try {
             # 3. TEXT SEARCH FROM UPLOADED FILE
 
             # Prepare URL for PDF text search API call.
-            # See documentation: https://app.pdf.co/documentation/api
+            # See documentation: https://apidocs.pdf.co
             $query = "https://api.pdf.co/v1/pdf/find"
 
             # Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)

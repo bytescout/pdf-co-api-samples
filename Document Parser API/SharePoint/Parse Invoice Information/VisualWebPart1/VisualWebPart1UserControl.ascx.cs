@@ -26,7 +26,7 @@ namespace ParseSimpleDocumentWebPart.VisualWebPart1
     public partial class VisualWebPart1UserControl : UserControl
     {
         // The authentication key (API Key).
-        // Get your own by registering at https://app.pdf.co/documentation/api
+        // Get your own by registering at https://app.pdf.co
         string API_KEY = Utils.API_KEY;
         // PDF document password. Leave empty for unprotected documents.
         const string Password = "";

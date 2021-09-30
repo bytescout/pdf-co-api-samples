@@ -29,7 +29,7 @@ var
 
 const
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     API_KEY: string = '********************************************'
     // Direct URL of source PDF file.
     SOURCE_FILE_URL: string = 'https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf';

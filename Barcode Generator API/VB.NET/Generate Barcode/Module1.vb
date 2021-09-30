@@ -18,12 +18,12 @@ Imports Newtonsoft.Json.Linq
 Module Module1
 
 	' The authentication key (API Key).
-	' Get your own by registering at https://app.pdf.co/documentation/api
+	' Get your own by registering at https://app.pdf.co
 	Const API_KEY As String = "***********************************"
 
 	' Result file name
 	Const ResultFileName As String = ".\barcode.png"
-	' Barcode type. See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/generate.html
+	' Barcode type. See valid barcode types in the documentation https://apidocs.pdf.co
 	Const BarcodeType As String = "Code128"
 	' Barcode value
 	Const BarcodeValue As String = "qweasd123456"

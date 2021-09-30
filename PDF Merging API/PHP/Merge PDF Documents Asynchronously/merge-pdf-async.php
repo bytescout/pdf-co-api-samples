@@ -13,7 +13,7 @@
 
 
 // The authentication key (API Key).
-// Get your own by registering at https://app.pdf.co/documentation/api
+// Get your own by registering at https://app.pdf.co
 $apiKey = "****************************************";
 
 // Direct URLs of PDF files to merge. Check another example if you need to upload local files to the cloud.

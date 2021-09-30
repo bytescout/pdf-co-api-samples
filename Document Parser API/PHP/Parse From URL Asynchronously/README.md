@@ -96,7 +96,7 @@ objects:
 $uploadedFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/document-parser/MultiPageTable.pdf";
 
 // Get submitted form data
-$apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api
+$apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co
 
 // Read all template texts
 $templateText = file_get_contents($_FILES["fileTemplate"]["tmp_name"]);

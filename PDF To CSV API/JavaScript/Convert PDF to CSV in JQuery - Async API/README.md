@@ -55,7 +55,7 @@ $(document).on("click", "#submit", function () {
     $("#inlineOutput").text(''); // inline output div
     $("#status").text(''); // status div
  
-    apiKey = $("#apiKey").val().trim(); //Get your API key at https://app.pdf.co/documentation/api
+    apiKey = $("#apiKey").val().trim(); //Get your API key at https://app.pdf.co
  
     formData = $("#form input[type=file]")[0].files[0]; // file to upload
     toType = $("#convertType").val(); // output type

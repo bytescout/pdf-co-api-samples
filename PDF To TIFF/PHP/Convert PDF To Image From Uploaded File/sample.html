@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF To Image Cloud API Example</title>
+</head>
+
+<body>
+
+    <form name="form1" enctype="multipart/form-data" method="post" action="pdf-to-image.php">
+        <p>
+            <label>Authentication key (API Key). Get your own by registering at <a href="https://apidocs.pdf.co">https://apidocs.pdf.co</a>.</label>
+            <br/>
+            <input type="text" name="apiKey" placeholder="API Key"/>
+        </p>
+        <p>
+            <label>Input File (*.pdf)</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="8000000"/>
+            <input type="file" name="file"/>
+        </p>
+        <p>
+            <label>Convert to</label>
+            <select name="outputFormat">
+                <option value="0" selected="selected">PNG</option>
+                <option value="1">JPEG</option>
+                <option value="2">TIFF</option>
+            </select>
+        </p>
+        <p>
+            <label>Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.</label>
+            <input type="text" name="pages">
+        </p>
+        <input type="submit" name="submit" value="Proceed" />
+    </form>
+
+</body>
+</html>

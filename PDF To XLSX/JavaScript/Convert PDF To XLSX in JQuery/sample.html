@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cloud API JQuery sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="converter.js" type="text/javascript" encoding="UTF-8"></script>
+</head>
+<body>
+ 
+    <form id="form" enctype="multipart/form-data">
+        <p>
+            <label>Copy-paste your API Key for ByteScout Cloud API here</label>
+            <input type="text" id="apiKey" placeholder="your cloud API Key" value=""/> 
+            <a href="https://apidocs.pdf.co" target="_blank">no api key yet? sign up here</a>
+        </p>
+        <p>
+            <label>Input PDF File</label>
+            <input type="file" name="file" id="inputFile" />
+        </p>
+        <p>
+            <label>Convert To</label>
+            <select id="convertType">
+                <option value="text"> TXT  </option>
+                <option value="csv"> CSV  </option>
+                <option value="json"> JSON  </option>                
+                <option value="xml"> XML  </option>
+                <option value="xls"> XLS  </option>
+                <option selected="selected" value="xlsx"> XLSX  </option>
+                <option value="html"> HTML  </option>
+            </select>
+        </p>
+        <p>
+            <label>Output As</label>
+            <select id="outputType">
+                <option value="link"> URL to output file  </option>
+                <option value="inline"> inline content</option>
+            </select>
+        </p>        
+        <button type="button" id="submit">Convert</button> <span id="status"></span>
+    </form>
+ 
+    
+
+    <div id="errorBlock">
+        <h2>Error:</h2>
+        <h4>Code: <span id="statusCode"></span></h4>
+        <ul id="errors"></ul>
+    </div>
+ 
+    <div id="resultBlock">
+        <h2>Output:</h2>
+        <a id="result" href="" target="_blank"></a>
+        <div id="inlineOutput"></div>
+    </div>
+ 
+</body>
+</html>

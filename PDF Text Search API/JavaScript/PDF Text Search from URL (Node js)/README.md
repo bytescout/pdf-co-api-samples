@@ -38,7 +38,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 var request = require("request");
 
 // The authentication key (API Key).
-// Get your own by registering at https://app.pdf.co/documentation/api
+// Get your own by registering at https://app.pdf.co
 const API_KEY = "***********************************";
 
 // Direct URL of source PDF file.
@@ -57,7 +57,7 @@ const SearchString = '[4-9][0-9].[0-9][0-9]'; // Regular expression to find numb
 const RegexSearch = 'True';
 
 // Prepare URL for PDF text search API call.
-// See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
+// See documentation: https://apidocs.pdf.co
 var query = `https://api.pdf.co/v1/pdf/find`;
 let reqOptions = {
     uri: query,

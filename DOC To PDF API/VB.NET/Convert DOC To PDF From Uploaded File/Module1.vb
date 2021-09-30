@@ -18,7 +18,7 @@ Imports Newtonsoft.Json.Linq
 Module Module1
 
 	' The authentication key (API Key).
-	' Get your own by registering at https://app.pdf.co/documentation/api
+	' Get your own by registering at https://app.pdf.co
 	Const API_KEY As String = "***********************************"
 
 	' Source DOC or DOCX file

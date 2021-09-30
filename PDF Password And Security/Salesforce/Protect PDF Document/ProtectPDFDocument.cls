@@ -1,7 +1,7 @@
 public class ProtectPDFDocument{
     
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     String API_KEY = '**************************';
     // Destination File Name
     string DestinationFile = 'result.pdf';

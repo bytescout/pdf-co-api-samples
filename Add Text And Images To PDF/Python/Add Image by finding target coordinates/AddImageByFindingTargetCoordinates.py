@@ -2,7 +2,7 @@ import os
 import requests # pip install requests
 
 # The authentication key (API Key).
-# Get your own by registering at https://app.pdf.co/documentation/api
+# Get your own by registering at https://app.pdf.co
 API_KEY = "**************************************"
 
 # Base URL for PDF.co Web API requests
@@ -43,7 +43,7 @@ def main(args = None):
 
 def findTextWithinPDF(sourceFile, searchText):
     # Prepare URL for PDF text search API call
-    # See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
+    # See documentation: https://apidocs.pdf.co
 
     retVal = dict()
 

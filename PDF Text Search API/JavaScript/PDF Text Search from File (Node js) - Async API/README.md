@@ -41,7 +41,7 @@ var fs = require("fs");
 var request = require("request");
 
 // The authentication key (API Key).
-// Get your own by registering at https://app.pdf.co/documentation/api
+// Get your own by registering at https://app.pdf.co
 const API_KEY = "***********************************";
 
 // Source file name
@@ -63,7 +63,7 @@ const RegexSearch = 'True';
 const Async = 'True';
 
 // Prepare URL for PDF text search API call.
-// See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
+// See documentation: https://apidocs.pdf.co
 var query = `https://api.pdf.co/v1/pdf/find`;
 let reqOptions = {
     uri: query,

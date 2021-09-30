@@ -28,7 +28,7 @@ namespace AddTextAndImagesToPDFWebPart.VisualWebPart1
         public SPWeb CurrentWeb { get; set; }
 
         // The authentication key (API Key).
-        // Get your own by registering at https://app.pdf.co/documentation/api
+        // Get your own by registering at https://app.pdf.co
         string API_KEY = Utils.API_KEY;
 
         // Direct URL of source PDF file.

@@ -25,12 +25,12 @@ import java.nio.file.Paths;
 public class Main
 {
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     final static String API_KEY = "***********************************";
 
     // Result file name
     final static Path ResultFile = Paths.get(".\\barcode.png");
-    // Barcode type. See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/generate.html
+    // Barcode type. See valid barcode types in the documentation https://apidocs.pdf.co
     final static String BarcodeType = "Code128";
     // Barcode value
     final static String BarcodeValue = "qweasd123456";

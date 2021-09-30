@@ -25,7 +25,7 @@ import java.nio.file.Paths;
 public class Main
 {
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     final static String API_KEY = "**********************************";
 
     // Direct URL of source PDF file.

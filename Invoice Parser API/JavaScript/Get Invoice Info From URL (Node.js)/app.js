@@ -14,7 +14,7 @@
 var https = require("https");
 
 // The authentication key (API Key).
-// Get your own by registering at https://app.pdf.co/documentation/api
+// Get your own by registering at https://app.pdf.co
 const API_KEY = "***********************************";
 
 

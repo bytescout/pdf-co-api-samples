@@ -24,7 +24,7 @@ uses
 
 const
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     API_KEY: string = '********************************************'
 	// Destination PDF file name
 	DESTINATION_FILE: string = 'result.pdf';

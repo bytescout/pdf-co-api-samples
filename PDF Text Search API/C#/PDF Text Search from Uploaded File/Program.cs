@@ -23,7 +23,7 @@ namespace ByteScoutWebApiExample
     class Program
     {
         // The authentication key (API Key).
-        // Get your own by registering at https://app.pdf.co/documentation/api
+        // Get your own by registering at https://app.pdf.co
         const String API_KEY = "*********************************";
 
         // Source PDF file
@@ -81,7 +81,7 @@ namespace ByteScoutWebApiExample
                     // 3. MAKE UPLOADED PDF FILE SEARCHABLE
 
                     // URL for `PDF Text Search` API call
-                    // See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
+                    // See documentation: https://apidocs.pdf.co
                     string url = "https://api.pdf.co/v1/pdf/find";
 
                     // Prepare requests params as JSON

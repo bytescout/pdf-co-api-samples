@@ -48,7 +48,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 
 // The authentication key (API Key).
-// Get your own by registering at https://app.pdf.co/documentation/api
+// Get your own by registering at https://app.pdf.co
 $apiKey = "****************************************";
 
 // Direct URLs of input files to merge. Check another example if you need to upload local files to the cloud.

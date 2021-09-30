@@ -34,12 +34,12 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     
 ```
 # The authentication key (API Key).
-# Get your own by registering at https://app.pdf.co/documentation/api
+# Get your own by registering at https://app.pdf.co
 $API_KEY = "****************************"
 
 # Result file name
 $ResultFile = ".\barcode.png"
-# Barcode type. See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/generate.html
+# Barcode type. See valid barcode types in the documentation https://apidocs.pdf.co
 $BarcodeType = "QRCode"
 # Barcode value
 $BarcodeValue = "QR123456\nhttps://pdf.co\nhttps://bytescout.com"

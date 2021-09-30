@@ -52,7 +52,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <?php 
 
 // Get submitted form data
-$apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api
+$apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co
 
 
 // 1. RETRIEVE THE PRESIGNED URL TO UPLOAD THE FILE.

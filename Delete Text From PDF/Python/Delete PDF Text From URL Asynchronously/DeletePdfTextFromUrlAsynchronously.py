@@ -7,7 +7,7 @@ import time
 import datetime
 
 # The authentication key (API Key).
-# Get your own by registering at https://app.pdf.co/documentation/api
+# Get your own by registering at https://app.pdf.co
 API_KEY = "******************************************"
 
 # Base URL for PDF.co Web API requests

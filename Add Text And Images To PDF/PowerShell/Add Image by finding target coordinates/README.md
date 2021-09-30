@@ -34,7 +34,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     
 ```
 # The authentication key (API Key).
-# Get your own by registering at https://app.pdf.co/documentation/api
+# Get your own by registering at https://app.pdf.co
 $API_KEY = "***********************************"
 
 # Direct URL of source PDF file.
@@ -44,7 +44,7 @@ $SourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-
 $SearchString = 'Your Company Name'
 
 # Prepare URL for PDF text search API call.
-# See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
+# See documentation: https://apidocs.pdf.co
 $queryFindText = "https://api.pdf.co/v1/pdf/find"
 
 # Prepare request body (will be auto-converted to JSON by Invoke-RestMethod)

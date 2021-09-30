@@ -47,7 +47,7 @@ $(document).ready(function () {
 });
 
 $(document).on("click", "#submit", function () {
-    var apiKey = $("#apiKey").val().trim(); // Get your API key by registering at https://app.pdf.co/documentation/api
+    var apiKey = $("#apiKey").val().trim(); // Get your API key by registering at https://apidocs.pdf.co
 
     var url = "https://api.pdf.co/v1/barcode/generate";
 

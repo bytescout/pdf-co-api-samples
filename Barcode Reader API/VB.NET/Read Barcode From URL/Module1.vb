@@ -18,14 +18,14 @@ Imports Newtonsoft.Json.Linq
 Module Module1
 
 	' The authentication key (API Key).
-	' Get your own by registering at https://app.pdf.co/documentation/api
+	' Get your own by registering at https://app.pdf.co
 	Const API_KEY As String = "***********************************"
 
 	' Direct URL of source file to search barcodes in.
     ' You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/   
 	Const SourceFileURL As String = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf"
 	' Comma-separated list of barcode types to search. 
-	' See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/read_from_url.html
+	' See valid barcode types in the documentation https://apidocs.pdf.co
 	Const BarcodeTypes As String = "Code128,Code39,Interleaved2of5,EAN13"
 	' Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
 	Const Pages As String = ""

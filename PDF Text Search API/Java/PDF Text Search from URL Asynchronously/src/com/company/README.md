@@ -49,7 +49,7 @@ import java.time.format.DateTimeFormatter;
 public class Main
 {
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     final static String API_KEY = "***********************************";
 
     // Direct URL of source PDF file.
@@ -79,7 +79,7 @@ public class Main
         OkHttpClient webClient = new OkHttpClient();
 
         // Prepare URL for PDF text search API call.
-        // See documentation: https://app.pdf.co/documentation/api/1.0/pdf/find.html
+        // See documentation: https://apidocs.pdf.co
         String query = "https://api.pdf.co/v1/pdf/find";
 
         // Make correctly escaped (encoded) URL

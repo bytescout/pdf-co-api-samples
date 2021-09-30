@@ -42,7 +42,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     
 ```
 # The authentication key (API Key).
-# Get your own by registering at https://app.pdf.co/documentation/api
+# Get your own by registering at https://app.pdf.co
 $API_KEY = "***********************************"
 
 # Direct URLs of PDF documents to merge

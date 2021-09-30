@@ -26,13 +26,13 @@ import java.nio.file.Paths;
 public class Main
 {
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     final static String API_KEY = "***********************************";
 
     // Source file name
     final static Path SourceFile = Paths.get(".\\sample.pdf");
     // Comma-separated list of barcode types to search.
-    // See valid barcode types in the documentation https://app.pdf.co/documentation/api/1.0/barcode/read_from_url.html
+    // See valid barcode types in the documentation https://apidocs.pdf.co
     final static String BarcodeTypes = "Code128,Code39,Interleaved2of5,EAN13";
     // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
     final static String Pages = "";

@@ -10,7 +10,7 @@
 // Note: If you have input files large than 200kb we highly recommend to check "async" mode example.
 
 // Get submitted form data
-$apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co/documentation/api
+$apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co
 
 
 // 1. UPLOAD FILES TO CLOUD

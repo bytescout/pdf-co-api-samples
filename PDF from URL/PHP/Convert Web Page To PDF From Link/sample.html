@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Page To PDF Cloud API Example</title>
+</head>
+
+<body>
+
+    <form name="form1" method="post" action="web-page-to-pdf.php">
+        <p>
+            <label>Authentication key (API Key). Get your own by registering at <a href="https://apidocs.pdf.co">https://apidocs.pdf.co</a>.</label>
+            <br/>
+            <input type="text" name="apiKey" placeholder="API Key"/>
+        </p>
+        <p>
+            <label>URL of web page to convert to PDF document.</label>
+            <br/>
+            <input type="text" name="sourceUrl" placeholder="http://en.wikipedia.org/wiki/Main_Page"/>
+        </p>
+        <input type="submit" name="submit" value="Generate" />
+    </form>
+
+</body>
+</html>

@@ -36,7 +36,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 public class FillPDFFormSimplified{
     
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     String API_KEY = 'ABCDE';
     // Destination File Name
     string DestinationFile = 'result.pdf';

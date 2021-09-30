@@ -24,7 +24,7 @@ uses
 
 const
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     API_KEY: string = '********************************************'
     // Result file name
     RESULT_FILE_NAME: string = 'barcode.png';

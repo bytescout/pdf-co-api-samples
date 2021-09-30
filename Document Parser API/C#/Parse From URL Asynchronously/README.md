@@ -208,7 +208,7 @@ namespace ByteScoutWebApiExample
     class Program
     {
         // The authentication key (API Key).
-        // Get your own by registering at https://app.pdf.co/documentation/api
+        // Get your own by registering at https://app.pdf.co
         const string API_KEY = "***********************************";
 
         // Source PDF file

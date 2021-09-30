@@ -63,7 +63,7 @@ uses
 
 const
     // The authentication key (API Key).
-    // Get your own by registering at https://app.pdf.co/documentation/api
+    // Get your own by registering at https://app.pdf.co
     API_KEY: string = '********************************************'
     // Source DOC or DOCX file
 	SOURCE_FILE: string = 'sample.docx';

@@ -2,7 +2,7 @@
 # Allows to avoid timeout errors when processing huge or scanned PDF documents.
 
 # The authentication key (API Key).
-# Get your own by registering at https://app.pdf.co/documentation/api
+# Get your own by registering at https://app.pdf.co
 $API_KEY = "***********************************"
 
 # Direct URLs of image files to convert to PDF document

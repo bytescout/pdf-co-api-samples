@@ -4,7 +4,7 @@
 # (!) If you are getting '(403) Forbidden' error please ensure you have set the correct API_KEY
 
 # The authentication key (API Key).
-# Get your own by registering at https://app.pdf.co/documentation/api
+# Get your own by registering at https://app.pdf.co
 $API_KEY = "***********************************"
 
 # Direct URL of source PDF file.

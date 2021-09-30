@@ -11,7 +11,7 @@
 // Cloud API asynchronous "Delete Text from PDF" job example.
 
 // The authentication key (API Key).
-// Get your own by registering at https://app.pdf.co/documentation/api
+// Get your own by registering at https://app.pdf.co
 $apiKey = "***********************************";
 
 // Direct URL of source PDF file. Check another example if you need to upload a local file to the cloud.
