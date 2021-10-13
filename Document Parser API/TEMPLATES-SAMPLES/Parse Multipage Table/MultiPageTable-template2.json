@@ -1,0 +1,68 @@
+﻿{
+  "templateName": "Multipage Table Test",
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": [
+      "Sample document with multi-page table"
+    ]
+  },
+  "objects": [
+    {
+      "name": "total",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "regex",
+        "expression": "TOTAL{{Spaces}}({{Number}})",
+        "regex": true,
+        "dataType": "decimal"
+      },
+      "id": 1634132958859
+    },
+    {
+      "name": "table1",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "expression": "Item{{Spaces}}Description{{Spaces}}Price",
+          "regex": true
+        },
+        "end": {
+          "expression": "(Page {{Digits}} of {{Digits}})|(TOTAL{{Spaces}}{{Number}})",
+          "regex": true
+        },
+        "left": 51,
+        "right": 528,
+        "columns": [
+          {
+            "x": 51,
+            "name": "itemNo",
+            "dataType": "integer"
+          },
+          {
+            "x": 102,
+            "name": "description",
+            "dataType": "string"
+          },
+          {
+            "x": 324,
+            "name": "price",
+            "dataType": "decimal"
+          },
+          {
+            "x": 396,
+            "name": "qty",
+            "dataType": "integer"
+          },
+          {
+            "x": 441,
+            "name": "extPrice",
+            "dataType": "decimal"
+          }
+        ],
+        "multipage": true
+      },
+      "id": 1634132958860
+    }
+  ]
+}

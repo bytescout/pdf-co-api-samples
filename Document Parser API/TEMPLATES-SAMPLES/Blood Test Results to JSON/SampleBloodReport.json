@@ -1,0 +1,60 @@
+﻿{
+  "templateName": "BloodTestTemplate",
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": []
+  },
+  "objects": [
+    {
+      "name": "PatientName",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          177.75,
+          123.75,
+          62.25,
+          12.75
+        ],
+        "pageIndex": 0
+      },
+      "id": 1634133021319
+    },
+    {
+      "name": "ReportName",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "expression": "{{SmartDate}}",
+        "dataType": "date",
+        "rectangle": [
+          335.25,
+          94.5,
+          65.25,
+          12
+        ],
+        "pageIndex": 0
+      },
+      "id": 1634133021320
+    },
+    {
+      "name": "TestResults",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "y": 261.75,
+          "pageIndex": 0
+        },
+        "end": {
+          "y": 712.5,
+          "pageIndex": 0
+        },
+        "left": 41.25,
+        "right": 573.75,
+        "rowMergingRule": "byBorders"
+      },
+      "id": 1634133021321
+    }
+  ]
+}
