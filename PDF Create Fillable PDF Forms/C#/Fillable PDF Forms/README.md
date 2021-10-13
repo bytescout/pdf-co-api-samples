@@ -78,7 +78,7 @@ EndGlobal
     <OutputType>Exe</OutputType>
     <RootNamespace>FillablePDFForms</RootNamespace>
     <AssemblyName>FillablePDFForms</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

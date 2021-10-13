@@ -11,13 +11,12 @@
 //*******************************************************************************************//
 
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace ByteScoutWebApiExample
 {
@@ -87,20 +86,21 @@ namespace ByteScoutWebApiExample
 
             // Prepare requests params as JSON
             // See documentation: https://apidocs.pdf.co/?#pdf-security
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("name", Path.GetFileName(DestinationFile));
             parameters.Add("url", uploadedFileUrl);
             parameters.Add("ownerPassword", OwnerPassword);
             parameters.Add("userPassword", UserPassword);
             parameters.Add("encryptionAlgorithm", EncryptionAlgorithm);
-            parameters.Add("allowAccessibilitySupport", AllowAccessibilitySupport.ToString());
-            parameters.Add("allowAssemblyDocument", AllowAssemblyDocument.ToString());
-            parameters.Add("allowPrintDocument", AllowPrintDocument.ToString());
-            parameters.Add("allowFillForms", AllowFillForms.ToString());
-            parameters.Add("allowModifyDocument", AllowModifyDocument.ToString());
-            parameters.Add("allowContentExtraction", AllowContentExtraction.ToString());
-            parameters.Add("allowModifyAnnotations", AllowModifyAnnotations.ToString());
+            parameters.Add("allowAccessibilitySupport", AllowAccessibilitySupport);
+            parameters.Add("allowAssemblyDocument", AllowAssemblyDocument);
+            parameters.Add("allowPrintDocument", AllowPrintDocument);
+            parameters.Add("allowFillForms", AllowFillForms);
+            parameters.Add("allowModifyDocument", AllowModifyDocument);
+            parameters.Add("allowContentExtraction", AllowContentExtraction);
+            parameters.Add("allowModifyAnnotations", AllowModifyAnnotations);
             parameters.Add("printQuality", PrintQuality);
+
             // Convert dictionary of params to JSON
             string jsonPayload = JsonConvert.SerializeObject(parameters);
 

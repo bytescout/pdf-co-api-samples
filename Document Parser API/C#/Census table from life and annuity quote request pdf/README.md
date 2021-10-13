@@ -43,7 +43,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
     <OutputType>Exe</OutputType>
     <RootNamespace>LifeAndAnnuityQuoteRequest</RootNamespace>
     <AssemblyName>LifeAndAnnuityQuoteRequest</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
