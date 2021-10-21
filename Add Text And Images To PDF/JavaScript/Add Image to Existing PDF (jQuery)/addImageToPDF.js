@@ -44,6 +44,7 @@ $(document).on("click", "#submit", function () {
             if (result['error'] === false) {
                 console.log(result);
                 var presignedUrl = result['presignedUrl']; // reading provided presigned url to put our content into
+                var uploadedUrl = result['url']; // Uploaded URL
 
                 $("#status").html('Uploading... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
@@ -61,7 +62,7 @@ $(document).on("click", "#submit", function () {
                         // Input data
                         var data = {
                             name: 'result.pdf',
-                            url: presignedUrl,
+                            url: uploadedUrl,
                             images: [
                                 {
                                     url: signatureImageUrl,
@@ -73,12 +74,14 @@ $(document).on("click", "#submit", function () {
                             ]
                         };
 
+                        console.log(data);
+
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
                         $.ajax({
                             url: cUrl,
                             type: 'POST',
                             headers: { 'x-api-key': apiKey, 'Content-Type': 'application/json' },
-                            data: data,
+                            data: JSON.stringify(data),
                             processData: false,
                             contentType: false,
                             //data: oData,
