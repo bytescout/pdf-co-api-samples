@@ -162,6 +162,14 @@
 \Barcode Reader API\C#\Read QR Code
 \Barcode Reader API\cURL\Advanced Conversation Options
 \Barcode Reader API\cURL\Barcode Reader
+\Barcode Reader API\cURL\Detect BorderedTable from PDF
+\Barcode Reader API\cURL\Detect Checkbox from PDF
+\Barcode Reader API\cURL\Detect Circle from PDF
+\Barcode Reader API\cURL\Detect HorizontalLine from PDF
+\Barcode Reader API\cURL\Detect Oval from PDF
+\Barcode Reader API\cURL\Detect Rectangle from PDF
+\Barcode Reader API\cURL\Detect UnderlinedField from PDF
+\Barcode Reader API\cURL\Detect VerticalLine from PDF
 \Barcode Reader API\cURL\Read Barcode from File
 \Barcode Reader API\cURL\Read Barcode From URL
 \Barcode Reader API\Java\Advanced Conversation Options
