@@ -269,6 +269,7 @@
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL Asynchronously
 \Document Parser API\C#
 \Document Parser API\cURL
+\Document Parser API\GoogleAppScript
 \Document Parser API\Java
 \Document Parser API\JavaScript
 \Document Parser API\PHP
@@ -296,6 +297,7 @@
 \Document Parser API\cURL\Document Parser Output as CSV
 \Document Parser API\cURL\Document Parser Output as JSON
 \Document Parser API\cURL\Document Parser Results
+\Document Parser API\GoogleAppScript\Convert PDF Invoice to Google Sheet
 \Document Parser API\Java\Blood Test Results to JSON
 \Document Parser API\Java\Create Custom Template
 \Document Parser API\Java\Extract line items from tables on multiple pages
