@@ -9,6 +9,6 @@ headers = {
 		'Content-Type': 'application/json'
 }
 
-response = requests.request("POST", url, headers=headers, data = payload)
+response = requests.request("POST", url, headers=headers, json = payload)
 
 print(response.text.encode('utf8'))

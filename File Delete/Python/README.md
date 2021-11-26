@@ -43,7 +43,7 @@ headers = {
 		'x-api-key': '{{x-api-key}}'
 }
 
-response = requests.request("POST", url, headers=headers, data = payload, files = files)
+response = requests.request("POST", url, headers=headers, json = payload, files = files)
 
 print(response.text.encode('utf8'))
 
