@@ -1,0 +1,139 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1638175859446,
+      "objectType": "field",
+      "name": "payerTin",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          53.35714285714286,
+          143.24087591240877,
+          118.28571428571429,
+          34.043795620437955
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638175895847,
+      "objectType": "field",
+      "name": "recipientTin",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          174.21428571428572,
+          141.95620437956205,
+          119.57142857142858,
+          36.613138686131386
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638175930711,
+      "objectType": "field",
+      "name": "recipientName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          51.42857142857143,
+          188.84671532846716,
+          243.00000000000003,
+          25.693430656934307
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638175955485,
+      "objectType": "field",
+      "name": "totalOrdinaryDividends",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          306.64285714285717,
+          46.24817518248175,
+          89.35714285714286,
+          25.693430656934307
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1638175859446,
+      "objectType": "field",
+      "name": "payerTin",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          53.35714285714286,
+          143.24087591240877,
+          118.28571428571429,
+          34.043795620437955
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638175895847,
+      "objectType": "field",
+      "name": "recipientTin",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          174.21428571428572,
+          141.95620437956205,
+          119.57142857142858,
+          36.613138686131386
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638175930711,
+      "objectType": "field",
+      "name": "recipientName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          51.42857142857143,
+          188.84671532846716,
+          243.00000000000003,
+          25.693430656934307
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638175955485,
+      "objectType": "field",
+      "name": "totalOrdinaryDividend",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          306.64285714285717,
+          46.24817518248175,
+          89.35714285714286,
+          25.693430656934307
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "templateName": "2021 Form 1099-Div",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}

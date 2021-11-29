@@ -1,0 +1,109 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1638178637239,
+      "objectType": "field",
+      "name": "payeeName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          51.890274314214466,
+          188.46242774566474,
+          240.37406483790522,
+          25.942196531791907
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1,
+      "objectType": "field",
+      "name": "payeeTin",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          295.3167082294264,
+          68.67052023121387,
+          100.7281795511222,
+          15.260115606936415
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 2,
+      "objectType": "field",
+      "name": "grossAmount",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          305.2369077306733,
+          106.82080924855491,
+          91.57107231920199,
+          12.971098265895954
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1638174685726,
+      "objectType": "field",
+      "name": "payeeName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          51.890274314214466,
+          188.46242774566474,
+          240.37406483790522,
+          25.942196531791907
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638174723751,
+      "objectType": "field",
+      "name": "payeeTin",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          295.3167082294264,
+          68.67052023121387,
+          100.7281795511222,
+          15.260115606936415
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638174745700,
+      "objectType": "field",
+      "name": "grossAmount",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          305.2369077306733,
+          106.82080924855491,
+          92.33416458852868,
+          12.971098265895954
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "templateName": "Form 1099-K",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1638173067155,
+      "objectType": "field",
+      "name": "employeeFirstName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          36.63858093126386,
+          188.5068493150685,
+          137.73392461197338,
+          14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638173102007,
+      "objectType": "field",
+      "name": "employeeLastName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          173.6940133037694,
+          188.5068493150685,
+          135.01995565410198,
+          14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638173131589,
+      "objectType": "field",
+      "name": "employeeSSN",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          151.9822616407982,
+          44.07534246575343,
+          127.55654101995565,
+          14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638173181527,
+      "objectType": "field",
+      "name": "wagesTipsOthers",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          330.4257206208426,
+          68.48630136986301,
+          123.48558758314856,
+          14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1638173067155,
+      "objectType": "field",
+      "name": "employeeFirstName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          36.63858093126386,
+          188.5068493150685,
+          137.73392461197338,
+          14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638173102007,
+      "objectType": "field",
+      "name": "employeeLastName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          173.6940133037694,
+          188.5068493150685,
+          135.01995565410198,
+          14.23972602739726
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638173131589,
+      "objectType": "field",
+      "name": "employeeSSN",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          151.9822616407982,
+          44.07534246575343,
+          127.55654101995565,
+          14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638173181527,
+      "objectType": "field",
+      "name": "wagesTipsOthers",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          330.4257206208426,
+          68.48630136986301,
+          123.48558758314856,
+          14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    }
+  ],
+  "templateName": "Form W2",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}

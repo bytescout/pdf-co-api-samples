@@ -1,0 +1,139 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1638171540417,
+      "objectType": "field",
+      "name": "firstName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          35.28159645232816,
+          110.52739726027399,
+          202.86917960088692,
+          15.595890410958905
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638171558756,
+      "objectType": "field",
+      "name": "lastName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          236.1152993348115,
+          109.84931506849315,
+          232.04434589800442,
+          16.273972602739725
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638171579504,
+      "objectType": "field",
+      "name": "ssn",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          467.4811529933481,
+          113.23972602739727,
+          109.23725055432372,
+          12.883561643835618
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638171613274,
+      "objectType": "field",
+      "name": "taxableIncome",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          504.119733924612,
+          558.0616438356165,
+          76.66962305986696,
+          12.883561643835618
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1638171540417,
+      "objectType": "field",
+      "name": "firstName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          35.28159645232816,
+          110.52739726027399,
+          202.86917960088692,
+          15.595890410958905
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638171558756,
+      "objectType": "field",
+      "name": "lastName",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          236.1152993348115,
+          109.84931506849315,
+          232.04434589800442,
+          16.273972602739725
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638171579504,
+      "objectType": "field",
+      "name": "ssn",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          467.4811529933481,
+          113.23972602739727,
+          109.23725055432372,
+          12.883561643835618
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638171613274,
+      "objectType": "field",
+      "name": "taxableIncom",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          504.119733924612,
+          558.0616438356165,
+          76.66962305986696,
+          12.883561643835618
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "templateName": "2020Form1040",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
