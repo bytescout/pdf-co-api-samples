@@ -1260,6 +1260,7 @@
 \PDF To TIFF\JavaScript
 \PDF To TIFF\PHP
 \PDF To TIFF\PowerShell
+\PDF To TIFF\Python
 \PDF To TIFF\VB.NET
 \PDF To TIFF\C#\Advanced TIFF Conversion Options
 \PDF To TIFF\C#\Convert PDF To TIFF From Uploaded File
@@ -1282,6 +1283,9 @@
 \PDF To TIFF\PowerShell\Convert PDF To TIFF From Uploaded File
 \PDF To TIFF\PowerShell\Convert PDF To TIFF From URL
 \PDF To TIFF\PowerShell\Convert PDF To TIFF From URL Asynchronously
+\PDF To TIFF\Python\Convert PDF To Image From Uploaded File
+\PDF To TIFF\Python\Convert PDF To Image From Uploaded File Asynchronously
+\PDF To TIFF\Python\Convert PDF to Image From URL
 \PDF To TIFF\VB.NET\Advanced TIFF Conversation Options
 \PDF To TIFF\VB.NET\Convert PDF To TIFF From Uploaded File
 \PDF To TIFF\VB.NET\Convert PDF To TIFF From URL
