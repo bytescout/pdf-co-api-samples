@@ -4,22 +4,7 @@
   "culture": "en-US",
   "objects": [
     {
-      "id": 1638175859446,
-      "objectType": "field",
-      "name": "payerTin",
-      "fieldProperties": {
-        "fieldType": "rectangle",
-        "rectangle": [
-          53.35714285714286,
-          143.24087591240877,
-          118.28571428571429,
-          34.043795620437955
-        ],
-        "pageIndex": 0
-      }
-    },
-    {
-      "id": 1638175895847,
+      "id": 1,
       "objectType": "field",
       "name": "recipientTin",
       "fieldProperties": {
@@ -34,7 +19,7 @@
       }
     },
     {
-      "id": 1638175930711,
+      "id": 2,
       "objectType": "field",
       "name": "recipientName",
       "fieldProperties": {
@@ -49,16 +34,16 @@
       }
     },
     {
-      "id": 1638175955485,
+      "id": 3,
       "objectType": "field",
-      "name": "totalOrdinaryDividends",
+      "name": "fedIncomeTaxWithheld",
       "fieldProperties": {
         "fieldType": "rectangle",
         "rectangle": [
-          306.64285714285717,
-          46.24817518248175,
-          89.35714285714286,
-          25.693430656934307
+          408.34343434343435,
+          188.21162185602776,
+          89.97979797979798,
+          16.485689505637467
         ],
         "pageIndex": 0
       }
@@ -66,7 +51,7 @@
   ],
   "oldObjects": [
     {
-      "id": 1638175859446,
+      "id": 0,
       "objectType": "field",
       "name": "payerTin",
       "fieldProperties": {
@@ -81,7 +66,7 @@
       }
     },
     {
-      "id": 1638175895847,
+      "id": 1,
       "objectType": "field",
       "name": "recipientTin",
       "fieldProperties": {
@@ -96,7 +81,7 @@
       }
     },
     {
-      "id": 1638175930711,
+      "id": 2,
       "objectType": "field",
       "name": "recipientName",
       "fieldProperties": {
@@ -111,16 +96,16 @@
       }
     },
     {
-      "id": 1638175955485,
+      "id": 3,
       "objectType": "field",
-      "name": "totalOrdinaryDividend",
+      "name": "fedIncomeTaxWithheld",
       "fieldProperties": {
         "fieldType": "rectangle",
         "rectangle": [
-          306.64285714285717,
-          46.24817518248175,
-          89.35714285714286,
-          25.693430656934307
+          408.34343434343435,
+          188.21162185602776,
+          89.97979797979798,
+          16.485689505637467
         ],
         "pageIndex": 0
       }

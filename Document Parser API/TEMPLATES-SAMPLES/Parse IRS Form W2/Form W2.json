@@ -4,7 +4,7 @@
   "culture": "en-US",
   "objects": [
     {
-      "id": 1638173067155,
+      "id": 0,
       "objectType": "field",
       "name": "employeeFirstName",
       "fieldProperties": {
@@ -19,7 +19,7 @@
       }
     },
     {
-      "id": 1638173102007,
+      "id": 1,
       "objectType": "field",
       "name": "employeeLastName",
       "fieldProperties": {
@@ -34,7 +34,7 @@
       }
     },
     {
-      "id": 1638173131589,
+      "id": 2,
       "objectType": "field",
       "name": "employeeSSN",
       "fieldProperties": {
@@ -49,16 +49,46 @@
       }
     },
     {
-      "id": 1638173181527,
+      "id": 3,
       "objectType": "field",
-      "name": "wagesTipsOthers",
+      "name": "fedIncomeTaxWithheld",
       "fieldProperties": {
         "fieldType": "rectangle",
         "rectangle": [
-          330.4257206208426,
+          452.9724832107711,
           68.48630136986301,
           123.48558758314856,
           14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638191170519,
+      "objectType": "field",
+      "name": "stateIncomeTax",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          281.7841726618705,
+          297.45790934320075,
+          78.5179856115108,
+          16.11840888066605
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638191209385,
+      "objectType": "field",
+      "name": "localIncomeTax",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          446.89208633093523,
+          297.45790934320075,
+          78.5179856115108,
+          13.920444033302498
         ],
         "pageIndex": 1
       }
@@ -66,7 +96,7 @@
   ],
   "oldObjects": [
     {
-      "id": 1638173067155,
+      "id": 0,
       "objectType": "field",
       "name": "employeeFirstName",
       "fieldProperties": {
@@ -81,7 +111,7 @@
       }
     },
     {
-      "id": 1638173102007,
+      "id": 1,
       "objectType": "field",
       "name": "employeeLastName",
       "fieldProperties": {
@@ -90,13 +120,13 @@
           173.6940133037694,
           188.5068493150685,
           135.01995565410198,
-          14.23972602739726
+          14.917808219178083
         ],
         "pageIndex": 1
       }
     },
     {
-      "id": 1638173131589,
+      "id": 2,
       "objectType": "field",
       "name": "employeeSSN",
       "fieldProperties": {
@@ -111,16 +141,46 @@
       }
     },
     {
-      "id": 1638173181527,
+      "id": 3,
       "objectType": "field",
-      "name": "wagesTipsOthers",
+      "name": "fedIncomeTaxWithheld",
       "fieldProperties": {
         "fieldType": "rectangle",
         "rectangle": [
-          330.4257206208426,
+          452.9724832107711,
           68.48630136986301,
           123.48558758314856,
           14.917808219178083
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638191170519,
+      "objectType": "field",
+      "name": "stateIncomeTax",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          281.7841726618705,
+          297.45790934320075,
+          78.5179856115108,
+          16.11840888066605
+        ],
+        "pageIndex": 1
+      }
+    },
+    {
+      "id": 1638191209385,
+      "objectType": "field",
+      "name": "localIncomeTa",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          446.89208633093523,
+          297.45790934320075,
+          78.5179856115108,
+          13.920444033302498
         ],
         "pageIndex": 1
       }

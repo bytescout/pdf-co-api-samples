@@ -348,7 +348,7 @@
 \Document Parser API\TEMPLATES-SAMPLES\Parse and Generate HL7 Output
 \Document Parser API\TEMPLATES-SAMPLES\Parse Hanging Rows In Invoice
 \Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1040
-\Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1099-Div
+\Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1099-DIV
 \Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1099-K
 \Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form W2
 \Document Parser API\TEMPLATES-SAMPLES\Parse Multipage Table
