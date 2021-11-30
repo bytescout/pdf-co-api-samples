@@ -1104,6 +1104,7 @@
 \PDF To JPG\JavaScript
 \PDF To JPG\PHP
 \PDF To JPG\PowerShell
+\PDF To JPG\Python
 \PDF To JPG\VB.NET
 \PDF To JPG\C#\Advanced JPEG Conversion Options
 \PDF To JPG\C#\Convert PDF To JPEG From Uploaded File
@@ -1126,6 +1127,10 @@
 \PDF To JPG\PowerShell\Convert PDF To JPEG From Uploaded File
 \PDF To JPG\PowerShell\Convert PDF To JPEG From URL
 \PDF To JPG\PowerShell\Convert PDF To JPEG From URL Asynchronously
+\PDF To JPG\Python\Advanced Conversation Options
+\PDF To JPG\Python\Convert PDF To Image From Uploaded File
+\PDF To JPG\Python\Convert PDF To Image From Uploaded File Asynchronously
+\PDF To JPG\Python\Convert PDF to Image From URL
 \PDF To JPG\VB.NET\Advanced JPEG Conversation Options
 \PDF To JPG\VB.NET\Convert PDF To JPEG From Uploaded File
 \PDF To JPG\VB.NET\Convert PDF To JPEG From URL
@@ -1207,6 +1212,7 @@
 \PDF To PNG\Python\Advanced Conversation Options
 \PDF To PNG\Python\Convert PDF To Image From Uploaded File
 \PDF To PNG\Python\Convert PDF To Image From Uploaded File Asynchronously
+\PDF To PNG\Python\Convert PDF to Image From URL
 \PDF To PNG\VB.NET\Advanced PNG Conversation Options
 \PDF To PNG\VB.NET\Convert PDF To PNG From Uploaded File
 \PDF To PNG\VB.NET\Convert PDF To PNG From URL
