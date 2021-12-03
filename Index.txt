@@ -352,6 +352,7 @@
 \Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1099-K
 \Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form W2
 \Document Parser API\TEMPLATES-SAMPLES\Parse Multipage Table
+\Document Parser API\TEMPLATES-SAMPLES\Parse PandaDoc Sample Invoice
 \Document Parser API\TEMPLATES-SAMPLES\Parse Simple Document
 \Document Parser API\TEMPLATES-SAMPLES\Parse with OCR
 \Document Parser API\TEMPLATES-SAMPLES\Parsing and reading data from Airline Tickets

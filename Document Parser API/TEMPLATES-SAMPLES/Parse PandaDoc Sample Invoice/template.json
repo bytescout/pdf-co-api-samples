@@ -1,0 +1,309 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1638529811818,
+      "objectType": "field",
+      "name": "invoiceNo",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice No.: (?<value>{{Digits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638529893197,
+      "objectType": "field",
+      "name": "terms",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Payment terms: (?<value>{{SentenceWithSingleSpaces}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638529965197,
+      "objectType": "field",
+      "name": "dueDate",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Due date: (?<value>{{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638530003680,
+      "objectType": "field",
+      "name": "sender",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          379.4949494949495,
+          27.47614917606245,
+          201.93939393939394,
+          50.143972246313965
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638530033341,
+      "objectType": "field",
+      "name": "billTo",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          385.67676767676767,
+          191.64614050303558,
+          197.13131313131314,
+          35.71899392888118
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638530060379,
+      "objectType": "field",
+      "name": "subTotal",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Subtotal{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638530114585,
+      "objectType": "field",
+      "name": "discount",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Discount{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638530151001,
+      "objectType": "field",
+      "name": "tax",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Tax{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638530180640,
+      "objectType": "field",
+      "name": "total",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Total{{spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638531207045,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "lineItems",
+      "tableProperties": {
+        "start": {
+          "expression": "NAME{{Spaces}}PRICE",
+          "regex": true
+        },
+        "end": {
+          "expression": "{{LineStart}}{{Spaces}}{{Dollar}}{{Number}}{{LineEnd}}",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<name>{{SentenceWithSingleSpaces}}){{Spaces}}{{Dollar}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}{{Dollar}}(?<subtotal>{{Number}})",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "name",
+            "dataType": "string"
+          },
+          {
+            "name": "price",
+            "dataType": "decimal"
+          },
+          {
+            "name": "qty",
+            "dataType": "integer"
+          },
+          {
+            "name": "subtotal",
+            "dataType": "decimal"
+          }
+        ]
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1638529811818,
+      "objectType": "field",
+      "name": "invoiceNo",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice No.: (?<value>{{Digits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638529893197,
+      "objectType": "field",
+      "name": "terms",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Payment terms: (?<value>{{SentenceWithSingleSpaces}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638529965197,
+      "objectType": "field",
+      "name": "dueDate",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Due date: (?<value>{{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638530003680,
+      "objectType": "field",
+      "name": "sender",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          379.4949494949495,
+          27.47614917606245,
+          201.93939393939394,
+          50.143972246313965
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638530033341,
+      "objectType": "field",
+      "name": "billTo",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          385.67676767676767,
+          191.64614050303558,
+          197.13131313131314,
+          35.71899392888118
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1638530060379,
+      "objectType": "field",
+      "name": "subTotal",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Subtotal{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638530114585,
+      "objectType": "field",
+      "name": "discount",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Discount{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638530151001,
+      "objectType": "field",
+      "name": "tax",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Tax{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638530180640,
+      "objectType": "field",
+      "name": "total",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Total{{spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1638531207045,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "lineItem",
+      "tableProperties": {
+        "start": {
+          "expression": "NAME{{Spaces}}PRICE",
+          "regex": true
+        },
+        "end": {
+          "expression": "{{LineStart}}{{Spaces}}{{Dollar}}{{Number}}{{LineEnd}}",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<name>{{SentenceWithSingleSpaces}}){{Spaces}}{{Dollar}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}{{Dollar}}(?<subtotal>{{Number}})",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "name",
+            "dataType": "string"
+          },
+          {
+            "name": "price",
+            "dataType": "decimal"
+          },
+          {
+            "name": "qty",
+            "dataType": "integer"
+          },
+          {
+            "name": "subtotal",
+            "dataType": "decimal"
+          }
+        ]
+      }
+    }
+  ],
+  "templateName": "PandaDoc_Sample_Invoice_Template",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
