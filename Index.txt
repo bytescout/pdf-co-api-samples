@@ -326,6 +326,7 @@
 \Document Parser API\Powershell\Parse From Url
 \Document Parser API\Python\Parse From Uploaded File
 \Document Parser API\Python\Parse From Url
+\Document Parser API\Python\Parse PDF Invoice
 \Document Parser API\Salesforce\Document Parser Demo
 \Document Parser API\Salesforce\Parse Document and Get CSV Output
 \Document Parser API\SharePoint\Parse Invoice Information
