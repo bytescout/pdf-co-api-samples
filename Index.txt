@@ -922,8 +922,37 @@
 \PDF Password And Security\Salesforce\Remove PDF Document Protection From Uploaded File
 \PDF Password And Security\VB.NET\Protect PDF Document
 \PDF Password And Security\VB.NET\Remove PDF Document Protection
+\PDF Search Tables\C#
 \PDF Search Tables\cURL
+\PDF Search Tables\Java
+\PDF Search Tables\JavaScript
+\PDF Search Tables\PowerShell
+\PDF Search Tables\Python
+\PDF Search Tables\VB.NET
+\PDF Search Tables\C#\PDF Table Search from Uploaded File
+\PDF Search Tables\C#\PDF Table Search from Uploaded File Asynchronously
+\PDF Search Tables\C#\PDF Table Search from URL
+\PDF Search Tables\C#\PDF Table Search from URL Asynchronously
 \PDF Search Tables\cURL\Search Tables From PDF
+\PDF Search Tables\Java\PDF Table Search from Uploaded File
+\PDF Search Tables\Java\PDF Table Search from Uploaded File Asynchronously
+\PDF Search Tables\Java\PDF Table Search from URL
+\PDF Search Tables\Java\PDF Table Search from URL Asynchronously
+\PDF Search Tables\JavaScript\PDF Get Search Table JSON (Node js)
+\PDF Search Tables\JavaScript\PDF Table Search from Uploaded File (Node js)
+\PDF Search Tables\JavaScript\PDF Table Search from Uploaded File (Node js) - Async API
+\PDF Search Tables\JavaScript\PDF Table Search from URL (Node js)
+\PDF Search Tables\JavaScript\PDF Table Search from URL (Node js) - Async API
+\PDF Search Tables\PowerShell\PDF Table Search from Uploaded File
+\PDF Search Tables\PowerShell\PDF Table Search from Uploaded File Asynchronously
+\PDF Search Tables\PowerShell\PDF Table Search from URL
+\PDF Search Tables\PowerShell\PDF Table Search from URL Asynchronously
+\PDF Search Tables\Python\PDF Table Search from Uploaded File
+\PDF Search Tables\Python\PDF Table Search from Uploaded File Asynchronously
+\PDF Search Tables\VB.NET\PDF Table Search from Uploaded File
+\PDF Search Tables\VB.NET\PDF Table Search from Uploaded File Asynchronously
+\PDF Search Tables\VB.NET\PDF Table Search from URL
+\PDF Search Tables\VB.NET\PDF Table Search from URL Asynchronously
 \PDF Splitting API\C#
 \PDF Splitting API\cURL
 \PDF Splitting API\Java
