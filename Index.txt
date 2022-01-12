@@ -726,6 +726,7 @@
 \PDF from HTML template\Java\Generate PDF Invoice From HTML Template
 \PDF from HTML template\JavaScript\Generate PDF Invoice From HTML Template (Node.js)
 \PDF from HTML template\JavaScript\Generate PDF Invoice From HTML Template (Node.js) - Async API
+\PDF from HTML template\JavaScript\Invoice Spanning Multiple Pages (Node.js)
 \PDF from HTML template\PHP\Generate PDF Invoice From HTML Template
 \PDF from HTML template\PowerShell\Generate PDF Invoice From HTML Template
 \PDF from HTML template\Python\Generate PDF Invoice From HTML Template
