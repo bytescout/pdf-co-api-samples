@@ -1,5 +1,4 @@
 import os
-import  json
 import requests # pip install requests
 
 # The authentication key (API Key).
@@ -16,7 +15,7 @@ file_read.close()
 
 # Data to fill the template
 file_read = open(".\\invoice_data.json", mode='r')
-TemplateData = json.dumps(file_read.read())
+TemplateData = file_read.read()
 file_read.close()
 
 # Destination PDF file name
