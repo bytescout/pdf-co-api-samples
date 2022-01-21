@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice {{11077}}</title>
+    <title>Invoice {{order_number}}</title>
 
     <!-- formatting and page size is based  https://www.pagedjs.org/ -->
 
@@ -28,13 +28,19 @@
                     // page number in the header
                     curPage.element.getElementsByClassName("spnPageNumberInTitle")[0].innerHTML = `Page ${i + 1} of ${pages.length}`;
 
+                    // First Page
+                    if (i === 0) {
+                        curPage.element.getElementsByClassName("clsScanLineOCR")[0].remove();
+                        curPage.element.getElementsByClassName("pageNumber")[0].remove();
+                    }
+
                     // Not Last Page
                     if (i != pages.length - 1) {
                         curPage.element.getElementsByClassName("spnTotal")[0].remove();
                         curPage.element.getElementsByClassName("spnSubTotal")[0].remove();
                         curPage.element.getElementsByClassName("spnFreight")[0].remove();
 
-                        if(curPage.element.getElementsByClassName("clsImgPaid").length > 0){
+                        if (curPage.element.getElementsByClassName("clsImgPaid").length > 0) {
                             curPage.element.getElementsByClassName("clsImgPaid")[0].remove();
                         }
                     }
@@ -58,22 +64,43 @@
             return total;
         });
 
-        Handlebars.registerHelper('getTotalLines', function(lines) {
-			var total = 0;
-			lines.forEach(function(line) {
-				total += line.quantity * line.unit_price;
-			});
-			return total;
-		});
+        Handlebars.registerHelper('getTotalLines', function (items) {
+            var total = 0;
+            items.forEach(function (line) {
+                total += line.quantity * line.unit_price;
+            });
+            return total;
+        });
+
+        Handlebars.registerHelper('numberFormat', numberFormat);
+
+        function numberFormat(value) {
+            // Helper parameters
+            var dl = 2;
+            var ts = ',';
+            var ds = '.';
+
+            // Parse to float
+            var value = parseFloat(value);
+
+            // The regex
+            var re = '\\d(?=(\\d{3})+' + (dl > 0 ? '\\D' : '$') + ')';
+
+            // Formats the number with the decimals
+            var num = value.toFixed(Math.max(0, ~~dl));
+
+            // Returns the formatted number
+            return (ds ? num.replace('.', ds) : num).replace(new RegExp(re, 'g'), '$&' + ts);
+        }
 
 
-        Handlebars.registerHelper('getFinalAmt', function(lines, freight) {
-			var total = 0;
-			lines.forEach(function(line) {
-				total += line.quantity * line.unit_price;
-			});
-			return total + freight;
-		});
+        Handlebars.registerHelper('getFinalAmount', function (items, freight) {
+            var total = 0;
+            items.forEach(function (line) {
+                total += line.quantity * line.unit_price;
+            });
+            return total + freight;
+        });
 
     </script>
 
@@ -95,13 +122,9 @@
                 padding-top: 95.5mm;
                 padding-bottom: 12.85mm;
 
-                /* @bottom-left {
-                    content: counter(page) ' of 'counter(pages);
-                } */
-
                 @top-center {
                     content: element(titleRunning);
-                    height: 157.5mm;
+                    height: 160.3mm;
                     padding-top: 10mm;
                     padding-bottom: 50mm;
                 }
@@ -196,11 +219,12 @@
                                 {{ breaklines company_address }}
                             </td>
                             <td>
-                                <img src="{{ ord_barcode_img }}" />
+                                <img src="[[barcode: QRCode {{order_number}} ]]" />
 
                                 <br /><br />
 
-                                <div style="font-family: 'OCR A Extended';">OCR EXT 01234567890ABCDEFG.</div>
+                                <div class="clsScanLineOCR" style="font-family: 'OCR A Extended';">{{ ocr_scanline }}
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -210,15 +234,15 @@
                     <table style=" float: right; border:solid 1px black;">
                         <tr>
                             <th>Order ID:</th>
-                            <td>{{ ord_number }}</td>
+                            <td>{{ order_number }}</td>
                         </tr>
                         <tr>
                             <th>Order Date:</th>
-                            <td>{{ ord_date }}</td>
+                            <td>{{ order_date }}</td>
                         </tr>
                         <tr>
                             <th>Customer ID:</th>
-                            <td>{{ cust_number }}</td>
+                            <td>{{ customer_number }}</td>
                         </tr>
                         <tr>
                             <th>Shipped Date:</th>
@@ -244,7 +268,8 @@
                         </tr>
                         <tr>
                             <td style="text-align: left; border-top: solid 1px black;">
-                                {{ breaklines from_address }}
+                                {{ issuer_name }}<br />
+                                {{ breaklines issuer_address }}
                             </td>
                         </tr>
                     </table>
@@ -258,7 +283,8 @@
                         </tr>
                         <tr>
                             <td style="text-align: left; border-top: solid 1px black;">
-                                {{ breaklines to_address }}
+                                {{ client_name }}<br />
+                                {{ breaklines client_address }}
                             </td>
                         </tr>
                     </table>
@@ -275,10 +301,10 @@
                 </td>
             </tr>
             <tr>
-                <td style="width: 20mm; border:solid 1px black;border-right: none;">Quantity</td>
-                <td style="width:116.5mm;border:solid 1px black; ">Description</td>
-                <td style="width:29.2mm; border:solid 1px black; border-left: none !important">Unit Price</td>
-                <td style="border:solid 1px black; border-left: none !important">Price</td>
+                <th style="width: 20mm; border:solid 1px black;border-right: none;">Quantity</th>
+                <th style="width:116.5mm;border:solid 1px black; ">Description</th>
+                <th style="width:29.2mm; border:solid 1px black; border-left: none !important">Unit Price</th>
+                <th style="border:solid 1px black; border-left: none !important">Price</th>
             </tr>
         </table>
     </section>
@@ -286,8 +312,10 @@
 
     <!-- footer begin -->
     <section class="bottom_running">
-        {{#if ShowPaidImage}}
-        <img class="clsImgPaid" src="{{PadiImgSrc}}" />
+        {{#if paid}}
+        <div class="clsImgPaid"
+            style="border-width: 3px;border-style: solid; border-color: #008000;border-radius: 8px; color: #008000; opacity:0.4; position: absolute; z-index: 1; right:10%; bottom:7%; font-size: 60pt;transform: rotate(-20deg)">
+            PAID </div>
         {{/if}}
 
         <div style="border: solid 1px black; width: 195mm;">
@@ -303,17 +331,17 @@
                         <table cellpadding="0" cellspacing="0" style="width: 100%;">
                             <tr>
                                 <th style="text-align: right; width: 28mm;">Sub-Total</th>
-                                <td style="text-align: left;"> <span class="spnSubTotal">${{getTotalLines lines }}</span></td>
+                                <td style="text-align: left;"> <span class="spnSubTotal">${{numberFormat (getTotalLines items) }}</span></td>
                             </tr>
                             <tr>
                                 <th style="text-align: right;">Freight</th>
-                                <td style="text-align: left;"><span class="spnFreight">${{ freight }}</span></td>
+                                <td style="text-align: left;"><span class="spnFreight">${{numberFormat freight }}</span></td>
                             </tr>
                             <tr>
                                 <th style="text-align: right;">Total</th>
                                 <td style="text-align: left;">
                                     <span class="spnContinued" style="background-color: yellow;">Continued...</span>
-                                    <span class="spnTotal"><strong>${{ getFinalAmt lines freight}}</strong></span>
+                                    <span class="spnTotal"><strong>${{numberFormat (getFinalAmount items freight)}}</strong></span>
                                 </td>
                             </tr>
                         </table>
@@ -329,12 +357,12 @@
         <div class="chapter"
             style="width: 195mm; height: 148.5mm; border-left: solid 1px black; border-right: solid 1px black;">
             <table id="tblMain" class="tableStripe" cellpadding="0" cellspacing="0" style="width:100%;">
-                {{#each lines}}
+                {{#each items}}
                 <tr>
                     <td>{{quantity}}</td>
-                    <td>{{title}}</td>
-                    <td>${{unit_price}}</td>
-                    <td>${{getTotal quantity unit_price }}</td>
+                    <td>{{name}}</td>
+                    <td>${{numberFormat unit_price}}</td>
+                    <td>${{numberFormat (getTotal quantity unit_price) }}</td>
                 </tr>
                 {{/each}}
             </table>
