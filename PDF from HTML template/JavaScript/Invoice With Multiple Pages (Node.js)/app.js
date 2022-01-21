@@ -18,18 +18,18 @@ var fs = require("fs");
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co
-const API_KEY = "******************************";
+const API_KEY = "eugene@bytescout.com_3d15f25a0c20f87e2ca05f1ebd5ff5f92221"
 
 
-// HTML template
-const template = "./invoice_template.html";
+// HTML template using built-in template
+// see https://app.pdf.co/templates/html/3/edit
+const template_id = 3;
 // Data to fill the template
 const templateData = "./invoice_data.json";
 // Destination PDF file name
 const DestinationFile = "./result.pdf";
 
 const fileReadTemplateData = fs.readFileSync(templateData, "utf8");
-
 
 // Prepare request to `HTML To PDF` API endpoint
 var queryPath = `/v1/pdf/convert/from/html?name=${path.basename(DestinationFile)}`;
@@ -43,7 +43,7 @@ var reqOptions = {
     }
 };
 var requestBody = JSON.stringify({
-    "html": fs.readFileSync(template, "utf8"),
+    "templateId": template_id,
     "templateData": fileReadTemplateData   
 });
 // Send request
