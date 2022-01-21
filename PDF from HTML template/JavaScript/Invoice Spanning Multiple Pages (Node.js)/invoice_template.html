@@ -1,293 +1,345 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice {{11077}}</title>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.min.css"
-		integrity="sha512-V+r0ugxPpGraMA2ubEWvqpfcZZAfMAbnSDPeu/6gYFfdxlgJGfCuNTNrZkrjQ0sJBoySdN6uoTVwJ+4P/BeTkg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- formatting and page size is based  https://www.pagedjs.org/ -->
 
-	<style>
-		@page {
-			size: A4;
+    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
 
-			@bottom-center {
-				content: "Page "counter(page) " of "counter(pages);
-			}
-		}
-	</style>
+    <script defer type="text/javascript">
+        class InvoicePageHandler extends Paged.Handler {
 
-	<style type="text/css">
-		@media print {
-			body {
-				counter-reset: page;
-			}
+            constructor(chunker, polisher, caller) {
+                super(chunker, polisher, caller);
+            }
 
-			table {
-				width: 100%;
-				font-family: 'Open Sans', sans-serif;
-				/*font-family: 'Poppins', sans-serif;  */
-				/* font-family: 'Roboto', sans-serif; */
-				text-align: left;
-			}
+            afterRendered(pages) {
 
-			.align-right {
-				text-align: right;
-			}
+                for (let i = 0; i < pages.length; i++) {
+                    const curPage = pages[i];
 
-			.align-center {
-				text-align: center;
-			}
+                    let curPageElements = curPage.element;
 
-			table.report-container {
-				page-break-after: always;
-			}
+                    // page number in the header
+                    curPage.element.getElementsByClassName("spnPageNumberInTitle")[0].innerHTML = `Page ${i + 1} of ${pages.length}`;
 
-			thead.report-header {
-				display: table-header-group;
-				max-height: 500px !important;
-			}
+                    // Not Last Page
+                    if (i != pages.length - 1) {
+                        curPage.element.getElementsByClassName("spnTotal")[0].remove();
+                        curPage.element.getElementsByClassName("spnSubTotal")[0].remove();
+                        curPage.element.getElementsByClassName("spnFreight")[0].remove();
 
-			tfoot.report-footer {
-				display: table-footer-group;
-			}
+                        if(curPage.element.getElementsByClassName("clsImgPaid").length > 0){
+                            curPage.element.getElementsByClassName("clsImgPaid")[0].remove();
+                        }
+                    }
+                    else {
+                        curPage.element.getElementsByClassName("spnContinued")[0].remove();
+                    }
+                }
+            }
+        }
+        Paged.registerHandlers(InvoicePageHandler);
+    </script>
+    <script type="text/javascript">
+        Handlebars.registerHelper('breaklines', function (text) {
+            text = Handlebars.Utils.escapeExpression(text);
+            text = text.replace(/(\n|\r)/gm, '<br />');
+            return new Handlebars.SafeString(text);
+        });
 
-			table.report-container div.article {
-				page-break-inside: avoid;
-			}
+        Handlebars.registerHelper('getTotal', function (quantity, unit_price) {
+            var total = quantity * unit_price;
+            return total;
+        });
 
-			.clsBorder {
-				border: solid 1px rgb(51, 50, 50);
-			}
-
-			.clsBorderAll th,
-			.clsBorderAll td {
-				border: solid 1px rgb(51, 50, 50);
-			}
-
-			.clsBorderAllLeft th,
-			.clsBorderAllLeft td {
-				border-left: solid 1px rgb(51, 50, 50);
-			}
-
-			.clsBorderLeft,
-			.clsBorderLeft {
-				border-left: solid 1px rgb(51, 50, 50);
-			}
-
-			.clsBorderRight,
-			.clsBorderRight {
-				border-right: solid 1px rgb(51, 50, 50);
-			}
-
-			.clsBorderBottom {
-				border-bottom: solid 1px rgb(51, 50, 50);
-			}
-
-			.clsBorderTop {
-				border-top: solid 1px rgb(51, 50, 50);
-			}
-
-			.clsBorderNoneAll td,
-			.clsBorderNoneAll th {
-				border: none !important;
-			}
-
-			.clsBold {
-				font-weight: 500;
-			}
-
-			.clsStripe tr:nth-child(even) {
-				background-color: rgb(243, 245, 246);
-			}
-
-			.clsPadLeftAll th,
-			.clsPadLeftAll td {
-				padding-left: 2mm;
-			}
-
-			.clsPadRightAll th,
-			.clsPadRightAll td {
-				padding-right: 2mm;
-			}
-
-			#pageFooter {
-				page-break-before: always;
-				page-break-after: always;
-				display: block;
-			}
-
-			#pageFooter::after {
-				counter-increment: page;
-				content: counter(page);
-			}
-
-
-		}
-	</style>
-
-	<script type="text/javascript">
-		
-		Handlebars.registerHelper('getTotal', function (quantity, price) {
-			var total = quantity * price;
-			return total;
-		});
-		Handlebars.registerHelper('getTotalLines', function (lines) {
+        Handlebars.registerHelper('getTotalLines', function(lines) {
 			var total = 0;
-			lines.forEach(function (line) {
-				total += line.quantity * line.price;
+			lines.forEach(function(line) {
+				total += line.quantity * line.unit_price;
 			});
 			return total;
 		});
 
-		Handlebars.registerHelper('getTotalAfterFreightLines', function (lines, freight) {
+
+        Handlebars.registerHelper('getFinalAmt', function(lines, freight) {
 			var total = 0;
-			lines.forEach(function (line) {
-				total += line.quantity * line.price;
+			lines.forEach(function(line) {
+				total += line.quantity * line.unit_price;
 			});
-			return total - freight;
-		})
-
-		Handlebars.registerHelper("formatDate", function (timestamp) {
-			var date = new Date(timestamp);
-			return date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
+			return total + freight;
 		});
 
-		Handlebars.registerHelper('breaklines', function (text) {
-			text = Handlebars.Utils.escapeExpression(text);
-			text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
-			return new Handlebars.SafeString(text);
-		});
-	</script>
+    </script>
+
+    <style>
+        /* font with OCR A Extended face */
+        @font-face {
+            font-family: 'OCR A Extended';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.cdnfonts.com/s/14159/OCRAEXT_2.woff') format('woff');
+        }
+
+        @media print {
+            @page {
+                size: letter;
+                /* see https://www.pagedjs.org/documentation/05-designing-for-print/ */
+                margin: 10mm;
+
+                padding-top: 95.5mm;
+                padding-bottom: 12.85mm;
+
+                /* @bottom-left {
+                    content: counter(page) ' of 'counter(pages);
+                } */
+
+                @top-center {
+                    content: element(titleRunning);
+                    height: 157.5mm;
+                    padding-top: 10mm;
+                    padding-bottom: 50mm;
+                }
+
+                @bottom-center {
+                    content: element(footerRunning);
+                }
+            }
+
+            .title {
+                position: running(titleRunning);
+            }
+
+            .bottom_running {
+                position: running(footerRunning);
+                margin-bottom: 21mm;
+            }
+
+            .pageNumber::after {
+                content: counter(page) ' of 'counter(pages);
+            }
+
+            td,
+            th {
+                padding: 3px;
+            }
+
+            table.tableStripe tr:nth-child(even) td {
+                background: #F1F1F1;
+            }
+
+            table.tableStripe tr:nth-child(odd) td {
+                background: #FEFEFE;
+            }
+
+            tr[data-last-split-element] {
+                display: none;
+            }
+
+
+
+            table#tblMain tr td:nth-child(1) {
+                border-right: solid 1px black;
+                width: 20mm;
+            }
+
+            table#tblMain tr td:nth-child(2) {
+                border-right: solid 1px black;
+                width: 116.35mm;
+            }
+
+            table#tblMain tr td:nth-child(3) {
+                border-right: solid 1px black;
+                width: 29.2mm;
+            }
+
+
+            table#tblMain tr td {
+                border-bottom: solid 1px black;
+            }
+
+            .spnPageNumberInTitle {
+                border-bottom: none !important;
+            }
+
+            .clsImgPaid {
+                position: absolute;
+                width: 100px;
+                right: 30%;
+            }
+        }
+    </style>
 
 </head>
 
-<body class="A4">
-	<table cellspacing="0" class="report-container sheet"
-		style="width: 100%; padding-left: 10mm; padding-right: 10mm; padding-bottom: 10mm;">
-		<thead class="report-header">
-			<tr>
-				<td colspan="2">
-					<table>
-						<tr>
-							<td>
-								<img src="{{compnay_logo}}" />
-							</td>
-							<td>
-								{{breaklines company_address}}
-							</td>
-						</tr>
-					</table>
-				</td>
-				<td colspan="2">
-					<table>
-						<tr>
-							<td class="align-right">
-								<img height="30px" src="data:image/gif;base64,R0lGODlhngBkAPcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///wAAAAAAAAAAAAAAACH5BAEAAPwALAAAAACeAGQAAAj/AAEIBLBvn8CCBQcORGiQYMODCBVCTOiQIUSFDClSlOiQ48aOEi1WfLiw4ceMJFF6NEkSI8uPE1m6hDkypsaUGS9yBOmyZ8iINX/qtIlTpE+aOo2WvDmzZVCVPEcy3UnzpFORSpMWBUp05VChQZt+zfo0Z1SoSKOOvQqU7NSuS7mW/HpUbsy1VduatYrVKd2zbG/mxSsXat2dIN3qFftT8OK4b8H6/Nt3MGClhueq1aw4cueXj+GmtUxZr2W+hc0epgp6pWe7Zfs2jTxZc2nHXi+nVvxXa97Xv0EDDy3Z9ubKbAmjPu03MWzZcV0LlwmZeu7awe+CXb6VOWLcja2H/40uVTza5qSPm06um3vu0a3DE5Yuurv42mvpj9c62/579PExhpp+5/XXm3r4xcaee9X9912A5A0oX3nK3WdcfhPy1p5/2wGonYBbEbgXh/Bdpx54q8GlImce7lcWYyBCV9+DJmbn4nAMptihjRLGSFyBrNUYGIT8NWikjnXxGGKGIxq4WWkJIufgkRR2SOONPz63Ho4WQnmhglOumFmR/ykJY4RNGllicUp6R+WYzl352XxMyljlmtgN+SGLTq5I5o566iainUCaiKGPYVbpZ5xBYjncoFnaGSVOkCaaGZy0sWgmeT5yeWB6bS7I4aKZ+hZoj2gSmqahgFVq5Zuq8f/Z6JyC1hkpcZNOiqKsYsb6Z5KnLtmpeasWd2iqovapKK+AinimdoXe2WKerup4qa+Mlhnsswp6+iSCX0r5aq8arkkrqtAWG22u4a5naayYduncpnumq6qk7epKZLbLxvvpvvcGG3Cp4N4GMLGYYUvwrulyi5y3eBoX6rsJl9viucIiC/G0EgucLKwWy6nlo7ZufCW1tlK8m5b/1vsipxojjGu+7TLM77UhzzqyzJCa3CjKiI7br8Ly2hxwzzIvzJ7BLntLatEHkzxshS2z6bHKOTILrLMw23ur0kJWyyzOLH9r9K1IU2320icerPbTVWPs8JZJQx12ykKT7aa2XDf/TbfaER/rNdajaq3ptl13W3fVQCNLuLK/Ht63o9MBzrHgYOYNL9Fx70zn1Bsy3rHYf+r9Md9Mzu2Yz6xaRfrNm+eMOoiqVx762ncHbW3sZZvrea2gMxh4q3jvXnHvF/+OruKWnzx68WPzvnezqSf+8OK4W/2608tGburkGA9st/bQly796dTTbv3ftw/vevmwHz/91tX7vTr27lMKP/f+Zi/3+vdr3s+ep7voyQ999FOf/WwnvMsRr4DmO2CiEoim2s1ITQ58HwTjt7L5Sa5+lLugCI31QMdpToJCo2DDAMhAEmVQfxvkH+f8p7yMeY11JNSgCY3XQQR+UIEhlJaTw/KnL7+9rXv8UuHLFjjCddGMaVg6Yv98R68gRsuJXoKi7Ia2RSUerWT4e2ERo3g7uNGwiuH72vgaN7gT9nCCP6wgC5tYLHZpEXnKmmLy0FhD8YkOc+LiYda8Ny/EMVGIGHQeIN3lxkEmMY4rPOQV6/jEthmxjEgEmxVtyLz2ibFmbsOkHkXGx1Dh0I6WJGPWRqmzUnrslJWcWCMLR8izSS1mAmwdDHdowDemEJJL3KQfs8fGzAmSlo/8HgjTCMsspnKLpv+DozKByMwwKrKEbTwm5DiIkm5685vgDKc4x0nOcprznOhMpzrXyc52uvOd8IynPOdJz3ra8574zKc+7RkMAUQjI/qohQoEcgA4AFQYAwWADJYBTloEIBQMYQdHHrrPis5TGADwJ0PoQQWOQAAh+iAER+LgzWAAgKIIMalEUGrRlq5TH7sQiABOwRBaAEAHDN0HMgZK0n1IFAEM1YdJNZoRiZ4UoghxKFJdylR2zkMLAHCAFoi6D31Q4QEZKQcALFBVQgSApghRBEsLMg8VIAAMLA0pVZvK1nM6FA7QIMRMw5kPFWC1m/oQ61K76k+vLtWqH22rYM0JjX+q9Z/gjOn/EfC6CAAENqxfDelXESLRHwj0pHBA7GA3+01FzPWbZV3rPsoqECNodh8mJalkl6pSiSTgtJyNLV9hyxDS9rS2MbiBQHJAWccWZLVJBUAOEDuMgRpBtsjlK1hRglAAGPSb+rApVsv6WsjuFSXUpW1y2XpYlOijsQG4LXSp4M/WcuSz3pWrdrfbVM8u97ciRcB6AerZaMQUMaIFqXvZu9nuglSkQKBtPsh72uymF6VWXatEE8Df/sr1vSYFwjdtigCkFhcAx+2mXoNb4YI0V7wNbqp/q9rRnVQ3pB7VLnB/C1WJZDjEgt1vQYxqYsTqo7kAaMBz8epXhgQ0oQjQBIyHEUzkIhv5yEhOspKXzOQmLzkgADs=" />
-							</td>
-							<td class="align-right">
-								<strong style="font-size: 25px;">Invoice</strong>
-							</td>
-						</tr>
-						<tr>
-							<td class="align-right" colspan="2">
-								<table class="clsBorder"
-									style="width:80%; margin-left: 20mm; background-color: rgb(243, 245, 246);">
-									<tr>
-										<th style="width: 50%;">Order ID:</th>
-										<td>{{ord_number}}</td>
-									</tr>
-									<tr>
-										<th>Order Date:</th>
-										<td>{{ord_date}}</td>
-									</tr>
-									<tr>
-										<th>Customer ID:</th>
-										<td>{{cust_number}}</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<table class="clsBorder" style="width:100%;">
-						<tr>
-							<th class="clsBorderBottom">
-								<label>Bill To:</label>
-							</th>
-						</tr>
-						<tr>
-							<td>
-								{{to_address}}
-							</td>
-						</tr>
-					</table>
-				</td>
-				<td colspan="2">
-					<table class="clsBorder" style="width:100%;">
-						<tr>
-							<th class="clsBorderBottom">
-								<label>Ship To:</label>
-							</th>
-						</tr>
-						<tr>
-							<td>
-								{{from_address}}
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<th colspan="4"><br /></th>
-			</tr>
-			<tr class="clsBorderAll clsPadLeftAll clsPadRightAll">
-				<th>Quantity</th>
-				<th>Description</th>
-				<th class="align-right">Unit Price</th>
-				<th class="align-right">Price</th>
-			</tr>
-		</thead>
-		<tbody class="report-content clsStripe clsBorderAll clsPadLeftAll clsPadRightAll">
+<body>
 
-			{{#each lines}}
-			<tr>
-				<td>{{quantity}}</td>
-				<td>{{title}}</td>
-				<td class="align-right">${{price}}</td>
-				<td class="align-right">${{ getTotal quantity price }}</td>
-			</tr>
-			{{/each}}
-			<tr>
-				<th colspan="2" rowspan="3" class="clsPadLeftAll clsPadRightAll">
-					<span style="color:rgba(0, 0, 255, 0.815); font-size: 18px;">Thank you for your purchase.<br />We
-						appreciate your business.</span>
-				</th>
-				<th style="border-bottom: none;" class="align-right">Sub Total</th>
-				<td style="border-bottom: none;" class="align-right">${{getTotalLines lines}}</td>
-			</tr>
-			<tr>
-				<th style="border-bottom: none; border-top:none;" class="align-right">Freight</th>
-				<td style="border-bottom: none; border-top:none;" class="align-right">${{freight}}</td>
-			</tr>
-			<tr>
-				<th style="border-top:none;" class="align-right">Total</th>
-				<th style="border-top:none;" class="align-right">${{ getTotalAfterFreightLines lines freight}}</th>
-			</tr>
-		</tbody>
-		<tfoot class="report-footer">
-			<tr>
-				<th colspan="4" style="text-align: center;">
-					&nbsp;
-				</th>
-			</tr>
-		</tfoot>
-	</table>
+    <!-- header begin -->
+    <section class="title">
 
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="{{ company_logo }}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">
+                                {{ breaklines company_address }}
+                            </td>
+                            <td>
+                                <img src="{{ ord_barcode_img }}" />
+
+                                <br /><br />
+
+                                <div style="font-family: 'OCR A Extended';">OCR EXT 01234567890ABCDEFG.</div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="text-align: right;">
+                    <h1 style="margin: 0;">Invoice</h1>
+                    <table style=" float: right; border:solid 1px black;">
+                        <tr>
+                            <th>Order ID:</th>
+                            <td>{{ ord_number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Order Date:</th>
+                            <td>{{ ord_date }}</td>
+                        </tr>
+                        <tr>
+                            <th>Customer ID:</th>
+                            <td>{{ cust_number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Shipped Date:</th>
+                            <td>{{ shipped_date }}</td>
+                        </tr>
+                        <tr>
+                            <th>Shipped Via:</th>
+                            <td>{{ shipment_mode }}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="border: solid 1px black;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th style="text-align: left;">
+                                Bill From:
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; border-top: solid 1px black;">
+                                {{ breaklines from_address }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table style="border: solid 1px black;" cellspacing="0">
+                        <tr>
+                            <th style="text-align: left;">
+                                Bill To:
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; border-top: solid 1px black;">
+                                {{ breaklines to_address }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table cellpadding="0" cellspacing="0" style="width:195mm;">
+            <tr>
+                <td colspan="3" style="border-right: solid 1px black;">
+                </td>
+                <td class="spnPageNumberInTitle" style="border-top:solid 1px black; border-right:solid 1px black;">
+                    <span class="pageNumber"></span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20mm; border:solid 1px black;border-right: none;">Quantity</td>
+                <td style="width:116.5mm;border:solid 1px black; ">Description</td>
+                <td style="width:29.2mm; border:solid 1px black; border-left: none !important">Unit Price</td>
+                <td style="border:solid 1px black; border-left: none !important">Price</td>
+            </tr>
+        </table>
+    </section>
+    <!-- header end -->
+
+    <!-- footer begin -->
+    <section class="bottom_running">
+        {{#if ShowPaidImage}}
+        <img class="clsImgPaid" src="{{PadiImgSrc}}" />
+        {{/if}}
+
+        <div style="border: solid 1px black; width: 195mm;">
+            <table class="tableStripe" style="width: 100%;" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th style="width: 136mm; border-right: solid 1px black;">
+                        <span style="font-size: 18px;">
+                            Thank you for your purchase.<br />
+                            We appreciate your support.
+                        </span>
+                    </th>
+                    <td>
+                        <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                            <tr>
+                                <th style="text-align: right; width: 28mm;">Sub-Total</th>
+                                <td style="text-align: left;"> <span class="spnSubTotal">${{getTotalLines lines }}</span></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align: right;">Freight</th>
+                                <td style="text-align: left;"><span class="spnFreight">${{ freight }}</span></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align: right;">Total</th>
+                                <td style="text-align: left;">
+                                    <span class="spnContinued" style="background-color: yellow;">Continued...</span>
+                                    <span class="spnTotal"><strong>${{ getFinalAmt lines freight}}</strong></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p style="margin:0; text-align:center"><span class="pageNumber"></span></p>
+    </section>
+    <!-- footer end -->
+
+    <section id="main">
+        <div class="chapter"
+            style="width: 195mm; height: 148.5mm; border-left: solid 1px black; border-right: solid 1px black;">
+            <table id="tblMain" class="tableStripe" cellpadding="0" cellspacing="0" style="width:100%;">
+                {{#each lines}}
+                <tr>
+                    <td>{{quantity}}</td>
+                    <td>{{title}}</td>
+                    <td>${{unit_price}}</td>
+                    <td>${{getTotal quantity unit_price }}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </section>
 
 </body>
 

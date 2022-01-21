@@ -18,7 +18,7 @@ var fs = require("fs");
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co
-const API_KEY = "****************************";
+const API_KEY = "******************************";
 
 
 // HTML template
@@ -44,9 +44,7 @@ var reqOptions = {
 };
 var requestBody = JSON.stringify({
     "html": fs.readFileSync(template, "utf8"),
-    "templateData": fileReadTemplateData,
-	"header": "",
-    "footer": ""
+    "templateData": fileReadTemplateData   
 });
 // Send request
 var postRequest = https.request(reqOptions, (response) => {
