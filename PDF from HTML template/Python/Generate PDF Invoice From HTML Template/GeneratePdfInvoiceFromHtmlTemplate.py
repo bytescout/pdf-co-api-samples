@@ -8,10 +8,18 @@ API_KEY = "***********************************************"
 # Base URL for PDF.co Web API requests
 BASE_URL = "https://api.pdf.co/v1"
 
-# HTML template
-file_read = open(".\\invoice_template.html", mode='r')
-Template = file_read.read()
-file_read.close()
+# --HTML Template ID--
+# Please follow below steps to create your own HTML Template and get "templateId". 
+# 1. Add new html template in app.pdf.co/templates/html
+# 2. Copy paste your html template code into this new template. Sample HTML templates can be found at "https://github.com/bytescout/pdf-co-api-samples/tree/master/PDF%20from%20HTML%20template/TEMPLATES-SAMPLES"
+# 3. Save this new template
+# 4. Copy it’s ID to clipboard
+# 5. Now set ID of the template into “templateId” parameter
+
+# HTML template using built-in template
+# see https://app.pdf.co/templates/html/2/edit
+template_id = 2
+
 
 # Data to fill the template
 file_read = open(".\\invoice_data.json", mode='r')
@@ -23,15 +31,15 @@ DestinationFile = ".\\result.pdf"
 
 
 def main(args = None):
-    GeneratePDFFromTemplate(Template, TemplateData, DestinationFile)
+    GeneratePDFFromTemplate(template_id, TemplateData, DestinationFile)
 
 
-def GeneratePDFFromTemplate(template, templateData, destinationFile):
+def GeneratePDFFromTemplate(template_id, templateData, destinationFile):
     """Converts HTML to PDF using PDF.co Web API"""
 
     data = {
         'templateData': templateData,
-        'html': template
+        'templateId': template_id
     }
 
     # Prepare URL for 'HTML To PDF' API request

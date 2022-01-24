@@ -1,0 +1,16 @@
+curl --location --request POST 'https://api.pdf.co/v1/pdf/convert/from/html' \
+--header 'x-api-key: add_your_api_key_here' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "templateId": 2,
+    "name": "newDocument.pdf",
+    "margins": "40px 20px 20px 20px",
+    "paperSize": "Letter",
+    "orientation": "Portrait",
+    "printBackground": true,
+    "header": "",
+    "footer": "",
+    "async": false,
+    "encrypt": false,
+    "templateData": "{\"invoice_id\":\"1234567\",\"invoice_date\":\"April 30, 2016\",\"invoice_dateDue\":\"May 15, 2016\",\"paid\":false,\"issuer_name\":\"Acme Inc\",\"issuer_company\":\"Acme International\",\"issuer_address\":\"City, Street 3rd\",\"issuer_email\":\"support@example.com\",\"issuer_website\":\"http://example.com\",\"client_name\":\"Food Delivery Inc.\",\"client_company\":\"Food Delivery International\",\"client_address\":\"New York, Some Street, 42\",\"client_email\":\"client@example.com\",\"items\":[{\"name\":\"Setting up new web-site\",\"price\":250},{\"name\":\"Website Content Addition\",\"price\":700},{\"name\":\"Database Setup\",\"price\":200},{\"name\":\"Record Digitalization\",\"price\":1800},{\"name\":\"Cloud Storage\",\"price\":500},{\"name\":\"Short Messages\",\"price\":35},{\"name\":\"Search Engine Optimization\",\"price\":200},{\"name\":\"Priority Support\",\"price\":75},{\"name\":\"Configuring mail server and mailboxes\",\"price\":50}],\"tax\":0.065,\"discount\":0.01,\"note\":\"Thank You For Your Business!\"}"
+}'

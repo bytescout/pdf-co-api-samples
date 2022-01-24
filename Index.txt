@@ -716,21 +716,34 @@
 \PDF from HTML\Zapier\Google Forms to PDF
 \PDF from HTML\Zapier\Pipedrive CRM to PDF
 \PDF from HTML template\C#
+\PDF from HTML template\cURL
 \PDF from HTML template\Java
 \PDF from HTML template\JavaScript
 \PDF from HTML template\PHP
 \PDF from HTML template\PowerShell
 \PDF from HTML template\Python
+\PDF from HTML template\TEMPLATES-SAMPLES
 \PDF from HTML template\VB.NET
 \PDF from HTML template\C#\Generate PDF Invoice From HTML Template
+\PDF from HTML template\C#\Invoice With Multiple Pages
+\PDF from HTML template\cURL\Generate PDF Invoice From HTML Template
 \PDF from HTML template\Java\Generate PDF Invoice From HTML Template
+\PDF from HTML template\Java\Invoice With Multiple Pages
 \PDF from HTML template\JavaScript\Generate PDF Invoice From HTML Template (Node.js)
 \PDF from HTML template\JavaScript\Generate PDF Invoice From HTML Template (Node.js) - Async API
 \PDF from HTML template\JavaScript\Invoice With Multiple Pages (Node.js)
+\PDF from HTML template\JavaScript\Invoice With Multiple Pages (Node.js) - Async API
 \PDF from HTML template\PHP\Generate PDF Invoice From HTML Template
+\PDF from HTML template\PHP\Invoice With Multiple Pages
 \PDF from HTML template\PowerShell\Generate PDF Invoice From HTML Template
+\PDF from HTML template\PowerShell\Invoice With Multiple Pages
 \PDF from HTML template\Python\Generate PDF Invoice From HTML Template
+\PDF from HTML template\Python\Invoice With Multiple Pages
+\PDF from HTML template\TEMPLATES-SAMPLES\Invoice With Auto Calculations and QR Code
+\PDF from HTML template\TEMPLATES-SAMPLES\Invoice With Multiple Pages
+\PDF from HTML template\TEMPLATES-SAMPLES\Simple Invoice using Mustache Template and QR Code Barcode
 \PDF from HTML template\VB.NET\Generate PDF Invoice From HTML Template
+\PDF from HTML template\VB.NET\Invoice With Multiple Pages
 \PDF from URL\C#
 \PDF from URL\cURL
 \PDF from URL\Java

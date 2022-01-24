@@ -33,8 +33,19 @@ public class Main
 
     public static void main(String[] args) throws IOException
     {
-        // HTML template
-        final String template = new String(Files.readAllBytes(Paths.get(".\\invoice_template.html")));
+        /* 
+            Please follow below steps to create your own HTML Template and get "templateId". 
+            1. Add new html template in app.pdf.co/templates/html
+            2. Copy paste your html template code into this new template. Sample HTML templates can be found at "https://github.com/bytescout/pdf-co-api-samples/tree/master/PDF%20from%20HTML%20template/TEMPLATES-SAMPLES"
+            3. Save this new template
+            4. Copy it’s ID to clipboard
+            5. Now set ID of the template into “templateId” parameter
+        */
+
+        // HTML template using built-in template
+        // see https://app.pdf.co/templates/html/2/edit
+        final String templateId = "2";
+        
         // Data to fill the template
         final String templateData = new String(Files.readAllBytes(Paths.get(".\\invoice_data.json")));
         // Destination PDF file name
@@ -61,7 +72,7 @@ public class Main
 
         // Prepare request body in JSON format
         JsonObject jsonBody = new JsonObject();
-        jsonBody.add("html", new JsonPrimitive(template));
+        jsonBody.add("templateId", new JsonPrimitive(templateId));
         jsonBody.add("templateData", new JsonPrimitive(templateData));
 
         RequestBody body = RequestBody.create(MediaType.parse("application/json"), jsonBody.toString());

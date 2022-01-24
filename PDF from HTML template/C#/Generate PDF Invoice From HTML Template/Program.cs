@@ -28,8 +28,20 @@ namespace ByteScoutWebApiExample
 
 		static void Main(string[] args)
 		{
-			// HTML template
-			string template = File.ReadAllText(@".\invoice_template.html");
+			// --TemplateID--
+			/* 
+				Please follow below steps to create your own HTML Template and get "templateId". 
+				1. Add new html template in app.pdf.co/templates/html
+				2. Copy paste your html template code into this new template. Sample HTML templates can be found at "https://github.com/bytescout/pdf-co-api-samples/tree/master/PDF%20from%20HTML%20template/TEMPLATES-SAMPLES"
+				3. Save this new template
+				4. Copy it’s ID to clipboard
+				5. Now set ID of the template into “templateId” parameter
+			*/
+
+			// HTML template using built-in template
+			// see https://app.pdf.co/templates/html/2/edit
+			var templateId = 2;
+
 			// Data to fill the template
 			string templateData = File.ReadAllText(@".\invoice_data.json");
 			// Destination PDF file name
@@ -53,7 +65,7 @@ namespace ByteScoutWebApiExample
 				// Prepare requests params as JSON
 				Dictionary<string, object> parameters = new Dictionary<string, object>();
 				parameters.Add("name", Path.GetFileName(destinationFile));
-				parameters.Add("html", template);
+				parameters.Add("templateId", templateId);
 				parameters.Add("templateData", templateData);
 
 				// Convert dictionary of params to JSON
