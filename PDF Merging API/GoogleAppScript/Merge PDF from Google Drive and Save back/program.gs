@@ -1,4 +1,8 @@
 /**
+ * IMPORTANT: Add Service reference for "Drive". Go to Services > Locate "Drive (drive API)" > Add Reference of it 
+ */
+
+/**
  * Initial Declaration and References
  */
 // Get the active spreadsheet and the active sheet
@@ -16,7 +20,7 @@ let filePermissions = [];
  * Note: Here, we're getting current folder where spreadsheet is residing.
  * But we can certainly pick any folder of our like by using Folder related functions.
  * For example:
-  var allFolders = DriveApp.getFoldersByName("Google Drive Folder Name");
+  var allFolders = DriveApp.getFoldersByName("Folder_Containing_PDF_Files");
   while (allFolders.hasNext()) {
     var folder = allFolders.next();
     Logger.log(folder.getName());
@@ -36,14 +40,19 @@ function onOpen() {
 }
 
 function mergePDFDocumentsFromCurrentFolder(){
-  var allFilesLink = getPDFFilesFromCurFolder();
-  mergePDFDocuments(allFilesLink);
+    // Get PDF.co API Key Cell
+  let pdfCoAPIKeyCell = ss.getRange("B1");
+
+  let pdfCoAPIKey = pdfCoAPIKeyCell.getValue();
+
+  var allFilesLink = getPDFFilesFromCurFolder(pdfCoAPIKey);
+  mergePDFDocuments(allFilesLink, pdfCoAPIKey);
 }
 
 /**
  * Get all PDF files from current folder
  */
-function getPDFFilesFromCurFolder() {
+function getPDFFilesFromCurFolder(pdfCoAPIKey) {
   var files = folder.getFiles();
   var allFileUrls = [];
 
@@ -52,11 +61,16 @@ function getPDFFilesFromCurFolder() {
 
     var fileName = file.getName();
     if(fileName.endsWith(".pdf")){
-      // Make File Pulblic accessible with URL so that it can be accessible with external API
-      makeFilePublicallyAccessible(file.getId());
+      // Create Pre-Signed URL from PDF.co
+      var respPresignedUrl = getPDFcoPreSignedURL(fileName, pdfCoAPIKey)
 
-      // Add Url
-      allFileUrls.push(file.getDownloadUrl());
+      if(!respPresignedUrl.error){
+        var fileData = file.getBlob();
+        if(uploadFileToPresignedURL(respPresignedUrl.presignedUrl, fileData, pdfCoAPIKey)){
+          // Add Url
+          allFileUrls.push(respPresignedUrl.url);
+        }
+      }
     }
   }
 
@@ -64,40 +78,12 @@ function getPDFFilesFromCurFolder() {
 }
 
 /**
- * Function to make file publically accessible
+ * Merges PDF URLs using PDF.co and Save to drive
  */
-function makeFilePublicallyAccessible(fileId){
-  // Make File Pulblic accessible with URL so that it can be accessible with external API
-  var resource = {role: "reader", type: "anyone"};
-  var respPermission = Drive.Permissions.insert(resource, fileId);
-
-  filePermissions.push({FileId: fileId, PermissionId: respPermission.id});
-}
-
-/**
- * Function to make file private again
- */
-function revokeAllPermissions(){
-  if(filePermissions && filePermissions.length > 0){
-    for(var i = 0; i < filePermissions.length; i++){
-      Drive.Permissions.remove(filePermissions[i].FileId, filePermissions[i].PermissionId);
-    }
-  }
-}
-
-
-/**
- * Function which merges documents using PDF.co
- */
-function mergePDFDocuments(pdfUrl) {
-
-  // Get PDF.co API Key Cell
-  let pdfCoAPIKeyCell = ss.getRange("B1");
+function mergePDFDocuments(pdfUrl, pdfCoAPIKey) {
 
   // Get Cells for Input/Output
   let resultUrlCell =  ss.getRange("A4");
-
-  let pdfCoAPIKey = pdfCoAPIKeyCell.getValue();
   
   // Prepare Payload
   var data = {
@@ -137,11 +123,59 @@ function mergePDFDocuments(pdfUrl) {
   else{
     resultUrlCell.setValue(pdfCoRespJson.message);    
   }
-
-  // Revoke All Permissins
-  revokeAllPermissions();
 }
 
+/**
+ * Gets PDF.co Presigned URL
+ */
+function getPDFcoPreSignedURL(fileName, pdfCoAPIKey){
+  // Prepare Request Options
+  var options = {
+    'method' : 'GET',
+    'contentType': 'application/json',
+    'headers': {
+      "x-api-key": pdfCoAPIKey
+    }
+  };
+
+  var apiUrl = `https://api.pdf.co/v1/file/upload/get-presigned-url?name=${fileName}`;
+  
+  // Get Response
+  // https://developers.google.com/apps-script/reference/url-fetch
+  var pdfCoResponse = UrlFetchApp.fetch(apiUrl, options);
+
+  var pdfCoRespContent = pdfCoResponse.getContentText();
+  var pdfCoRespJson = JSON.parse(pdfCoRespContent);
+
+  return pdfCoRespJson;
+}
+
+/**
+ * Uploads File to PDF.co PreSigned URL
+ */
+function uploadFileToPresignedURL(presignedUrl, fileContent, pdfCoAPIKey){
+  // Prepare Request Options
+  var options = {
+    'method' : 'PUT',
+    'contentType': 'application/octet-stream',
+    'headers': {
+      "x-api-key": pdfCoAPIKey
+    },
+    // Convert the JavaScript object to a JSON string.
+    'payload' : fileContent
+  };
+  
+  // Get Response
+  // https://developers.google.com/apps-script/reference/url-fetch
+  var pdfCoResponse = UrlFetchApp.fetch(presignedUrl, options);
+
+  if(pdfCoResponse.getResponseCode() === 200){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
 
 /**
  * Save file URL to specific location
