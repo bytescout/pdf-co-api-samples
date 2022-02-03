@@ -130,17 +130,26 @@
             src: url('https://fonts.cdnfonts.com/s/14159/OCRAEXT_2.woff') format('woff');
         }
 
+        /* Print related stylesheet */
         @media print {
+
+            /* Styling Page */
             @page {
+
+                /* Setting Page Size to Letter. Find different page sizes at https://pagedjs.org/documentation/5-web-design-for-print/#page-size-property */
                 size: letter;
-                /* see https://www.pagedjs.org/documentation/05-designing-for-print/ */
+
+                /* Setting Page Margin of 10 mm */
                 margin: 10mm;
 
-                /* where items table starts at */
+                /* Leaving padding of 107mm from top. This is to adjust for header.  */
                 padding-top: 107.0mm;
+
+                /* Leaving padding of 15mm from top. This is to adjust for footer.  */
                 padding-bottom: 14.85mm;
 
 
+                /* Setting repeating header. For more details visit https://pagedjs.org/documentation/7-generated-content-in-margin-boxes/#styling-running-elements */
                 @top-center {
                     content: element(titleRunning);
                     height: 160.3mm;
@@ -148,24 +157,30 @@
                     padding-bottom: 50mm;
                 }
 
+                /* Setting repeating footer. For more details visit https://pagedjs.org/documentation/7-generated-content-in-margin-boxes/#styling-running-elements */
                 @bottom-center {
                     content: element(footerRunning);
                 }
             }
 
+            /* Class for repeatable header. Used inside @top-center */
             .title {
                 position: running(titleRunning);
             }
 
+            /* Class for repeatable footer. Used inside @bottom-denter */
             .bottom_running {
                 position: running(footerRunning);
                 margin-bottom: 15mm;
             }
 
+            /* Setting Page Number */
             .pageNumber::after {
                 content: 'Page 'counter(page) ' of 'counter(pages);
             }
 
+
+            /* Table and Other MISC CSS Styles */
             td,
             th {
                 padding: 3px;
@@ -182,8 +197,6 @@
             tr[data-last-split-element] {
                 display: none;
             }
-
-
 
             table#tblMain tr td:nth-child(1) {
                 border-right: solid 1px black;
