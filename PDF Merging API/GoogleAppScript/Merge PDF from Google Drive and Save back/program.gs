@@ -2,9 +2,9 @@
  * IMPORTANT: Add Service reference for "Drive". Go to Services > Locate "Drive (drive API)" > Add Reference of it 
  */
 
-/**
- * Initial Declaration and References
- */
+// Add Your PDF.co API Key here
+const pdfCoAPIKey = 'PDFco_API_Key_Here';
+
 // Get the active spreadsheet and the active sheet
 ss = SpreadsheetApp.getActiveSpreadsheet();
 ssid = ss.getId();
@@ -40,11 +40,6 @@ function onOpen() {
 }
 
 function mergePDFDocumentsFromCurrentFolder(){
-    // Get PDF.co API Key Cell
-  let pdfCoAPIKeyCell = ss.getRange("B1");
-
-  let pdfCoAPIKey = pdfCoAPIKeyCell.getValue();
-
   var allFilesLink = getPDFFilesFromCurFolder(pdfCoAPIKey);
   mergePDFDocuments(allFilesLink, pdfCoAPIKey);
 }
