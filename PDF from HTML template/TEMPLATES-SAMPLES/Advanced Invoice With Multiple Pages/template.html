@@ -7,10 +7,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice {{order_id}}</title>
 
-    <!-- formatting and page size is based  https://www.pagedjs.org/ -->
+    <!-- PDF.co templates use Handlebars (advanced version of {{Moustache}} templates -->
+    <!-- We can define our own HandleBarsJS helpers to calculate discounts, total amounts, formatting strings etc. See https://handlebarsjs.com/api-reference/runtime.html#handlebars-registerhelper-name-helper -->
+    <script type="text/javascript">
 
-    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+        // helper functions to calculate total, breaklines for text etc
+        Handlebars.registerHelper('breaklines', function (text) {
+            text = Handlebars.Utils.escapeExpression(text);
+            text = text.replace(/(\n|\r)/gm, '<br />');
+            return new Handlebars.SafeString(text);
+        });
 
+        Handlebars.registerHelper('getTotal', function (quantity, price) {
+            var total = quantity * price;
+            return total;
+        });
+
+        Handlebars.registerHelper('getTotalLines', function (items) {
+            var total = 0;
+            items.forEach(function (line) {
+                total += line.quantity * line.price;
+            });
+            return total;
+        });
+
+        // format number to add comma separators for thousands
+        Handlebars.registerHelper('numberFormat', numberFormat);
+
+        function numberFormat(value) {
+            // Helper parameters
+            var dl = 2;
+            var ts = ',';
+            var ds = '.';
+
+            // Parse to float
+            var value = parseFloat(value);
+
+            // The regex
+            var re = '\\d(?=(\\d{3})+' + (dl > 0 ? '\\D' : '$') + ')';
+
+            // Formats the number with the decimals
+            var num = value.toFixed(Math.max(0, ~~dl));
+
+            // Returns the formatted number
+            return (ds ? num.replace('.', ds) : num).replace(new RegExp(re, 'g'), '$&' + ts);
+        }
+
+
+        Handlebars.registerHelper('getFinalAmount', function (items, freight) {
+            var total = 0;
+            items.forEach(function (line) {
+                total += line.quantity * line.price;
+            });
+            return total + freight;
+        });
+
+    </script>
+
+
+    <!-- formatting and page size is based on PagedJS open-source framework from https://www.pagedjs.org/ -->
+    <!-- <script src="https://unpkg.com/pagedjs@0.2.0/dist/paged.polyfill.js"></script> -->
+
+    <!-- using version 0.20 PagedJS from bytescout hosting -->
+    <script src="https://bytescout-com.s3.us-west-2.amazonaws.com/files/cloudapi-templates/paged.polyfill-020.js"></script>
+
+
+    <!-- should be the last script in the header. Handlebars utilities should come first -->
     <script defer type="text/javascript">
         class InvoicePageHandler extends Paged.Handler {
 
@@ -66,60 +128,6 @@
         Paged.registerHandlers(InvoicePageHandler);
     </script>
 
-    <script type="text/javascript">
-
-        // helper functions to calculate total, breaklines for text etc
-        Handlebars.registerHelper('breaklines', function (text) {
-            text = Handlebars.Utils.escapeExpression(text);
-            text = text.replace(/(\n|\r)/gm, '<br />');
-            return new Handlebars.SafeString(text);
-        });
-
-        Handlebars.registerHelper('getTotal', function (quantity, price) {
-            var total = quantity * price;
-            return total;
-        });
-
-        Handlebars.registerHelper('getTotalLines', function (items) {
-            var total = 0;
-            items.forEach(function (line) {
-                total += line.quantity * line.price;
-            });
-            return total;
-        });
-
-        // format number to add comma separators for thousands
-        Handlebars.registerHelper('numberFormat', numberFormat);
-
-        function numberFormat(value) {
-            // Helper parameters
-            var dl = 2;
-            var ts = ',';
-            var ds = '.';
-
-            // Parse to float
-            var value = parseFloat(value);
-
-            // The regex
-            var re = '\\d(?=(\\d{3})+' + (dl > 0 ? '\\D' : '$') + ')';
-
-            // Formats the number with the decimals
-            var num = value.toFixed(Math.max(0, ~~dl));
-
-            // Returns the formatted number
-            return (ds ? num.replace('.', ds) : num).replace(new RegExp(re, 'g'), '$&' + ts);
-        }
-
-
-        Handlebars.registerHelper('getFinalAmount', function (items, freight) {
-            var total = 0;
-            items.forEach(function (line) {
-                total += line.quantity * line.price;
-            });
-            return total + freight;
-        });
-
-    </script>
 
     <style>
         /* font with OCR A Extended face */
