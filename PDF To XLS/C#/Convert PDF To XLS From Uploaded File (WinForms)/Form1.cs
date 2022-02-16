@@ -11,16 +11,14 @@
 //*******************************************************************************************//
 
 
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Net;
-using System.Text;
 using System.Windows.Forms;
 
 namespace PdfToExcelFrom
@@ -123,10 +121,10 @@ namespace PdfToExcelFrom
                         string jsonPayload = JsonConvert.SerializeObject(parameters);
 
                         // Execute POST request with JSON payload
-                        string response = webClient.UploadString(url, jsonPayload);
+                        string response_json = webClient.UploadString(url, jsonPayload);
 
                         // Parse JSON response
-                        json = JObject.Parse(response);
+                        json = JObject.Parse(response_json);
 
                         if (json["error"].ToObject<bool>() == false)
                         {
