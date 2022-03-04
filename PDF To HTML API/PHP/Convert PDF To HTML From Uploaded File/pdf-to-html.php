@@ -11,11 +11,21 @@
 
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co
-$extractionType = $_POST["extractionType"];
-$pages = $_POST["pages"];
-$plainHtml = $_POST["plainHtml"];
-$columnLayout = $_POST["columnLayout"];
 
+$pages = "";
+if(isset($_POST["pages"])){
+    $pages = $_POST["pages"];
+}
+
+$plainHtml = false;
+if(isset($_POST["plainHtml"])){
+    $plainHtml = $_POST["plainHtml"];
+}
+
+$columnLayout = false;
+if(isset($_POST["columnLayout"])){
+    $columnLayout = $_POST["columnLayout"];
+}
 
 // 1. RETRIEVE THE PRESIGNED URL TO UPLOAD THE FILE.
 // * If you already have the direct PDF file link, go to the step 3.
@@ -109,8 +119,14 @@ function PdfToHtml($apiKey, $uploadedFileUrl, $pages, $plainHtml, $columnLayout)
     $parameters = array();
     $parameters["url"] = $uploadedFileUrl;
     $parameters["pages"] = $pages;
-    $parameters["simple"] = $plainHtml;
-    $parameters["columns"] = $columnLayout;
+
+    if($plainHtml){
+        $parameters["simple"] = $plainHtml;
+    }
+
+    if($columnLayout){
+        $parameters["columns"] = $columnLayout;
+    }
 
     // Create Json payload
     $data = json_encode($parameters);
