@@ -976,6 +976,7 @@
 \PDF Search Tables\VB.NET\PDF Table Search from URL Asynchronously
 \PDF Splitting API\C#
 \PDF Splitting API\cURL
+\PDF Splitting API\GoogleAppScript
 \PDF Splitting API\Java
 \PDF Splitting API\JavaScript
 \PDF Splitting API\PHP
@@ -992,6 +993,7 @@
 \PDF Splitting API\C#\Split PDF From URL Asynchronously
 \PDF Splitting API\cURL\PDF Split
 \PDF Splitting API\cURL\PDF Split By Text
+\PDF Splitting API\GoogleAppScript\Split All PDF in Google Drive Folder
 \PDF Splitting API\Java\Split PDF By Text From Uploaded File
 \PDF Splitting API\Java\Split PDF By Text From URL
 \PDF Splitting API\Java\Split PDF From Uploaded File
