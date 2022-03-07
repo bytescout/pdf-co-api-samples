@@ -37,7 +37,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PDF Invoice Generation Results</title>
+    <title>HTML to PDF Result</title>
 </head>
 <body>
 
@@ -107,17 +107,17 @@ if (curl_errno($curl) == 0)
     {
         $json = json_decode($result, true);
         
-        if ($json["error"] == false)
+        if (isset($json["error"]) && $json["error"] == true)
+        {
+            // Display service reported error
+            echo "<p>Error: " . $json["message"] . "</p>"; 
+        }
+        else
         {
             $resultFileUrl = $json["url"];
             
             // Display link to the file with conversion results
-            echo "<div>## Conversion Result:<a href='" . $resultFileUrl . "' target='_blank'>" . $resultFileUrl . "</a></div>";
-        }
-        else
-        {
-            // Display service reported error
-            echo "<p>Error: " . $json["message"] . "</p>"; 
+            echo "<div><h2>Conversion Result:</h2><a href='" . $resultFileUrl . "' target='_blank'>" . $resultFileUrl . "</a></div>";
         }
     }
     else

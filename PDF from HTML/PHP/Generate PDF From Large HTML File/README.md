@@ -37,7 +37,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PDF Invoice Generation Results</title>
+    <title>Large HTML to PDF Conversion</title>
 </head>
 <body>
 
@@ -126,7 +126,7 @@ if (curl_errno($curl) == 0)
                 if ($status == "success")
                 {
                     // Display link to the file with conversion results
-                    echo "<div>## Conversion Result:<a href='" . $resultFileUrl . "' target='_blank'>" . $resultFileUrl . "</a></div>";
+                    echo "<div><h2>Conversion Result:</h2><a href='" . $resultFileUrl . "' target='_blank'>" . $resultFileUrl . "</a></div>";
                     break;
                 }
                 else if ($status == "working")
@@ -198,14 +198,14 @@ function CheckJobStatus($jobId, $apiKey)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
-            {
-                $status = $json["status"];
-            }
-            else
+            if (isset($json["error"]) && $json["error"] == true)
             {
                 // Display service reported error
                 echo "<p>Error: " . $json["message"] . "</p>"; 
+            }
+            else
+            {
+                $status = $json["status"];
             }
         }
         else
