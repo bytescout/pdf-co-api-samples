@@ -64,8 +64,7 @@ if (curl_errno($curl) == 0)
             if ($status_code == 200)
             {
                 // 3. GET INFORMATION ABOUT UPLOADED PDF DOCUMENT
-                
-                ExtractInfo($apiKey, $uploadedFileUrl, $pages);
+                ExtractInfo($apiKey, $uploadedFileUrl);
             }
             else
             {
@@ -134,7 +133,12 @@ function ExtractInfo($apiKey, $uploadedFileUrl)
                 echo "<div><h2>Document Info:</h2><p>";
                 foreach ($documentInfo as $key => $value) 
                 {
-                    echo $key . ' = ' . $value . '<br/>';
+                    if(is_array($value)){
+                        echo $key . ' = ' . json_encode($value) . '<br/>';
+                    }
+                    else{
+                        echo $key . ' = ' . $value . '<br/>';
+                    }
                 }
                 echo "</p></div>";
             }

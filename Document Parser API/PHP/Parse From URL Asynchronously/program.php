@@ -147,14 +147,14 @@ function CheckJobStatus($jobId, $apiKey)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
-            {
-                $status = $json["status"];
-            }
-            else
+            if (isset($json["error"]) && $json["error"] == true)
             {
                 // Display service reported error
                 echo "<p>Error: " . $json["message"] . "</p>"; 
+            }
+            else
+            {
+                $status = $json["status"];
             }
         }
         else

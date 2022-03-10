@@ -69,7 +69,7 @@ if (curl_errno($curl) == 0)
                 {
                     // 3. CONVERT UPLOADED CSV FILE TO PDF
                     
-                    CsvToPdf($apiKey, $uploadedFileUrl, $pages);
+                    CsvToPdf($apiKey, $uploadedFileUrl, '');
                 }
                 else
                 {
@@ -137,7 +137,7 @@ function CsvToPdf($apiKey, $uploadedFileUrl, $pages)
         {
             $json = json_decode($result, true);
                 
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 $resultFileUrl = $json["url"];
                 

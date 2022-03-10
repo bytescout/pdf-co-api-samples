@@ -69,7 +69,7 @@ if (curl_errno($curl) == 0)
                 {
                     // 3. CONVERT UPLOADED DOC FILE TO PDF
                     
-                    DocToPdf($apiKey, $uploadedFileUrl, $pages);
+                    DocToPdf($apiKey, $uploadedFileUrl, '');
                 }
                 else
                 {

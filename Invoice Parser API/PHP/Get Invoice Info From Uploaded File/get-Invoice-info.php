@@ -64,8 +64,7 @@ if (curl_errno($curl) == 0)
             if ($status_code == 200)
             {
                 // 3. GET INFORMATION ABOUT UPLOADED PDF DOCUMENT
-                
-                ExtractInfo($apiKey, $uploadedFileUrl, $pages);
+                ExtractInfo($apiKey, $uploadedFileUrl);
             }
             else
             {

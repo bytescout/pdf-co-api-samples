@@ -11,10 +11,6 @@
 // Get submitted form data
 $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by registering at https://app.pdf.co
 
-// Data to fill the template
-$templateData = file_get_contents("./invoice_data.json");
-
-
 // Prepare URL for HTML to PDF API call
 $url = "https://api.pdf.co/v1/pdf/convert/from/html";
 
@@ -33,7 +29,11 @@ Please follow below steps to create your own HTML Template and get "templateId".
 
 // HTML template using built-in template
 // see https://app.pdf.co/templates/html/3/edit
-$parameters["template_id"] = 3;
+$parameters["templateid"] = 3;
+
+// Data to fill the template
+$templateData = file_get_contents("./invoice_data.json");
+$parameters["templateData"] = $templateData;
 
 // Create Json payload
 $data = json_encode($parameters);
