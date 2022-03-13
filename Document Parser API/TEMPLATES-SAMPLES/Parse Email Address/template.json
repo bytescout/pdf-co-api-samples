@@ -1,0 +1,41 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1647177640044,
+      "objectType": "field",
+      "name": "Email Address",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}\n",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1647177640044,
+      "objectType": "field",
+      "name": "Email Addres",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "[A-Za-z0-9_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}\n",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "templateName": "Parse Email Address",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}

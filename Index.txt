@@ -347,6 +347,7 @@
 \Document Parser API\TEMPLATES-SAMPLES\Multiline Items Without Borders
 \Document Parser API\TEMPLATES-SAMPLES\Order form with line items and total
 \Document Parser API\TEMPLATES-SAMPLES\Parse and Generate HL7 Output
+\Document Parser API\TEMPLATES-SAMPLES\Parse Email Address
 \Document Parser API\TEMPLATES-SAMPLES\Parse Hanging Rows In Invoice
 \Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1040
 \Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1099-DIV
