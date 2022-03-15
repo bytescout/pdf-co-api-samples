@@ -1,4 +1,4 @@
-## delete text from PDF in PHP using PDF.co Web API What is PDF.co Web API? It is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
+## delete text from PDF in PHP using PDF.co Web API PDF.co Web API: the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -50,6 +50,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 $apiKey = "***********************************";
 
 // Direct URL of source PDF file. Check another example if you need to upload a local file to the cloud.
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 $sourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf";
 // PDF document password. Leave empty for unprotected documents.
 $password = "";

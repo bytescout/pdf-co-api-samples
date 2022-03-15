@@ -1,4 +1,4 @@
-## PDF delete pages in PHP with PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
+## How to detect circle from PDF for barcode reader API in cURL using PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -30,33 +30,17 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 
 <!-- code block begin -->
 
-##### **PDFDeletePages.php:**
+##### **DetectCircleFromPDF.cmd:**
     
 ```
-<?php
-
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-		CURLOPT_URL => "https://api.pdf.co/v1/pdf/edit/delete-pages",
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_ENCODING => "",
-		CURLOPT_MAXREDIRS => 10,
-		CURLOPT_TIMEOUT => 0,
-		CURLOPT_FOLLOWLOCATION => true,
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "POST",
-		CURLOPT_POSTFIELDS => array('url' => 'https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf','name' => 'result.pdf','pages' => '1-2'),
-		CURLOPT_HTTPHEADER => array(
-				"x-api-key: {{x-api-key}}"
-		),
-));
-
-$response = curl_exec($curl);
-
-curl_close($curl);
-echo $response;
-
+curl --location --request POST 'https://api.pdf.co/v1/barcode/read/from/url' \
+--header 'x-api-key: {{x-api-key}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "types": "Circle",
+    "url": "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-form/f1040.pdf",
+    "pages": ""
+}'
 ```
 
 <!-- code block end -->

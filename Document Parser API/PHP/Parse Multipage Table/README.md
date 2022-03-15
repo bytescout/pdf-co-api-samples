@@ -1,4 +1,4 @@
-## How to parse multipage table for document parser API in PHP and PDF.co Web API PDF.co Web API: the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
+## How to parse multipage table for document parser API in PHP and PDF.co Web API PDF.co Web API is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -155,8 +155,7 @@ $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by
 
 // Create URL
 $url = "https://api.pdf.co/v1/file/upload/get-presigned-url" . 
-    "?name=" . $_FILES["file"]["tmp_name"] .
-    "&contenttype=application/octet-stream";
+    "?contenttype=application/octet-stream";
     
 // Create request
 $curl = curl_init();
@@ -273,7 +272,7 @@ function ParseDocument($apiKey, $uploadedFileUrl, $templateText)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 // URL of generated JSON file that will available after the job completion
                 $resultFileUrl = $json["url"];
@@ -360,7 +359,7 @@ function CheckJobStatus($jobId, $apiKey)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 $status = $json["status"];
             }

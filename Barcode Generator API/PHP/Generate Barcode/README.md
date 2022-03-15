@@ -1,12 +1,4 @@
-## How to generate barcode for barcode generator API in PHP and PDF.co Web API
-
-### Step By Step Tutorial: how to generate barcode for barcode generator API in PHP
-
-ByteScout tutorials explain the code material for beginners and advanced programmers who are using PHP. PDF.co Web API was made to help with barcode generator API in PHP. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-The SDK samples like this one below explain how to quickly make your application do barcode generator API in PHP with the help of PDF.co Web API. This PHP sample code should be copied and pasted into your project. After doing this just compile your project and click Run. Code testing will allow the function to be tested and work properly with your data.
-
-Trial version of ByteScout is available for free download from our website. This and other source code samples for PHP and other programming languages are available.
+## How to generate barcode for barcode generator API in PHP using PDF.co Web API PDF.co Web API: the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 

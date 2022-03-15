@@ -1,4 +1,4 @@
-## document parser API in PHP using PDF.co Web API PDF.co Web API is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
+## document parser API in PHP using PDF.co Web API What is PDF.co Web API? It is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -104,8 +104,7 @@ $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by
 
 // Create URL
 $url = "https://api.pdf.co/v1/file/upload/get-presigned-url" . 
-    "?name=" . $_FILES["file"]["tmp_name"] .
-    "&contenttype=application/octet-stream";
+    "?contenttype=application/octet-stream";
     
 // Create request
 $curl = curl_init();
@@ -309,14 +308,14 @@ function CheckJobStatus($jobId, $apiKey)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
-            {
-                $status = $json["status"];
-            }
-            else
+            if (isset($json["error"]) && $json["error"] == true)
             {
                 // Display service reported error
                 echo "<p>Error: " . $json["message"] . "</p>"; 
+            }
+            else
+            {
+                $status = $json["status"];
             }
         }
         else

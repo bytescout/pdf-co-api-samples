@@ -1,12 +1,4 @@
-## How to read barcode from URL asynchronously for barcode reader API in PHP with PDF.co Web API
-
-### See how to read barcode from URL asynchronously to have barcode reader API in PHP
-
-Today you are going to learn how to read barcode from URL asynchronously in PHP. Barcode reader API in PHP can be implemented with PDF.co Web API. PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
-
-PHP code samples for PHP developers help to speed up the application's code writing when using PDF.co Web API. Open your PHP project and simply copy & paste the code and then run your app! Enjoy writing a code with ready-to-use sample PHP codes to add barcode reader API functions using PDF.co Web API in PHP.
-
-PDF.co Web API - free trial version is on available our website. Also, there are other code samples to help you with your PHP application included into trial version.
+## How to read barcode from URL asynchronously for barcode reader API in PHP with PDF.co Web API What is PDF.co Web API? It is the flexible Web API that includes full set of functions from e-signature requests to data extraction, OCR, images recognition, pdf splitting and pdf splitting. Can also generate barcodes and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -60,6 +52,7 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 $apiKey = "***************************************";
 
 // Direct URL of source file (image or PDF) to search barcodes in. Check another example if you need to upload a local file to the cloud.
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 $sourceFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/barcode-reader/sample.pdf";
 // Comma-separated list of barcode types to search. 
 // See valid barcode types in the documentation https://apidocs.pdf.co

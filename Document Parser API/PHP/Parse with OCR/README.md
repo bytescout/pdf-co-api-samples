@@ -1,4 +1,4 @@
-## How to parse with OCR for document parser API in PHP with PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
+## How to parse with OCR for document parser API in PHP and PDF.co Web API PDF.co Web API is the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -123,8 +123,7 @@ $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by
 
 // Create URL
 $url = "https://api.pdf.co/v1/file/upload/get-presigned-url" . 
-    "?name=" . $_FILES["file"]["tmp_name"] .
-    "&contenttype=application/octet-stream";
+    "?contenttype=application/octet-stream";
     
 // Create request
 $curl = curl_init();
@@ -241,7 +240,7 @@ function ParseDocument($apiKey, $uploadedFileUrl, $templateText)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 // URL of generated JSON file that will available after the job completion
                 $resultFileUrl = $json["url"];
@@ -328,7 +327,7 @@ function CheckJobStatus($jobId, $apiKey)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 $status = $json["status"];
             }

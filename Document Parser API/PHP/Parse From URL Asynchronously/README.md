@@ -1,4 +1,4 @@
-## How to parse from URL asynchronously for document parser API in PHP and PDF.co Web API PDF.co Web API: the Web API with a set of tools for documents manipulation, data conversion, data extraction, splitting and merging of documents. Includes image recognition, built-in OCR, barcode generation and barcode decoders to decode bar codes from scans, pictures and pdf.
+## How to parse from URL asynchronously for document parser API in PHP using PDF.co Web API What is PDF.co Web API? It is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT
 
@@ -93,6 +93,7 @@ objects:
 <?php 
 
 // Source PDF file
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 $uploadedFileUrl = "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/document-parser/MultiPageTable.pdf";
 
 // Get submitted form data
@@ -230,14 +231,14 @@ function CheckJobStatus($jobId, $apiKey)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
-            {
-                $status = $json["status"];
-            }
-            else
+            if (isset($json["error"]) && $json["error"] == true)
             {
                 // Display service reported error
                 echo "<p>Error: " . $json["message"] . "</p>"; 
+            }
+            else
+            {
+                $status = $json["status"];
             }
         }
         else
