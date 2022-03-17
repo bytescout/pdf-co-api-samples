@@ -622,6 +622,10 @@
 \PDF Fill PDF Forms\JavaScript\Fill PDF Forms
 \PDF Fill PDF Forms\JavaScript\Fill PDF Forms Simplified
 \PDF Fill PDF Forms\PHP\Fill PDF Forms
+\PDF Fill PDF Forms\PHP\Fill PDF Forms from Local File
+\PDF Fill PDF Forms\PHP\Fill PDF Forms from Local File Asynchronously
+\PDF Fill PDF Forms\PHP\Fill PDF Forms from Uploaded File
+\PDF Fill PDF Forms\PHP\Fill PDF Forms from Uploaded File Asynchronously
 \PDF Fill PDF Forms\PHP\Fill PDF Forms Simplified
 \PDF Fill PDF Forms\PowerShell\Fill PDF Forms
 \PDF Fill PDF Forms\PowerShell\Fill PDF Forms Simplified
