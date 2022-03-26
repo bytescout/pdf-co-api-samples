@@ -256,6 +256,8 @@
 \DOC To PDF API\JavaScript\Convert DOC To PDF From Uploaded File (Node.js) - Async API
 \DOC To PDF API\JavaScript\Convert DOC To PDF From URL (Node.js)
 \DOC To PDF API\JavaScript\Convert DOC To PDF From URL (Node.js) - Async API
+\DOC To PDF API\JavaScript\Convert DOC To Protected PDF From URL (Node.js)
+\DOC To PDF API\JavaScript\Convert DOC To Protected PDF From URL (Node.js) - Async API
 \DOC To PDF API\PHP\Convert DOC To PDF Asynchronously
 \DOC To PDF API\PHP\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\PHP\Convert DOC to Protected PDF from Uploaded File
