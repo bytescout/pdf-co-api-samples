@@ -57,7 +57,7 @@ if (curl_errno($curl) == 0)
     {
         $json = json_decode($result, true);
         
-        if ($json["error"] == false)
+        if (!isset($json["error"]) || $json["error"] == false)
         {
             $resultFileUrl = $json["url"];
             

@@ -42,7 +42,7 @@ if (curl_errno($curl) == 0)
     {
         $json = json_decode($result, true);
         
-        if ($json["error"] == false)
+        if (!isset($json["error"]) || $json["error"] == false)
         {
             // Get URL of generated PDF file
             $resultFileUrl = $json["url"];

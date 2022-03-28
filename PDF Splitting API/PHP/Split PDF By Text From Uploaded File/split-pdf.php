@@ -130,7 +130,7 @@ function SplitPdf($apiKey, $fileUrl, $splitText)
         {
             $json = json_decode($result, true);
             
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 // Display links to splitted parts
                 $resultFiles = $json["urls"];

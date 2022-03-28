@@ -134,7 +134,7 @@ function RenderPDF($apiKey, $fileUrl, $outputFormat, $pages)
         {
             $json = json_decode($result, true);
             
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 if ($format == "tiff")
                 {

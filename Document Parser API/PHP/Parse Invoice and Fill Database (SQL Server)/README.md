@@ -380,7 +380,7 @@ function ParseDocument($apiKey, $uploadedFileUrl, $templateText)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 // URL of generated JSON file that will available after the job completion
                 $resultFileUrl = $json["url"];

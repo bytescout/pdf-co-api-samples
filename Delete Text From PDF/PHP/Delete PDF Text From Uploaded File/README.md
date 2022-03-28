@@ -165,7 +165,7 @@ function deleteTextFromPdf($apiKey, $uploadedFileUrl)
         {
             $json = json_decode($result, true);
             
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 $resultFileUrl = $json["url"];
                 

@@ -167,7 +167,7 @@ function ReadBarcodes($apiKey, $barcodeTypesToFind, $uploadedFileUrl, $pages)
         {
             $json = json_decode($result, true);
             
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 // Display decoding results
                 $barcodes = $json["barcodes"];

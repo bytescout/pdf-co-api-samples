@@ -52,7 +52,7 @@ if (curl_errno($curl) == 0)
     {
         $json = json_decode($result, true);
         
-        if ($json["error"] == false)
+        if (!isset($json["error"]) || $json["error"] == false)
         {
             // URL of generated PDF file that will available after the job completion
             $resultFileUrl = $json["url"];
@@ -142,7 +142,7 @@ function CheckJobStatus($jobId, $apiKey)
         {
             $json = json_decode($result, true);
         
-            if ($json["error"] == false)
+            if (!isset($json["error"]) || $json["error"] == false)
             {
                 $status = $json["status"];
             }
