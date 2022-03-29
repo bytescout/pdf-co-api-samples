@@ -178,6 +178,7 @@
 \Barcode Reader API\Java\Read Barcode From URL
 \Barcode Reader API\JavaScript\Advanced Conversion Options
 \Barcode Reader API\JavaScript\Read Barcode From File (Node.js) - Async Api
+\Barcode Reader API\JavaScript\Read Barcode From Live Camera
 \Barcode Reader API\JavaScript\Read Barcode From Uploaded File (Node.js)
 \Barcode Reader API\JavaScript\Read Barcode From Uploaded File (Node.js) - Async Api
 \Barcode Reader API\JavaScript\Read Barcode From URL (Node.js)

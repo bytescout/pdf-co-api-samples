@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        Web Barcode Reader
+    </title>
+    <link href="Style/index.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="upload_camera">
+        <h1>Barcodes From Camera</h1>
+        <hr/>
+        <div id="userMedia" style="display:none; height: 575px; width: 1182px">
+            <table>
+                <tr align="left" valign="top">
+                    <td valign="top" colspan="2">
+                        <h5 style=" color:Green; ">(HTML5 based camera) This works in Chrome, Firefox, Safari and other modern browsers with HTML5 support. If HTML5 camera is not enabled then Flash based camera should appear instead. To enable web-cam access answer ALLOW when asked if you want to give access to webcam </h5>                        
+                    	<strong>IMPORTANT: html5 webcam access (Chrome, Firefox, Safari on desktop and iOS) requires SSL connection! Otherwise, web camera will not initialize at all as it requies SSL connection only. </strong>
+                    </td>
+                </tr>
+                <tr align="left" valign="top">
+                    <td valign="top">
+                        <br />
+                        <span style=" font-size:20px; ">PDF.co API Key: </span>
+                        <br />
+                        <input type="text" style="width:500px; padding: 5px;" id="txtPDFcoAPIKey" />
+                        <br />
+                        <br />
+                        <span style=" font-size:20px; ">Barcode Types to Read: </span>
+                        <br />
+                        <textarea style="width:500px; height:100px;" size="8" id="txtAreaBarcodeTypes">QRCode,Code39,Code39Extended,Code39Mod43,PDF417</textarea>
+                        <br />
+                        <br />
+                        <span style=" font-size:20px; ">Output barcode values read appears below: </span>
+                        <br />
+                        <!-- decoding results appears in this listbox -->
+                        <textarea style="width:500px; height:100px;" size="8" id="OutListBoxHTML5"></textarea>
+                        <br />
+                        <input id="snap" style="color:black; font-weight:bold; font-size:large;" type="button" onclick="UploadToCloud();" value="START READING BARCODES..." />
+                        <input id="pause" style="color:black;" type="button" onclick="stopCall();" value="STOP" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h4 id="report"></h4>
+                    </td>
+                    <td valign="top">
+                        <span>Webcam preview shows below:</span>
+                        <video id="video" width="640" height="480" autoplay playsinline muted></video>
+                        <!-- canvas with the output -->
+                        <canvas id="canvasU" width="640" height="480" style="display:none"></canvas>
+                    </td>
+                </tr>
+            </table>
+        </div>        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="Scripts/webcam.js"></script>
+    <script type="text/javascript" src="Scripts/index.js"></script>
+</body>
+</html>

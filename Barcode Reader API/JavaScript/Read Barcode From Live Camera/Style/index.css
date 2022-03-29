@@ -1,0 +1,24 @@
+﻿.upload_image form{
+    margin-top:20px;
+}
+
+.upload_image form input{
+    display:block;
+    margin-bottom:20px;
+}
+
+.upload_image select{
+    margin-top:20px;
+}
+
+.upload_image img{
+    display:block;
+    max-width:25%;
+    margin-top:20px;
+}
+
+.line{
+    content:"";
+    margin:40px 0 40px 0;
+    border-bottom:1px solid black;
+}
