@@ -925,6 +925,7 @@
 \PDF Optimization API\VB.NET\Optimize PDF From URL Asynchronously
 \PDF Password And Security\C#
 \PDF Password And Security\cURL
+\PDF Password And Security\GoogleAppsScript
 \PDF Password And Security\Java
 \PDF Password And Security\JavaScript
 \PDF Password And Security\PHP
@@ -936,6 +937,7 @@
 \PDF Password And Security\C#\Remove PDF Document Protection
 \PDF Password And Security\cURL\Protect PDF Document
 \PDF Password And Security\cURL\Remove PDF Document Protection
+\PDF Password And Security\GoogleAppsScript\Add Password to PDF files
 \PDF Password And Security\Java\Protect PDF Document
 \PDF Password And Security\Java\Remove PDF Document Protection
 \PDF Password And Security\JavaScript\Protect PDF Document
