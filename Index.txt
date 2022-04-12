@@ -901,6 +901,7 @@
 \PDF Optimization API\PHP
 \PDF Optimization API\PowerShell
 \PDF Optimization API\Python
+\PDF Optimization API\Salesforce
 \PDF Optimization API\VB.NET
 \PDF Optimization API\C#\Optimize PDF From Uploaded File
 \PDF Optimization API\C#\Optimize PDF From URL
@@ -920,6 +921,8 @@
 \PDF Optimization API\Python\Optimize PDF From Uploaded File
 \PDF Optimization API\Python\Optimize PDF From URL
 \PDF Optimization API\Python\Optimize PDF From URL Asynchronously
+\PDF Optimization API\Salesforce\Compress PDF Document
+\PDF Optimization API\Salesforce\Compress PDF Document From Uploaded File
 \PDF Optimization API\VB.NET\Optimize PDF From Uploaded File
 \PDF Optimization API\VB.NET\Optimize PDF From URL
 \PDF Optimization API\VB.NET\Optimize PDF From URL Asynchronously
