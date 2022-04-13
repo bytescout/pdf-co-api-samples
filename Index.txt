@@ -1402,6 +1402,7 @@
 \PDF To XLS\VB.NET\Convert PDF To XLS From Uploaded File
 \PDF To XLS\VB.NET\Convert PDF To XLS From Uploaded File (WinForms)
 \PDF To XLS\VB.NET\Convert PDF To XLS From URL
+\PDF To XLSX\Blazor
 \PDF To XLSX\C#
 \PDF To XLSX\cURL
 \PDF To XLSX\Java
@@ -1410,6 +1411,15 @@
 \PDF To XLSX\PowerShell
 \PDF To XLSX\Python
 \PDF To XLSX\VB.NET
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\Pages
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\Shared
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\wwwroot
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\wwwroot\css
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\wwwroot\css\bootstrap
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\wwwroot\css\open-iconic
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\wwwroot\css\open-iconic\font
+\PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\wwwroot\css\open-iconic\font\css
 \PDF To XLSX\C#\Convert PDF To XLSX From Uploaded File
 \PDF To XLSX\C#\Convert PDF To XLSX From URL
 \PDF To XLSX\C#\Convert PDF To XLSX From URL Asynchronously

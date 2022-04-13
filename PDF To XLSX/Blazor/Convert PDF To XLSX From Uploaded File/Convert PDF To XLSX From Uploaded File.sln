@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Convert PDF To XLSX From Uploaded File", "Convert PDF To XLSX From Uploaded File.csproj", "{107EF336-3113-4C62-BE18-27C558B9EE66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{107EF336-3113-4C62-BE18-27C558B9EE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{107EF336-3113-4C62-BE18-27C558B9EE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{107EF336-3113-4C62-BE18-27C558B9EE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{107EF336-3113-4C62-BE18-27C558B9EE66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29729E3D-3B1F-4AB0-B7C5-818BF669FBD3}
+	EndGlobalSection
+EndGlobal

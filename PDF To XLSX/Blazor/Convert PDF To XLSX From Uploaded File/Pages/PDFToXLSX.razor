@@ -1,0 +1,290 @@
+﻿@page "/pdf-to-xlsx"
+@using System.IO
+@using System.Net
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+
+<h3>PDF to XLSX by uploading file</h3>
+
+<hr />
+@if (!string.IsNullOrWhiteSpace(displayMessage))
+{
+    <div class="alert alert-info">
+        @displayMessage
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(displayErrorMessage))
+{
+    <div class="alert alert-danger">
+        @displayErrorMessage
+    </div>
+}
+
+<p>
+    <label class="control-label">PDF.co API Key</label>
+    <input class="form-control" type="text" @bind="pdfcoAPIKey" placeholder="PDF.co API Key" />
+</p>
+<p>
+    <label class="control-label">Input PDF File</label>
+    <InputFile class="form-control" OnChange="@LoadFile" />
+</p>
+
+<p>
+    @if (isLoading)
+    {
+        <button class="btn btn-primary" disabled="disabled">Please wait...</button>
+    }
+    else
+    {
+        <button class="btn btn-primary" @onclick="ConvertPDFToXLSX">Convert to XLSX</button>
+    }
+</p>
+
+@if (!string.IsNullOrWhiteSpace(resultFileUrl))
+{
+    <hr />
+    <a class="btn btn-primary" href="@resultFileUrl" download="result.xlsx">Download Result File</a>
+}
+
+@code {
+    private string displayMessage = "";
+    private string displayErrorMessage = "";
+    private string pdfcoAPIKey = "";
+    private bool isLoading = false;
+
+    private string resultFileUrl = "";
+
+    private IBrowserFile uploadedFile;
+    private void LoadFile(InputFileChangeEventArgs e) => uploadedFile = e.File;
+
+    /// <summary>
+    /// Event to handle PDF to XLSX Convertion
+    /// </summary>
+    private async Task ConvertPDFToXLSX()
+    {
+        cleanMessages();
+
+        if (validateInputs())
+        {
+            isLoading = true;
+
+            var uploadedFileUrl = await uploadFileToPDFcoCloud();
+            if (!string.IsNullOrWhiteSpace(uploadedFileUrl))
+            {
+                resultFileUrl = convertPDFToXLSX(uploadedFileUrl);
+            }
+
+            isLoading = false;
+        }
+    }
+
+    /// <summary>
+    /// Upload File to PDF.co Cloud And Get Public URL
+    /// </summary>
+    private async Task<string> uploadFileToPDFcoCloud()
+    {
+        var oRetUrl = "";
+        byte[] byteArray;
+
+        using (var memStream = new MemoryStream())
+        {
+            await uploadedFile.OpenReadStream().CopyToAsync(memStream);
+            byteArray = memStream.ToArray();
+        }
+
+        // Create standard .NET web client instance
+        var webClient = new WebClient();
+
+        // Set API Key
+        webClient.Headers.Add("x-api-key", pdfcoAPIKey);
+
+        // 1. RETRIEVE THE PRESIGNED URL TO UPLOAD THE FILE.
+        // * If you already have a direct file URL, skip to the step 3.
+
+        // Prepare URL for `Get Presigned URL` API call
+        string query = Uri.EscapeUriString(
+            $"https://api.pdf.co/v1/file/upload/get-presigned-url?contenttype=application/octet-stream&name={uploadedFile.Name}");
+
+        try
+        {
+            // Execute request
+            string response = webClient.DownloadString(query);
+
+            // Parse JSON response
+            var json = JObject.Parse(response);
+
+            if (json["error"].ToObject<bool>() == false)
+            {
+                // Get URL to use for the file upload
+                string uploadUrl = json["presignedUrl"].ToString();
+                string uploadedFileUrl = json["url"].ToString();
+
+                // 2. UPLOAD THE FILE TO CLOUD.
+                webClient.Headers.Add("content-type", "application/octet-stream");
+                webClient.UploadData(uploadUrl, "PUT", byteArray);
+
+                oRetUrl = uploadedFileUrl;
+            }
+            else
+            {
+                displayErrorMessage = json["message"].ToString();
+            }
+        }
+        catch (Exception ex)
+        {
+            displayErrorMessage = ex.Message;
+        }
+
+        return oRetUrl;
+    }
+
+    /// <summary>
+    /// Convert PDF to XLSX
+    /// </summary>
+    private string convertPDFToXLSX(string SourceFileUrl)
+    {
+        // Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.
+        const string Pages = "";
+        // PDF document password. Leave empty for unprotected documents.
+        const string Password = "";
+        // Destination XLSX file name
+        const string DestinationFile = @".\result.xlsx";
+        // (!) Make asynchronous job
+        const bool Async = true;
+
+        // Create standard .NET web client instance
+        WebClient webClient = new WebClient();
+
+        // Set API Key
+        webClient.Headers.Add("x-api-key", pdfcoAPIKey);
+
+        // URL for `PDF To XLSX` API call
+        string url = "https://api.pdf.co/v1/pdf/convert/to/xlsx";
+
+        // Prepare requests params as JSON
+        Dictionary<string, object> parameters = new Dictionary<string, object>();
+        parameters.Add("name", Path.GetFileName(DestinationFile));
+        parameters.Add("password", Password);
+        parameters.Add("pages", Pages);
+        parameters.Add("url", SourceFileUrl);
+        parameters.Add("async", Async);
+
+        // Convert dictionary of params to JSON
+        string jsonPayload = JsonConvert.SerializeObject(parameters);
+
+        var resultFileUrl = "";
+
+        try
+        {
+            // Execute POST request with JSON payload
+            string response = webClient.UploadString(url, jsonPayload);
+
+            // Parse JSON response
+            JObject json = JObject.Parse(response);
+
+            if (json["error"].ToObject<bool>() == false)
+            {
+                // Asynchronous job ID
+                string jobId = json["jobId"].ToString();
+
+                // Check the job status in a loop.
+                // If you don't want to pause the main thread you can rework the code
+                // to use a separate thread for the status checking and completion.
+                do
+                {
+                    string status = CheckJobStatus(jobId); // Possible statuses: "working", "failed", "aborted", "success".
+
+                    // Display timestamp and status (for demo purposes)
+                    Console.WriteLine(DateTime.Now.ToLongTimeString() + ": " + status);
+
+                    if (status == "success")
+                    {
+                        // URL of generated XLSX file that will available after the job completion
+                        resultFileUrl = json["url"].ToString();
+
+                        displayMessage = "XLSX file successfully generated!";
+                        break;
+                    }
+                    else if (status == "working")
+                    {
+                        // Pause for a few seconds
+                        System.Threading.Thread.Sleep(3000);
+                    }
+                    else
+                    {
+                        displayErrorMessage = $"PDF.co job returned with stauts: {status}";
+                        break;
+                    }
+                }
+                while (true);
+            }
+            else
+            {
+                displayErrorMessage = json["message"].ToString();
+            }
+        }
+        catch (WebException e)
+        {
+            displayErrorMessage = e.ToString();
+        }
+
+        webClient.Dispose();
+
+        return resultFileUrl;
+    }
+
+    /// <summary>
+    /// Check PDF.co Job Status
+    /// </summary>
+    private string CheckJobStatus(string jobId)
+    {
+        using (WebClient webClient = new WebClient())
+        {
+            // Set API Key
+            webClient.Headers.Add("x-api-key", pdfcoAPIKey);
+
+            string url = "https://api.pdf.co/v1/job/check?jobid=" + jobId;
+
+            string response = webClient.DownloadString(url);
+            JObject json = JObject.Parse(response);
+
+            return Convert.ToString(json["status"]);
+        }
+    }
+
+    /// <summary>
+    /// Validate Inputs
+    /// </summary>
+    private bool validateInputs()
+    {
+        if (string.IsNullOrEmpty(pdfcoAPIKey))
+        {
+            displayErrorMessage = "Please Provide PDF.co API Key!";
+            return false;
+        }
+
+        if (uploadedFile == null)
+        {
+            displayErrorMessage = "Please provide input PDF file";
+            return false;
+        }
+        else if (Path.GetExtension(uploadedFile.Name) != ".pdf")
+        {
+            displayErrorMessage = "Only PDF Files are allowed";
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Clear Messages
+    /// </summary>
+    private void cleanMessages()
+    {
+        displayErrorMessage = "";
+        displayMessage = "";
+    }
+
+}
