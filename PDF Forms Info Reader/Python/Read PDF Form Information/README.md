@@ -33,22 +33,36 @@ or just send email to [support@bytescout.com](mailto:support@bytescout.com?subje
 ##### **PDFFormInfoReader.py:**
     
 ```
-import requests
+import os
+import requests # pip install requests
 
-url = "https://api.pdf.co/v1/pdf/info/fields"
+# The authentication key (API Key).
+# Get your own by registering at https://app.pdf.co
+API_KEY = "***************************"
 
-payload = {'url': 'https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-form/f1040.pdf'}
-files = [
+# Base URL for PDF.co Web API requests
+BASE_URL = "https://api.pdf.co/v1"
 
-]
-headers = {
-		'x-api-key': '{{x-api-key}}'
-}
+# Source PDF file url
+SourceFileURL = "https://pdf-temp-files.s3.amazonaws.com/R2FBM39LFX1BFC860O06XU0TL613JTZ9/f1040-form-filled.pdf "
+Async = "False"
 
-response = requests.request("POST", url, headers=headers, json = payload, files = files)
+# Destination PDF file name
+DestinationFile = ".\\result.pdf"
 
-print(response.text.encode('utf8'))
+parameters = {}
+parameters["async"] = Async
+parameters["name"] = os.path.basename(DestinationFile)
+parameters["url"] = SourceFileURL
+ 
+# Prepare URL for 'Info Fields' API request
+url = "{}/pdf/info/fields".format(BASE_URL)
 
+response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
+ 
+if (response.status_code == 200):
+    json = response.json()
+for field in json["info"]["FieldsInfo"]["Fields"]:print(field["FieldName"] + "=>" + field["Value"])
 ```
 
 <!-- code block end -->

@@ -1,16 +1,30 @@
-import requests
+import os
+import requests # pip install requests
 
-url = "https://api.pdf.co/v1/pdf/info/fields"
+# The authentication key (API Key).
+# Get your own by registering at https://app.pdf.co
+API_KEY = "***************************"
 
-# You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
-payload = {'url': 'https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-form/f1040.pdf'}
-files = [
+# Base URL for PDF.co Web API requests
+BASE_URL = "https://api.pdf.co/v1"
 
-]
-headers = {
-		'x-api-key': '{{x-api-key}}'
-}
+# Source PDF file url. You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/
+SourceFileURL = "https://pdf-temp-files.s3.amazonaws.com/R2FBM39LFX1BFC860O06XU0TL613JTZ9/f1040-form-filled.pdf "
+Async = "False"
 
-response = requests.request("POST", url, headers=headers, json = payload, files = files)
+# Destination PDF file name
+DestinationFile = ".\\result.pdf"
 
-print(response.text.encode('utf8'))
+parameters = {}
+parameters["async"] = Async
+parameters["name"] = os.path.basename(DestinationFile)
+parameters["url"] = SourceFileURL
+ 
+# Prepare URL for 'Info Fields' API request
+url = "{}/pdf/info/fields".format(BASE_URL)
+
+response = requests.post(url, data=parameters, headers={ "x-api-key": API_KEY })
+ 
+if (response.status_code == 200):
+    json = response.json()
+for field in json["info"]["FieldsInfo"]["Fields"]:print(field["FieldName"] + "=>" + field["Value"])
