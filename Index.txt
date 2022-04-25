@@ -726,6 +726,7 @@
 \PDF from HTML\Zapier\Pipedrive CRM to PDF
 \PDF from HTML template\C#
 \PDF from HTML template\cURL
+\PDF from HTML template\Google Apps Script
 \PDF from HTML template\Java
 \PDF from HTML template\JavaScript
 \PDF from HTML template\PHP
@@ -737,6 +738,7 @@
 \PDF from HTML template\C#\Invoice With Multiple Pages
 \PDF from HTML template\C#\Template Iterating Array
 \PDF from HTML template\cURL\Generate PDF Invoice From HTML Template
+\PDF from HTML template\Google Apps Script\Google Spreadsheet to PDF Invoice
 \PDF from HTML template\Java\Generate PDF Invoice From HTML Template
 \PDF from HTML template\Java\Invoice With Multiple Pages
 \PDF from HTML template\JavaScript\Generate PDF Invoice From HTML Template (Node.js)
