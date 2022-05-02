@@ -1576,6 +1576,9 @@
 \Replace Text With Image From PDF\JavaScript\Replace Text With Image From Uploaded File (Node.js) - Async API
 \Replace Text With Image From PDF\JavaScript\Replace Text With Image From URL (Node.js)
 \Replace Text With Image From PDF\JavaScript\Replace Text With Image From URL (Node.js) - Async API
+\Replace Text With Image From PDF\JavaScript\Replace Text With Signature (jQuery)
+\Replace Text With Image From PDF\JavaScript\Replace Text With Signature (jQuery)\assets
+\Replace Text With Image From PDF\JavaScript\Replace Text With Signature (jQuery)\js
 \Replace Text With Image From PDF\PHP\Replace Text With Image Asynchronously
 \Replace Text With Image From PDF\PHP\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\PowerShell\Replace Text With Image From Uploaded File
