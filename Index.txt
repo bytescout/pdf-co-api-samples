@@ -853,6 +853,7 @@
 \PDF Merging API\PHP
 \PDF Merging API\PowerShell
 \PDF Merging API\Python
+\PDF Merging API\Salesforce
 \PDF Merging API\VB.NET
 \PDF Merging API\C#\Async file upload and async Merge PDF
 \PDF Merging API\C#\Merge Any Documents From URLs
@@ -890,6 +891,8 @@
 \PDF Merging API\Python\Merge Any Documents From Uploaded Files Asynchronously
 \PDF Merging API\Python\Merge PDF Documents From Uploaded Files
 \PDF Merging API\Python\Merge PDF Documents From Uploaded Files Asynchronously
+\PDF Merging API\Salesforce\Merge Documents From SFDC record
+\PDF Merging API\Salesforce\Merge Documents From URL
 \PDF Merging API\VB.NET\Async file upload and async Merge PDF
 \PDF Merging API\VB.NET\Merge Any Documents From URLs
 \PDF Merging API\VB.NET\Merge Any Documents From URLs Asynchronously
