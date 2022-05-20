@@ -18,7 +18,6 @@
 \File Upload for Small Files (up to 50KB)
 \Generic API Call
 \Image To PDF API
-\Invoice Parser API
 \Manage Background Jobs
 \MISC Account Related
 \PDF Classifier
@@ -531,28 +530,6 @@
 \Image To PDF API\VB.NET\Convert Images To PDF From URLs
 \Image To PDF API\VB.NET\Convert Images To PDF From URLs Asynchronously
 \Image To PDF API\Zapier\Multiple Images to PDF
-\Invoice Parser API\C#
-\Invoice Parser API\cURL
-\Invoice Parser API\Java
-\Invoice Parser API\JavaScript
-\Invoice Parser API\PHP
-\Invoice Parser API\PowerShell
-\Invoice Parser API\Python
-\Invoice Parser API\VB.NET
-\Invoice Parser API\C#\Get Invoice Info From Uploaded File
-\Invoice Parser API\C#\Get Invoice Info From URL
-\Invoice Parser API\cURL\Get Invoice Info From URL
-\Invoice Parser API\Java\Get Invoice Info From Uploaded File
-\Invoice Parser API\Java\Get Invoice Info From URL
-\Invoice Parser API\JavaScript\Get Invoice Info From Uploaded File (Node.js)
-\Invoice Parser API\JavaScript\Get Invoice Info From URL (Node.js)
-\Invoice Parser API\PHP\Get Invoice Info From Uploaded File
-\Invoice Parser API\PowerShell\Get Invoice Info From Uploaded File
-\Invoice Parser API\PowerShell\Get Invoice Info From URL
-\Invoice Parser API\Python\Get Invoice Info From Uploaded File
-\Invoice Parser API\Python\Get Invoice Info From URL
-\Invoice Parser API\VB.NET\Get Invoice Info From Uploaded File
-\Invoice Parser API\VB.NET\Get Invoice Info From URL
 \Manage Background Jobs\C#
 \Manage Background Jobs\cURL
 \Manage Background Jobs\Java
