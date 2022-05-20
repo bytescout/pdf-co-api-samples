@@ -583,6 +583,7 @@
 \PDF Delete Pages\PHP
 \PDF Delete Pages\PowerShell
 \PDF Delete Pages\Python
+\PDF Delete Pages\Salesforce
 \PDF Fill PDF Forms\C#
 \PDF Fill PDF Forms\cURL
 \PDF Fill PDF Forms\Java
@@ -1514,6 +1515,7 @@
 \Replace Text From PDF\PHP
 \Replace Text From PDF\PowerShell
 \Replace Text From PDF\Python
+\Replace Text From PDF\Salesforce
 \Replace Text From PDF\VB.NET
 \Replace Text From PDF\C#\Replace Text From Uploaded File
 \Replace Text From PDF\C#\Replace Text From URL
@@ -1535,6 +1537,7 @@
 \Replace Text From PDF\Python\Replace Text From Uploaded File
 \Replace Text From PDF\Python\Replace Text From URL
 \Replace Text From PDF\Python\Replace Text From URL Asynchronously
+\Replace Text From PDF\Salesforce\Search and Replace Text
 \Replace Text From PDF\VB.NET\Replace Text From Uploaded File
 \Replace Text From PDF\VB.NET\Replace Text From URL
 \Replace Text From PDF\VB.NET\Replace Text From URL Asynchronously
@@ -1545,6 +1548,7 @@
 \Replace Text With Image From PDF\PHP
 \Replace Text With Image From PDF\PowerShell
 \Replace Text With Image From PDF\Python
+\Replace Text With Image From PDF\Salesforce
 \Replace Text With Image From PDF\VB.NET
 \Replace Text With Image From PDF\C#\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\C#\Replace Text With Image From URL
@@ -1569,6 +1573,7 @@
 \Replace Text With Image From PDF\Python\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\Python\Replace Text With Image From URL
 \Replace Text With Image From PDF\Python\Replace Text With Image From URL Asynchronously
+\Replace Text With Image From PDF\Salesforce\Replace Text With Image From URL
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL
 \Replace Text With Image From PDF\VB.NET\Replace Text With Image From URL Asynchronously
