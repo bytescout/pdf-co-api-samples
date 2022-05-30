@@ -99,6 +99,8 @@
 \Add Text And Images To PDF\Python\Add Text by finding target coordinates
 \Add Text And Images To PDF\Python\Add Text to Existing PDF
 \Add Text And Images To PDF\Salesforce\Add Image To PDF
+\Add Text And Images To PDF\Salesforce\Add Text Image Signature to PDF
+\Add Text And Images To PDF\Salesforce\Add Text Image Signature to PDF With Simplified Parameter
 \Add Text And Images To PDF\Salesforce\Add Text To PDF
 \Add Text And Images To PDF\SharePoint\Add Text and Images to PDF
 \Add Text And Images To PDF\SharePoint\Add Text and Images to PDF\Features
@@ -693,6 +695,7 @@
 \PDF from HTML\Python\Generate PDF From HTML File
 \PDF from HTML\Python\Generate PDF From Large HTML File
 \PDF from HTML\Salesforce\Convert HTML to PDF
+\PDF from HTML\Salesforce\Create PDF with Footer From HTML
 \PDF from HTML\SharePoint\Convert HTML to PDF
 \PDF from HTML\SharePoint\Convert HTML to PDF\Features
 \PDF from HTML\SharePoint\Convert HTML to PDF\Package
