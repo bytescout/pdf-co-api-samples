@@ -15,15 +15,14 @@ $apiKey = $_POST["apiKey"]; // The authentication key (API Key). Get your own by
 $barcodeTypesToFind = $_POST["barcodeTypesToFind"];
 $pages = $_POST["pages"];
 
-
 // 1. RETRIEVE THE PRESIGNED URL TO UPLOAD THE FILE.
 // * If you already have the direct PDF file link, go to the step 3.
 
 // Create URL
 $url = "https://api.pdf.co/v1/file/upload/get-presigned-url" . 
-    "?name=" . $_FILES["file"]["name"] .
+    "?name=" . urlencode($_FILES["file"]["name"]) .
     "&contenttype=application/octet-stream";
-    
+
 // Create request
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_HTTPHEADER, array("x-api-key: " . $apiKey));

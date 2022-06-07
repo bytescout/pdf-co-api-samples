@@ -54,7 +54,7 @@ $pages = $_POST["pages"];
 
 // Create URL
 $url = "https://api.pdf.co/v1/file/upload/get-presigned-url" . 
-    "?name=" . $_FILES["file"]["name"] .
+    "?name=" . urlencode($_FILES["file"]["name"]) .
     "&contenttype=application/octet-stream";
     
 // Create request
