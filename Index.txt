@@ -323,6 +323,7 @@
 \Document Parser API\PHP\Extract line items from tables on multiple pages
 \Document Parser API\PHP\Parse From URL Asynchronously
 \Document Parser API\PHP\Parse Invoice and Fill Database (SQL Server)
+\Document Parser API\PHP\Parse Invoice and Save Table Data to mySql Database
 \Document Parser API\PHP\Parse Multipage Table
 \Document Parser API\PHP\Parse Simple Document
 \Document Parser API\PHP\Parse Uploaded File Asynchronously

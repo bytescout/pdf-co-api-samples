@@ -1,0 +1,158 @@
+{
+  "templateName": "Google Invoice",
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": [
+      "Google",
+      "77-0493581",
+      "Invoice"
+    ]
+  },
+  "objects": [
+    {
+      "name": "invoiceId",
+      "objectType": "field",
+      "fieldProperties": {
+        "expression": "Invoice number:{{Spaces}}({{Digits}})",
+        "regex": true
+      },
+      "id": 0
+    },
+    {
+      "name": "dateIssued",
+      "objectType": "field",
+      "fieldProperties": {
+        "expression": "Issue date:{{Spaces}}({{SmartDate}})",
+        "regex": true,
+        "dataType": "date",
+        "dateFormat": "MMM d, yyyy"
+      },
+      "id": 1
+    },
+    {
+      "name": "total",
+      "objectType": "field",
+      "fieldProperties": {
+        "expression": "Amount due in USD:{{Spaces}}{{Number}}",
+        "regex": true,
+        "dataType": "decimal"
+      },
+      "id": 2
+    },
+    {
+      "name": "subTotal",
+      "objectType": "field",
+      "fieldProperties": {
+        "expression": "Subtotal in USD:{{Spaces}}{{Number}}",
+        "regex": true,
+        "dataType": "decimal"
+      },
+      "id": 3
+    },
+    {
+      "name": "taxRate",
+      "objectType": "field",
+      "fieldProperties": {
+        "expression": "State sales tax {{OpeningParenthesis}}{{Digits}}{{Percent}}{{ClosingParenthesis}}",
+        "regex": true,
+        "dataType": "integer"
+      },
+      "id": 4
+    },
+    {
+      "name": "tax",
+      "objectType": "field",
+      "fieldProperties": {
+        "expression": "State sales tax{{Anything}}{{Number}}{{LineEnd}}",
+        "regex": true,
+        "dataType": "decimal"
+      },
+      "id": 5
+    },
+    {
+      "name": "companyName",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "static",
+        "expression": "Google LLC",
+        "regex": true
+      },
+      "id": 6
+    },
+    {
+      "name": "billTo",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "regex": true,
+        "rectangle": [
+          0,
+          152,
+          280,
+          72
+        ],
+        "pageIndex": 0
+      },
+      "id": 7
+    },
+    {
+      "name": "billingId",
+      "objectType": "field",
+      "fieldProperties": {
+        "expression": "Billing ID:{{Spaces}}({{DigitsOrSymbols}})",
+        "regex": true
+      },
+      "id": 8
+    },
+    {
+      "name": "currency",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "static",
+        "expression": "USD",
+        "regex": true
+      },
+      "id": 9
+    },
+    {
+      "name": "table1",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "expression": "Description{{Spaces}}Interval{{Spaces}}Quantity{{Spaces}}Amount",
+          "regex": true
+        },
+        "end": {
+          "expression": "Subtotal in USD",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<interval>{{3Letters}}{{Space}}{{Digits}}{{Space}}{{Minus}}{{Space}}{{3Letters}}{{Space}}{{Digits}}){{Spaces}}(?<quantity>{{Digits}}){{Spaces}}(?<amount>{{Number}})",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "quantity",
+            "dataType": "integer"
+          },
+          {
+            "name": "amount",
+            "dataType": "decimal"
+          }
+        ]
+      },
+      "id": 10
+    }
+  ],
+  "culture": "en-US",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}

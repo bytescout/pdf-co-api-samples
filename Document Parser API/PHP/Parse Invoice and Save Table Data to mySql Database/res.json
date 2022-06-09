@@ -1,0 +1,78 @@
+{
+  "objects": [
+    {
+      "name": "invoiceId",
+      "objectType": "field",
+      "value": "12340801944",
+      "pageIndex": 0,
+      "rectangle": [0.0, 0.0, 0.0, 0.0]
+    },
+    {
+      "name": "dateIssued",
+      "objectType": "field",
+      "value": "2018-01-31T00:00:00",
+      "pageIndex": 0,
+      "rectangle": [0.0, 0.0, 0.0, 0.0]
+    },
+    {
+      "name": "total",
+      "objectType": "field",
+      "value": 25.0,
+      "pageIndex": 0,
+      "rectangle": [0.0, 0.0, 0.0, 0.0]
+    },
+    {
+      "name": "subTotal",
+      "objectType": "field",
+      "value": 25.0,
+      "pageIndex": 0,
+      "rectangle": [0.0, 0.0, 0.0, 0.0]
+    },
+    {
+      "name": "taxRate",
+      "objectType": "field",
+      "value": 0,
+      "pageIndex": 0,
+      "rectangle": [0.0, 0.0, 0.0, 0.0]
+    },
+    {
+      "name": "tax",
+      "objectType": "field",
+      "value": 0.0,
+      "pageIndex": 0,
+      "rectangle": [0.0, 0.0, 0.0, 0.0]
+    },
+    { "name": "companyName", "objectType": "field", "value": "Google LLC" },
+    {
+      "name": "billTo",
+      "objectType": "field",
+      "value": "John Doe\n Acme, Inc.\n 1811 Silverside Road\n Wilmington, DE 19810\n United States",
+      "pageIndex": 0,
+      "rectangle": [0.0, 152.0, 280.0, 72.0]
+    },
+    {
+      "name": "billingId",
+      "objectType": "field",
+      "value": "8282-4611-4229",
+      "pageIndex": 0,
+      "rectangle": [0.0, 0.0, 0.0, 0.0]
+    },
+    { "name": "currency", "objectType": "field", "value": "USD" },
+    {
+      "objectType": "table",
+      "name": "table1",
+      "rows": [
+        {
+          "description": { "pageIndex": 0, "value": "G Suite Basic: Usage" },
+          "interval": { "pageIndex": 0, "value": "Jan 1 - Jan 31" },
+          "quantity": { "pageIndex": 0, "value": 5 },
+          "amount": { "pageIndex": 0, "value": 25.0 }
+        }
+      ]
+    }
+  ],
+  "elapsed": 0.011421299999999999,
+  "templateName": "Google Invoice",
+  "templateVersion": "4",
+  "timestamp": "2022-06-08T06:22:07"
+}
