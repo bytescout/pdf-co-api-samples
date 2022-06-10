@@ -20,6 +20,7 @@
 \Image To PDF API
 \Manage Background Jobs
 \MISC Account Related
+\PDF Attachments
 \PDF Classifier
 \PDF Create Fillable PDF Forms
 \PDF Delete Pages
@@ -550,6 +551,22 @@
 \Manage Background Jobs\Python\Check Job Status
 \MISC Account Related\cURL
 \MISC Account Related\cURL\Check Credit Balance
+\PDF Attachments\C#
+\PDF Attachments\cURL
+\PDF Attachments\Java
+\PDF Attachments\JavaScript
+\PDF Attachments\PHP
+\PDF Attachments\PowerShell
+\PDF Attachments\Python
+\PDF Attachments\C#\Extract PDF Attachments From URL
+\PDF Attachments\cURL\Extract PDF Attachments From URL
+\PDF Attachments\Java\Extract PDF Attachments From URL
+\PDF Attachments\JavaScript\Extract PDF Attachments From Uploaded File (Node.js) - Async API
+\PDF Attachments\JavaScript\Extract PDF Attachments From URL (Node.js)
+\PDF Attachments\PHP\Extract PDF Attachments Asynchronously
+\PDF Attachments\PHP\Extract PDF Attachments From Uploaded File
+\PDF Attachments\PowerShell\Extract PDF Attachments From URL
+\PDF Attachments\Python\Extract PDF Attachments From URL
 \PDF Classifier\C#
 \PDF Classifier\cURL
 \PDF Classifier\Java
