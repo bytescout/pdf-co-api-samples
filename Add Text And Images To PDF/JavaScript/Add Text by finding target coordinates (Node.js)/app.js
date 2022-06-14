@@ -15,6 +15,9 @@ var https = require("https");
 var path = require("path");
 var fs = require("fs");
 
+// Visit Knowledgebase for adding Text Macros to PDF 
+// https://apidocs.pdf.co/kb/Fill%20PDF%20and%20Add%20Text%20or%20Images%20to%20PDF/macros
+
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co
 const API_KEY = "*****************************";

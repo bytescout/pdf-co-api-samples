@@ -84,12 +84,18 @@
 \Add Text And Images To PDF\JavaScript\Add Image to Existing PDF (jQuery)
 \Add Text And Images To PDF\JavaScript\Add Image to Existing PDF (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Image to Existing PDF Base64 (Node.js)
+\Add Text And Images To PDF\JavaScript\Add Page Numbers and Page Count to Existing PDF (Node.js)
+\Add Text And Images To PDF\JavaScript\Add Template Text With Data to Existing PDF (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Text by finding target coordinates (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Text to Existing PDF (jQuery)
 \Add Text And Images To PDF\JavaScript\Add Text to Existing PDF (Node.js)
 \Add Text And Images To PDF\JavaScript\Add Text to Existing PDF Base64 (Node.js)
+\Add Text And Images To PDF\JavaScript\Add Text With Line Breaks to Existing PDF (Node.js)
+\Add Text And Images To PDF\PHP\Add Page Numbers and Page Count to Existing PDF
+\Add Text And Images To PDF\PHP\Add Template Text With Data to Existing PDF
 \Add Text And Images To PDF\PHP\Add Text Image to PDF Simplified
 \Add Text And Images To PDF\PHP\Add Text Images to PDF
+\Add Text And Images To PDF\PHP\Add Text With Line Breaks to Existing PDF
 \Add Text And Images To PDF\PowerShell\Add Image by finding target coordinates
 \Add Text And Images To PDF\PowerShell\Add Images to Existing PDF
 \Add Text And Images To PDF\PowerShell\Add Text by finding target coordinates

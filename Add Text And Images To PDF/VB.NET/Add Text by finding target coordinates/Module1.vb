@@ -15,6 +15,9 @@ Imports System.Net
 Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 
+' Visit Knowledgebase for adding Text Macros to PDF 
+' https://apidocs.pdf.co/kb/Fill%20PDF%20and%20Add%20Text%20or%20Images%20to%20PDF/macros
+
 Module Module1
 
     ' The authentication key (API Key).

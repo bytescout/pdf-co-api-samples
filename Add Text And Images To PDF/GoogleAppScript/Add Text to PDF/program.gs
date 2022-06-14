@@ -1,3 +1,6 @@
+// Visit Knowledgebase for adding Text Macros to PDF 
+// https://apidocs.pdf.co/kb/Fill%20PDF%20and%20Add%20Text%20or%20Images%20to%20PDF/macros
+
 // Handle PDF.co Menu on Google Sheet Open Event
 function onOpen() {
   var spreadsheet = SpreadsheetApp.getActive();
