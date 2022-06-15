@@ -518,6 +518,7 @@
 \Image To PDF API\PHP
 \Image To PDF API\PowerShell
 \Image To PDF API\Python
+\Image To PDF API\Salesforce
 \Image To PDF API\VB.NET
 \Image To PDF API\Zapier
 \Image To PDF API\C#\Convert Images To PDF From Uploaded Files
@@ -537,6 +538,8 @@
 \Image To PDF API\Python\Convert Images To PDF From Uploaded Files
 \Image To PDF API\Python\Convert Images To PDF From URLs
 \Image To PDF API\Python\Convert Images To PDF From URLs Asynchronously
+\Image To PDF API\Salesforce\Convert Images To PDF From Uploaded Files
+\Image To PDF API\Salesforce\Convert Images To PDF From Url
 \Image To PDF API\VB.NET\Convert Images To PDF From Uploaded Files
 \Image To PDF API\VB.NET\Convert Images To PDF From URLs
 \Image To PDF API\VB.NET\Convert Images To PDF From URLs Asynchronously
