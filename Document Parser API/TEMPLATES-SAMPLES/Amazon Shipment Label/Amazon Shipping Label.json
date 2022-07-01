@@ -1,0 +1,111 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1656592085864,
+      "objectType": "field",
+      "name": "Barcode",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          22.69731746143617,
+          174.2746749377424,
+          372.36758501950357,
+          161.77950956484764
+        ],
+        "pageIndex": 0,
+        "expression": "$$Barcode:QRcode,Code128"
+      }
+    },
+    {
+      "id": 1656592158951,
+      "objectType": "field",
+      "name": "Ship From",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          14.473651714539006,
+          67.73694912674515,
+          207.89427008156028,
+          84.17795619634349
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1656592193527,
+      "objectType": "field",
+      "name": "Ship To",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          279.27568876462766,
+          68.39458940952909,
+          223.02581505585107,
+          83.52031591355956
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1656592085864,
+      "objectType": "field",
+      "name": "Barcode",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          22.69731746143617,
+          174.2746749377424,
+          372.36758501950357,
+          161.77950956484764
+        ],
+        "pageIndex": 0,
+        "expression": "$$Barcode:QRcode,Code128"
+      }
+    },
+    {
+      "id": 1656592158951,
+      "objectType": "field",
+      "name": "Ship From",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          14.473651714539006,
+          67.73694912674515,
+          207.89427008156028,
+          84.17795619634349
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1656592193527,
+      "objectType": "field",
+      "name": "Ship To",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          279.27568876462766,
+          68.39458940952909,
+          222.3679217960993,
+          83.52031591355956
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "templateName": "Amazon Shipping Label",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
