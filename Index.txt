@@ -615,6 +615,14 @@
 \PDF Delete Pages\PowerShell
 \PDF Delete Pages\Python
 \PDF Delete Pages\Salesforce
+\PDF Delete Pages\C#\Delete Pages From PDF
+\PDF Delete Pages\cURL\Delete Pages From PDF
+\PDF Delete Pages\Java\Delete Pages From PDF
+\PDF Delete Pages\JavaScript\Delete Pages From PDF
+\PDF Delete Pages\PHP\Delete Pages From PDF
+\PDF Delete Pages\PowerShell\Delete Pages From PDF
+\PDF Delete Pages\Python\Delete Pages From PDF
+\PDF Delete Pages\Salesforce\Delete Pages From PDF
 \PDF Fill PDF Forms\C#
 \PDF Fill PDF Forms\cURL
 \PDF Fill PDF Forms\Java
