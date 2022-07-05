@@ -1,0 +1,164 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1642009829923,
+      "objectType": "field",
+      "name": "Portfolio Number",
+      "fieldProperties": {
+        "fieldType": "structure",
+        "pageIndex": 0,
+        "structureCoordinates": {
+          "x": 5,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 1642009856843,
+      "objectType": "field",
+      "name": "Corporate Address",
+      "fieldProperties": {
+        "fieldType": "structure",
+        "pageIndex": 0,
+        "structureCoordinates": {
+          "x": 5,
+          "y": 1
+        }
+      }
+    },
+    {
+      "id": 1642009989520,
+      "objectType": "table",
+      "name": "Investment Table",
+      "tableProperties": {
+        "start": {
+          "expression": "Equities - Equity investments",
+          "regex": true
+        },
+        "end": {
+          "expression": "Subtotal",
+          "regex": true
+        },
+        "left": 30,
+        "right": 760,
+        "columns": [
+          {
+            "x": 30,
+            "name": "number",
+            "dataType": "string"
+          },
+          {
+            "x": 112,
+            "name": "description",
+            "dataType": "string"
+          },
+          {
+            "x": 260,
+            "name": "durationYield",
+            "dataType": "string"
+          },
+          {
+            "x": 375,
+            "name": "costPrice",
+            "dataType": "string"
+          },
+          {
+            "x": 453,
+            "name": "exchangeRate",
+            "dataType": "string"
+          },
+          {
+            "x": 547,
+            "name": "marketGain",
+            "dataType": "string"
+          },
+          {
+            "x": 630,
+            "name": "accruedInterest",
+            "dataType": "string"
+          },
+          {
+            "x": 723,
+            "name": "ga",
+            "dataType": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1642009829923,
+      "objectType": "field",
+      "name": "Portfolio Number",
+      "fieldProperties": {
+        "fieldType": "structure",
+        "pageIndex": 0,
+        "structureCoordinates": {
+          "x": 5,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 1642009856843,
+      "objectType": "field",
+      "name": "Corporate Address",
+      "fieldProperties": {
+        "fieldType": "structure",
+        "pageIndex": 0,
+        "structureCoordinates": {
+          "x": 5,
+          "y": 1
+        }
+      }
+    },
+    {
+      "id": 1642009989520,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Investment Tabl",
+      "tableProperties": {
+        "start": {
+          "expression": "{{AnySymbol}}",
+          "regex": true
+        },
+        "end": {
+          "expression": "{{EndOfPage}}",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<Column1>{{SentenceWithSingleSpaces}}){{Spaces}}(?<Column2>{{SentenceWithSingleSpaces}})(?<Column3>{{Anything}}){{LineEnd2}}",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string"
+          },
+          {
+            "name": "Column2",
+            "dataType": "string"
+          },
+          {
+            "name": "Column3",
+            "dataType": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "templateName": "Sample Bank Statement Template",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
