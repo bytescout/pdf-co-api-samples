@@ -358,6 +358,7 @@
 \Document Parser API\TEMPLATES-SAMPLES\Invoice table with some empty columns
 \Document Parser API\TEMPLATES-SAMPLES\Invoice with few line items in EUR
 \Document Parser API\TEMPLATES-SAMPLES\Invoice with line items in bordered table
+\Document Parser API\TEMPLATES-SAMPLES\JPMorgan Chase Statement
 \Document Parser API\TEMPLATES-SAMPLES\Key Value Fields From Echocardiogram Report
 \Document Parser API\TEMPLATES-SAMPLES\ManyChat Invoice
 \Document Parser API\TEMPLATES-SAMPLES\Multiline Items Without Borders

@@ -1,0 +1,495 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1657277421205,
+      "objectType": "field",
+      "name": "Primary Account",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Primary{{Spaces}}Account{{Spaces}}(?<value>{{Digits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657277547321,
+      "objectType": "field",
+      "name": "Name",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "(?<value>(M|MR)S{{Spaces}}{{SentenceWithSingleSpaces}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657277815676,
+      "objectType": "field",
+      "name": "Period",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "(?<value>{{SmartDate}}{{Spaces}}through{{Spaces}}{{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657277872926,
+      "objectType": "field",
+      "name": "Beginning Balance",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Beginning Balance{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657277926324,
+      "objectType": "field",
+      "name": "Deposits and Additions",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Deposits and Additions{{Spaces}}{{Digits}}{{Spaces}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657278041057,
+      "objectType": "field",
+      "name": "Checks Paid",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Checks Paid{{Spaces}}{{Digits}}{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657278087204,
+      "objectType": "field",
+      "name": "Other Withdrawals, Fees & Charges",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Other Withdrawals, Fees & Charges{{Spaces}}{{Digits}}{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657278277859,
+      "objectType": "field",
+      "name": "Ending Balance",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Ending Balance{{Spaces}}{{Digits}}{{Spaces}}{{Dollar}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657278693427,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Deposits and Additions Table",
+      "tableProperties": {
+        "start": {
+          "expression": "DEPOSITS AND ADDITIONS",
+          "regex": true
+        },
+        "end": {
+          "expression": "Total{{Spaces}}Deposits{{Spaces}}and{{Spaces}}Additions{{Spaces}}{{Dollar}}{{Number}}",
+          "regex": true
+        },
+        "left": 59,
+        "right": 526,
+        "columns": [
+          {
+            "x": 59,
+            "name": "Date",
+            "dataType": "string"
+          },
+          {
+            "x": 116,
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "x": 456,
+            "name": "Amount",
+            "dataType": "string"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1657279374117,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Checks Paid Table",
+      "tableProperties": {
+        "start": {
+          "expression": "CHECK NUMBER{{Spaces}}DESCRIPTION",
+          "regex": true
+        },
+        "end": {
+          "expression": "Total Checks Paid",
+          "regex": true
+        },
+        "left": 56,
+        "right": 523,
+        "columns": [
+          {
+            "x": 56,
+            "name": "Check Number",
+            "dataType": "string"
+          },
+          {
+            "x": 138,
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "x": 396,
+            "name": "Date Paid",
+            "dataType": "string"
+          },
+          {
+            "x": 478,
+            "name": "Amount",
+            "dataType": "string"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1657279651250,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Other Withdrawals Fees and Charges Table",
+      "tableProperties": {
+        "start": {
+          "expression": "OTHER WITHDRAWALS, FEES & CHARGES",
+          "regex": true
+        },
+        "end": {
+          "expression": "Total Other Withdrawals, Fees & Charges",
+          "regex": true
+        },
+        "left": 55,
+        "right": 517,
+        "columns": [
+          {
+            "x": 55,
+            "name": "Date",
+            "dataType": "string"
+          },
+          {
+            "x": 92,
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "x": 450,
+            "name": "Amount",
+            "dataType": "string"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1657280169288,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Daily Ending Balance Table",
+      "tableProperties": {
+        "start": {
+          "expression": "DAILY ENDING BALANCE",
+          "regex": true
+        },
+        "end": {
+          "expression": "SERVICE CHARGE SUMMARY",
+          "regex": true
+        },
+        "left": 58,
+        "right": 524,
+        "columns": [
+          {
+            "x": 58,
+            "name": "Date1",
+            "dataType": "string"
+          },
+          {
+            "x": 178,
+            "name": "Amount1",
+            "dataType": "string"
+          },
+          {
+            "x": 350,
+            "name": "Date2",
+            "dataType": "string"
+          },
+          {
+            "x": 430,
+            "name": "Amount2",
+            "dataType": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1657277421205,
+      "objectType": "field",
+      "name": "Primary Account",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Primary{{Spaces}}Account{{Spaces}}(?<value>{{Digits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657277547321,
+      "objectType": "field",
+      "name": "Name",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "(?<value>(M|MR)S{{Spaces}}{{SentenceWithSingleSpaces}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657277815676,
+      "objectType": "field",
+      "name": "Period",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "(?<value>{{SmartDate}}{{Spaces}}through{{Spaces}}{{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657277872926,
+      "objectType": "field",
+      "name": "Beginning Balance",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Beginning Balance{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657277926324,
+      "objectType": "field",
+      "name": "Deposits and Additions",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Deposits and Additions{{Spaces}}{{Digits}}{{Spaces}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657278041057,
+      "objectType": "field",
+      "name": "Checks Paid",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Checks Paid{{Spaces}}{{Digits}}{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657278087204,
+      "objectType": "field",
+      "name": "Other Withdrawals, Fees & Charges",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Other Withdrawals, Fees & Charges{{Spaces}}{{Digits}}{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657278277859,
+      "objectType": "field",
+      "name": "Ending Balance",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Ending Balance{{Spaces}}{{Digits}}{{Spaces}}{{Dollar}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657278693427,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Deposits and Additions Table",
+      "tableProperties": {
+        "start": {
+          "expression": "DEPOSITS AND ADDITIONS",
+          "regex": true
+        },
+        "end": {
+          "expression": "Total{{Spaces}}Deposits{{Spaces}}and{{Spaces}}Additions{{Spaces}}{{Dollar}}{{Number}}",
+          "regex": true
+        },
+        "left": 59,
+        "right": 526,
+        "columns": [
+          {
+            "x": 59,
+            "name": "Date",
+            "dataType": "string"
+          },
+          {
+            "x": 116,
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "x": 456,
+            "name": "Amount",
+            "dataType": "string"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1657279374117,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Checks Paid Table",
+      "tableProperties": {
+        "start": {
+          "expression": "CHECK NUMBER{{Spaces}}DESCRIPTION",
+          "regex": true
+        },
+        "end": {
+          "expression": "Total Checks Paid",
+          "regex": true
+        },
+        "left": 56,
+        "right": 523,
+        "columns": [
+          {
+            "x": 56,
+            "name": "Check Number",
+            "dataType": "string"
+          },
+          {
+            "x": 138,
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "x": 396,
+            "name": "Date Paid",
+            "dataType": "string"
+          },
+          {
+            "x": 478,
+            "name": "Amount",
+            "dataType": "string"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1657279651250,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Other Withdrawals Fees and Charges Table",
+      "tableProperties": {
+        "start": {
+          "expression": "OTHER WITHDRAWALS, FEES & CHARGES",
+          "regex": true
+        },
+        "end": {
+          "expression": "Total Other Withdrawals, Fees & Charges",
+          "regex": true
+        },
+        "left": 55,
+        "right": 517,
+        "columns": [
+          {
+            "x": 55,
+            "name": "Date",
+            "dataType": "string"
+          },
+          {
+            "x": 92,
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "x": 450,
+            "name": "Amount",
+            "dataType": "string"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1657280169288,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Daily Ending Balance Table",
+      "tableProperties": {
+        "start": {
+          "expression": "DAILY ENDING BALANCE",
+          "regex": true
+        },
+        "end": {
+          "expression": "SERVICE CHARGE SUMMARY",
+          "regex": true
+        },
+        "left": 58,
+        "right": 524,
+        "columns": [
+          {
+            "x": 58,
+            "name": "Date1",
+            "dataType": "string"
+          },
+          {
+            "x": 178,
+            "name": "Amount1",
+            "dataType": "string"
+          },
+          {
+            "x": 350,
+            "name": "Date2",
+            "dataType": "string"
+          },
+          {
+            "x": 430,
+            "name": "Amount",
+            "dataType": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "templateName": "Chase Bank Statement",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
