@@ -1,0 +1,246 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1657269535358,
+      "objectType": "field",
+      "name": "Account Number",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Account Number:{{Spaces}}(?<value>{{Digits}} {{Digits}} {{Digits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657269764311,
+      "objectType": "field",
+      "name": "Name",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          59.13965087281795,
+          351.7456647398844,
+          215.95511221945137,
+          28.231213872832367
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1657269576925,
+      "objectType": "field",
+      "name": "Period",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "for{{Spaces}}(?<value>{{SmartDate}} to {{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657269955995,
+      "objectType": "field",
+      "name": "Beginning Balance",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Beginning balance on {{SmartDate}}{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270026447,
+      "objectType": "field",
+      "name": "Deposits and other additions",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Deposits and other additions{{Spaces}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270065950,
+      "objectType": "field",
+      "name": "ATM and debit card subtractions",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "ATM and debit card subtractions{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270163709,
+      "objectType": "field",
+      "name": "Other subtractions",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Other subtractions{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270195420,
+      "objectType": "field",
+      "name": "Checks",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Checks{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270218615,
+      "objectType": "field",
+      "name": "Service fees",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Service fees{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270246237,
+      "objectType": "field",
+      "name": "Ending Balance",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Ending balance on {{SmartDate}}{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1657269535358,
+      "objectType": "field",
+      "name": "Account Number",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Account Number:{{Spaces}}(?<value>{{Digits}} {{Digits}} {{Digits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657269576925,
+      "objectType": "field",
+      "name": "Period",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "for{{Spaces}}(?<value>{{SmartDate}} to {{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657269764311,
+      "objectType": "field",
+      "name": "Name",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          59.13965087281795,
+          351.7456647398844,
+          215.95511221945137,
+          28.231213872832367
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1657269955995,
+      "objectType": "field",
+      "name": "Beginning Balance",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Beginning balance on {{SmartDate}}{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270026447,
+      "objectType": "field",
+      "name": "Deposits and other additions",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Deposits and other additions{{Spaces}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270065950,
+      "objectType": "field",
+      "name": "ATM and debit card subtractions",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "ATM and debit card subtractions{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270163709,
+      "objectType": "field",
+      "name": "Other subtractions",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Other subtractions{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270195420,
+      "objectType": "field",
+      "name": "Checks",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Checks{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270218615,
+      "objectType": "field",
+      "name": "Service fees",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Service fees{{Spaces}}(?<value>(-)?{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657270246237,
+      "objectType": "field",
+      "name": "Ending Balance",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Ending balance on {{SmartDate}}{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string"
+      }
+    }
+  ],
+  "templateName": "Bank of America Core Checking Template",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}

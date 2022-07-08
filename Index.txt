@@ -350,6 +350,7 @@
 \Document Parser API\SharePoint\Parse Invoice Information\VisualWebPart1
 \Document Parser API\SharePoint\Parse Invoice Information\Features\Feature1
 \Document Parser API\TEMPLATES-SAMPLES\Amazon Shipment Label
+\Document Parser API\TEMPLATES-SAMPLES\Bank of America Statement
 \Document Parser API\TEMPLATES-SAMPLES\Blood Test Results to JSON
 \Document Parser API\TEMPLATES-SAMPLES\Census table from life and annuity quote request pdf
 \Document Parser API\TEMPLATES-SAMPLES\Create Custom Template
