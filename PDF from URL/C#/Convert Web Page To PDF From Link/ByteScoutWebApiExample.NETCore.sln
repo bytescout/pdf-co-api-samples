@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteScoutWebApiExample.NETCore", "ByteScoutWebApiExample.NETCore.csproj", "{1D89D036-00AF-4EAC-8C12-40527F1333CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D89D036-00AF-4EAC-8C12-40527F1333CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D89D036-00AF-4EAC-8C12-40527F1333CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D89D036-00AF-4EAC-8C12-40527F1333CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D89D036-00AF-4EAC-8C12-40527F1333CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D327B849-E374-4038-B701-BFB8E604FED9}
+	EndGlobalSection
+EndGlobal
