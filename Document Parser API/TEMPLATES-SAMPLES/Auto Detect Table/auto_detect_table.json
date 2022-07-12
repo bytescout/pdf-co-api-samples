@@ -1,0 +1,51 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1657631500842,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "AutoDetectTable1",
+      "tableProperties": {
+        "autoDetection": {
+          "tableIndex": 0,
+          "pageIndex": 0
+        },
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string"
+          },
+          {
+            "name": "Column2",
+            "dataType": "string"
+          },
+          {
+            "name": "Column3",
+            "dataType": "string"
+          }
+        ],
+        "filters": [
+          {
+            "action": "exclude",
+            "expression": "TEST EXPRESSION ABCDEF TO EXCLUDE",
+            "regex": true
+          }
+        ]
+      }
+    }
+  ],
+  "oldObjects": [],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
