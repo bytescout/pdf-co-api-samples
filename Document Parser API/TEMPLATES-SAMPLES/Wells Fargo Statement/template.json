@@ -1,0 +1,141 @@
+﻿{
+  "templateName": "Wells Fargo Statement Template",
+  "templateVersion": "4",
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": []
+  },
+  "objects": [
+    {
+      "name": "Account Number",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Account number:{{Spaces}}(?<value>{{Digits}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Name",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "(?<value>(M|MR)S{{Spaces}}{{SentenceWithSingleSpaces}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Period",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "({{SmartDate}}{{Spaces}}-{{Spaces}}{{SmartDate}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Beginning Balance",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Beginning balance on {{Digits}}/{{Digits}}{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Deposits/Credits",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Deposits/Credits{{Spaces}}(?<value>{{Number}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Withdrawals/Debits",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Withdrawals/Debits{{Spaces}}(-)?{{Spaces}}(?<value>{{Number}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Ending Balance",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Ending balance on {{Digits}}/{{Digits}}{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Average Ledger Balance",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Average ledger balance this period{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Monthly Service Fee",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "{{Dollar}}{{Number}}{{Spaces}}You paid {{Dollar}}(?<value>{{Number}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Transaction History",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "expression": "Credits{{Spaces}}Debits{{Spaces}}balance",
+          "regex": true
+        },
+        "end": {
+          "expression": "Ending balance on {{Digits}}/{{Digits}}{{Spaces}}{{Number}}",
+          "regex": true
+        },
+        "left": 41.0,
+        "right": 577.0,
+        "columns": [
+          {
+            "x": 41.0,
+            "name": "Date",
+            "dataType": "string"
+          },
+          {
+            "x": 99.0,
+            "name": "Check Number",
+            "dataType": "string"
+          },
+          {
+            "x": 147.0,
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "x": 399.0,
+            "name": "Deposits Credits",
+            "dataType": "decimal"
+          },
+          {
+            "x": 460.0,
+            "name": "Withdrawals Debits",
+            "dataType": "decimal"
+          },
+          {
+            "x": 526.0,
+            "name": "Ending daily balance",
+            "dataType": "decimal"
+          }
+        ],
+        "rowMergingRule": "byBorders",
+        "multipage": true
+      }
+    }
+  ]
+}
