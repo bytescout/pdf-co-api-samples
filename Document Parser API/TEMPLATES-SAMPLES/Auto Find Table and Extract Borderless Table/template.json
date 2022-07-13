@@ -1,0 +1,171 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1657705327279,
+      "objectType": "field",
+      "name": "Company Name",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "$$funcFindCompany",
+        "dataType": "string"
+      }
+    },
+    {
+      "id": 1657705404665,
+      "objectType": "field",
+      "name": "Invoice No",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice No:{{Spaces}}(?<value>{{Digits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657705435538,
+      "objectType": "field",
+      "name": "Date",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Date:{{Spaces}}(?<value>{{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657705488574,
+      "objectType": "field",
+      "name": "Total Due",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "TOTAL DUE{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657705629768,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Table Items",
+      "tableProperties": {
+        "autoDetection": {
+          "tableIndex": 0,
+          "pageIndex": 0
+        },
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string"
+          },
+          {
+            "name": "Column2",
+            "dataType": "string"
+          },
+          {
+            "name": "Column3",
+            "dataType": "string"
+          }
+        ],
+        "filters": [
+          {
+            "action": "exclude",
+            "expression": "TOTAL DUE",
+            "regex": true
+          }
+        ]
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1657705327279,
+      "objectType": "field",
+      "name": "Company Name",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "$$funcFindCompany",
+        "dataType": "string"
+      }
+    },
+    {
+      "id": 1657705404665,
+      "objectType": "field",
+      "name": "Invoice No",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice No:{{Spaces}}(?<value>{{Digits}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657705435538,
+      "objectType": "field",
+      "name": "Date",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Date:{{Spaces}}(?<value>{{SmartDate}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657705488574,
+      "objectType": "field",
+      "name": "Total Due",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "TOTAL DUE{{Spaces}}{{Dollar}}(?<value>{{Number}})",
+        "dataType": "string",
+        "regex": true
+      }
+    },
+    {
+      "id": 1657705629768,
+      "objectType": "table",
+      "tableType": "searchBased",
+      "name": "Table Items",
+      "tableProperties": {
+        "autoDetection": {
+          "tableIndex": 0,
+          "pageIndex": 0
+        },
+        "columns": [
+          {
+            "name": "Column1",
+            "dataType": "string"
+          },
+          {
+            "name": "Column2",
+            "dataType": "string"
+          },
+          {
+            "name": "Column3",
+            "dataType": "string"
+          }
+        ],
+        "filters": [
+          {
+            "action": "exclude",
+            "expression": "TOTAL DU",
+            "regex": true
+          }
+        ]
+      }
+    }
+  ],
+  "templateName": "Automatically find borderless table",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
