@@ -381,6 +381,7 @@
 \Document Parser API\TEMPLATES-SAMPLES\Statement of Assets
 \Document Parser API\TEMPLATES-SAMPLES\Tax Invoice with Line Items
 \Document Parser API\TEMPLATES-SAMPLES\Total and Vat tax
+\Document Parser API\TEMPLATES-SAMPLES\US Postal Shipping Label
 \Document Parser API\TEMPLATES-SAMPLES\Wells Fargo Statement
 \Document Parser API\VB.NET\Blood Test Results to JSON
 \Document Parser API\VB.NET\Census table from life and annuity quote request pdf

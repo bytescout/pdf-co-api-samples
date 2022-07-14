@@ -1,0 +1,51 @@
+{
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "culture": "en-US",
+  "objects": [
+    {
+      "id": 1657806532476,
+      "objectType": "field",
+      "name": "BarcodeFromRectangle1",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          20.072899788501026,
+          328.86594134875344,
+          248.5497297340862,
+          63.06210703282548
+        ],
+        "pageIndex": 0,
+        "expression": "$$Barcode:QRcode,Code128"
+      }
+    }
+  ],
+  "oldObjects": [
+    {
+      "id": 1657806532476,
+      "objectType": "field",
+      "name": "BarcodeFromRectangle1",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          20.072899788501026,
+          328.86594134875344,
+          247.9593503285421,
+          63.06210703282548
+        ],
+        "pageIndex": 0,
+        "expression": "$$Barcode:QRcode,Code128"
+      }
+    }
+  ],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
+}
