@@ -591,13 +591,21 @@
 \PDF Classifier\PHP
 \PDF Classifier\PowerShell
 \PDF Classifier\C#\Classify PDF From URL
+\PDF Classifier\C#\Classify PDF from URL with Custom Rules
 \PDF Classifier\cURL\Classify PDF From URL
+\PDF Classifier\cURL\Classify PDF from URL with Custom Rules
 \PDF Classifier\Java\Classify PDF From URL
+\PDF Classifier\Java\Classify PDF from URL with Custom Rules
 \PDF Classifier\JavaScript\Classify PDF From URL (jQuery)
 \PDF Classifier\JavaScript\Classify PDF From URL (nodeJs)
+\PDF Classifier\JavaScript\Classify PDF from URL with Custom Rules (jQuery)
+\PDF Classifier\JavaScript\Classify PDF from URL with Custom Rules (nodeJs)
 \PDF Classifier\PHP\Classify PDF From URL
+\PDF Classifier\PHP\Classify PDF from URL with Custom Rules
+\PDF Classifier\PowerShell\Classify PDF From URL
+\PDF Classifier\PowerShell\Classify PDF From URL with Custom Rules
 \PDF Classifier\PowerShell\Classify Uploaded PDF Asynchronously
-\PDF Classifier\PowerShell\Classify Uploaded PDF From URL
+\PDF Classifier\PowerShell\Classify Uploaded PDF Asynchronously with Custom Rules
 \PDF Create Fillable PDF Forms\C#
 \PDF Create Fillable PDF Forms\cURL
 \PDF Create Fillable PDF Forms\Java

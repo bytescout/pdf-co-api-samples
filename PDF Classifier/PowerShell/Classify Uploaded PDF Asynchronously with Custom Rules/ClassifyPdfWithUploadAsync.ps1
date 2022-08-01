@@ -4,14 +4,18 @@ $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 
 $InputFile = "$scriptDir\sample.pdf"
 
+$RulesSpreadsheet = "$scriptDir\rules.csv"
+
 function main() 
 {
+    $rules = Get-Content -Path $RulesSpreadsheet | Out-String
+
     Write-Host "Uploading document `"$InputFile`"" -ForegroundColor Green
     $fileUrl = UploadFile $InputFile
     
     if ($null -ne $fileUrl) {
         Write-Host "Processing document..."
-        $result = ClassifyDocument $fileUrl
+        $result = ClassifyDocument $fileUrl $rules
         if ($null -ne $result) {
             Write-Host "Detected classes:"
             foreach ($elem in $result.classes) {
@@ -21,19 +25,24 @@ function main()
     }
 }
 
-function ClassifyDocument($fileUrl)
+function ClassifyDocument($fileUrl, $rules)
 {
     # Prepare URL for `pdf/classifier` API call
     $query = "$APIBaseURL/pdf/classifier"
     # Prepare POST request body
     $body = @{
         "async" = "true";
-        "url" = $fileUrl
+        "url" = $fileUrl;
+        "rulescsv" = $rules;
+        "caseSensitive" = $false
     } | ConvertTo-Json
 
     $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
     $headers.Add("Content-Type", "application/json")
     $headers.Add("x-api-key", "YOUR_PDFCO_API_KEY")
+
+    # Note, rules can also be passed as URL of file `rulesCsvUrl` param instead of `rulesCsv`.
+    # Rules can be a spreadhset in CSV, XLS, XLSX, ODS format.
 
     try {
         # Execute request

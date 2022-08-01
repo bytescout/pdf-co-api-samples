@@ -11,24 +11,30 @@
 //*******************************************************************************************//
 
 
-var settings = {
-    "url": "https://api.pdf.co/v1/pdf/classifier",
-    "method": "POST",
-    "timeout": 0,
-    "headers": {
-            "Content-Type": "application/json",
-            "x-api-key": "YOUR_PDFCO_API_KEY"
-    },
-    "data": JSON.stringify({
-      "url": "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/document-parser/sample-invoice.pdf",
-      "async": false,
-      "encrypt": "false",
-      "inline": "true",
-      "password": "",
-      "profiles": ""
-    }),
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("x-api-key", "YOUR_PDFCO_API_KEY");
+
+// You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
+var raw = JSON.stringify({
+ "url": "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/document-parser/sample-invoice.pdf",
+ "rulescsv": "Amazon,Amazon Web Services Invoice|Amazon CloudFront\nDigital Ocean,DigitalOcean|DOInvoice\nAcme,ACME Inc.|1540 Long Street, Jacksonville, 32099",
+ "caseSensitive": "true",
+ "async": false,
+ "encrypt": "false",
+ "inline": "true",
+ "password": "",
+ "profiles": ""
+});
+
+var requestOptions = {
+	method: 'POST',
+	headers: myHeaders,
+	body: raw,
+	redirect: 'follow'
 };
 
-$.ajax(settings).done(function (response) {
-    console.log(response);
-});
+fetch("https://api.pdf.co/v1/pdf/classifier", requestOptions)
+	.then(response => response.text())
+	.then(result => console.log(result))
+	.catch(error => console.log('error', error));

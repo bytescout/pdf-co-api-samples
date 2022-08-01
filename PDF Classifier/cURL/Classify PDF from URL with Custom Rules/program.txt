@@ -3,6 +3,8 @@ curl --location --request POST 'https://api.pdf.co/v1/pdf/classifier' \
 --header 'x-api-key: YOUR_PDFCO_API_KEY' \
 --data-raw '{
     "url": "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/document-parser/sample-invoice.pdf",
+    "rulescsv": "Amazon,Amazon Web Services Invoice|Amazon CloudFront\nDigital Ocean,DigitalOcean|DOInvoice\nAcme,ACME Inc.|1540 Long Street, Jacksonville, 32099",
+    "caseSensitive": "true",
     "async": false,
     "encrypt": "false",
     "inline": "true",
