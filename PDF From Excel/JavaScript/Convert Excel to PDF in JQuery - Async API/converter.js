@@ -34,7 +34,7 @@ $(document).on("click", "#submit", function () {
     $("#status").html('Requesting presigned url for upload... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
     $.ajax({
-        url: 'https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.pdf&encrypt=true',
+        url: `https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.${$("#inputFile").val().split('.').pop().toLowerCase()}&encrypt=true`,
         type: 'GET',
         headers: { 'x-api-key': apiKey }, // passing our api key
         success: function (result) {
@@ -42,6 +42,8 @@ $(document).on("click", "#submit", function () {
             if (result['error'] === false) {
 
                 var presignedUrl = result['presignedUrl']; // reading provided presigned url to put our content into
+                var accessUrl = result['url']; // reading output url that will indicate uploaded file
+
                 $("#status").html('Uploading... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
                 $.ajax({
@@ -53,9 +55,15 @@ $(document).on("click", "#submit", function () {
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
                         $.ajax({
-                            url: 'https://api.pdf.co/v1/xls/convert/to/' + toType + '?url=' + presignedUrl + '&encrypt=true&inline=' + isInline + '&async=True',
+                            url: 'https://api.pdf.co/v1/xls/convert/to/' + toType,
                             type: 'POST',
-                            headers: { 'x-api-key': apiKey },
+                            headers: { 'x-api-key': apiKey, "Content-Type": "application/json" },
+                            data: JSON.stringify({
+                                "url": accessUrl,
+                                encrypt: true,
+                                inline: isInline,
+                                async: true
+                            }),
                             success: function (result) {
                                 if (result.error) {
                                     $("#status").text('Error uploading file.');

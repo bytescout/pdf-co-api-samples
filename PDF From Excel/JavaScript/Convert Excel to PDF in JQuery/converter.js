@@ -32,7 +32,7 @@ $(document).on("click", "#submit", function () {
     $("#status").html('Requesting presigned url for upload... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
     $.ajax({
-        url: 'https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.pdf&encrypt=true',
+        url: `https://api.pdf.co/v1/file/upload/get-presigned-url?name=test.${$("#inputFile").val().split('.').pop().toLowerCase()}&encrypt=true`,
         type: 'GET',
         headers: { 'x-api-key': apiKey }, // passing our api key
         success: function (result) {
@@ -48,14 +48,18 @@ $(document).on("click", "#submit", function () {
                     type: 'PUT',
                     data: formData,
                     processData: false,
-                    success: function (result) {
+                    success: function () {
 
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
-
                         $.ajax({
-                            url: 'https://api.pdf.co/v1/xls/convert/to/' + toType + '?url=' + presignedUrl + '&encrypt=true&inline=' + isInline,
+                            url: 'https://api.pdf.co/v1/xls/convert/to/' + toType,
                             type: 'POST',
-                            headers: { 'x-api-key': apiKey },
+                            headers: { 'x-api-key': apiKey, "Content-Type": "application/json" },
+                            data: JSON.stringify({
+                                "url": accessUrl,
+                                "encrypt": true,
+                                "inline": isInline
+                            }),
                             success: function (result) {
 
                                 $("#status").text('done converting.');
