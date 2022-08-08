@@ -1254,40 +1254,58 @@
 \PDF To JSON API\C#\Advanced Conversion Options
 \PDF To JSON API\C#\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\C#\Convert PDF To JSON From Uploaded File
+\PDF To JSON API\C#\Convert PDF To JSON From Uploaded File (AI Powered)
 \PDF To JSON API\C#\Convert PDF To JSON From Uploaded File Asynchronously
+\PDF To JSON API\C#\Convert PDF To JSON From Uploaded File Asynchronously (AI Powered)
 \PDF To JSON API\C#\Convert PDF To JSON From URL
+\PDF To JSON API\C#\Convert PDF To JSON From URL (AI Powered)
 \PDF To JSON API\C#\Convert PDF To JSON From URL Asynchronously
-\PDF To JSON API\cURL\Advanced Conversion Options
+\PDF To JSON API\C#\Convert PDF To JSON From URL Asynchronously (AI Powered)
 \PDF To JSON API\cURL\Convert PDF To JSON
-\PDF To JSON API\cURL\Convert PDF To JSON From URL
+\PDF To JSON API\cURL\Convert PDF To JSON (AI Powered)
 \PDF To JSON API\Java\Advanced Conversion Options
 \PDF To JSON API\Java\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\Java\Convert PDF To JSON From Uploaded File
+\PDF To JSON API\Java\Convert PDF To JSON From Uploaded File (AI Powered)
 \PDF To JSON API\Java\Convert PDF To JSON From URL
+\PDF To JSON API\Java\Convert PDF To JSON From URL (AI Powered)
 \PDF To JSON API\JavaScript\Advanced Conversion Options
 \PDF To JSON API\JavaScript\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\JavaScript\Convert PDF To JSON From Uploaded File (Node.js)
+\PDF To JSON API\JavaScript\Convert PDF To JSON From Uploaded File (Node.js) (AI Powered)
 \PDF To JSON API\JavaScript\Convert PDF To JSON From Uploaded File (Node.js) - Async API
 \PDF To JSON API\JavaScript\Convert PDF To JSON From URL (Node.js)
+\PDF To JSON API\JavaScript\Convert PDF To JSON From URL (Node.js) (AI Powered)
 \PDF To JSON API\JavaScript\Convert PDF To JSON From URL (Node.js) - Async API
+\PDF To JSON API\JavaScript\Convert PDF To JSON From URL (Node.js) - Async API (AI Powered)
 \PDF To JSON API\JavaScript\Convert PDF To JSON in JQuery
 \PDF To JSON API\JavaScript\Convert PDF To JSON in JQuery - Async API
 \PDF To JSON API\PHP\Convert PDF To JSON Asynchronously
+\PDF To JSON API\PHP\Convert PDF To JSON Asynchronously (AI Powered)
 \PDF To JSON API\PHP\Convert PDF To JSON From Uploaded File
+\PDF To JSON API\PHP\Convert PDF To JSON From Uploaded File (AI Powered)
 \PDF To JSON API\PowerShell\Advanced Conversion Options
 \PDF To JSON API\PowerShell\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\PowerShell\Convert PDF To JSON From Uploaded File
+\PDF To JSON API\PowerShell\Convert PDF To JSON From Uploaded File (AI Powered)
 \PDF To JSON API\PowerShell\Convert PDF To JSON From URL
+\PDF To JSON API\PowerShell\Convert PDF To JSON From URL  (AI Powered)
 \PDF To JSON API\PowerShell\Convert PDF To JSON From URL Asynchronously
+\PDF To JSON API\PowerShell\Convert PDF To JSON From URL Asynchronously  (AI Powered)
 \PDF To JSON API\Python\Advanced Conversion Options
 \PDF To JSON API\Python\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\Python\Convert PDF To JSON From Uploaded File
+\PDF To JSON API\Python\Convert PDF To JSON From Uploaded File (AI Powered)
 \PDF To JSON API\Python\Convert PDF To JSON From Uploaded File Asynchronously
+\PDF To JSON API\Python\Convert PDF To JSON From Uploaded File Asynchronously (AI Powered)
 \PDF To JSON API\VB.NET\Advanced Conversion Options
 \PDF To JSON API\VB.NET\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\VB.NET\Convert PDF To JSON From Uploaded File
+\PDF To JSON API\VB.NET\Convert PDF To JSON From Uploaded File (AI Powered)
 \PDF To JSON API\VB.NET\Convert PDF To JSON From URL
+\PDF To JSON API\VB.NET\Convert PDF To JSON From URL (AI Powered)
 \PDF To JSON API\VB.NET\Convert PDF To JSON From URL Asynchronously
+\PDF To JSON API\VB.NET\Convert PDF To JSON From URL Asynchronously (AI Powered)
 \PDF To PNG\C#
 \PDF To PNG\cURL
 \PDF To PNG\Java
