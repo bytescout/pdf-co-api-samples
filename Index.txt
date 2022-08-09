@@ -304,6 +304,7 @@
 \Document Parser API\C#\Parse Simple Document
 \Document Parser API\C#\Parse Uploaded File
 \Document Parser API\C#\Parse Uploaded File Asynchronously
+\Document Parser API\C#\Parse Uploaded File Asynchronously (Using TemplateId)
 \Document Parser API\C#\Parse with OCR
 \Document Parser API\C#\Parsing and reading data from Airline Tickets
 \Document Parser API\C#\Parse and Generate HL7 Output\Src
