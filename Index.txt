@@ -486,6 +486,7 @@
 \File Upload\Put Upload File\PHP
 \File Upload\Put Upload File\PowerShell
 \File Upload\Put Upload File\Python
+\File Upload\Put Upload File\Salesforce
 \File Upload\Put Upload File\VB.NET
 \File Upload\Put Upload File\C#\Get Uploaded File URL
 \File Upload\Put Upload File\Java\Get Uploaded File URL
@@ -493,6 +494,7 @@
 \File Upload\Put Upload File\PHP\Get Uploaded File URL
 \File Upload\Put Upload File\PowerShell\Get Uploaded File URL
 \File Upload\Put Upload File\Python\Get Uploaded File URL
+\File Upload\Put Upload File\Salesforce\Get Uploaded File URL
 \File Upload\Put Upload File\VB.NET\Get Uploaded File URL
 \File Upload for Small Files (up to 50KB)\Upload Small File
 \File Upload for Small Files (up to 50KB)\Upload Small File from Base64
