@@ -480,6 +480,7 @@
 \File Upload\Generate Secure URL for Upload\PHP
 \File Upload\Generate Secure URL for Upload\PowerShell
 \File Upload\Generate Secure URL for Upload\Python
+\File Upload\Generate Secure URL for Upload\Salesforce
 \File Upload\Put Upload File\C#
 \File Upload\Put Upload File\Java
 \File Upload\Put Upload File\JavaScript

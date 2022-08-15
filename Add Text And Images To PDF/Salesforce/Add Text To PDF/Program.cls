@@ -3,7 +3,10 @@ public class Program {
     public static void fetchDataAndCreatePDF()
     {
         String API_KEY = '*****************************************';       
+
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
         string SourceFileUrl = 'https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-edit/sample.pdf';
+
         string Pages = '';
         string Password = '';
         String DestinationFile = 'result';

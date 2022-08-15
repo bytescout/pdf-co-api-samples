@@ -6,6 +6,8 @@ public class ImagesToPDF {
     {
         Map<string, Object> parameters = new Map<string, Object>();
         parameters.put('name', DestinationFileName);
+
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
         String SourceFileUrl = 'https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image1.png,https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/image-to-pdf/image2.jpg';
         parameters.put('url', SourceFileUrl);
         

@@ -6,7 +6,9 @@ public class DeletePagesFromPdf {
     
     public void deletePageFromPdf()
     {
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
         String jsonBody = '{ "url": "https://bytescout-com.s3.amazonaws.com/files/demo-files/cloud-api/pdf-split/sample.pdf", "pages": "1-2", "name": "result.pdf", "async": false }';
+
         Http http = new Http();
         HttpRequest request = new HttpRequest();            
         request.setHeader('x-api-key', API_KEY);

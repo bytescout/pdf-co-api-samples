@@ -6,7 +6,9 @@ public class SearchAndReplaceTextPdf {
     
     public void searchAndReplaceText()
     {
+        // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
         String jsonBody = '{ "url": "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-to-text/sample.pdf", "searchString": "Your Company Name", "replaceString": "XYZ LLC", "caseSensitive": true, "replacementLimit": 1, "pages": "", "password":"", "name": "finalFile", "async": false }';
+
         Http http = new Http();
         HttpRequest request = new HttpRequest();            
         request.setHeader('x-api-key', API_KEY);
