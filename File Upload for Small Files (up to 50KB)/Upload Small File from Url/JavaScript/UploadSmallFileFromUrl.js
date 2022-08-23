@@ -27,5 +27,6 @@ var options = {
 };
 request(options, function (error, response) {
   if (error) throw new Error(error);
-  console.log(response.body);
+  let data = JSON.parse(response.body);
+  console.log(data);
 });
