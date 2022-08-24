@@ -58,9 +58,7 @@ function process_mergeingPDFDocuments(inputPDFCell, resultUrlCell, pdfCoAPIKey) 
   
   // Prepare Payload
   var data = {
-    "async": false,
-    "encrypt": false,
-    "inline": true,
+    "async": true, // As we have large volumn of PDF files, Enabling async mode
     "name": `result_${uuidv4()}`, // Random unique name
     "url": pdfUrl
   };
@@ -83,16 +81,65 @@ function process_mergeingPDFDocuments(inputPDFCell, resultUrlCell, pdfCoAPIKey) 
   var pdfCoRespContent = pdfCoResponse.getContentText();
   var pdfCoRespJson = JSON.parse(pdfCoRespContent);
 
-  // Display Result
-  if(!pdfCoRespJson.error){
-    // Upload file to Google Drive
-    uploadFile(pdfCoRespJson.url);
-
-    // Update Cell with result URL
-    resultUrlCell.setValue(pdfCoRespJson.url);    
+  if(pdfCoRespJson.error){
+    resultUrlCell.setValue(pdfCoRespJson.message);    
   }
   else{
-    resultUrlCell.setValue(pdfCoRespJson.message);    
+    // Job Success Callback
+    const successCallbackFn = function(){
+      // Upload file to Google Drive
+      uploadFile(pdfCoRespJson.url);
+
+      // Update Cell with result URL
+      resultUrlCell.setValue(pdfCoRespJson.url);    
+    }
+
+    // Check PDF.co Job Status
+    checkPDFcoJobStatus(pdfCoRespJson.jobId, pdfCoAPIKey, successCallbackFn);
+  }
+}
+
+/**
+ * Checks PDF.co Job Status
+ */
+function checkPDFcoJobStatus(jobId, pdfCoAPIKey, successCallbackFn){
+  // Prepare Payload
+  const data = {
+    "jobid": jobId
+  };
+
+ // Prepare Request Options
+  const options = {
+    'method' : 'post',
+    'contentType': 'application/json',
+    'headers': {
+      "x-api-key": pdfCoAPIKey
+    },
+    // Convert the JavaScript object to a JSON string.
+    'payload' : JSON.stringify(data)
+  };
+
+  // Get Response
+  // https://developers.google.com/apps-script/reference/url-fetch
+  const resp = UrlFetchApp.fetch('https://api.pdf.co/v1/job/check', options);
+
+  // Response Json
+  const respJson = JSON.parse(resp.getContentText());
+
+  
+  if(respJson.status === "working"){
+    // Pause for 3 seconds
+    Utilities.sleep(3 * 1000);
+
+    // And check Job again
+    checkPDFcoJobStatus(jobId, pdfCoAPIKey, successCallbackFn);
+  }
+  else if(respJson.status == "success"){
+    // Invoke Success Callback Function 
+    successCallbackFn();
+  }
+  else {
+    console.error(`Job Failed with status ${respJson.status}`);
   }
 }
 

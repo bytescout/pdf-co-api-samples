@@ -20,7 +20,7 @@ let filePermissions = [];
  * Note: Here, we're getting current folder where spreadsheet is residing.
  * But we can certainly pick any folder of our like by using Folder related functions.
  * For example:
-  var allFolders = DriveApp.getFoldersByName("Folder_Containing_PDF_Files");
+  var allFolders = DriveApp.getFoldersByName("Google App Merge Demo - Private File");
   while (allFolders.hasNext()) {
     var folder = allFolders.next();
     Logger.log(folder.getName());
@@ -82,9 +82,7 @@ function mergePDFDocuments(pdfUrl, pdfCoAPIKey) {
   
   // Prepare Payload
   var data = {
-    "async": false,
-    "encrypt": false,
-    "inline": true,
+    "async": true, // As we have large volumn of PDF files, Enabling async mode
     "name": "result",
     "url": pdfUrl
   };
@@ -107,16 +105,21 @@ function mergePDFDocuments(pdfUrl, pdfCoAPIKey) {
   var pdfCoRespContent = pdfCoResponse.getContentText();
   var pdfCoRespJson = JSON.parse(pdfCoRespContent);
 
-  // Display Result
-  if(!pdfCoRespJson.error){
-    // Upload file to Google Drive
-    uploadFile(pdfCoRespJson.url);
-
-    // Update Cell with result URL
-    resultUrlCell.setValue(pdfCoRespJson.url);    
+  if(pdfCoRespJson.error){
+    resultUrlCell.setValue(pdfCoRespJson.message);    
   }
   else{
-    resultUrlCell.setValue(pdfCoRespJson.message);    
+    // Job Success Callback
+    const successCallbackFn = function(){
+      // Upload file to Google Drive
+      uploadFile(pdfCoRespJson.url);
+
+      // Update Cell with result URL
+      resultUrlCell.setValue(pdfCoRespJson.url);    
+    }
+
+    // Check PDF.co Job Status
+    checkPDFcoJobStatus(pdfCoRespJson.jobId, successCallbackFn);
   }
 }
 
@@ -171,6 +174,52 @@ function uploadFileToPresignedURL(presignedUrl, fileContent, pdfCoAPIKey){
     return false;
   }
 }
+
+
+/**
+ * Checks PDF.co Job Status
+ */
+function checkPDFcoJobStatus(jobId, successCallbackFn){
+  // Prepare Payload
+  const data = {
+    "jobid": jobId
+  };
+
+ // Prepare Request Options
+  const options = {
+    'method' : 'post',
+    'contentType': 'application/json',
+    'headers': {
+      "x-api-key": pdfCoAPIKey
+    },
+    // Convert the JavaScript object to a JSON string.
+    'payload' : JSON.stringify(data)
+  };
+
+  // Get Response
+  // https://developers.google.com/apps-script/reference/url-fetch
+  const resp = UrlFetchApp.fetch('https://api.pdf.co/v1/job/check', options);
+
+  // Response Json
+  const respJson = JSON.parse(resp.getContentText());
+
+  
+  if(respJson.status === "working"){
+    // Pause for 3 seconds
+    Utilities.sleep(3 * 1000);
+
+    // And check Job again
+    checkPDFcoJobStatus(jobId, successCallbackFn);
+  }
+  else if(respJson.status == "success"){
+    // Invoke Success Callback Function 
+    successCallbackFn();
+  }
+  else {
+    console.error(`Job Failed with status ${respJson.status}`);
+  }
+}
+
 
 /**
  * Save file URL to specific location
