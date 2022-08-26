@@ -848,6 +848,7 @@
 \PDF Make Searchable API\PHP
 \PDF Make Searchable API\PowerShell
 \PDF Make Searchable API\Python
+\PDF Make Searchable API\Salesforce
 \PDF Make Searchable API\VB.NET
 \PDF Make Searchable API\C#\Advanced Conversion Options
 \PDF Make Searchable API\C#\Make Searchable PDF From Uploaded File
@@ -878,6 +879,7 @@
 \PDF Make Searchable API\Python\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\Python\Make Searchable PDF From URL
 \PDF Make Searchable API\Python\Make Searchable PDF From URL Asynchronously
+\PDF Make Searchable API\Salesforce\Make Searchable PDF From Uploaded File Async
 \PDF Make Searchable API\VB.NET\Advanced Conversion Options
 \PDF Make Searchable API\VB.NET\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\VB.NET\Make Searchable PDF From URL
