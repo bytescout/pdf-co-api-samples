@@ -880,6 +880,7 @@
 \PDF Make Searchable API\Python\Make Searchable PDF From URL
 \PDF Make Searchable API\Python\Make Searchable PDF From URL Asynchronously
 \PDF Make Searchable API\Salesforce\Make Searchable PDF From Uploaded File Async
+\PDF Make Searchable API\Salesforce\Make Searchable PDF From URL Async
 \PDF Make Searchable API\VB.NET\Advanced Conversion Options
 \PDF Make Searchable API\VB.NET\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\VB.NET\Make Searchable PDF From URL
