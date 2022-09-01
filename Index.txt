@@ -773,6 +773,7 @@
 \PDF from HTML template\VB.NET
 \PDF from HTML template\C#\CCDA record to PDF
 \PDF from HTML template\C#\Generate PDF Invoice From HTML Template
+\PDF from HTML template\C#\Generate PDF Quotation
 \PDF from HTML template\C#\Invoice With Multiple Pages
 \PDF from HTML template\C#\Template Iterating Array
 \PDF from HTML template\cURL\Generate PDF Invoice From HTML Template
