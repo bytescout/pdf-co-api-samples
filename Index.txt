@@ -380,6 +380,7 @@
 \Document Parser API\TEMPLATES-SAMPLES\Parsing and reading data from Airline Tickets
 \Document Parser API\TEMPLATES-SAMPLES\Read values in columns 2 and 3
 \Document Parser API\TEMPLATES-SAMPLES\Statement of Assets
+\Document Parser API\TEMPLATES-SAMPLES\Table with Multiple Subitems
 \Document Parser API\TEMPLATES-SAMPLES\Tax Invoice with Line Items
 \Document Parser API\TEMPLATES-SAMPLES\Total and Vat tax
 \Document Parser API\TEMPLATES-SAMPLES\US Postal Shipping Label

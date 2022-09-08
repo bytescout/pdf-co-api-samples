@@ -1,0 +1,69 @@
+﻿{
+  "templateName": "template",
+  "templateVersion": "4",
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": []
+  },
+  "objects": [
+    {
+      "name": "Doc No",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Doc No{{Spaces}}(?<value>{{Digits}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "Doc Date",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Doc Date{{Spaces}}(?<value>{{SmartDate}})",
+        "regex": true
+      }
+    },
+    {
+      "name": "TableItems",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "expression": "Description{{Spaces}}Quantity{{Spaces}}Price",
+          "regex": true
+        },
+        "end": {
+          "expression": "{{EndOfPage}}",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<No>{{Digits}}){{Spaces}}(?<Description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<Quantity>{{Number}}{{Spaces}}{{Letters}}){{Spaces}}(?<Price>{{Number}}{{Spaces}}{{Letters}}/{{Letters}}){{Spaces}}(?<Amount>{{Number}}{{Spaces}}{{Letters}})",
+          "regex": true,
+          "subExpression1": "{{LineStart}}{{Spaces}}(?<Description>{{SentenceWithSingleSpaces}})"
+        },
+        "columns": [
+          {
+            "name": "No",
+            "dataType": "integer"
+          },
+          {
+            "name": "Description",
+            "dataType": "string"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "string"
+          },
+          {
+            "name": "Price",
+            "dataType": "string"
+          },
+          {
+            "name": "Amount",
+            "dataType": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
