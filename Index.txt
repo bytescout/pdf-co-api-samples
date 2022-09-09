@@ -7,6 +7,7 @@
 \DOC To PDF API
 \Document Parser API
 \Email Extractor
+\Email Send
 \Excel To CSV API
 \Excel To HTML API
 \Excel To JSON API
@@ -439,6 +440,18 @@
 \Email Extractor\Get Email Information\PHP
 \Email Extractor\Get Email Information\PowerShell
 \Email Extractor\Get Email Information\Python
+\Email Send\C#
+\Email Send\cURL
+\Email Send\JavaScript
+\Email Send\PHP
+\Email Send\PowerShell
+\Email Send\Python
+\Email Send\C#\Send Email
+\Email Send\cURL\Send Email
+\Email Send\JavaScript\Send Email
+\Email Send\PHP\Send Email
+\Email Send\PowerShell\Send Email
+\Email Send\Python\Send Email
 \Excel To CSV API\cURL
 \Excel To CSV API\JavaScript
 \Excel To CSV API\cURL\Excel To CSV
