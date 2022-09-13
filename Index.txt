@@ -7,7 +7,7 @@
 \DOC To PDF API
 \Document Parser API
 \Email Extractor
-\Email Send
+\Email Send and Decode
 \Excel To CSV API
 \Excel To HTML API
 \Excel To JSON API
@@ -398,8 +398,6 @@
 \Document Parser API\VB.NET\Parse with OCR
 \Document Parser API\VB.NET\Parsing and reading data from Airline Tickets
 \Email Extractor\Email to PDF
-\Email Extractor\Extract Email Attachments
-\Email Extractor\Get Email Information
 \Email Extractor\Email to PDF\C#
 \Email Extractor\Email to PDF\cURL
 \Email Extractor\Email to PDF\Java
@@ -426,32 +424,33 @@
 \Email Extractor\Email to PDF\VB.NET\Email to PDF From Uploaded File
 \Email Extractor\Email to PDF\VB.NET\Email to PDF From URL
 \Email Extractor\Email to PDF\VB.NET\Email to PDF With Custom Orientation and Paper Size
-\Email Extractor\Extract Email Attachments\C#
-\Email Extractor\Extract Email Attachments\cURL
-\Email Extractor\Extract Email Attachments\Java
-\Email Extractor\Extract Email Attachments\JavaScript
-\Email Extractor\Extract Email Attachments\PHP
-\Email Extractor\Extract Email Attachments\PowerShell
-\Email Extractor\Extract Email Attachments\Python
-\Email Extractor\Get Email Information\C#
-\Email Extractor\Get Email Information\cURL
-\Email Extractor\Get Email Information\Java
-\Email Extractor\Get Email Information\JavaScript
-\Email Extractor\Get Email Information\PHP
-\Email Extractor\Get Email Information\PowerShell
-\Email Extractor\Get Email Information\Python
-\Email Send\C#
-\Email Send\cURL
-\Email Send\JavaScript
-\Email Send\PHP
-\Email Send\PowerShell
-\Email Send\Python
-\Email Send\C#\Send Email
-\Email Send\cURL\Send Email
-\Email Send\JavaScript\Send Email
-\Email Send\PHP\Send Email
-\Email Send\PowerShell\Send Email
-\Email Send\Python\Send Email
+\Email Send and Decode\C#
+\Email Send and Decode\cURL
+\Email Send and Decode\Java
+\Email Send and Decode\JavaScript
+\Email Send and Decode\PHP
+\Email Send and Decode\PowerShell
+\Email Send and Decode\Python
+\Email Send and Decode\C#\Extract Email Attachments
+\Email Send and Decode\C#\Get Email Information
+\Email Send and Decode\C#\Send Email
+\Email Send and Decode\cURL\Extract Email Attachments
+\Email Send and Decode\cURL\Get Email Information
+\Email Send and Decode\cURL\Send Email
+\Email Send and Decode\Java\Extract Email Attachments
+\Email Send and Decode\Java\Get Email Information
+\Email Send and Decode\JavaScript\Extract Email Attachments
+\Email Send and Decode\JavaScript\Get Email Information
+\Email Send and Decode\JavaScript\Send Email
+\Email Send and Decode\PHP\Extract Email Attchments
+\Email Send and Decode\PHP\Get Email Information
+\Email Send and Decode\PHP\Send Email
+\Email Send and Decode\PowerShell\Extract Email Attachments
+\Email Send and Decode\PowerShell\Get Email Information
+\Email Send and Decode\PowerShell\Send Email
+\Email Send and Decode\Python\Extract Email Attchments
+\Email Send and Decode\Python\Get Email Information
+\Email Send and Decode\Python\Send Email
 \Excel To CSV API\cURL
 \Excel To CSV API\JavaScript
 \Excel To CSV API\cURL\Excel To CSV
