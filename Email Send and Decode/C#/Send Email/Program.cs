@@ -29,6 +29,7 @@ namespace ByteScoutWebApiExample
 		const string SourceFileUrl = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-info/sample.pdf";
 
 		// Email Details
+		// Please refer to our knowledge base at (https://apidocs.pdf.co/kb/Email%20Send%20and%20Decode/index) for SMTP related information
 		const string From = "John Doe <john@example.com>";
 		const string To = "Partner <partner@example.com>";
 		const string Subject = "Check attached sample pdf";

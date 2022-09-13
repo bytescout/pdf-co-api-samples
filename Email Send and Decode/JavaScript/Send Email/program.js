@@ -11,6 +11,8 @@
 //*******************************************************************************************//
 
 
+// Please refer to our knowledge base at (https://apidocs.pdf.co/kb/Email%20Send%20and%20Decode/index) for SMTP related information
+
 var request = require('request');
 var options = {
   'method': 'POST',

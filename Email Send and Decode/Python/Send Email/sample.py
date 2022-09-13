@@ -3,6 +3,8 @@ import json
 
 url = "https://api.pdf.co/v1/email/send"
 
+# Please refer to our knowledge base at (https://apidocs.pdf.co/kb/Email%20Send%20and%20Decode/index) for SMTP related information
+
 payload = json.dumps({
   "url": "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-info/sample.pdf",
   "from": "John Doe <john@example.com>",

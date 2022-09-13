@@ -1,3 +1,6 @@
+# Please refer to our knowledge base at (https://apidocs.pdf.co/kb/Email%20Send%20and%20Decode/index) for SMTP related information
+
+
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Content-Type", "application/json")
 $headers.Add("x-api-key", "Add_Your_PDFco_Api_Key")
