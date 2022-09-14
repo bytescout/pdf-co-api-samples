@@ -55,6 +55,7 @@
 \Replace Text From PDF
 \Replace Text With Image From PDF
 \Translate PDF
+\Add Text And Images To PDF\AWS Lambda
 \Add Text And Images To PDF\C#
 \Add Text And Images To PDF\cURL
 \Add Text And Images To PDF\Delphi
@@ -68,6 +69,8 @@
 \Add Text And Images To PDF\SharePoint
 \Add Text And Images To PDF\VB.NET
 \Add Text And Images To PDF\Zapier
+\Add Text And Images To PDF\AWS Lambda\Add Image to Existing PDF (Node.js)
+\Add Text And Images To PDF\AWS Lambda\Add Text to Existing PDF (Node.js)
 \Add Text And Images To PDF\C#\Add Image by finding target coordinates
 \Add Text And Images To PDF\C#\Add Images to Existing PDF
 \Add Text And Images To PDF\C#\Add Text by finding target coordinates
@@ -122,6 +125,7 @@
 \Add Text And Images To PDF\VB.NET\Add Text to Existing PDF
 \Add Text And Images To PDF\Zapier\PDF.co to Dropbox
 \Add Text And Images To PDF\Zapier\PDF.co to Google Drive
+\Barcode Generator API\AWS Lambda
 \Barcode Generator API\C#
 \Barcode Generator API\cURL
 \Barcode Generator API\Delphi
@@ -132,6 +136,7 @@
 \Barcode Generator API\Python
 \Barcode Generator API\VB.NET
 \Barcode Generator API\Zapier
+\Barcode Generator API\AWS Lambda\Generate Barcode (Node.js)
 \Barcode Generator API\C#\Generate Barcode
 \Barcode Generator API\C#\QR Code With Redundancy Setting
 \Barcode Generator API\cURL\Generate Barcode
@@ -154,6 +159,7 @@
 \Barcode Generator API\VB.NET\Generate Barcode
 \Barcode Generator API\VB.NET\QR Code With Redundancy Setting
 \Barcode Generator API\Zapier\Generate Barcode and Save to Dropbox
+\Barcode Reader API\AWS Lambda
 \Barcode Reader API\C#
 \Barcode Reader API\cURL
 \Barcode Reader API\Java
@@ -162,6 +168,7 @@
 \Barcode Reader API\PowerShell
 \Barcode Reader API\Python
 \Barcode Reader API\VB.NET
+\Barcode Reader API\AWS Lambda\Read Barcode From URL (Node.js)
 \Barcode Reader API\C#\Advanced Conversion Options
 \Barcode Reader API\C#\Async file upload and async barcode reading
 \Barcode Reader API\C#\Async File Uploading
@@ -211,6 +218,7 @@
 \Barcode Reader API\VB.NET\Read Code 128
 \Barcode Reader API\VB.NET\Read EAN 13
 \Barcode Reader API\VB.NET\Read QR Code
+\Delete Text From PDF\AWS Lambda
 \Delete Text From PDF\C#
 \Delete Text From PDF\cURL
 \Delete Text From PDF\Delphi
@@ -220,6 +228,7 @@
 \Delete Text From PDF\PowerShell
 \Delete Text From PDF\Python
 \Delete Text From PDF\VB.NET
+\Delete Text From PDF\AWS Lambda\Delete PDF Text From URL (Node.js)
 \Delete Text From PDF\C#\Delete PDF Text From Uploaded File
 \Delete Text From PDF\C#\Delete PDF Text From URL
 \Delete Text From PDF\C#\Delete PDF Text From URL Asynchronously
@@ -244,6 +253,7 @@
 \Delete Text From PDF\VB.NET\Delete PDF Text From Uploaded File
 \Delete Text From PDF\VB.NET\Delete PDF Text From URL
 \Delete Text From PDF\VB.NET\Delete PDF Text From URL Asynchronously
+\DOC To PDF API\AWS Lambda
 \DOC To PDF API\C#
 \DOC To PDF API\cURL
 \DOC To PDF API\Delphi
@@ -254,6 +264,7 @@
 \DOC To PDF API\Python
 \DOC To PDF API\Salesforce
 \DOC To PDF API\VB.NET
+\DOC To PDF API\AWS Lambda\Convert DOC To PDF From URL (Node.js)
 \DOC To PDF API\C#\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\C#\Convert DOC To PDF From URL
 \DOC To PDF API\C#\Convert DOC To PDF From URL Asynchronously
@@ -536,6 +547,7 @@
 \File Upload for Small Files (up to 50KB)\Upload Small File from Url\Python
 \Generic API Call\Salesforce
 \Generic API Call\Salesforce\GenericAPICall
+\Image To PDF API\AWS Lambda
 \Image To PDF API\C#
 \Image To PDF API\cURL
 \Image To PDF API\Java
@@ -546,6 +558,7 @@
 \Image To PDF API\Salesforce
 \Image To PDF API\VB.NET
 \Image To PDF API\Zapier
+\Image To PDF API\AWS Lambda\Convert Images To PDF From URLs (Node.js)
 \Image To PDF API\C#\Convert Images To PDF From Uploaded Files
 \Image To PDF API\C#\Convert Images To PDF From URLs
 \Image To PDF API\C#\Convert Images To PDF From URLs Asynchronously
@@ -585,6 +598,7 @@
 \Manage Background Jobs\Python\Check Job Status
 \MISC Account Related\cURL
 \MISC Account Related\cURL\Check Credit Balance
+\PDF Attachments\AWS Lambda
 \PDF Attachments\C#
 \PDF Attachments\cURL
 \PDF Attachments\Java
@@ -592,6 +606,7 @@
 \PDF Attachments\PHP
 \PDF Attachments\PowerShell
 \PDF Attachments\Python
+\PDF Attachments\AWS Lambda\Extract PDF Attachments From URL (Node.js)
 \PDF Attachments\C#\Extract PDF Attachments From URL
 \PDF Attachments\cURL\Extract PDF Attachments From URL
 \PDF Attachments\Java\Extract PDF Attachments From URL
@@ -623,6 +638,7 @@
 \PDF Classifier\PowerShell\Classify PDF From URL with Custom Rules
 \PDF Classifier\PowerShell\Classify Uploaded PDF Asynchronously
 \PDF Classifier\PowerShell\Classify Uploaded PDF Asynchronously with Custom Rules
+\PDF Create Fillable PDF Forms\AWS Lambda
 \PDF Create Fillable PDF Forms\C#
 \PDF Create Fillable PDF Forms\cURL
 \PDF Create Fillable PDF Forms\Java
@@ -631,6 +647,7 @@
 \PDF Create Fillable PDF Forms\PowerShell
 \PDF Create Fillable PDF Forms\Python
 \PDF Create Fillable PDF Forms\VB.NET
+\PDF Create Fillable PDF Forms\AWS Lambda\Fillable PDF Forms - Node Js
 \PDF Create Fillable PDF Forms\C#\Fillable PDF Forms
 \PDF Create Fillable PDF Forms\cURL\Fillable PDF Forms
 \PDF Create Fillable PDF Forms\Java\Fillable PDF Forms
@@ -655,6 +672,7 @@
 \PDF Delete Pages\PowerShell\Delete Pages From PDF
 \PDF Delete Pages\Python\Delete Pages From PDF
 \PDF Delete Pages\Salesforce\Delete Pages From PDF
+\PDF Fill PDF Forms\AWS Lambda
 \PDF Fill PDF Forms\C#
 \PDF Fill PDF Forms\cURL
 \PDF Fill PDF Forms\Java
@@ -664,6 +682,8 @@
 \PDF Fill PDF Forms\Python
 \PDF Fill PDF Forms\Salesforce
 \PDF Fill PDF Forms\VB.NET
+\PDF Fill PDF Forms\AWS Lambda\Fill PDF Forms NodeJs
+\PDF Fill PDF Forms\AWS Lambda\Fill PDF Forms Simplified NodeJs
 \PDF Fill PDF Forms\C#\Fill PDF Forms
 \PDF Fill PDF Forms\C#\Fill PDF Forms Asynchronously
 \PDF Fill PDF Forms\C#\Fill PDF Forms Simplified
@@ -701,6 +721,7 @@
 \PDF Forms Info Reader\PHP\Read PDF Form Information
 \PDF Forms Info Reader\PowerShell\Read PDF Form Information
 \PDF Forms Info Reader\Python\Read PDF Form Information
+\PDF From CSV\AWS Lambda
 \PDF From CSV\C#
 \PDF From CSV\cURL
 \PDF From CSV\Java
@@ -709,6 +730,7 @@
 \PDF From CSV\PowerShell
 \PDF From CSV\Python
 \PDF From CSV\VB.NET
+\PDF From CSV\AWS Lambda\Convert CSV To PDF From URL (Node.js)
 \PDF From CSV\C#\Convert CSV To PDF From Uploaded File
 \PDF From CSV\C#\Convert CSV To PDF From URL
 \PDF From CSV\C#\Convert CSV To PDF From URL Asynchronously
@@ -810,6 +832,7 @@
 \PDF from HTML template\TEMPLATES-SAMPLES\Simple Invoice using Mustache Template and QR Code Barcode
 \PDF from HTML template\VB.NET\Generate PDF Invoice From HTML Template
 \PDF from HTML template\VB.NET\Invoice With Multiple Pages
+\PDF from URL\AWS Lambda
 \PDF from URL\C#
 \PDF from URL\cURL
 \PDF from URL\Java
@@ -818,6 +841,7 @@
 \PDF from URL\PowerShell
 \PDF from URL\Python
 \PDF from URL\VB.NET
+\PDF from URL\AWS Lambda\Convert Web Page To PDF From Link (Node.js)
 \PDF from URL\C#\Convert Web Page To PDF From Link
 \PDF from URL\C#\Convert Web Page To PDF From Link Asynchronously
 \PDF from URL\cURL\Convert Web Page To PDF From Link
@@ -832,6 +856,7 @@
 \PDF from URL\Python\Convert Web Page To PDF From Link Asynchronously
 \PDF from URL\VB.NET\Convert Web Page To PDF From URL
 \PDF from URL\VB.NET\Convert Web Page To PDF From URL Asynchronously
+\PDF Information API\AWS Lambda
 \PDF Information API\C#
 \PDF Information API\cURL
 \PDF Information API\Java
@@ -840,6 +865,7 @@
 \PDF Information API\PowerShell
 \PDF Information API\Python
 \PDF Information API\VB.NET
+\PDF Information API\AWS Lambda\Get PDF Info From URL (Node.js)
 \PDF Information API\C#\Get PDF Info From Uploaded File
 \PDF Information API\C#\Get PDF Info From URL
 \PDF Information API\cURL\Get PDF Info From URL
@@ -855,6 +881,7 @@
 \PDF Information API\Python\Get PDF Info From URL
 \PDF Information API\VB.NET\Get PDF Info From Uploaded File
 \PDF Information API\VB.NET\Get PDF Info From URL
+\PDF Make Searchable API\AWS Lambda
 \PDF Make Searchable API\C#
 \PDF Make Searchable API\cURL
 \PDF Make Searchable API\Java
@@ -864,6 +891,8 @@
 \PDF Make Searchable API\Python
 \PDF Make Searchable API\Salesforce
 \PDF Make Searchable API\VB.NET
+\PDF Make Searchable API\AWS Lambda\Make Searchable PDF From URL (Node.js)
+\PDF Make Searchable API\AWS Lambda\Make UnSearchable PDF From URL (Node.js)
 \PDF Make Searchable API\C#\Advanced Conversion Options
 \PDF Make Searchable API\C#\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\C#\Make Searchable PDF From URL
@@ -899,6 +928,7 @@
 \PDF Make Searchable API\VB.NET\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\VB.NET\Make Searchable PDF From URL
 \PDF Make Searchable API\VB.NET\Make Searchable PDF From URL Asynchronously
+\PDF Merging API\AWS Lambda
 \PDF Merging API\C#
 \PDF Merging API\cURL
 \PDF Merging API\Delphi
@@ -910,6 +940,8 @@
 \PDF Merging API\Python
 \PDF Merging API\Salesforce
 \PDF Merging API\VB.NET
+\PDF Merging API\AWS Lambda\Merge Any Documents From URLs (Node.js)
+\PDF Merging API\AWS Lambda\Merge PDF Documents From URLs (Node.js)
 \PDF Merging API\C#\Async file upload and async Merge PDF
 \PDF Merging API\C#\Merge Any Documents From URLs
 \PDF Merging API\C#\Merge Any Documents From URLs Asynchronously
@@ -988,6 +1020,7 @@
 \PDF Optimization API\VB.NET\Optimize PDF From Uploaded File
 \PDF Optimization API\VB.NET\Optimize PDF From URL
 \PDF Optimization API\VB.NET\Optimize PDF From URL Asynchronously
+\PDF Password And Security\AWS Lambda
 \PDF Password And Security\C#
 \PDF Password And Security\cURL
 \PDF Password And Security\GoogleAppsScript
@@ -998,6 +1031,8 @@
 \PDF Password And Security\Python
 \PDF Password And Security\Salesforce
 \PDF Password And Security\VB.NET
+\PDF Password And Security\AWS Lambda\Protect PDF Document
+\PDF Password And Security\AWS Lambda\Remove PDF Document Protection
 \PDF Password And Security\C#\Protect PDF Document
 \PDF Password And Security\C#\Remove PDF Document Protection
 \PDF Password And Security\cURL\Protect PDF Document
@@ -1050,6 +1085,7 @@
 \PDF Search Tables\VB.NET\PDF Table Search from Uploaded File Asynchronously
 \PDF Search Tables\VB.NET\PDF Table Search from URL
 \PDF Search Tables\VB.NET\PDF Table Search from URL Asynchronously
+\PDF Splitting API\AWS Lambda
 \PDF Splitting API\C#
 \PDF Splitting API\cURL
 \PDF Splitting API\GoogleAppScript
@@ -1059,6 +1095,8 @@
 \PDF Splitting API\PowerShell
 \PDF Splitting API\Python
 \PDF Splitting API\VB.NET
+\PDF Splitting API\AWS Lambda\Split PDF By Text From URL (Node.js)
+\PDF Splitting API\AWS Lambda\Split PDF From URL (Node.js)
 \PDF Splitting API\C#\Async file upload and async Split PDF
 \PDF Splitting API\C#\Async file upload and async Split PDF By Text
 \PDF Splitting API\C#\Split PDF By Text From Uploaded File
@@ -1138,6 +1176,7 @@
 \PDF Text Search API\VB.NET\PDF Text Search from URL
 \PDF Text Search API\VB.NET\PDF Text Search from URL Asynchronously
 \PDF Text Search API\Zapier\Search in PDF
+\PDF To CSV API\AWS Lambda
 \PDF To CSV API\C#
 \PDF To CSV API\cURL
 \PDF To CSV API\Java
@@ -1148,6 +1187,7 @@
 \PDF To CSV API\SharePoint
 \PDF To CSV API\VB.NET
 \PDF To CSV API\Zapier
+\PDF To CSV API\AWS Lambda\Convert PDF To CSV From URL (Node.js)
 \PDF To CSV API\C#\Advanced Conversion Options
 \PDF To CSV API\C#\Advanced Conversion Options With Rotated Input
 \PDF To CSV API\C#\Async file upload and async PDF to CSV
@@ -1196,6 +1236,7 @@
 \PDF To CSV API\VB.NET\Convert PDF To CSV From URL
 \PDF To CSV API\VB.NET\Convert PDF To CSV From URL Asynchronously
 \PDF To CSV API\Zapier\Gmail PDF Attachments to CSV
+\PDF To HTML API\AWS Lambda
 \PDF To HTML API\C#
 \PDF To HTML API\cURL
 \PDF To HTML API\Java
@@ -1204,6 +1245,7 @@
 \PDF To HTML API\PowerShell
 \PDF To HTML API\Python
 \PDF To HTML API\VB.NET
+\PDF To HTML API\AWS Lambda\Convert PDF To HTML From URL (Node.js)
 \PDF To HTML API\C#\Convert PDF To HTML From Uploaded File
 \PDF To HTML API\C#\Convert PDF To HTML From URL
 \PDF To HTML API\C#\Convert PDF To HTML From URL Asynchronously
@@ -1228,6 +1270,7 @@
 \PDF To HTML API\VB.NET\Convert PDF To HTML From Uploaded File
 \PDF To HTML API\VB.NET\Convert PDF To HTML From URL
 \PDF To HTML API\VB.NET\Convert PDF To HTML From URL Asynchronously
+\PDF To JPG\AWS Lambda
 \PDF To JPG\C#
 \PDF To JPG\cURL
 \PDF To JPG\Java
@@ -1236,6 +1279,7 @@
 \PDF To JPG\PowerShell
 \PDF To JPG\Python
 \PDF To JPG\VB.NET
+\PDF To JPG\AWS Lambda\Convert PDF To JPEG From URL (Node.js)
 \PDF To JPG\C#\Advanced JPEG Conversion Options
 \PDF To JPG\C#\Convert PDF To JPEG From Uploaded File
 \PDF To JPG\C#\Convert PDF To JPEG From URL
@@ -1265,6 +1309,7 @@
 \PDF To JPG\VB.NET\Convert PDF To JPEG From Uploaded File
 \PDF To JPG\VB.NET\Convert PDF To JPEG From URL
 \PDF To JPG\VB.NET\Convert PDF To JPEG From URL Asynchronously
+\PDF To JSON API\AWS Lambda
 \PDF To JSON API\C#
 \PDF To JSON API\cURL
 \PDF To JSON API\Java
@@ -1273,6 +1318,8 @@
 \PDF To JSON API\PowerShell
 \PDF To JSON API\Python
 \PDF To JSON API\VB.NET
+\PDF To JSON API\AWS Lambda\Convert PDF To JSON From URL (Node.js)
+\PDF To JSON API\AWS Lambda\Convert PDF To JSON From URL (Node.js) (AI Powered)
 \PDF To JSON API\C#\Advanced Conversion Options
 \PDF To JSON API\C#\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\C#\Convert PDF To JSON From Uploaded File
@@ -1328,6 +1375,7 @@
 \PDF To JSON API\VB.NET\Convert PDF To JSON From URL (AI Powered)
 \PDF To JSON API\VB.NET\Convert PDF To JSON From URL Asynchronously
 \PDF To JSON API\VB.NET\Convert PDF To JSON From URL Asynchronously (AI Powered)
+\PDF To PNG\AWS Lambda
 \PDF To PNG\C#
 \PDF To PNG\cURL
 \PDF To PNG\Java
@@ -1336,6 +1384,7 @@
 \PDF To PNG\PowerShell
 \PDF To PNG\Python
 \PDF To PNG\VB.NET
+\PDF To PNG\AWS Lambda\Convert PDF To PNG From URL (Node.js)
 \PDF To PNG\C#\Advanced PNG Conversion Options
 \PDF To PNG\C#\Convert PDF To PNG From Uploaded File
 \PDF To PNG\C#\Convert PDF To PNG From URL
@@ -1365,6 +1414,7 @@
 \PDF To PNG\VB.NET\Convert PDF To PNG From Uploaded File
 \PDF To PNG\VB.NET\Convert PDF To PNG From URL
 \PDF To PNG\VB.NET\Convert PDF To PNG From URL Asynchronously
+\PDF To Text API\AWS Lambda
 \PDF To Text API\C#
 \PDF To Text API\cURL
 \PDF To Text API\Java
@@ -1373,6 +1423,7 @@
 \PDF To Text API\PowerShell
 \PDF To Text API\Python
 \PDF To Text API\VB.NET
+\PDF To Text API\AWS Lambda\Convert PDF To Text From URL (Node.js)
 \PDF To Text API\C#\Advanced Conversion Options
 \PDF To Text API\C#\Advanced Conversion Options With Rotated Input
 \PDF To Text API\C#\Async file upload and async PDF to Text
@@ -1412,6 +1463,7 @@
 \PDF To Text API\VB.NET\Convert PDF To Text From Uploaded File
 \PDF To Text API\VB.NET\Convert PDF To Text From URL
 \PDF To Text API\VB.NET\Convert PDF To Text From URL Asynchronously
+\PDF To TIFF\AWS Lambda
 \PDF To TIFF\C#
 \PDF To TIFF\cURL
 \PDF To TIFF\Java
@@ -1420,6 +1472,7 @@
 \PDF To TIFF\PowerShell
 \PDF To TIFF\Python
 \PDF To TIFF\VB.NET
+\PDF To TIFF\AWS Lambda\Convert PDF To TIFF From URL (Node.js)
 \PDF To TIFF\C#\Advanced TIFF Conversion Options
 \PDF To TIFF\C#\Convert PDF To TIFF From Uploaded File
 \PDF To TIFF\C#\Convert PDF To TIFF From URL
@@ -1448,12 +1501,14 @@
 \PDF To TIFF\VB.NET\Convert PDF To TIFF From Uploaded File
 \PDF To TIFF\VB.NET\Convert PDF To TIFF From URL
 \PDF To TIFF\VB.NET\Convert PDF To TIFF From URL Asynchronously
+\PDF To XLS\AWS Lambda
 \PDF To XLS\C#
 \PDF To XLS\cURL
 \PDF To XLS\Java
 \PDF To XLS\JavaScript
 \PDF To XLS\PowerShell
 \PDF To XLS\VB.NET
+\PDF To XLS\AWS Lambda\Convert PDF To XLS From URL (Node.js)
 \PDF To XLS\C#\Advanced Conversion Options
 \PDF To XLS\C#\Advanced Conversion Options With Rotated Input
 \PDF To XLS\C#\Convert PDF To XLS From Uploaded File
@@ -1482,6 +1537,7 @@
 \PDF To XLS\VB.NET\Convert PDF To XLS From Uploaded File
 \PDF To XLS\VB.NET\Convert PDF To XLS From Uploaded File (WinForms)
 \PDF To XLS\VB.NET\Convert PDF To XLS From URL
+\PDF To XLSX\AWS Lambda
 \PDF To XLSX\Blazor
 \PDF To XLSX\C#
 \PDF To XLSX\cURL
@@ -1491,6 +1547,7 @@
 \PDF To XLSX\PowerShell
 \PDF To XLSX\Python
 \PDF To XLSX\VB.NET
+\PDF To XLSX\AWS Lambda\Convert PDF To XLSX From URL (Node.js)
 \PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File
 \PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\Pages
 \PDF To XLSX\Blazor\Convert PDF To XLSX From Uploaded File\Shared
@@ -1525,6 +1582,7 @@
 \PDF To XLSX\VB.NET\Convert PDF To XLSX From Uploaded File
 \PDF To XLSX\VB.NET\Convert PDF To XLSX From URL
 \PDF To XLSX\VB.NET\Convert PDF To XLSX From URL Asynchronously
+\PDF To XML API\AWS Lambda
 \PDF To XML API\C#
 \PDF To XML API\cURL
 \PDF To XML API\Java
@@ -1533,6 +1591,7 @@
 \PDF To XML API\PowerShell
 \PDF To XML API\Python
 \PDF To XML API\VB.NET
+\PDF To XML API\AWS Lambda\Convert PDF To XML From URL (Node.js)
 \PDF To XML API\C#\Advanced Conversion Options
 \PDF To XML API\C#\Advanced Conversion Options With Rotated Input
 \PDF To XML API\C#\Convert PDF To XML From Uploaded File
@@ -1570,6 +1629,7 @@
 \PDF To XML API\VB.NET\Convert PDF To XML From Uploaded File
 \PDF To XML API\VB.NET\Convert PDF To XML From URL
 \PDF To XML API\VB.NET\Convert PDF To XML From URL Asynchronously
+\Render Url As Jpg\AWS Lambda
 \Render Url As Jpg\C#
 \Render Url As Jpg\cURL
 \Render Url As Jpg\Java
@@ -1578,6 +1638,7 @@
 \Render Url As Jpg\PowerShell
 \Render Url As Jpg\Python
 \Render Url As Jpg\VB.NET
+\Render Url As Jpg\AWS Lambda\Render Url To Jpg (Node.js)
 \Render Url As Jpg\C#\Render Url To Jpg
 \Render Url As Jpg\cURL\Render Url To Jpg
 \Render Url As Jpg\Java\Render Url To Jpg
@@ -1587,6 +1648,7 @@
 \Render Url As Jpg\PowerShell\Render Url To Jpg
 \Render Url As Jpg\Python\Render Url As Jpg
 \Render Url As Jpg\VB.NET\Render Url To Jpg
+\Render Url As Png\AWS Lambda
 \Render Url As Png\C#
 \Render Url As Png\cURL
 \Render Url As Png\Java
@@ -1595,6 +1657,7 @@
 \Render Url As Png\PowerShell
 \Render Url As Png\Python
 \Render Url As Png\VB.NET
+\Render Url As Png\AWS Lambda\Render Url To Png (Node.js)
 \Render Url As Png\C#\Render Url To Png
 \Render Url As Png\cURL\Render Url To Png
 \Render Url As Png\Java\Render Url To Png
@@ -1604,6 +1667,7 @@
 \Render Url As Png\PowerShell\Render Url To Png
 \Render Url As Png\Python\Render Url As Png
 \Render Url As Png\VB.NET\Render Url To Png
+\Replace Text From PDF\AWS Lambda
 \Replace Text From PDF\C#
 \Replace Text From PDF\cURL
 \Replace Text From PDF\Java
@@ -1613,6 +1677,7 @@
 \Replace Text From PDF\Python
 \Replace Text From PDF\Salesforce
 \Replace Text From PDF\VB.NET
+\Replace Text From PDF\AWS Lambda\Replace Text From URL (Node.js)
 \Replace Text From PDF\C#\Replace Text From Uploaded File
 \Replace Text From PDF\C#\Replace Text From URL
 \Replace Text From PDF\C#\Replace Text From URL Asynchronously
@@ -1637,6 +1702,7 @@
 \Replace Text From PDF\VB.NET\Replace Text From Uploaded File
 \Replace Text From PDF\VB.NET\Replace Text From URL
 \Replace Text From PDF\VB.NET\Replace Text From URL Asynchronously
+\Replace Text With Image From PDF\AWS Lambda
 \Replace Text With Image From PDF\C#
 \Replace Text With Image From PDF\cURL
 \Replace Text With Image From PDF\Java
@@ -1646,6 +1712,7 @@
 \Replace Text With Image From PDF\Python
 \Replace Text With Image From PDF\Salesforce
 \Replace Text With Image From PDF\VB.NET
+\Replace Text With Image From PDF\AWS Lambda\Replace Text With Image From URL (Node.js)
 \Replace Text With Image From PDF\C#\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\C#\Replace Text With Image From URL
 \Replace Text With Image From PDF\C#\Replace Text With Image From URL Asynchronously
