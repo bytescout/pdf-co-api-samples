@@ -997,26 +997,35 @@
 \PDF Optimization API\Python
 \PDF Optimization API\Salesforce
 \PDF Optimization API\VB.NET
+\PDF Optimization API\C#\Advanced Optimize PDF From URL
 \PDF Optimization API\C#\Optimize PDF From Uploaded File
 \PDF Optimization API\C#\Optimize PDF From URL
 \PDF Optimization API\C#\Optimize PDF From URL Asynchronously
+\PDF Optimization API\cURL\Advanced PDF Optimize
 \PDF Optimization API\cURL\PDF Optimize
+\PDF Optimization API\Java\Advanced Optimize PDF From URL
 \PDF Optimization API\Java\Optimize PDF From Uploaded File
 \PDF Optimization API\Java\Optimize PDF From URL
+\PDF Optimization API\JavaScript\Advanced Optimize PDF From URL (Node.js)
 \PDF Optimization API\JavaScript\Optimize PDF From Uploaded File (Node.js)
 \PDF Optimization API\JavaScript\Optimize PDF From Uploaded File (Node.js) - Async API
 \PDF Optimization API\JavaScript\Optimize PDF From URL (Node.js)
 \PDF Optimization API\JavaScript\Optimize PDF From URL (Node.js) - Async API
+\PDF Optimization API\PHP\Advanced Optimize PDF Asynchronously
 \PDF Optimization API\PHP\Optimize PDF Asynchronously
 \PDF Optimization API\PHP\Optimize PDF From Uploaded File
+\PDF Optimization API\PowerShell\Advanced Optimize PDF From URL
 \PDF Optimization API\PowerShell\Optimize PDF From Uploaded File
 \PDF Optimization API\PowerShell\Optimize PDF From URL
 \PDF Optimization API\PowerShell\Optimize PDF From URL Asynchronously
+\PDF Optimization API\Python\Advanced Optimize PDF From URL
 \PDF Optimization API\Python\Optimize PDF From Uploaded File
 \PDF Optimization API\Python\Optimize PDF From URL
 \PDF Optimization API\Python\Optimize PDF From URL Asynchronously
+\PDF Optimization API\Salesforce\Advanced Compress PDF Document
 \PDF Optimization API\Salesforce\Compress PDF Document
 \PDF Optimization API\Salesforce\Compress PDF Document From Uploaded File
+\PDF Optimization API\VB.NET\Advanced Optimize PDF From URL
 \PDF Optimization API\VB.NET\Optimize PDF From Uploaded File
 \PDF Optimization API\VB.NET\Optimize PDF From URL
 \PDF Optimization API\VB.NET\Optimize PDF From URL Asynchronously
