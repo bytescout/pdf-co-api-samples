@@ -36,7 +36,7 @@ var queryPath = `/v1/pdf/convert/to/jpg`;
 
 // JSON payload for api request
 var jsonPayload = JSON.stringify({
-    password: Password, pages: Pages, url: SourceFileUrl, profiles: Profiles, async: true
+    password: Password, pages: Pages, url: SourceFileUrl, async: true
 });
 
 var reqOptions = {

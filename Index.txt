@@ -172,6 +172,7 @@
 \Barcode Reader API\C#\Advanced Conversion Options
 \Barcode Reader API\C#\Async file upload and async barcode reading
 \Barcode Reader API\C#\Async File Uploading
+\Barcode Reader API\C#\Read Barcode From Encrypted URL
 \Barcode Reader API\C#\Read Barcode From Uploaded File
 \Barcode Reader API\C#\Read Barcode From URL
 \Barcode Reader API\C#\Read Barcode From URL Asynchronously
@@ -188,30 +189,37 @@
 \Barcode Reader API\cURL\Detect Rectangle from PDF
 \Barcode Reader API\cURL\Detect UnderlinedField from PDF
 \Barcode Reader API\cURL\Detect VerticalLine from PDF
+\Barcode Reader API\cURL\Read Barcode From Encrypted URL
 \Barcode Reader API\cURL\Read Barcode from File
 \Barcode Reader API\cURL\Read Barcode From URL
 \Barcode Reader API\Java\Advanced Conversation Options
+\Barcode Reader API\Java\Read Barcode From Encrypted URL
 \Barcode Reader API\Java\Read Barcode From Uploaded File
 \Barcode Reader API\Java\Read Barcode From URL
 \Barcode Reader API\JavaScript\Advanced Conversion Options
+\Barcode Reader API\JavaScript\Read Barcode From Encrypted URL
 \Barcode Reader API\JavaScript\Read Barcode From File (Node.js) - Async Api
 \Barcode Reader API\JavaScript\Read Barcode From Live Camera
 \Barcode Reader API\JavaScript\Read Barcode From Uploaded File (Node.js)
 \Barcode Reader API\JavaScript\Read Barcode From Uploaded File (Node.js) - Async Api
 \Barcode Reader API\JavaScript\Read Barcode From URL (Node.js)
 \Barcode Reader API\JavaScript\Read Barcode From URL (Node.js) - Async API
+\Barcode Reader API\PHP\Read Barcode From Encrypted URL Asynchronously
 \Barcode Reader API\PHP\Read Barcode From Uploaded File
 \Barcode Reader API\PHP\Read Barcode From URL Asynchronously
 \Barcode Reader API\PowerShell\Advanced Conversion Options
+\Barcode Reader API\PowerShell\Read Barcode From Encrypted URL
 \Barcode Reader API\PowerShell\Read Barcode From Uploaded File
 \Barcode Reader API\PowerShell\Read Barcode From URL
 \Barcode Reader API\PowerShell\Read Barcode From URL Asynchronously
 \Barcode Reader API\Python\Advanced Conversation Options
+\Barcode Reader API\Python\Read Barcode From Encrypted URL
 \Barcode Reader API\Python\Read Barcode From Uploaded File
 \Barcode Reader API\Python\Read Barcode From URL
 \Barcode Reader API\VB.NET\Advanced Conversion Options
 \Barcode Reader API\VB.NET\Async File Upload and Async Barcode Reading
 \Barcode Reader API\VB.NET\Async File Uploading
+\Barcode Reader API\VB.NET\Read Barcode From Encrypted URL
 \Barcode Reader API\VB.NET\Read Barcode From Uploaded File
 \Barcode Reader API\VB.NET\Read Barcode From URL
 \Barcode Reader API\VB.NET\Read Barcode From URL Asynchronously
@@ -268,11 +276,14 @@
 \DOC To PDF API\C#\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\C#\Convert DOC To PDF From URL
 \DOC To PDF API\C#\Convert DOC To PDF From URL Asynchronously
+\DOC To PDF API\C#\Convert Encrypted DOC To PDF From URL
 \DOC To PDF API\cURL\Convert DOC To PDF From URL
+\DOC To PDF API\cURL\Convert Encrypted DOC To PDF From URL
 \DOC To PDF API\cURL\Document to PDF
 \DOC To PDF API\Delphi\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Java\Convert DOC To PDF From URL
+\DOC To PDF API\Java\Convert Encrypted DOC To PDF From URL
 \DOC To PDF API\JavaScript\Convert DOC To PDF From Base64 (Node.js)
 \DOC To PDF API\JavaScript\Convert DOC To PDF From Uploaded File (Node.js)
 \DOC To PDF API\JavaScript\Convert DOC To PDF From Uploaded File (Node.js) - Async API
@@ -280,19 +291,24 @@
 \DOC To PDF API\JavaScript\Convert DOC To PDF From URL (Node.js) - Async API
 \DOC To PDF API\JavaScript\Convert DOC To Protected PDF From URL (Node.js)
 \DOC To PDF API\JavaScript\Convert DOC To Protected PDF From URL (Node.js) - Async API
+\DOC To PDF API\JavaScript\Convert Encrypted DOC To PDF From URL (Node.js) - Async API
 \DOC To PDF API\PHP\Convert DOC To PDF Asynchronously
 \DOC To PDF API\PHP\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\PHP\Convert DOC to Protected PDF from Uploaded File
+\DOC To PDF API\PHP\Convert Encrypted DOC To PDF Asynchronously
 \DOC To PDF API\PowerShell\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\PowerShell\Convert DOC To PDF From URL
 \DOC To PDF API\PowerShell\Convert DOC To PDF From URL Asynchronously
+\DOC To PDF API\PowerShell\Convert Encrypted DOC To PDF From URL Asynchronously
 \DOC To PDF API\Python\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\Python\Convert DOC To PDF From URL
 \DOC To PDF API\Python\Convert DOC To PDF From URL Asynchronously
+\DOC To PDF API\Python\Convert Encrypted DOC To PDF From URL Asynchronously
 \DOC To PDF API\Salesforce\Convert Document To PDF
 \DOC To PDF API\VB.NET\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL
 \DOC To PDF API\VB.NET\Convert DOC To PDF From URL Asynchronously
+\DOC To PDF API\VB.NET\Convert Encrypted DOC To PDF From URL Asynchronously
 \Document Parser API\C#
 \Document Parser API\cURL
 \Document Parser API\GoogleAppScript
@@ -866,19 +882,26 @@
 \PDF Information API\Python
 \PDF Information API\VB.NET
 \PDF Information API\AWS Lambda\Get PDF Info From URL (Node.js)
+\PDF Information API\C#\Get Info From Custom Encrypted PDF URL
 \PDF Information API\C#\Get PDF Info From Uploaded File
 \PDF Information API\C#\Get PDF Info From URL
+\PDF Information API\cURL\Get Info From Custom Encrypted PDF URL
 \PDF Information API\cURL\Get PDF Info From URL
 \PDF Information API\cURL\PDF Info Reader
+\PDF Information API\Java\Get Info From Custom Encrypted PDF URL
 \PDF Information API\Java\Get PDF Info From Uploaded File
 \PDF Information API\Java\Get PDF Info From URL
+\PDF Information API\JavaScript\Get Info From Custom Encrypted PDF URL (Node.js)
 \PDF Information API\JavaScript\Get PDF Info From Uploaded File (Node.js)
 \PDF Information API\JavaScript\Get PDF Info From URL (Node.js)
 \PDF Information API\PHP\Get PDF Info From Uploaded File
+\PDF Information API\PowerShell\Get Info From Custom Encrypted PDF URL
 \PDF Information API\PowerShell\Get PDF Info From Uploaded File
 \PDF Information API\PowerShell\Get PDF Info From URL
+\PDF Information API\Python\Get Info From Custom Encrypted PDF URL
 \PDF Information API\Python\Get PDF Info From Uploaded File
 \PDF Information API\Python\Get PDF Info From URL
+\PDF Information API\VB.NET\Get Info From Custom Encrypted PDF URL
 \PDF Information API\VB.NET\Get PDF Info From Uploaded File
 \PDF Information API\VB.NET\Get PDF Info From URL
 \PDF Make Searchable API\AWS Lambda
@@ -941,14 +964,20 @@
 \PDF Merging API\Salesforce
 \PDF Merging API\VB.NET
 \PDF Merging API\AWS Lambda\Merge Any Documents From URLs (Node.js)
+\PDF Merging API\AWS Lambda\Merge Encoded PDF Documents (Node.js)
+\PDF Merging API\AWS Lambda\Merge Encoded PDF Documents to Encoded Output (Node.js)
 \PDF Merging API\AWS Lambda\Merge PDF Documents From URLs (Node.js)
 \PDF Merging API\C#\Async file upload and async Merge PDF
 \PDF Merging API\C#\Merge Any Documents From URLs
 \PDF Merging API\C#\Merge Any Documents From URLs Asynchronously
+\PDF Merging API\C#\Merge Encoded PDF Documents
+\PDF Merging API\C#\Merge Encoded PDF Documents To Encoded Output
 \PDF Merging API\C#\Merge PDF Documents From Uploaded Files
 \PDF Merging API\C#\Merge PDF Documents From URLs
 \PDF Merging API\C#\Merge PDF Documents From URLs Asynchronously
 \PDF Merging API\cURL\Any Document Merger
+\PDF Merging API\cURL\Merge Encoded PDF Files and Encode Output
+\PDF Merging API\cURL\PDF Merge Encoded Files
 \PDF Merging API\cURL\PDF Merger
 \PDF Merging API\Delphi\Merge Any Documents From URLs
 \PDF Merging API\Delphi\Merge PDF Documents From URLs
@@ -957,11 +986,15 @@
 \PDF Merging API\GoogleAppScript\Merge PDF Urls into Individual Row
 \PDF Merging API\GoogleAppScript\Merge Rows Async and Save back to Google Drive
 \PDF Merging API\Java\Merge Any Documents From URLs
+\PDF Merging API\Java\Merge Encoded PDF Documents
+\PDF Merging API\Java\Merge Encoded PDF Documents to Encoded Output
 \PDF Merging API\Java\Merge PDF Documents From Uploaded Files
 \PDF Merging API\Java\Merge PDF Documents From URLs
 \PDF Merging API\JavaScript\Merge Any Documents From Uploaded File (Node.js) - Async API
 \PDF Merging API\JavaScript\Merge Any Documents From URLs (Node.js)
 \PDF Merging API\JavaScript\Merge Any Documents From URLs (Node.js) - Async API
+\PDF Merging API\JavaScript\Merge Encoded PDF Documents (Node.js)
+\PDF Merging API\JavaScript\Merge Encoded PDF Documents to Encoded Output (Node.js)
 \PDF Merging API\JavaScript\Merge PDF Documents (jQuery)
 \PDF Merging API\JavaScript\Merge PDF Documents From Uploaded File (Node.js)
 \PDF Merging API\JavaScript\Merge PDF Documents From Uploaded File (Node.js) - Async API
@@ -970,10 +1003,14 @@
 \PDF Merging API\PHP\Merge Any Documents Asynchronously
 \PDF Merging API\PHP\Merge Any Documents From Uploaded Files
 \PDF Merging API\PHP\Merge Any Documents From Uploaded Files Asynchronously
+\PDF Merging API\PHP\Merge Encoded PDF Documents
+\PDF Merging API\PHP\Merge Encoded PDF Documents to Encoded Output
 \PDF Merging API\PHP\Merge PDF Documents Asynchronously
 \PDF Merging API\PHP\Merge PDF Documents From Uploaded Files
 \PDF Merging API\PowerShell\Merge Any Documents From URLs
 \PDF Merging API\PowerShell\Merge Any Documents From URLs Asynchronously
+\PDF Merging API\PowerShell\Merge Encoded PDF Documents
+\PDF Merging API\PowerShell\Merge Encoded PDF Documents to Encoded Output
 \PDF Merging API\PowerShell\Merge PDF Documents From Uploaded Files
 \PDF Merging API\PowerShell\Merge PDF Documents From URLs
 \PDF Merging API\PowerShell\Merge PDF Documents From URLs Asynchronously
@@ -985,6 +1022,8 @@
 \PDF Merging API\VB.NET\Async file upload and async Merge PDF
 \PDF Merging API\VB.NET\Merge Any Documents From URLs
 \PDF Merging API\VB.NET\Merge Any Documents From URLs Asynchronously
+\PDF Merging API\VB.NET\Merge Encoded PDF Documents
+\PDF Merging API\VB.NET\Merge Encoded PDF Documents to Encoded Output
 \PDF Merging API\VB.NET\Merge PDF Documents From Uploaded Files
 \PDF Merging API\VB.NET\Merge PDF Documents From URLs
 \PDF Merging API\VB.NET\Merge PDF Documents From URLs Asynchronously
@@ -1104,10 +1143,15 @@
 \PDF Splitting API\PowerShell
 \PDF Splitting API\Python
 \PDF Splitting API\VB.NET
+\PDF Splitting API\AWS Lambda\Split PDF By Barcode From URL (Node.js)
 \PDF Splitting API\AWS Lambda\Split PDF By Text From URL (Node.js)
 \PDF Splitting API\AWS Lambda\Split PDF From URL (Node.js)
 \PDF Splitting API\C#\Async file upload and async Split PDF
+\PDF Splitting API\C#\Async file upload and async Split PDF By Barcode
 \PDF Splitting API\C#\Async file upload and async Split PDF By Text
+\PDF Splitting API\C#\Split PDF By Barcode From Uploaded File
+\PDF Splitting API\C#\Split PDF By Barcode From URL
+\PDF Splitting API\C#\Split PDF By Barcode From URL Asynchronously
 \PDF Splitting API\C#\Split PDF By Text From Uploaded File
 \PDF Splitting API\C#\Split PDF By Text From URL
 \PDF Splitting API\C#\Split PDF By Text From URL Asynchronously
@@ -1115,12 +1159,19 @@
 \PDF Splitting API\C#\Split PDF From URL
 \PDF Splitting API\C#\Split PDF From URL Asynchronously
 \PDF Splitting API\cURL\PDF Split
+\PDF Splitting API\cURL\PDF Split By Barcode
 \PDF Splitting API\cURL\PDF Split By Text
 \PDF Splitting API\GoogleAppScript\Split All PDF in Google Drive Folder
+\PDF Splitting API\Java\Split PDF By Barcode From Uploaded File
+\PDF Splitting API\Java\Split PDF By Barcode From URL
 \PDF Splitting API\Java\Split PDF By Text From Uploaded File
 \PDF Splitting API\Java\Split PDF By Text From URL
 \PDF Splitting API\Java\Split PDF From Uploaded File
 \PDF Splitting API\Java\Split PDF From URL
+\PDF Splitting API\JavaScript\Split PDF By Barcode From Uploaded File (Node.js)
+\PDF Splitting API\JavaScript\Split PDF By Barcode From Uploaded File (Node.js) - Async API
+\PDF Splitting API\JavaScript\Split PDF By Barcode From URL (Node.js)
+\PDF Splitting API\JavaScript\Split PDF By Barcode From URL (Node.js) - Async API
 \PDF Splitting API\JavaScript\Split PDF By Text From Uploaded File (Node.js)
 \PDF Splitting API\JavaScript\Split PDF By Text From Uploaded File (Node.js) - Async API
 \PDF Splitting API\JavaScript\Split PDF By Text From URL (Node.js)
@@ -1130,21 +1181,31 @@
 \PDF Splitting API\JavaScript\Split PDF From URL (Node.js)
 \PDF Splitting API\JavaScript\Split PDF From URL (Node.js) - Async API
 \PDF Splitting API\PHP\Split PDF Asynchronously
+\PDF Splitting API\PHP\Split PDF By Barcode Asynchronously
 \PDF Splitting API\PHP\Split PDF By Text Asynchronously
 \PDF Splitting API\PHP\Split PDF By Text From Uploaded File
 \PDF Splitting API\PHP\Split PDF From Uploaded File
+\PDF Splitting API\PowerShell\Split PDF By Barcode From Uploaded File
+\PDF Splitting API\PowerShell\Split PDF By Barcode From URL
+\PDF Splitting API\PowerShell\Split PDF By Barcode From URL Asynchronously
 \PDF Splitting API\PowerShell\Split PDF By Text From Uploaded File
 \PDF Splitting API\PowerShell\Split PDF By Text From URL
 \PDF Splitting API\PowerShell\Split PDF By Text From URL Asynchronously
 \PDF Splitting API\PowerShell\Split PDF From Uploaded File
 \PDF Splitting API\PowerShell\Split PDF From URL
 \PDF Splitting API\PowerShell\Split PDF From URL Asynchronously
+\PDF Splitting API\Python\Split PDF By Barcode From Uploaded File
+\PDF Splitting API\Python\Split PDF By Barcode From Uploaded File Asynchronously
 \PDF Splitting API\Python\Split PDF By Text From Uploaded File
 \PDF Splitting API\Python\Split PDF By Text From Uploaded File Asynchronously
 \PDF Splitting API\Python\Split PDF From Uploaded File
 \PDF Splitting API\Python\Split PDF From Uploaded File Asynchronously
 \PDF Splitting API\VB.NET\Async file upload and async Split PDF
+\PDF Splitting API\VB.NET\Async file upload and async Split PDF By Barcode
 \PDF Splitting API\VB.NET\Async file upload and async Split PDF By Text
+\PDF Splitting API\VB.NET\Split PDF By Barcode From Uploaded File
+\PDF Splitting API\VB.NET\Split PDF By Barcode From URL
+\PDF Splitting API\VB.NET\Split PDF By Barcode From URL Asynchronously
 \PDF Splitting API\VB.NET\Split PDF By Text From Uploaded File
 \PDF Splitting API\VB.NET\Split PDF By Text From URL
 \PDF Splitting API\VB.NET\Split PDF By Text From URL Asynchronously
@@ -1288,33 +1349,43 @@
 \PDF To JPG\PowerShell
 \PDF To JPG\Python
 \PDF To JPG\VB.NET
+\PDF To JPG\AWS Lambda\Convert Encoded PDF To JPEG From URL (Node.js)
 \PDF To JPG\AWS Lambda\Convert PDF To JPEG From URL (Node.js)
 \PDF To JPG\C#\Advanced JPEG Conversion Options
+\PDF To JPG\C#\Convert Encoded PDF To JPEG From URL
 \PDF To JPG\C#\Convert PDF To JPEG From Uploaded File
 \PDF To JPG\C#\Convert PDF To JPEG From URL
 \PDF To JPG\C#\Convert PDF To JPEG From URL Asynchronously
 \PDF To JPG\cURL\Advanced JPEG Conversion Options
+\PDF To JPG\cURL\Convert Encoded PDF To JPEG From URL
 \PDF To JPG\cURL\Convert PDF To JPEG From URL
 \PDF To JPG\cURL\PDF To JPEG
 \PDF To JPG\Java\Advanced JPEG Conversion Options
+\PDF To JPG\Java\Convert Encoded PDF To JPEG From URL
 \PDF To JPG\Java\Convert PDF To JPEG From Uploaded File
 \PDF To JPG\Java\Convert PDF To JPEG From URL
 \PDF To JPG\JavaScript\Advanced JPEG Conversion Options
+\PDF To JPG\JavaScript\Convert Encoded PDF To JPEG From URL (Node.js)
+\PDF To JPG\JavaScript\Convert Encoded PDF To JPEG From URL (Node.js) - Async API
 \PDF To JPG\JavaScript\Convert PDF To JPEG From Uploaded File (Node.js)
 \PDF To JPG\JavaScript\Convert PDF To JPEG From Uploaded File (Node.js) - Async API
 \PDF To JPG\JavaScript\Convert PDF To JPEG From URL (Node.js)
 \PDF To JPG\JavaScript\Convert PDF To JPEG From URL (Node.js) - Async API
+\PDF To JPG\PHP\Convert Encoded PDF To Image Asynchronously
 \PDF To JPG\PHP\Convert PDF To Image Asynchronously
 \PDF To JPG\PHP\Convert PDF To Image From Uploaded File
 \PDF To JPG\PowerShell\Advanced JPEG Conversion Options
+\PDF To JPG\PowerShell\Convert Encoded PDF To JPEG From URL Asynchronously
 \PDF To JPG\PowerShell\Convert PDF To JPEG From Uploaded File
 \PDF To JPG\PowerShell\Convert PDF To JPEG From URL
 \PDF To JPG\PowerShell\Convert PDF To JPEG From URL Asynchronously
 \PDF To JPG\Python\Advanced Conversation Options
+\PDF To JPG\Python\Convert Encoded PDF to Image From URL
 \PDF To JPG\Python\Convert PDF To Image From Uploaded File
 \PDF To JPG\Python\Convert PDF To Image From Uploaded File Asynchronously
 \PDF To JPG\Python\Convert PDF to Image From URL
 \PDF To JPG\VB.NET\Advanced JPEG Conversation Options
+\PDF To JPG\VB.NET\Convert Encoded PDF To JPEG From URL Asynchronously
 \PDF To JPG\VB.NET\Convert PDF To JPEG From Uploaded File
 \PDF To JPG\VB.NET\Convert PDF To JPEG From URL
 \PDF To JPG\VB.NET\Convert PDF To JPEG From URL Asynchronously

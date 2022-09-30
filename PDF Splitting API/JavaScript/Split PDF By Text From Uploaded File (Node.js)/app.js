@@ -104,7 +104,7 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function splitPdf(apiKey, uploadedFileUrl, splitText) {
     // Prepare request to `Split PDF By Text` API endpoint
-    var queryPath = `/v1/pdf/split`;
+    var queryPath = `/v1/pdf/split2`;
 
     // JSON payload for api request
     var jsonPayload = JSON.stringify({
