@@ -37,6 +37,7 @@
 \PDF Merging API
 \PDF Optimization API
 \PDF Password And Security
+\PDF Rotate Pages
 \PDF Search Tables
 \PDF Splitting API
 \PDF Text Search API
@@ -1102,6 +1103,34 @@
 \PDF Password And Security\Salesforce\Remove PDF Document Protection From Uploaded File
 \PDF Password And Security\VB.NET\Protect PDF Document
 \PDF Password And Security\VB.NET\Remove PDF Document Protection
+\PDF Rotate Pages\C#
+\PDF Rotate Pages\cURL
+\PDF Rotate Pages\Java
+\PDF Rotate Pages\JavaScript
+\PDF Rotate Pages\PHP
+\PDF Rotate Pages\PowerShell
+\PDF Rotate Pages\Python
+\PDF Rotate Pages\VB.NET
+\PDF Rotate Pages\C#\Auto Rotate PDF From URL
+\PDF Rotate Pages\C#\Rotate PDF From URL
+\PDF Rotate Pages\C#\Rotate PDF From URL Asynchronously
+\PDF Rotate Pages\cURL\PDF Auto Rotate Pages
+\PDF Rotate Pages\cURL\PDF Rotate Pages
+\PDF Rotate Pages\Java\Auto Rotate PDF From URL
+\PDF Rotate Pages\Java\Rotate PDF From URL
+\PDF Rotate Pages\JavaScript\Auto Rotate PDF From URL (Node.js)
+\PDF Rotate Pages\JavaScript\Rotate PDF From URL (Node.js)
+\PDF Rotate Pages\JavaScript\Rotate PDF From URL (Node.js) - Async API
+\PDF Rotate Pages\PHP\Auto Rotate PDF
+\PDF Rotate Pages\PHP\Rotate PDF Asynchronously
+\PDF Rotate Pages\PowerShell\Auto Rotate PDF From URL
+\PDF Rotate Pages\PowerShell\Rotate PDF From URL
+\PDF Rotate Pages\Python\Auto Rotate PDF From URL
+\PDF Rotate Pages\Python\Rotate PDF From URL
+\PDF Rotate Pages\Python\Rotate PDF From URL Asynchronously
+\PDF Rotate Pages\VB.NET\Auto Rotate PDF From URL
+\PDF Rotate Pages\VB.NET\Rotate PDF From URL
+\PDF Rotate Pages\VB.NET\Rotate PDF From URL Asynchronously
 \PDF Search Tables\C#
 \PDF Search Tables\cURL
 \PDF Search Tables\Java
