@@ -8,17 +8,17 @@
 
 <?php 
 
-// Cloud API asynchronous "Get Email Info" job example.
+// Cloud API asynchronous "Extract Email Attachment" job example.
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co
-$apiKey = "*********************************";
+$apiKey = "******************************************";
 
 // Direct URL of source file. Check another example if you need to upload a local file to the cloud.
 // You can also upload your own file into PDF.co and use it as url. Check "Upload File" samples for code snippets: https://github.com/bytescout/pdf-co-api-samples/tree/master/File%20Upload/    
 $sourceFileUrl = "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/email-extractor/sample.eml";
 
-// Prepare URL for `Get Email Info` API call
+// Prepare URL for `Extract Email Attachment` API call
 $url = "https://api.pdf.co/v1/email/extract-attachments";
 
 // Prepare requests params
@@ -53,9 +53,11 @@ if (curl_errno($curl) == 0)
             echo "<strong>From: </strong>" . $json["body"]["from"] . "<br />";
             echo "<strong>Subject: </strong>" . $json["body"]["subject"] . "<br />";
             echo "<strong>Body: </strong><pre>" . $json["body"]["bodyText"] . "</pre><br />";
+            echo "<strong><u>Attachments</u></strong><br/>";
 
-            echo "<br/><strong>Response JSON</strong>";
-            echo "<pre>" . json_encode($json) . "</pre>";
+            foreach($json["body"]["attachments"] as $itmAttachment) {
+                echo "FileName: " . $itmAttachment["filename"] . ", <a href='" . $itmAttachment["url"] ."' target='_blank'>Download</a> <br/>";
+            }
         }
         else
         {
