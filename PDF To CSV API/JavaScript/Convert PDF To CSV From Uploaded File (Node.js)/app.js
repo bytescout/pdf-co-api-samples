@@ -23,7 +23,7 @@ var request = require("request");
 
 // The authentication key (API Key).
 // Get your own by registering at https://app.pdf.co
-const API_KEY = "**************************************";
+const API_KEY = "***************************************";
 
 // Source PDF file
 const SourceFile = "./sample.pdf";
@@ -64,8 +64,19 @@ function getPresignedUrl(apiKey, localFile) {
         };
         // Send request
         https.get(reqOptions, (response) => {
-            response.on("data", (d) => {
-                let data = JSON.parse(d);
+
+            response.setEncoding('utf8');
+
+            // Build response body in a string
+            let resBody = '';
+    
+            // Listen for data and add
+            response.on('data', function (chunk) {
+                resBody += chunk
+            });
+    
+            response.on("end", () => {
+                let data = JSON.parse(resBody);
                 if (data.error == false) {
                     // Return presigned url we received
                     resolve([data.presignedUrl, data.url]);
@@ -104,14 +115,14 @@ function uploadFile(apiKey, localFile, uploadUrl) {
 
 function convertPdfToCsv(apiKey, uploadedFileUrl, password, pages, destinationFile) {
     // Prepare request to `PDF To CSV` API endpoint
-    var queryPath = `/v1/pdf/convert/to/csv`;
+    const queryPath = `/v1/pdf/convert/to/csv`;
 
     // JSON payload for api request
-    var jsonPayload = JSON.stringify({
+    const jsonPayload = JSON.stringify({
         name: path.basename(destinationFile), password: password, pages: pages, url: uploadedFileUrl
     });
 
-    var reqOptions = {
+    const reqOptions = {
         host: "api.pdf.co",
         method: "POST",
         path: queryPath,
@@ -122,11 +133,21 @@ function convertPdfToCsv(apiKey, uploadedFileUrl, password, pages, destinationFi
         }
     };
     // Send request
-    var postRequest = https.request(reqOptions, (response) => {
-        response.on("data", (d) => {
-            response.setEncoding("utf8");
+    const postRequest = https.request(reqOptions, (response) => {
+
+        response.setEncoding('utf8');
+
+        // Build response body in a string
+        let resBody = '';
+
+        // Listen for data and add
+        response.on('data', function (chunk) {
+            resBody += chunk
+        });
+
+        response.on("end", () => {
             // Parse JSON response
-            let data = JSON.parse(d);
+            const data = JSON.parse(resBody);
             if (data.error == false) {
                 // Download CSV file
                 var file = fs.createWriteStream(destinationFile);
