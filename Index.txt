@@ -1049,6 +1049,7 @@
 \PDF Optimization API\JavaScript\Advanced Optimize PDF From URL (Node.js)
 \PDF Optimization API\JavaScript\Optimize PDF From Uploaded File (Node.js)
 \PDF Optimization API\JavaScript\Optimize PDF From Uploaded File (Node.js) - Async API
+\PDF Optimization API\JavaScript\Optimize PDF From URL (JavaScript)
 \PDF Optimization API\JavaScript\Optimize PDF From URL (Node.js)
 \PDF Optimization API\JavaScript\Optimize PDF From URL (Node.js) - Async API
 \PDF Optimization API\PHP\Advanced Optimize PDF Asynchronously

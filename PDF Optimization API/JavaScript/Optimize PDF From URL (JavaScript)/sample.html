@@ -1,0 +1,39 @@
+<html>
+  <body>
+    <script>
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append(
+        "x-api-key",
+        "YOUR_PDFco_API_KEY_HERE"
+      );
+
+      var raw = JSON.stringify({
+        url: "https://bytescout-com.s3-us-west-2.amazonaws.com/files/demo-files/cloud-api/pdf-optimize/sample.pdf",
+        name: "output.pdf",
+        profiles:
+          "{ 'ImageOptimizationFormat': 'JPEG', 'JPEGQuality': 25, 'ResampleImages': true, 'ResamplingResolution': 120, 'GrayscaleImages': false }",
+        async: false,
+      });
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch("https://api.pdf.co/v1/pdf/optimize", requestOptions)
+        .then((response) => response.text())
+        .then((result) => {
+            document.write(`<h3>Result</h3><pre>${result}</pre>`);
+            console.log(result);
+        })
+        .catch((error) => 
+        {
+            document.write(`<h3>Error</h3><pre>${error}</pre>`);
+            console.log("error", error);
+        });
+    </script>
+  </body>
+</html>
