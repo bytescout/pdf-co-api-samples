@@ -1,0 +1,55 @@
+﻿{
+  "templateName": "Untitled document kind",
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": []
+  },
+  "objects": [
+    {
+      "name": "Part1",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          7.5,
+          33.75,
+          244.5,
+          353.25
+        ],
+        "pageIndex": 0
+      },
+      "id": 1666158123989
+    },
+    {
+      "name": "Part2",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          273.75,
+          201.75,
+          247.5,
+          198
+        ],
+        "pageIndex": 0
+      },
+      "id": 1666158123990
+    },
+    {
+      "name": "Part3",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          537.75,
+          27,
+          246,
+          268.5
+        ],
+        "pageIndex": 0
+      },
+      "id": 1666158123991
+    }
+  ]
+}

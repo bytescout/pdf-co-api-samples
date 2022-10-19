@@ -387,6 +387,8 @@
 \Document Parser API\TEMPLATES-SAMPLES\Census table from life and annuity quote request pdf
 \Document Parser API\TEMPLATES-SAMPLES\Create Custom Template
 \Document Parser API\TEMPLATES-SAMPLES\Extract line items from tables on multiple pages
+\Document Parser API\TEMPLATES-SAMPLES\Extract Text from Foldable Brochure Booklet
+\Document Parser API\TEMPLATES-SAMPLES\Group Life Insurance Quote Form
 \Document Parser API\TEMPLATES-SAMPLES\Invoice table with some empty columns
 \Document Parser API\TEMPLATES-SAMPLES\Invoice with few line items in EUR
 \Document Parser API\TEMPLATES-SAMPLES\Invoice with line items in bordered table
@@ -408,6 +410,7 @@
 \Document Parser API\TEMPLATES-SAMPLES\Parse with OCR
 \Document Parser API\TEMPLATES-SAMPLES\Parsing and reading data from Airline Tickets
 \Document Parser API\TEMPLATES-SAMPLES\Read values in columns 2 and 3
+\Document Parser API\TEMPLATES-SAMPLES\Sample Invoice
 \Document Parser API\TEMPLATES-SAMPLES\Statement of Assets
 \Document Parser API\TEMPLATES-SAMPLES\Table with Multiple Subitems
 \Document Parser API\TEMPLATES-SAMPLES\Tax Invoice with Line Items
