@@ -52,9 +52,10 @@ $(document).on("click", "#submit", function () {
                         $("#status").html('Processing... &nbsp;&nbsp;&nbsp; <img src="ajax-loader.gif" />');
 
                         $.ajax({
-                            url: 'https://api.pdf.co/v1/xls/convert/to/' + toType + '?url=' + presignedUrl + '&encrypt=true&inline=' + isInline,
+                            url: 'https://api.pdf.co/v1/xls/convert/to/' + toType,
                             type: 'POST',
-                            headers: { 'x-api-key': apiKey },
+                            data: {url: accessUrl, encrypt: true, inline: isInline},
+                            headers: {'x-api-key': apiKey},
                             success: function (result) {
 
                                 $("#status").text('done converting.');
