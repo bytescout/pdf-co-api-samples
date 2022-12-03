@@ -1,0 +1,130 @@
+﻿{
+  "templateName": "Amazon Web Services Invoice",
+  "templateVersion": 4,
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": [
+      "Amazon Web Services",
+      "ATTN",
+      "Invoice"
+    ]
+  },
+  "objects": [
+    {
+      "name": "total",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "TOTAL AMOUNT DUE ON{{Anything}}{{Dollar}}({{Number}})",
+        "regex": true,
+        "dataType": "decimal"
+      },
+      "id": 1634132948923
+    },
+    {
+      "name": "subTotal",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "{{LineStart}}{{Spaces}}Charges{{Spaces}}{{Dollar}}({{Number}})",
+        "regex": true,
+        "dataType": "decimal"
+      },
+      "id": 1634132948924
+    },
+    {
+      "name": "dateIssued",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice Date:{{Spaces}}({{Anything}}){{LineEnd}}",
+        "regex": true,
+        "dataType": "date",
+        "dateFormat": "MMMM d , yyyy"
+      },
+      "id": 1634132948925
+    },
+    {
+      "name": "invoiceId",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "Invoice Number:{{Spaces}}({{Digits}})",
+        "regex": true
+      },
+      "id": 1634132948926
+    },
+    {
+      "name": "companyName",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "static",
+        "expression": "Amazon Web Services, Inc.",
+        "regex": true
+      },
+      "id": 1634132948927
+    },
+    {
+      "name": "companyWebsite",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "static",
+        "expression": "aws.amazon.com",
+        "regex": true
+      },
+      "id": 1634132948928
+    },
+    {
+      "name": "billTo",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "expression": "Bill to Address:{{ToggleSingleLineMode}}({{AnythingGreedy}})",
+        "regex": true,
+        "rectangle": [
+          33,
+          115.5,
+          213.75,
+          72.75
+        ],
+        "pageIndex": 0
+      },
+      "id": 1634132948929
+    },
+    {
+      "name": "currency",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "static",
+        "expression": "USD",
+        "regex": true
+      },
+      "id": 1634132948930
+    },
+    {
+      "name": "table1",
+      "objectType": "table",
+      "tableProperties": {
+        "start": {
+          "expression": "{{LineStart}}{{Spaces}}Detail{{LineEnd}}",
+          "regex": true
+        },
+        "end": {
+          "expression": "{{EndOfPage}}",
+          "regex": true
+        },
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}{{Dollar}}(?<unitPrice>{{Number}}){{LineEnd}}",
+          "regex": true
+        },
+        "columns": [
+          {
+            "name": "unitPrice",
+            "dataType": "decimal"
+          }
+        ]
+      },
+      "id": 1634132948931
+    }
+  ]
+}

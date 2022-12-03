@@ -1,23 +1,18 @@
 ﻿{
-  "templateName": "Multipage Table Test",
+  "templateName": "Multi-page table - Approach 2 - Define Column Coordinates",
   "templateVersion": 4,
   "templatePriority": 0,
-  "detectionRules": {
-    "keywords": [
-      "Sample document with multi-page table"
-    ]
-  },
   "objects": [
     {
       "name": "total",
       "objectType": "field",
       "fieldProperties": {
-        "fieldType": "macros",
+        "fieldType": "regex",
         "expression": "TOTAL{{Spaces}}({{Number}})",
         "regex": true,
         "dataType": "decimal"
       },
-      "id": 1634132995054
+      "id": 1634132986558
     },
     {
       "name": "table1",
@@ -28,38 +23,41 @@
           "regex": true
         },
         "end": {
-          "expression": "TOTAL{{Spaces}}{{Number}}",
+          "expression": "(Page {{Digits}} of {{Digits}})|(TOTAL{{Spaces}}{{Number}})",
           "regex": true
         },
-        "row": {
-          "expression": "{{LineStart}}{{Spaces}}(?<itemNo>{{Digits}}){{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}(?<extPrice>{{Number}})",
-          "regex": true
-        },
+        "left": 51,
+        "right": 528,
         "columns": [
           {
+            "x": 51,
             "name": "itemNo",
             "dataType": "integer"
           },
           {
+            "x": 102,
             "name": "description",
             "dataType": "string"
           },
           {
+            "x": 324,
             "name": "price",
             "dataType": "decimal"
           },
           {
+            "x": 396,
             "name": "qty",
             "dataType": "integer"
           },
           {
+            "x": 441,
             "name": "extPrice",
             "dataType": "decimal"
           }
         ],
         "multipage": true
       },
-      "id": 1634132995055
+      "id": 1634132986559
     }
   ]
 }

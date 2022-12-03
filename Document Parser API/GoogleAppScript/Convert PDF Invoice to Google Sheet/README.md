@@ -1,3 +1,8 @@
+# PDF.co Document Parser templates
+
+Explore the latest set of PDF.co Document Parser templates at
+[https://github.com/bytescout/pdf-co-api-samples/tree/master/Document%20Parser%20API/TEMPLATES-SAMPLES](https://github.com/bytescout/pdf-co-api-samples/tree/master/Document%20Parser%20API/TEMPLATES-SAMPLES)
+
 ## How to convert PDF invoice to google sheet for document parser API in GoogleAppScript and PDF.co Web API What is PDF.co Web API? It is the Rest API that provides set of data extraction functions, tools for documents manipulation, splitting and merging of pdf files. Includes built-in OCR, images recognition, can generate and read barcodes from images, scans and pdf.
 
 ## REQUEST FREE TECH SUPPORT

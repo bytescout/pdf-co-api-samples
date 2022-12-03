@@ -379,42 +379,44 @@
 \Document Parser API\SharePoint\Parse Invoice Information\Sample
 \Document Parser API\SharePoint\Parse Invoice Information\VisualWebPart1
 \Document Parser API\SharePoint\Parse Invoice Information\Features\Feature1
-\Document Parser API\TEMPLATES-SAMPLES\Airline Ticket
-\Document Parser API\TEMPLATES-SAMPLES\Amazon Shipment Label
-\Document Parser API\TEMPLATES-SAMPLES\Auto Detect Table
-\Document Parser API\TEMPLATES-SAMPLES\Auto Find Table From Borderless Table
-\Document Parser API\TEMPLATES-SAMPLES\Bank of America Statement
-\Document Parser API\TEMPLATES-SAMPLES\Blood Test Results to JSON
-\Document Parser API\TEMPLATES-SAMPLES\Census table from life and annuity quote request pdf
-\Document Parser API\TEMPLATES-SAMPLES\Extract line items from tables on multiple pages
-\Document Parser API\TEMPLATES-SAMPLES\Foldable Brochure Booklet
-\Document Parser API\TEMPLATES-SAMPLES\Invoice table with some empty columns
-\Document Parser API\TEMPLATES-SAMPLES\Invoice with few line items in EUR
+\Document Parser API\TEMPLATES-SAMPLES\Form IRS Form 1040
+\Document Parser API\TEMPLATES-SAMPLES\Form IRS Form 1099-DIV
+\Document Parser API\TEMPLATES-SAMPLES\Form IRS Form 1099-K
+\Document Parser API\TEMPLATES-SAMPLES\Form IRS Form W2
+\Document Parser API\TEMPLATES-SAMPLES\Invoice from Amazon AWS
+\Document Parser API\TEMPLATES-SAMPLES\Invoice from Digial Ocean Scanned
+\Document Parser API\TEMPLATES-SAMPLES\Invoice from Digital Ocean
+\Document Parser API\TEMPLATES-SAMPLES\Invoice from Google
+\Document Parser API\TEMPLATES-SAMPLES\Invoice from ManyChat
+\Document Parser API\TEMPLATES-SAMPLES\Invoice from PandaDoc
+\Document Parser API\TEMPLATES-SAMPLES\Invoice Get Email Address
+\Document Parser API\TEMPLATES-SAMPLES\Invoice Get Total And Tax
+\Document Parser API\TEMPLATES-SAMPLES\Invoice Simple Invoice
+\Document Parser API\TEMPLATES-SAMPLES\Invoice table with empty columns
+\Document Parser API\TEMPLATES-SAMPLES\Invoice with Hanging Rows
 \Document Parser API\TEMPLATES-SAMPLES\Invoice with line items in bordered table
-\Document Parser API\TEMPLATES-SAMPLES\JPMorgan Chase Statement
-\Document Parser API\TEMPLATES-SAMPLES\Key Value Fields From Echocardiogram Report
-\Document Parser API\TEMPLATES-SAMPLES\ManyChat Invoice
-\Document Parser API\TEMPLATES-SAMPLES\Multiline Items Without Borders
+\Document Parser API\TEMPLATES-SAMPLES\Invoice with line items in EUR
+\Document Parser API\TEMPLATES-SAMPLES\Invoice with Tax and Line Items
 \Document Parser API\TEMPLATES-SAMPLES\Order form with line items and total
-\Document Parser API\TEMPLATES-SAMPLES\Parse and Generate HL7 Output
-\Document Parser API\TEMPLATES-SAMPLES\Parse Email Address
-\Document Parser API\TEMPLATES-SAMPLES\Parse Hanging Rows In Invoice
-\Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1040
-\Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1099-DIV
-\Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form 1099-K
-\Document Parser API\TEMPLATES-SAMPLES\Parse IRS Form W2
-\Document Parser API\TEMPLATES-SAMPLES\Parse Multipage Table
-\Document Parser API\TEMPLATES-SAMPLES\Parse PandaDoc Sample Invoice
-\Document Parser API\TEMPLATES-SAMPLES\Parse Simple Document
-\Document Parser API\TEMPLATES-SAMPLES\Parse with OCR
-\Document Parser API\TEMPLATES-SAMPLES\Read values in columns 2 and 3
-\Document Parser API\TEMPLATES-SAMPLES\Sample Invoice
+\Document Parser API\TEMPLATES-SAMPLES\Report - Blood Test Results
+\Document Parser API\TEMPLATES-SAMPLES\Report Echocardiogram - Key Value Fields
+\Document Parser API\TEMPLATES-SAMPLES\Report HL7
+\Document Parser API\TEMPLATES-SAMPLES\Shipment Label from Amazon
+\Document Parser API\TEMPLATES-SAMPLES\Shipping Label from USPS
+\Document Parser API\TEMPLATES-SAMPLES\Statement from Bank of America
+\Document Parser API\TEMPLATES-SAMPLES\Statement from JPMorgan Chase
+\Document Parser API\TEMPLATES-SAMPLES\Statement from Wells Fargo
 \Document Parser API\TEMPLATES-SAMPLES\Statement of Assets
+\Document Parser API\TEMPLATES-SAMPLES\Table Auto Detection
+\Document Parser API\TEMPLATES-SAMPLES\Table from census table life and annuity quote request pdf
+\Document Parser API\TEMPLATES-SAMPLES\Table Multiline Items Without Borders
+\Document Parser API\TEMPLATES-SAMPLES\Table Multiple pages - Approach 1 - Detect Columns Automatically
+\Document Parser API\TEMPLATES-SAMPLES\Table Multiple Pages - Approach 2 - Define Column Coordinates
+\Document Parser API\TEMPLATES-SAMPLES\Table Read From columns 2 and 3
 \Document Parser API\TEMPLATES-SAMPLES\Table with Multiple Subitems
-\Document Parser API\TEMPLATES-SAMPLES\Tax Invoice with Line Items
-\Document Parser API\TEMPLATES-SAMPLES\Total and Vat tax
-\Document Parser API\TEMPLATES-SAMPLES\US Postal Shipping Label
-\Document Parser API\TEMPLATES-SAMPLES\Wells Fargo Statement
+\Document Parser API\TEMPLATES-SAMPLES\Table Without Borders Auto Detection
+\Document Parser API\TEMPLATES-SAMPLES\Text Extraction from Foldable Brochure Booklet
+\Document Parser API\TEMPLATES-SAMPLES\Ticket Airline
 \Document Parser API\VB.NET\Blood Test Results to JSON
 \Document Parser API\VB.NET\Census table from life and annuity quote request pdf
 \Document Parser API\VB.NET\Create Custom Template
