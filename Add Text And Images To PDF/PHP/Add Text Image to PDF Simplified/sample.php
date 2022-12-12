@@ -30,8 +30,13 @@ curl_setopt_array($curl, array(
 	),
 ));
 
-$response = curl_exec($curl);
+$response = json_decode(curl_exec($curl));
 
 curl_close($curl);
-echo $response;
+
+echo "URL: " . $response -> url . "\n";
+echo "Page Count: " . $response -> pageCount . "\n"; 
+echo "Error: " . $response -> error . "\n"; 
+echo "Status: " . $response -> status . "\n"; 
+echo "Name: " . $response -> name ;
 
