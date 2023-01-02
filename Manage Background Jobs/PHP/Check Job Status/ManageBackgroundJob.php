@@ -17,7 +17,7 @@ curl_setopt_array($curl, array(
 		),
 ));
 
-$response = curl_exec($curl);
+$response = json_decode(curl_exec($curl));
 
 curl_close($curl);
-echo $response;
+echo "<h2>Output:</h2><pre>", var_export($response, true), "</pre>";

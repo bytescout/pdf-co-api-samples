@@ -1,20 +1,17 @@
 <?php
 
-// Visit Knowledgebase for adding Text Macros to PDF 
-// https://apidocs.pdf.co/kb/Fill%20PDF%20and%20Add%20Text%20or%20Images%20to%20PDF/macros
-
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-	CURLOPT_URL => 'https://api.pdf.co/v1/pdf/edit/add',
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_ENCODING => '',
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 0,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => 'POST',
-	CURLOPT_POSTFIELDS =>'{
+		CURLOPT_URL => 'https://api.pdf.co/v1/pdf/edit/add',
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => 'POST',
+		CURLOPT_POSTFIELDS =>'{
     "async": false,
     "encrypt": true,
     "inline": true,
@@ -23,21 +20,19 @@ curl_setopt_array($curl, array(
     "annotations": [
         {
             "text": "Page {{$$PageNumber}} of {{$$PageCount}}",
-            "x": 500,
-            "y": 10,
-            "size": 12,
+            "x": 150,
+            "y": 100,
+            "size": 20,
             "pages": "0-"
-        },
-    ], 
+        }
+    ]
 }',
-	CURLOPT_HTTPHEADER => array(
-		'Content-Type: application/json',
-		'x-api-key: __YOUR_PDF_CO_API_KEY_HERE__'
-	),
+		CURLOPT_HTTPHEADER => array(
+				'Content-Type: application/json',
+				'x-api-key: __YOUR_API_KEY_HERE__'
+		),
 ));
 
-$response = curl_exec($curl);
-
+$response = json_decode(curl_exec($curl));
 curl_close($curl);
-echo $response;
-
+echo "<h2>Output:</h2><pre>", var_export($response, true), "</pre>";
