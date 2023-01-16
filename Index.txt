@@ -110,11 +110,11 @@
 \Add Text And Images To PDF\Python\Add Text And Image To PDF
 \Add Text And Images To PDF\Python\Add Text by finding target coordinates
 \Add Text And Images To PDF\Python\Add Text to Existing PDF
-\Add Text And Images To PDF\Salesforce\Add Image To PDF
-\Add Text And Images To PDF\Salesforce\Add Image To PDF From Uploaded File
 \Add Text And Images To PDF\Salesforce\Add Text Image Signature to PDF
 \Add Text And Images To PDF\Salesforce\Add Text Image Signature to PDF With Simplified Parameter
-\Add Text And Images To PDF\Salesforce\Add Text To PDF
+\Add Text And Images To PDF\Salesforce\Legacy - Add Image To PDF
+\Add Text And Images To PDF\Salesforce\Legacy - Add Image To PDF From Uploaded File
+\Add Text And Images To PDF\Salesforce\Legacy - Add Text To PDF
 \Add Text And Images To PDF\SharePoint\Add Text and Images to PDF
 \Add Text And Images To PDF\SharePoint\Add Text and Images to PDF\Features
 \Add Text And Images To PDF\SharePoint\Add Text and Images to PDF\Package
