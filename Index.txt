@@ -163,6 +163,7 @@
 \Barcode Reader API\AWS Lambda
 \Barcode Reader API\C#
 \Barcode Reader API\cURL
+\Barcode Reader API\GoogleAppScript
 \Barcode Reader API\Java
 \Barcode Reader API\JavaScript
 \Barcode Reader API\PHP
@@ -193,6 +194,7 @@
 \Barcode Reader API\cURL\Read Barcode From Encrypted URL
 \Barcode Reader API\cURL\Read Barcode from File
 \Barcode Reader API\cURL\Read Barcode From URL
+\Barcode Reader API\GoogleAppScript\Read QR Code From PDF
 \Barcode Reader API\Java\Advanced Conversation Options
 \Barcode Reader API\Java\Read Barcode From Encrypted URL
 \Barcode Reader API\Java\Read Barcode From Uploaded File
