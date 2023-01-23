@@ -112,6 +112,7 @@
 \Add Text And Images To PDF\Python\Add Text to Existing PDF
 \Add Text And Images To PDF\Salesforce\Add Text Image Signature to PDF
 \Add Text And Images To PDF\Salesforce\Add Text Image Signature to PDF With Simplified Parameter
+\Add Text And Images To PDF\Salesforce\Add Text To Existing PDF
 \Add Text And Images To PDF\Salesforce\Legacy - Add Image To PDF
 \Add Text And Images To PDF\Salesforce\Legacy - Add Image To PDF From Uploaded File
 \Add Text And Images To PDF\Salesforce\Legacy - Add Text To PDF
