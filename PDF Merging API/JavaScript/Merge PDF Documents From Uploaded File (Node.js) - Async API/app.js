@@ -84,8 +84,13 @@ function getPresignedUrl(localFile) {
         };
         // Send request
         https.get(reqOptions, (response) => {
-            response.on("data", (d) => {
-                let data = JSON.parse(d);
+            let str_resp = '';
+            response.on('data', function (chunk) {
+                str_resp += chunk;
+            });
+            
+            response.on("end", () => {
+                let data = JSON.parse(str_resp);
                 if (data.error == false) {
                     // Return presigned url we received
                     resolve([data.presignedUrl, data.url]);
@@ -146,9 +151,14 @@ function mergePDFDocuments(SourceFiles, DestinationFile) {
     };
     // Send request
     var postRequest = https.request(reqOptions, (response) => {
-        response.on("data", (d) => {
-            // Parse JSON response
-            var data = JSON.parse(d);
+        let str_resp = '';
+        response.on('data', function (chunk) {
+            str_resp += chunk;
+        });
+        
+        response.on("end", () => {
+        // Parse JSON response
+            var data = JSON.parse(str_resp);
             if (data.error == false) {
                 console.log(`Job #${data.jobId} has been created!`);
                 checkIfJobIsCompleted(data.jobId, data.url);

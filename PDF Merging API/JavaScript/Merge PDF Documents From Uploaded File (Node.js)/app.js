@@ -86,8 +86,13 @@ function getPresignedUrl(localFile) {
         };
         // Send request
         https.get(reqOptions, (response) => {
-            response.on("data", (d) => {
-                let data = JSON.parse(d);
+            let str_resp = '';
+            response.on('data', function (chunk) {
+                str_resp += chunk;
+              });
+            
+            response.on("end", () => {
+                let data = JSON.parse(str_resp);
                 if (data.error == false) {
                     // Return presigned url we received
                     resolve([data.presignedUrl, data.url]);
