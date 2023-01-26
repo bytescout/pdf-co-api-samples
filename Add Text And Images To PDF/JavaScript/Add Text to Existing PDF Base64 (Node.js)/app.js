@@ -16,7 +16,7 @@ var path = require("path");
 var fs = require("fs");
 
 // Visit Knowledgebase for adding Text Macros to PDF 
-// https://apidocs.pdf.co/kb/Fill%20PDF%20and%20Add%20Text%20or%20Images%20to%20PDF/macros
+// https://apidocs.pdf.co/kb/Fill%20PDF%20and%20Add%20Text%20or%20Images%20(pdf-edit-add)/macros
 
 // `request` module is required for file upload.
 // Use "npm install request" command to install.

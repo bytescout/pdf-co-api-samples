@@ -254,6 +254,9 @@
 \Delete Text From PDF\JavaScript\Delete PDF Text From Uploaded File (Node.js) - Async API
 \Delete Text From PDF\JavaScript\Delete PDF Text From URL (Node.js)
 \Delete Text From PDF\JavaScript\Delete PDF Text From URL (Node.js) - Async API
+\Delete Text From PDF\JavaScript\Remove Credit Card Data From PDF
+\Delete Text From PDF\JavaScript\Remove Email and SSN Data From PDF
+\Delete Text From PDF\JavaScript\Remove PII Data From PDF
 \Delete Text From PDF\PHP\Delete PDF Text Asynchronously
 \Delete Text From PDF\PHP\Delete PDF Text From Uploaded File
 \Delete Text From PDF\PowerShell\Delete PDF Text From Uploaded File
