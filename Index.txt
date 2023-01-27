@@ -244,6 +244,8 @@
 \Delete Text From PDF\C#\Delete PDF Text From Uploaded File
 \Delete Text From PDF\C#\Delete PDF Text From URL
 \Delete Text From PDF\C#\Delete PDF Text From URL Asynchronously
+\Delete Text From PDF\C#\Remove Credit Card Data From PDF
+\Delete Text From PDF\C#\Remove Email and SSN Data From PDF
 \Delete Text From PDF\cURL\Delete Multiple Replacement
 \Delete Text From PDF\cURL\Delete PDF Text From URL
 \Delete Text From PDF\cURL\Delete Single Replacement
