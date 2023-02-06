@@ -1836,13 +1836,16 @@
 \Replace Text With Image From PDF\Salesforce
 \Replace Text With Image From PDF\VB.NET
 \Replace Text With Image From PDF\AWS Lambda\Replace Text With Image From URL (Node.js)
+\Replace Text With Image From PDF\C#\Replace Placeholder With Signature
 \Replace Text With Image From PDF\C#\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\C#\Replace Text With Image From URL
 \Replace Text With Image From PDF\C#\Replace Text With Image From URL Asynchronously
+\Replace Text With Image From PDF\cURL\Replace Placeholder With Signature
 \Replace Text With Image From PDF\cURL\Replace Text With Image
 \Replace Text With Image From PDF\cURL\Replace Text With Image From URL
 \Replace Text With Image From PDF\Java\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\Java\Replace Text With Image From URL
+\Replace Text With Image From PDF\JavaScript\Replace Placeholder With Signature (Node.js)
 \Replace Text With Image From PDF\JavaScript\Replace Text With Image From Uploaded File (Node.js)
 \Replace Text With Image From PDF\JavaScript\Replace Text With Image From Uploaded File (Node.js) - Async API
 \Replace Text With Image From PDF\JavaScript\Replace Text With Image From URL (Node.js)
@@ -1851,11 +1854,13 @@
 \Replace Text With Image From PDF\JavaScript\Replace Text With Signature (jQuery)\assets
 \Replace Text With Image From PDF\JavaScript\Replace Text With Signature (jQuery)\js
 \Replace Text With Image From PDF\JavaScript\Replace Text With Signature (jQuery)\js\signature-pad
+\Replace Text With Image From PDF\PHP\Replace Placeholder With Signature
 \Replace Text With Image From PDF\PHP\Replace Text With Image Asynchronously
 \Replace Text With Image From PDF\PHP\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\PowerShell\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\PowerShell\Replace Text With Image From URL
 \Replace Text With Image From PDF\PowerShell\Replace Text With Image From URL Asynchronously
+\Replace Text With Image From PDF\Python\Replace Placeholder With Signature
 \Replace Text With Image From PDF\Python\Replace Text With Image From Uploaded File
 \Replace Text With Image From PDF\Python\Replace Text With Image From URL
 \Replace Text With Image From PDF\Python\Replace Text With Image From URL Asynchronously
