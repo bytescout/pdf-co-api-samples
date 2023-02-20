@@ -1185,6 +1185,7 @@
 \PDF Splitting API\PHP
 \PDF Splitting API\PowerShell
 \PDF Splitting API\Python
+\PDF Splitting API\Salesforce
 \PDF Splitting API\VB.NET
 \PDF Splitting API\AWS Lambda\Split PDF By Barcode From URL (Node.js)
 \PDF Splitting API\AWS Lambda\Split PDF By Text From URL (Node.js)
@@ -1243,6 +1244,9 @@
 \PDF Splitting API\Python\Split PDF By Text From Uploaded File Asynchronously
 \PDF Splitting API\Python\Split PDF From Uploaded File
 \PDF Splitting API\Python\Split PDF From Uploaded File Asynchronously
+\PDF Splitting API\Salesforce\Split PDF By Barcode
+\PDF Splitting API\Salesforce\Split PDF By Page Number
+\PDF Splitting API\Salesforce\Split PDF By Text Search
 \PDF Splitting API\VB.NET\Async file upload and async Split PDF
 \PDF Splitting API\VB.NET\Async file upload and async Split PDF By Barcode
 \PDF Splitting API\VB.NET\Async file upload and async Split PDF By Text
