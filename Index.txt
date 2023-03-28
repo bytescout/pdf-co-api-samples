@@ -239,6 +239,7 @@
 \Delete Text From PDF\PHP
 \Delete Text From PDF\PowerShell
 \Delete Text From PDF\Python
+\Delete Text From PDF\Salesforce
 \Delete Text From PDF\VB.NET
 \Delete Text From PDF\AWS Lambda\Delete PDF Text From URL (Node.js)
 \Delete Text From PDF\C#\Delete PDF Text From Uploaded File
@@ -269,6 +270,7 @@
 \Delete Text From PDF\Python\Delete PDF Text From Uploaded File
 \Delete Text From PDF\Python\Delete PDF Text From URL
 \Delete Text From PDF\Python\Delete PDF Text From URL Asynchronously
+\Delete Text From PDF\Salesforce\Delete Text From PDF
 \Delete Text From PDF\VB.NET\Delete PDF Text From Uploaded File
 \Delete Text From PDF\VB.NET\Delete PDF Text From URL
 \Delete Text From PDF\VB.NET\Delete PDF Text From URL Asynchronously
@@ -834,6 +836,7 @@
 \PDF from HTML template\PHP
 \PDF from HTML template\PowerShell
 \PDF from HTML template\Python
+\PDF from HTML template\Salesforce
 \PDF from HTML template\TEMPLATES-SAMPLES
 \PDF from HTML template\VB.NET
 \PDF from HTML template\C#\CCDA record to PDF
@@ -856,6 +859,7 @@
 \PDF from HTML template\PowerShell\Invoice With Multiple Pages
 \PDF from HTML template\Python\Generate PDF Invoice From HTML Template
 \PDF from HTML template\Python\Invoice With Multiple Pages
+\PDF from HTML template\Salesforce\PDF From Html Template
 \PDF from HTML template\TEMPLATES-SAMPLES\Advanced Invoice With Multiple Pages
 \PDF from HTML template\TEMPLATES-SAMPLES\Array Iteration
 \PDF from HTML template\TEMPLATES-SAMPLES\Invoice With Auto Calculations and QR Code
@@ -870,6 +874,7 @@
 \PDF from URL\PHP
 \PDF from URL\PowerShell
 \PDF from URL\Python
+\PDF from URL\Salesforce
 \PDF from URL\VB.NET
 \PDF from URL\AWS Lambda\Convert Web Page To PDF From Link (Node.js)
 \PDF from URL\C#\Convert Web Page To PDF From Link
@@ -884,6 +889,7 @@
 \PDF from URL\PowerShell\Convert Web Page To PDF From Link Asynchronously
 \PDF from URL\Python\Convert Web Page To PDF From Link
 \PDF from URL\Python\Convert Web Page To PDF From Link Asynchronously
+\PDF from URL\Salesforce\PDF From URL
 \PDF from URL\VB.NET\Convert Web Page To PDF From URL
 \PDF from URL\VB.NET\Convert Web Page To PDF From URL Asynchronously
 \PDF Information API\AWS Lambda
@@ -1149,6 +1155,7 @@
 \PDF Rotate Pages\VB.NET\Rotate PDF From URL Asynchronously
 \PDF Search Tables\C#
 \PDF Search Tables\cURL
+\PDF Search Tables\GoogleAppsScript
 \PDF Search Tables\Java
 \PDF Search Tables\JavaScript
 \PDF Search Tables\PowerShell
@@ -1159,6 +1166,7 @@
 \PDF Search Tables\C#\PDF Table Search from URL
 \PDF Search Tables\C#\PDF Table Search from URL Asynchronously
 \PDF Search Tables\cURL\Search Tables From PDF
+\PDF Search Tables\GoogleAppsScript\ExtractTablesWithText
 \PDF Search Tables\Java\PDF Table Search from Uploaded File
 \PDF Search Tables\Java\PDF Table Search from Uploaded File Asynchronously
 \PDF Search Tables\Java\PDF Table Search from URL
@@ -1819,6 +1827,7 @@
 \Replace Text From PDF\JavaScript\Replace Text From Uploaded File (Node.js) - Async API
 \Replace Text From PDF\JavaScript\Replace Text From URL (Node.js)
 \Replace Text From PDF\JavaScript\Replace Text From URL (Node.js) - Async API
+\Replace Text From PDF\PHP\Replace Multiple Text From Uploaded File
 \Replace Text From PDF\PHP\Replace Text Asynchronously
 \Replace Text From PDF\PHP\Replace Text From Uploaded File
 \Replace Text From PDF\PowerShell\Replace Text From Uploaded File
