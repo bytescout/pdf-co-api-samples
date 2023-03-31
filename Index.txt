@@ -1830,6 +1830,7 @@
 \Replace Text From PDF\PHP\Replace Multiple Text From Uploaded File
 \Replace Text From PDF\PHP\Replace Text Asynchronously
 \Replace Text From PDF\PHP\Replace Text From Uploaded File
+\Replace Text From PDF\PHP\Replace Text From Uploaded File Asynchronously
 \Replace Text From PDF\PowerShell\Replace Text From Uploaded File
 \Replace Text From PDF\PowerShell\Replace Text From URL
 \Replace Text From PDF\PowerShell\Replace Text From URL Asynchronously
