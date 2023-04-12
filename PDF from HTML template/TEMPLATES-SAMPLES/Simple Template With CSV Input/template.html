@@ -1,0 +1,61 @@
+<!-- this sample shows how to use {{macro}} variables  -->
+<!-- Handlebars it the powerful template language based on {{Mustache}} but with conditions, js functions and much more. See https://handlebarsjs.com/ for information and samples -->
+<!doctype html>
+<html lang="en-US">
+<head>
+
+<title>Invoice {{invoice_id}}</title>    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>    
+<body>
+    {{#if paid}}
+    <div style="border-width: 3px;border-style: solid; border-color: #008000;border-radius: 8px; color: #008000; opacity:0.4; position: absolute; z-index: 1; left:80%; top:3%; font-size: 60pt;transform: rotate(-20deg)">
+    PAID </div>
+    {{/if}}
+    
+    <div class="container">
+        <div class="">
+            <div class="">
+                
+                <!-- invoice: header begin-->
+                <div class="row col-md-12">
+                    <div class="col col-md-6">
+                        <div class="">
+                            <div class="">
+                                <span class="font-weight-bold">Invoice Number:</span> {{invoice_id}}
+                            </div>
+                            <div class="">
+                                <span class="font-weight-bold">Invoice Date:</span> {{invoice_date}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+               <div class="row col-md-12">
+                    <div class="col col-md-6"></div>
+
+                    <div class="col col-md-6">
+                        <div class="font-weight-bold footer-title">BILL TO</div>
+                        <div class="">
+                            <div class=""><strong>Name:</strong> {{client_name}}</div>
+                        </div>
+                    </div>    
+                </div>
+                
+
+                </div>
+                <div class="row col-md-12">
+                  <div class="col col-md-6">
+                  </div>
+                    <div class="col col-md-6 text-left">
+                        <div class="font-weight-bold footer-title alert-warning">TOTAL: <span class="total-amount amount font-weight-bold">${{total}}</span></div>                        
+                    </div>
+                    
+                </div>
+                </div>                
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

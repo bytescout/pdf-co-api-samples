@@ -1,0 +1,125 @@
+<!-- this simple sample templates shows how to use macros in Mustache https://mustache.github.io/mustache.5.html and Handlebars https://handlebarsjs.com/guide/  templates. See other templates for advanced functions like auto calculation of tax, total, discount -->
+<!doctype html>
+<html lang="en-US">
+<head>
+<title>Invoice {{invoice_id}} {{client_name}}</title>    
+
+<script>
+// helper to format numbers
+Handlebars.registerHelper('numberFormat', numberFormat);
+function numberFormat(value){
+    // Helper parameters
+    var dl = 2;
+    var ts = ',';
+    var ds = '.';
+
+    // Parse to float
+    var value = parseFloat(value);
+
+    // The regex
+    var re = '\\d(?=(\\d{3})+' + (dl > 0 ? '\\D' : '$') + ')';
+
+    // Formats the number with the decimals
+    var num = value.toFixed(Math.max(0, ~~dl));
+
+    // Returns the formatted number
+    return (ds ? num.replace('.', ds) : num).replace(new RegExp(re, 'g'), '$&' + ts);
+}
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>    
+<body>
+    {{#if paid}}
+    <div style="border-width: 3px;border-style: solid; border-color: #008000;border-radius: 8px; color: #008000; opacity:0.4; position: absolute; z-index: 1; left:80%; top:3%; font-size: 60pt;transform: rotate(-20deg)">
+    PAID </div>
+    {{/if}}
+    
+    <div class="container">
+        <div class="">
+            <div class="">
+                
+                <!-- invoice: header begin-->
+                <div class="row col-md-12">
+                    <div class="col col-md-6">
+                            <div class="font-weight-bold">{{issuer_name}}</div>
+
+                            <div  class="">{{issuer_company}}</div>
+                            <div class="">{{issuer_address}}</div>
+                            <div class="">{{issuer_email}}</div>
+                            <div class="">{{issuer_website}}</div>
+                    </div>
+                    <div class="col col-md-6">
+                        <div class="">
+                            <div class="">
+                                <span class="font-weight-bold">Invoice Number:</span> {{invoice_id}}
+                            </div>
+                            <div class="">
+                                <span class="font-weight-bold">Invoice Date:</span> {{invoice_date}}
+                            </div>
+                            <div class="">
+                                <span class="font-weight-bold">Invoice Due Date:</span> {{invoice_dateDue}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+<div class="row col-md-12">
+                    <div class="col col-md-6"></div>
+
+                    <div class="col col-md-6">
+                        <div class="font-weight-bold footer-title">BILL TO</div>
+                        <div class="">
+                            <div class=""><strong>Name:</strong> {{client_name}}</div>
+                            <div class=""><strong>Company:</strong> {{client_company}}</div>
+                            <div class=""><strong>Address:</strong> {{client_address}}</div>
+                            <div  class=""><strong>Email:</strong> {{client_email}}</div>
+                        </div>
+                    </div>    
+                </div>
+                
+                <div class="row col-md-12">
+                    <div class="col col-md-12">
+                    <table class="table table-striped" cellspacing="0">
+                        <thead>
+                            <tr class="table-head">
+                                <th class="text-left">Item</th>
+                                <th class="text-right">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each items}}
+                            <tr>
+                                <td class="text-left">{{name}}</td>
+                                <td class="text-right">$ {{numberFormat price}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>                                        
+                    </div>                                       
+
+                </div>
+                <div class="row col-md-12">
+                  <div class="col col-md-6">
+                  </div>
+                    <div class="col col-md-6 text-right">
+                        <div style="margin-bottom: 10px;">Discount:   <span class="amount">$ {{numberFormat discount}}</span></div>
+                        <div style="margin-bottom: 10px;">Tax:   <span class="amount">$ {{numberFormat tax}}</span></div>
+                        <div class="font-weight-bold footer-title alert-warning">TOTAL: <span class="total-amount amount font-weight-bold">$ {{numberFormat total}}</span></div>                        
+                    </div>
+                    
+                </div>
+                </div>                
+            </div>
+        </div>
+        <div class="container text-muted">{{note}}</div>
+
+        <center>
+<img src="[[barcode: QRCode Invoice {{invoice_id}} {{client_name}} ]]" />                        
+</center>
+
+    </div>
+</body>
+</html>
+​

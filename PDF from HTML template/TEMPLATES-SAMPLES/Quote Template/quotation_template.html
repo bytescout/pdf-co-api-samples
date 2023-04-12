@@ -1,0 +1,221 @@
+<!-- this sample shows how to use {{macro}} styles variables but also how to define simple functions and conditional logic -->
+<!-- Handlebars it the powerful template language based on {{Mustache}} but with conditions, js functions and much more. See https://handlebarsjs.com/ for information and samples -->
+<!doctype html>
+<html lang="en-US">
+<head>
+
+    <script>
+        // you can use Handlebars helpers like #if, #unless, #each (see https://handlebarsjs.com/guide/builtin-helpers.html)
+        // but you can also define your own helper functions like the one below which takes all items and calculates total price
+        // see Handlebars custom helpers section: https://handlebarsjs.com/guide/#custom-helpers
+
+        // also see Handlebars playground online: https://handlebarsjs.com/examples/helper-safestring.html
+
+        // calculating total after discount with added tax
+        Handlebars.registerHelper("calcTotal", calcTotal);
+
+        function calcTotal(data) {
+            // first calculate total
+            var total = 0;
+            for (var i in data.items) {
+                total += data.items[i].price;
+            }
+
+            return new Handlebars.SafeString(
+                numberFormat(
+                    roundAdvanced(
+                        (total - total * data.discount) * // applying discount
+                        (1.00 + data.tax) // adding tax
+                    )
+                )
+            );
+        }
+
+        // calculating tax alone
+        Handlebars.registerHelper("calcTax", calcTax);
+
+        function calcTax(data) {
+            // first calculat total
+            var total = 0;
+            for (var i in data.items) {
+                total += data.items[i].price;
+            }
+
+            return new Handlebars.SafeString(
+                numberFormat(
+                    roundAdvanced(
+                        total * (1.00 - data.discount) * // total with discount applied
+                        data.tax
+                    )
+                )
+            ); // calculating tax alone
+        }
+
+        // calculating discount alone (discount is always before tax)
+        Handlebars.registerHelper("calcDiscount", calcDiscount);
+
+        function calcDiscount(data) {
+            // first calculate total
+            var total = 0;
+            for (var i in data.items) {
+                total += data.items[i].price;
+            }
+
+            return new Handlebars.SafeString(
+                numberFormat(
+                    roundAdvanced(
+                        total * data.discount
+                    )
+                )
+            );
+        }
+
+        Handlebars.registerHelper('numberFormat', numberFormat);
+
+        function numberFormat(value) {
+            // Helper parameters
+            var dl = 2;
+            var ts = ',';
+            var ds = '.';
+
+            // Parse to float
+            var value = parseFloat(value);
+
+            // The regex
+            var re = '\\d(?=(\\d{3})+' + (dl > 0 ? '\\D' : '$') + ')';
+
+            // Formats the number with the decimals
+            var num = value.toFixed(Math.max(0, ~~dl));
+
+            // Returns the formatted number
+            return (ds ? num.replace('.', ds) : num).replace(new RegExp(re, 'g'), '$&' + ts);
+        }
+
+        function roundAdvanced(val) {
+            // round to 2 decimal places https://stackoverflow.com/a/11832950
+            return Math.round(val * 100 + Number.EPSILON) / 100;
+        }
+
+        // multiple number and return
+        Handlebars.registerHelper('multiply', function (value1, value2) {
+            return roundAdvanced(value1 * value2);
+        });
+
+    </script>
+
+    <title>Quotation {{quote_no}} {{client_name}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="">
+            <div class="">
+
+                <!-- Quotation: header begin-->
+                <div class="row col-md-12">
+                    <div class="col col-md-6">
+                        <div class="font-weight-bold">{{issuer_name}}</div>
+
+                        <div class="">{{issuer_company}}</div>
+                        <div class="">{{issuer_address}}</div>
+                        <div class="">{{issuer_email}}</div>
+                        <div class="">{{issuer_website}}</div>
+                    </div>
+                    <div class="col col-md-6">
+                        <div class="">
+                            <div class="">
+                                <span class="font-weight-bold">Quotation Number:</span> {{quote_no}}
+                            </div>
+                            <div class="">
+                                <span class="font-weight-bold">Date:</span> {{quotation_date}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="col col-md-6"></div>
+
+                    <div class="col col-md-6">
+                        <div class="font-weight-bold footer-title">TO</div>
+                        <div class="">
+                            <div class=""><strong>Name:</strong> {{client_name}}</div>
+                            <div class=""><strong>Company:</strong> {{client_company}}</div>
+                            <div class=""><strong>Address:</strong> {{client_address}}</div>
+                            <div class=""><strong>Email:</strong> {{client_email}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row col-md-12">
+                    <div class="col col-md-12">
+                        <p>
+                            Dear <strong>{{client_name}}</strong>
+                        </p>
+                        <p>
+                            Thank you for your interest in our company and opportunity to quote. We are pleased to quote as follows:
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row col-md-12">
+                    <div class="col col-md-12">
+                        <table class="table table-striped" cellspacing="0">
+                            <thead>
+                                <tr class="table-head">
+                                    <th class="text-left">Item</th>
+                                    <th class="text-right">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each items}}
+                                <tr>
+                                    <td class="text-left">{{name}}</td>
+                                    <td class="text-right">${{numberFormat price}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="row col-md-12">
+                    <div class="col col-md-6">
+                    </div>
+                    <div class="col col-md-6 text-right">
+                        <div style="margin-bottom: 10px;">Discount:   <span class="amount">${{calcDiscount @root}}</span></div>
+                        <div style="margin-bottom: 10px;">Tax:   <span class="amount">${{calcTax @root}} ({{multiply @root.tax 100}}%)</span></div>
+                        <div class="font-weight-bold footer-title alert-warning">TOTAL: <span class="total-amount amount font-weight-bold">${{calcTotal @root}}</span></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row col-md-12">
+            <div class="col col-md-12 text-muted">
+                <p>All prices quoted are valid for 30 days from the date of stated on the quotation. Where you are unsure about any of the information supplied in this quotation, please contact to discuss further as the company will work with you to explain any element you are unsure of. If you require a reasonable breakdown of your quotation please contact the company and we will try where possible to clarify the costs quoted. </p>
+            </div>
+            <div class="col col-md-12 mt-3">
+                <strong>Please sign and return a copy of the quotation to issue your order.</strong>
+            </div>
+            <div class="col col-md-12 mt-5">
+                ________________________________
+            </div>
+
+        </div>
+    </div>
+
+    <center>
+        <img src="[[barcode: QRCode Quotation {{quote_no}} {{client_name}} ]]" />
+    </center>
+
+    <div class="text-right">
+        <strong>
+            <em>
+                Thank you for your business
+            </em>
+        </strong>
+    </div>
+</body>
+</html>

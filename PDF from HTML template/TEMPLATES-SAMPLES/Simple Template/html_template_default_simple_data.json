@@ -1,0 +1,29 @@
+{
+  "paid": true,
+  "invoice_id": "0021",
+  "invoice_date": "August 29, 2041",
+  "invoice_dateDue": "September 29, 2041",
+  "issuer_name": "Sarah Connor",
+  "issuer_company": "T-800 Research Lab",
+  "issuer_address": "435 South La Fayette Park Place, Los Angeles, CA 90057",
+  "issuer_website": "www.example.com",
+  "issuer_email": "info@example.com",
+  "client_name": "Cyberdyne Systems",
+  "client_company": "Cyberdyne Systems",
+  "client_address": "18144 El Camino Real, Sunnyvale, California",
+  "client_email": "sales@example.com",
+  "items": [
+    {
+      "name": "T-800 Prototype Research",
+      "price": 1000.00
+    },
+    {
+      "name": "T-800 Cloud Sync Setup",
+      "price": 300.00
+    }
+  ],
+  "discount": 100,
+  "tax": 87,
+  "total": 1287,
+  "note": "Thank you for your support of advanced robotics."
+}
