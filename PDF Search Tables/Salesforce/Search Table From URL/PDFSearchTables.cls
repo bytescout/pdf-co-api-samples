@@ -1,11 +1,11 @@
 public class PDFSearchTables {
-
-    String API_KEY = 'YOUR_PDF_CO_API_KEY_HERE';
+    
+    String API_KEY = '*********************';
     String endPointUrl = 'https://api.pdf.co/v1/pdf/find/table';
-
+    
     public void findTablesInPdf() {
         try {
-            String jsonBody = '{ "url": "https://bytescout-com.s3.amazonaws.com/files/pdf-to-text/sample.pdf", "async": "false", "encrypt": "false", "inline": "true", "password": "" }';
+            String jsonBody = '{"url": "pdfco-test-files.s3.us-west-2.amazonaws.com/pdf-to-text/sample.pdf", "async": "false", "inline": "true", "password": ""}';
             Http http = new Http();
             HttpRequest request = new HttpRequest();
             request.setHeader('x-api-key', API_KEY);
@@ -14,7 +14,7 @@ public class PDFSearchTables {
             request.setMethod('POST');
             request.setBody(jsonBody);
             HttpResponse response = http.send(request);
-
+            
             if(response.getStatusCode() == 200) {
                 System.debug('PDF Search Tables: ' + response.getBody());
             } else {
