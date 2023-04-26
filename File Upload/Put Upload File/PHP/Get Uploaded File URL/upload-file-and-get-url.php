@@ -66,7 +66,7 @@ if (curl_errno($curl) == 0)
             if ($status_code == 200)
             {
                 // Display uploaded File URL
-                echo "<p>Uploaded File: " . $uploadFileUrl . "</p>"; 
+                echo "<p>Uploaded File: " . $uploadedFileUrl . "</p>"; 
             }
             else
             {
