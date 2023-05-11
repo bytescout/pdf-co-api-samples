@@ -1891,6 +1891,7 @@
 \Replace Text From PDF\PowerShell\Replace Text From Uploaded File
 \Replace Text From PDF\PowerShell\Replace Text From URL
 \Replace Text From PDF\PowerShell\Replace Text From URL Asynchronously
+\Replace Text From PDF\Python\Multiple Text Replacements From URL
 \Replace Text From PDF\Python\Replace Text From Uploaded File
 \Replace Text From PDF\Python\Replace Text From URL
 \Replace Text From PDF\Python\Replace Text From URL Asynchronously
