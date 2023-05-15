@@ -505,9 +505,11 @@
 \Email Send and Decode\Salesforce\Send Email
 \Excel To CSV API\cURL
 \Excel To CSV API\JavaScript
+\Excel To CSV API\Python
 \Excel To CSV API\cURL\Excel To CSV
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery
 \Excel To CSV API\JavaScript\Convert Excel to CSV in jQuery - Async API
+\Excel To CSV API\Python\Convert Excel to CSV
 \Excel To HTML API\cURL
 \Excel To HTML API\JavaScript
 \Excel To HTML API\cURL\Excel To HTML
