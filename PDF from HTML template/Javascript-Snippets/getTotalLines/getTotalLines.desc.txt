@@ -1,0 +1,2 @@
+<code>getTotalLines</code> calculates the total cost of a list of items based on their quantity and price.
+Inserts getTotalLines that you can use like this: <code>${{getTotalLines items}}</code>

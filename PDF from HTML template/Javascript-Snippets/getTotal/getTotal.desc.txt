@@ -1,0 +1,2 @@
+<code>getTotal</code> calculates the total price of a product based on the quantity and price of list.
+Inserts getTotal that you can use like this: <code>${{getTotal quantity price}}</code>

@@ -1,0 +1,2 @@
+<code>getFinalAmount</code> calculates the final amount by adding up the price of all items and the freight charges.
+Inserts getFinalAmount that you can use like this: <code>${{getFinalAmount items freight}}</code>

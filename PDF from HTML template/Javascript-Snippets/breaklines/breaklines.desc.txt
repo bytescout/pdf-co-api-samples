@@ -1,0 +1,2 @@
+<code>breaklines</code> that converts line breaks in text into HTML line breaks for display on a webpage.
+Inserts breaklines that you can use like this: <code>${{breaklines macros}}</code>

@@ -1,0 +1,2 @@
+<code>numberFormat</code> takes a numerical value as input and formats it as a string with a specified decimal length, thousands separator, and decimal separator.
+Inserts numberFormat that you can use like this: <code>${{numberFormat macros}}</code>

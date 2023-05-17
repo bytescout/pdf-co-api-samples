@@ -1,0 +1,4 @@
+Handlebars.registerHelper('getTotal', function (quantity, price) {
+    var total = quantity * price;
+    return total;
+});

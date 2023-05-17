@@ -1,0 +1,7 @@
+Handlebars.registerHelper('getTotalLines', function (items) {
+    var total = 0;
+    items.forEach(function (line) {
+    total += line.quantity * line.price;
+    });
+    return total;
+});
