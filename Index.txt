@@ -523,7 +523,9 @@
 \Excel To TXT\cURL
 \Excel To TXT\cURL\Convert Excel To TXT
 \Excel To XML\cURL
+\Excel To XML\Python
 \Excel To XML\cURL\Convert Excel to XML
+\Excel To XML\Python\Convert Excel file into XML
 \File Calculate Hash\C#
 \File Calculate Hash\cURL
 \File Calculate Hash\Java
@@ -1220,6 +1222,7 @@
 \PDF Search Tables\PowerShell\PDF Table Search from Uploaded File Asynchronously
 \PDF Search Tables\PowerShell\PDF Table Search from URL
 \PDF Search Tables\PowerShell\PDF Table Search from URL Asynchronously
+\PDF Search Tables\Python\PDF Get Search Table Data
 \PDF Search Tables\Python\PDF Table Search from Uploaded File
 \PDF Search Tables\Python\PDF Table Search from Uploaded File Asynchronously
 \PDF Search Tables\Salesforce\Search Table From URL
