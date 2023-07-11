@@ -1610,6 +1610,7 @@
 \PDF To Text API\AWS Lambda
 \PDF To Text API\C#
 \PDF To Text API\cURL
+\PDF To Text API\GoogleAppScript
 \PDF To Text API\Java
 \PDF To Text API\JavaScript
 \PDF To Text API\PHP
