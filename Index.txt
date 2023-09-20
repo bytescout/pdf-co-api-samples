@@ -811,6 +811,7 @@
 \PDF From CSV\VB.NET\Convert CSV To PDF From URL
 \PDF From CSV\VB.NET\Convert CSV To PDF From URL Asynchronously
 \PDF From Excel\cURL
+\PDF From Excel\GoogleAppsScript
 \PDF From Excel\JavaScript
 \PDF From Excel\Zapier
 \PDF From Excel\cURL\Excel To PDF
