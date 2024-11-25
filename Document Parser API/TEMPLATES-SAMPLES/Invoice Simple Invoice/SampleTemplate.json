@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "My Custom Template",
   "templateVersion": 4,
-  "templatePriority": 0,
+  "templatePriority": 8772,
   "detectionRules": {
     "keywords": [
       "Your Company Name",

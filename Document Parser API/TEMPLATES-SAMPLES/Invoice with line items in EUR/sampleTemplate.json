@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "Test Template",
   "templateVersion": "4",
-  "templatePriority": 0,
+  "templatePriority": 8782,
   "culture": "de-DE",
   "detectionRules": {
     "keywords": []

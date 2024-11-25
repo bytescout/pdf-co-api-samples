@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "DigitalOcean Invoice",
   "templateVersion": 4,
-  "templatePriority": 0,
+  "templatePriority": 8774,
   "detectionRules": {
     "keywords": [
       "DigitalOcean",

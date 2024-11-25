@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "Wells Fargo Statement Template",
   "templateVersion": "4",
-  "templatePriority": 0,
+  "templatePriority": 8792,
   "detectionRules": {
     "keywords": []
   },

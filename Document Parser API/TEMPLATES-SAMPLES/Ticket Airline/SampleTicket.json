@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "MakeMyTrip Booking",
   "templateVersion": 4,
-  "templatePriority": 0,
+  "templatePriority": 8803,
   "detectionRules": {
     "keywords": [
       "MakeMyTrip",

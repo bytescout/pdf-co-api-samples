@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "BloodTestTemplate",
   "templateVersion": 4,
-  "templatePriority": 0,
+  "templatePriority": 8785,
   "detectionRules": {
     "keywords": []
   },

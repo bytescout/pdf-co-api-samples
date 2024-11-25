@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "template",
   "templateVersion": "4",
-  "templatePriority": 0,
+  "templatePriority": 8801,
   "detectionRules": {
     "keywords": []
   },

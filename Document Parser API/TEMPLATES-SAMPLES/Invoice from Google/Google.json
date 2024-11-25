@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "Google Invoice",
   "templateVersion": 4,
-  "templatePriority": 0,
+  "templatePriority": 8776,
   "detectionRules": {
     "keywords": [
       "Google",

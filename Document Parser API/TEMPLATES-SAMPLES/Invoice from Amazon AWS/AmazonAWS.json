@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "Amazon Web Services Invoice",
   "templateVersion": 4,
-  "templatePriority": 0,
+  "templatePriority": 8773,
   "detectionRules": {
     "keywords": [
       "Amazon Web Services",

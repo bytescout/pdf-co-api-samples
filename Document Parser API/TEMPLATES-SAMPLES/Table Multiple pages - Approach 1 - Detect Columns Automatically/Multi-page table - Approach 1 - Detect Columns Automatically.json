@@ -1,7 +1,7 @@
 ﻿{
   "templateName": "Multi-page table - Approach 1 - Detect Columns Automatically",
   "templateVersion": 4,
-  "templatePriority": 0,
+  "templatePriority": 8797,
   "objects": [
     {
       "name": "total",

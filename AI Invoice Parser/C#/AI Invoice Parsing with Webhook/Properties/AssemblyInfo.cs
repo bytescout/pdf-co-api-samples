@@ -1,4 +1,17 @@
-﻿using System.Reflection;
+//*******************************************************************************************//
+//                                                                                           //
+// Download Free Evaluation Version From: https://bytescout.com/download/web-installer       //
+//                                                                                           //
+// Also available as Web API! Get Your Free API Key: https://app.pdf.co/signup               //
+//                                                                                           //
+// Copyright © 2017-2020 ByteScout, Inc. All rights reserved.                                //
+// https://www.bytescout.com                                                                 //
+// https://pdf.co                                                                            //
+//                                                                                           //
+//*******************************************************************************************//
+
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -10,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ByteScoutWebApiExample")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright �  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
