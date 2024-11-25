@@ -337,6 +337,7 @@
 \DOC To PDF API\PHP\Convert DOC To PDF Asynchronously
 \DOC To PDF API\PHP\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\PHP\Convert DOC to Protected PDF from Uploaded File
+\DOC To PDF API\PHP\Convert DOC to Protected PDF from Uploaded File Asynchronously
 \DOC To PDF API\PHP\Convert Encrypted DOC To PDF Asynchronously
 \DOC To PDF API\PowerShell\Convert DOC To PDF From Uploaded File
 \DOC To PDF API\PowerShell\Convert DOC To PDF From URL
