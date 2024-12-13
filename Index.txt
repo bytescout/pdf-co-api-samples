@@ -1605,6 +1605,7 @@
 \PDF To JSON API\PHP\Convert PDF To JSON From Uploaded File
 \PDF To JSON API\PHP\Convert PDF To JSON From Uploaded File (AI Powered)
 \PDF To JSON API\PHP\Extract Images from PDF
+\PDF To JSON API\PHP\Extract Images from PDF Asynchronously
 \PDF To JSON API\PowerShell\Advanced Conversion Options
 \PDF To JSON API\PowerShell\Advanced Conversion Options With Rotated Input
 \PDF To JSON API\PowerShell\Convert PDF To JSON From Uploaded File

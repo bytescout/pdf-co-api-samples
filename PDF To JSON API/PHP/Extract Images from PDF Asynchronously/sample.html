@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extract Images from PDF</title>
+</head>
+<body>
+    <form name="form1" enctype="multipart/form-data" method="post" action="extract-images-async.php">
+        <p>
+            <label>Authentication key (API Key). Get your own by registering at <a href="https://apidocs.pdf.co">https://apidocs.pdf.co</a>.</label>
+            <br/>
+            <input type="text" name="apiKey" placeholder="API Key"/>
+        </p>
+        <p>
+            <label>Input File (*.pdf)</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="8000000"/>
+            <input type="file" name="file"/>
+        </p>
+        <p>
+            <label>Comma-separated list of page indices (or ranges) to process. Leave empty for all pages. Example: '0,2-5,7-'.</label>
+            <input type="text" name="pages">
+        </p>
+        <input type="submit" name="submit" value="Proceed" />
+    </form>
+</body>
+</html>
