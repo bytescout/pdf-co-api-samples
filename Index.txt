@@ -386,7 +386,9 @@
 \Document Parser API\GoogleAppScript\Convert PDF Invoice to Google Sheet
 \Document Parser API\Java\Blood Test Results to JSON
 \Document Parser API\Java\Create Custom Template
+\Document Parser API\Java\Extract Borderless Table to CSV using Template ID Asynchronously
 \Document Parser API\Java\Extract line items from tables on multiple pages
+\Document Parser API\Java\Extract Multipage PDF Table to CSV Asynchronously
 \Document Parser API\Java\Parse From Url
 \Document Parser API\Java\Parse From URL Asynchronously
 \Document Parser API\Java\Parse Multipage Table
@@ -395,6 +397,10 @@
 \Document Parser API\Java\Parse Uploaded File Asynchronously
 \Document Parser API\Java\Parse with OCR
 \Document Parser API\Java\Parsing and reading data from Airline Tickets
+\Document Parser API\Java\Extract Borderless Table to CSV using Template ID Asynchronously\target
+\Document Parser API\Java\Extract Borderless Table to CSV using Template ID Asynchronously\target\classes
+\Document Parser API\Java\Extract Multipage PDF Table to CSV Asynchronously\target
+\Document Parser API\Java\Extract Multipage PDF Table to CSV Asynchronously\target\classes
 \Document Parser API\JavaScript\Parse From Url (Node.js)
 \Document Parser API\JavaScript\Parse Uploaded File (Node.js)
 \Document Parser API\PHP\Blood Test Results to JSON
