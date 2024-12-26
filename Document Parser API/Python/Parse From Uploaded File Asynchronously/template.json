@@ -1,0 +1,67 @@
+﻿{
+  "templateName": "Multipage Table Test",
+  "templateVersion": "4",
+  "templatePriority": 0,
+  "detectionRules": {
+    "keywords": [
+      "Sample document with multi-page table"
+    ],
+    "excludeRotatedText": false
+  },
+  "objects": [
+    {
+      "name": "total",
+      "objectType": "field",
+      "fieldProperties": {
+        "fieldType": "macros",
+        "expression": "TOTAL{{Spaces}}({{Number}})",
+        "regex": true,
+        "dataType": "decimal"
+      }
+    },
+    {
+      "name": "table1",
+      "objectType": "table",
+      "tableProperties": {
+        "multipage": true,
+        "columns": [
+          {
+            "name": "itemNo",
+            "dataType": "integer"
+          },
+          {
+            "name": "description",
+            "dataType": "string"
+          },
+          {
+            "name": "price",
+            "dataType": "decimal"
+          },
+          {
+            "name": "qty",
+            "dataType": "integer"
+          },
+          {
+            "name": "extPrice",
+            "dataType": "decimal"
+          }
+        ],
+        "row": {
+          "expression": "{{LineStart}}{{Spaces}}(?<itemNo>{{Digits}}){{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}(?<extPrice>{{Number}})",
+          "regex": true
+        },
+        "end": {
+          "expression": "TOTAL{{Spaces}}{{Number}}",
+          "regex": true
+        },
+        "start": {
+          "expression": "Item{{Spaces}}Description{{Spaces}}Price",
+          "regex": true
+        }
+      }
+    }
+  ],
+  "mergeTableObjects": false,
+  "unwrapMultilineValues": false,
+  "skipInvisibleText": false
+}

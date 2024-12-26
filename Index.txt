@@ -107,7 +107,9 @@
 \Add Text And Images To PDF\PowerShell\Add Text by finding target coordinates
 \Add Text And Images To PDF\PowerShell\Add Text to Existing PDF
 \Add Text And Images To PDF\Python\Add Image by finding target coordinates
+\Add Text And Images To PDF\Python\Add Image to Existing PDF Asynchronously
 \Add Text And Images To PDF\Python\Add Images to Existing PDF
+\Add Text And Images To PDF\Python\Add Text and Image to Existing PDF Asynchronously
 \Add Text And Images To PDF\Python\Add Text And Image To PDF
 \Add Text And Images To PDF\Python\Add Text by finding target coordinates
 \Add Text And Images To PDF\Python\Add Text to Existing PDF
@@ -417,6 +419,7 @@
 \Document Parser API\Powershell\Parse From Uploaded File
 \Document Parser API\Powershell\Parse From Url
 \Document Parser API\Python\Parse From Uploaded File
+\Document Parser API\Python\Parse From Uploaded File Asynchronously
 \Document Parser API\Python\Parse From Url
 \Document Parser API\Python\Parse PDF Invoice
 \Document Parser API\Salesforce\Document Parser Demo
@@ -499,6 +502,7 @@
 \Email Extractor\Email to PDF\PHP\Email to PDF With Custom Orientation and Paper Size
 \Email Extractor\Email to PDF\PowerShell\Email to PDF
 \Email Extractor\Email to PDF\PowerShell\Email to PDF With Custom Orientation and Paper Size
+\Email Extractor\Email to PDF\Python\Convert Email to PDF Asynchronously
 \Email Extractor\Email to PDF\Python\Email to PDF
 \Email Extractor\Email to PDF\Python\Email to PDF With Custom Orientation and Paper Size
 \Email Extractor\Email to PDF\VB.NET\Email to PDF From Uploaded File
@@ -796,6 +800,7 @@
 \PDF Fill PDF Forms\PowerShell\Fill PDF Forms
 \PDF Fill PDF Forms\PowerShell\Fill PDF Forms Simplified
 \PDF Fill PDF Forms\Python\Fill PDF Forms
+\PDF Fill PDF Forms\Python\Fill PDF Forms Asynchronously
 \PDF Fill PDF Forms\Python\Fill PDF Forms Simplified
 \PDF Fill PDF Forms\Salesforce\Fill PDF Form
 \PDF Fill PDF Forms\VB.NET\Fill PDF Forms
