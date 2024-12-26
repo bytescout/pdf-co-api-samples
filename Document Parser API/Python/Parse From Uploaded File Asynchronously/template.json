@@ -1,67 +1,79 @@
-﻿{
-  "templateName": "Multipage Table Test",
-  "templateVersion": "4",
+{
+  "templateVersion": 4,
   "templatePriority": 0,
-  "detectionRules": {
-    "keywords": [
-      "Sample document with multi-page table"
-    ],
-    "excludeRotatedText": false
-  },
+  "culture": "en-US",
   "objects": [
     {
-      "name": "total",
+      "id": 1735154717477,
       "objectType": "field",
+      "name": "Mathematical Formula",
       "fieldProperties": {
-        "fieldType": "macros",
-        "expression": "TOTAL{{Spaces}}({{Number}})",
-        "regex": true,
-        "dataType": "decimal"
+        "fieldType": "rectangle",
+        "rectangle": [
+          99,
+          324,
+          109,
+          23
+        ],
+        "pageIndex": 0
       }
     },
     {
-      "name": "table1",
-      "objectType": "table",
-      "tableProperties": {
-        "multipage": true,
-        "columns": [
-          {
-            "name": "itemNo",
-            "dataType": "integer"
-          },
-          {
-            "name": "description",
-            "dataType": "string"
-          },
-          {
-            "name": "price",
-            "dataType": "decimal"
-          },
-          {
-            "name": "qty",
-            "dataType": "integer"
-          },
-          {
-            "name": "extPrice",
-            "dataType": "decimal"
-          }
+      "id": 1735154737036,
+      "objectType": "field",
+      "name": "Graphical Plot",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          95,
+          424,
+          130,
+          23
         ],
-        "row": {
-          "expression": "{{LineStart}}{{Spaces}}(?<itemNo>{{Digits}}){{Spaces}}(?<description>{{SentenceWithSingleSpaces}}){{Spaces}}(?<price>{{Number}}){{Spaces}}(?<qty>{{Digits}}){{Spaces}}(?<extPrice>{{Number}})",
-          "regex": true
-        },
-        "end": {
-          "expression": "TOTAL{{Spaces}}{{Number}}",
-          "regex": true
-        },
-        "start": {
-          "expression": "Item{{Spaces}}Description{{Spaces}}Price",
-          "regex": true
-        }
+        "pageIndex": 0
       }
     }
   ],
-  "mergeTableObjects": false,
-  "unwrapMultilineValues": false,
-  "skipInvisibleText": false
+  "oldObjects": [
+    {
+      "id": 1735154717477,
+      "objectType": "field",
+      "name": "Mathematical Formula",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          99,
+          324,
+          109,
+          23
+        ],
+        "pageIndex": 0
+      }
+    },
+    {
+      "id": 1735154737036,
+      "objectType": "field",
+      "name": "Graphical Plo",
+      "fieldProperties": {
+        "fieldType": "rectangle",
+        "rectangle": [
+          95,
+          424,
+          130,
+          23
+        ],
+        "pageIndex": 0
+      }
+    }
+  ],
+  "templateName": "",
+  "description": "",
+  "options": {
+    "ocrMode": "auto",
+    "ocrLanguage": "eng",
+    "ocrResolution": 300,
+    "ocrImageFilters": "",
+    "ocrWhiteList": "",
+    "ocrBlackList": ""
+  }
 }
