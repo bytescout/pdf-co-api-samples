@@ -102,6 +102,7 @@
 \Add Text And Images To PDF\PHP\Add Text Image to PDF Simplified
 \Add Text And Images To PDF\PHP\Add Text Images to PDF
 \Add Text And Images To PDF\PHP\Add Text With Line Breaks to Existing PDF
+\Add Text And Images To PDF\PHP\Add Text, Image, and Fill PDF Form Asynchronously with Simplified Parameters
 \Add Text And Images To PDF\PowerShell\Add Image by finding target coordinates
 \Add Text And Images To PDF\PowerShell\Add Images to Existing PDF
 \Add Text And Images To PDF\PowerShell\Add Text by finding target coordinates
@@ -1040,6 +1041,7 @@
 \PDF Make Searchable API\JavaScript\Make UnSearchable PDF From Uploaded File (Node.js) - Async API
 \PDF Make Searchable API\JavaScript\Make UnSearchable PDF From URL (Node.js)
 \PDF Make Searchable API\JavaScript\Make UnSearchable PDF From URL (Node.js) - Async API
+\PDF Make Searchable API\JavaScript\Make Uploaded PDF Searchable Asynchronously
 \PDF Make Searchable API\PHP\Make Searchable PDF Asynchronously
 \PDF Make Searchable API\PHP\Make Searchable PDF From Uploaded File
 \PDF Make Searchable API\PowerShell\Advanced Conversion Options
