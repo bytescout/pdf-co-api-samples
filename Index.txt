@@ -889,6 +889,7 @@
 \PDF from HTML\PowerShell\Generate PDF From HTML File
 \PDF from HTML\PowerShell\Generate PDF From Large HTML File
 \PDF from HTML\Python\Generate PDF From HTML And Add Barcode
+\PDF from HTML\Python\Generate PDF from HTML and Add Barcode Asynchronously
 \PDF from HTML\Python\Generate PDF From HTML File
 \PDF from HTML\Python\Generate PDF From Large HTML File
 \PDF from HTML\Salesforce\Convert HTML to PDF
