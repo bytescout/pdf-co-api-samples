@@ -648,6 +648,7 @@
 \Image To PDF API\cURL\Image To PDF
 \Image To PDF API\Java\Convert Images To PDF From Uploaded Files
 \Image To PDF API\Java\Convert Images To PDF From URLs
+\Image To PDF API\JavaScript\Convert Image to PDF from Base64 Asynchronously
 \Image To PDF API\JavaScript\Convert Images To PDF From URLs (Node.js)
 \Image To PDF API\JavaScript\Convert Images To PDF From URLs (Node.js) - Async API
 \Image To PDF API\PHP\Convert Images To PDF Asynchronously
@@ -757,6 +758,7 @@
 \PDF Delete Pages\cURL\Delete Pages From PDF
 \PDF Delete Pages\Java\Delete Pages From PDF
 \PDF Delete Pages\JavaScript\Delete Pages From PDF
+\PDF Delete Pages\JavaScript\Delete Pages From PDF Asynchronously
 \PDF Delete Pages\PHP\Delete Pages From PDF
 \PDF Delete Pages\PowerShell\Delete Pages From PDF
 \PDF Delete Pages\Python\Delete Pages From PDF
@@ -999,6 +1001,7 @@
 \PDF Information API\JavaScript\Get Info From Custom Encrypted PDF URL (Node.js)
 \PDF Information API\JavaScript\Get PDF Info From Uploaded File (Node.js)
 \PDF Information API\JavaScript\Get PDF Info From URL (Node.js)
+\PDF Information API\JavaScript\Get PDF Info From URL Asynchronously
 \PDF Information API\PHP\Get PDF Info From Uploaded File
 \PDF Information API\PowerShell\Get Info From Custom Encrypted PDF URL
 \PDF Information API\PowerShell\Get PDF Info From Uploaded File
@@ -1199,8 +1202,10 @@
 \PDF Password And Security\GoogleAppsScript\Add Password to PDF files
 \PDF Password And Security\Java\Protect PDF Document
 \PDF Password And Security\Java\Remove PDF Document Protection
+\PDF Password And Security\JavaScript\Protect PDF Asynchronously
 \PDF Password And Security\JavaScript\Protect PDF Document
 \PDF Password And Security\JavaScript\Remove PDF Document Protection
+\PDF Password And Security\JavaScript\Remove PDF Document Protection Asynchronously
 \PDF Password And Security\PHP\Protect PDF Document
 \PDF Password And Security\PHP\Remove PDF Document Protection
 \PDF Password And Security\PowerShell\Protect PDF Document
@@ -1882,6 +1887,7 @@
 \PDF To XML API\JavaScript\Advanced Conversion Options With Rotated Input
 \PDF To XML API\JavaScript\Convert PDF To XML From Uploaded File (Node.js)
 \PDF To XML API\JavaScript\Convert PDF To XML From Uploaded File (Node.js) - Async API
+\PDF To XML API\JavaScript\Convert PDF to XML from Uploaded File Asynchronously
 \PDF To XML API\JavaScript\Convert PDF To XML From URL (Node.js)
 \PDF To XML API\JavaScript\Convert PDF To XML From URL (Node.js) - Async API
 \PDF To XML API\JavaScript\Convert PDF To XML in JQuery
