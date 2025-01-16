@@ -1633,6 +1633,7 @@
 \PDF To JSON API\Python\Convert PDF To JSON From Uploaded File (AI Powered)
 \PDF To JSON API\Python\Convert PDF To JSON From Uploaded File Asynchronously
 \PDF To JSON API\Python\Convert PDF To JSON From Uploaded File Asynchronously (AI Powered)
+\PDF To JSON API\Python\Extract Hyperlinks From Uploaded File Asynchronously
 \PDF To JSON API\Salesforce\Convert PDF to JSON
 \PDF To JSON API\VB.NET\Advanced Conversion Options
 \PDF To JSON API\VB.NET\Advanced Conversion Options With Rotated Input
