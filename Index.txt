@@ -81,6 +81,7 @@
 \Add Text And Images To PDF\cURL\PDF Add Text, Images, Text Fields, Checkboxes - Simplified
 \Add Text And Images To PDF\Delphi\Add Text And Images To PDF
 \Add Text And Images To PDF\GoogleAppScript\Add Image to PDF
+\Add Text And Images To PDF\GoogleAppScript\Add Image to PDF Asynchronously
 \Add Text And Images To PDF\GoogleAppScript\Add Text to PDF
 \Add Text And Images To PDF\Java\Add Image by finding target coordinates
 \Add Text And Images To PDF\Java\Add Images to Existing PDF
@@ -387,6 +388,7 @@
 \Document Parser API\cURL\Document Parser Output as JSON
 \Document Parser API\cURL\Document Parser Results
 \Document Parser API\GoogleAppScript\Convert PDF Invoice to Google Sheet
+\Document Parser API\GoogleAppScript\Extract Data from PDF Invoice to Google Sheets Asynchronously
 \Document Parser API\Java\Blood Test Results to JSON
 \Document Parser API\Java\Create Custom Template
 \Document Parser API\Java\Extract Borderless Table to CSV using Template ID Asynchronously
@@ -1707,6 +1709,7 @@
 \PDF To Text API\cURL\Convert PDF To Text
 \PDF To Text API\cURL\Convert PDF To Text From URL
 \PDF To Text API\GoogleAppScript\Convert PDF to Text
+\PDF To Text API\GoogleAppScript\Convert PDF to Text Asynchronously
 \PDF To Text API\Java\Advanced Conversion Options
 \PDF To Text API\Java\Advanced Conversion Options With Rotated Input
 \PDF To Text API\Java\Convert PDF To Text From Uploaded File
