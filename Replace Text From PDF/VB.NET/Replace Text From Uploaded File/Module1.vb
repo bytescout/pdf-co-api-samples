@@ -1,12 +1,11 @@
 '*******************************************************************************************'
 '                                                                                           '
-' Download Free Evaluation Version From:     https://bytescout.com/download/web-installer   '
+' Get API Key https://app.pdf.co/signup                                                     '
+' API Documentation: https://developer.pdf.co/api/index.html                                '
 '                                                                                           '
-' Also available as Web API! Get free API Key https://app.pdf.co/signup                     '
-'                                                                                           '
-' Copyright © 2017-2020 ByteScout, Inc. All rights reserved.                                '
-' https://www.bytescout.com                                                                 '
-' https://www.pdf.co                                                                        '
+' Note: Replace placeholder values in the code with your API Key                            '
+' and file paths (if applicable)                                                            '
+'                                                                      '
 '*******************************************************************************************'
 
 
