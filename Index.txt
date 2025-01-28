@@ -1710,6 +1710,8 @@
 \PDF To Text API\cURL\Convert PDF To Text From URL
 \PDF To Text API\GoogleAppScript\Convert PDF to Text
 \PDF To Text API\GoogleAppScript\Convert PDF to Text Asynchronously
+\PDF To Text API\GoogleAppScript\Extract Text and Rename PDFs Uploaded via Base64 from Google Drive and Google Sheets Asynchronously
+\PDF To Text API\GoogleAppScript\Extract Text from PDF Files in Google Drive Using Base64 Encoding Asynchronously
 \PDF To Text API\Java\Advanced Conversion Options
 \PDF To Text API\Java\Advanced Conversion Options With Rotated Input
 \PDF To Text API\Java\Convert PDF To Text From Uploaded File
