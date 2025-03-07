@@ -1388,6 +1388,7 @@
 \PDF Text Search API\C#\PDF Text Search from Uploaded File Asynchronously
 \PDF Text Search API\C#\PDF Text Search from URL
 \PDF Text Search API\C#\PDF Text Search from URL Asynchronously
+\PDF Text Search API\C#\Search Amount in PDF File from URL Asynchronously
 \PDF Text Search API\cURL\PDF Search Text
 \PDF Text Search API\Java\PDF Text Search from Uploaded File
 \PDF Text Search API\Java\PDF Text Search from Uploaded File Asynchronously
